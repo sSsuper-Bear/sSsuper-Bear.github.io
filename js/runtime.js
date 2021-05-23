@@ -1,5 +1,5 @@
 setInterval(() => {
-    let create_time = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); //在此行修改建站时间
+    let create_time = Math.round(new Date('2021-05-23 00:00:00').getTime() / 1000); //在此行修改建站时间
     let timestamp = Math.round((new Date().getTime()) / 1000);
     let second = timestamp - create_time;
     let time = new Array(0, 0, 0, 0, 0);
@@ -37,4 +37,3 @@ setInterval(() => {
     //覆写挂载标签的内容
     document.getElementById("workboard").innerHTML = currentTimeHtml;
   }, 1000);
-  
