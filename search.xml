@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>bootdo项目通过jar包启动</title>
+    <url>/2021/05/24/bootdo%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87jar%E5%8C%85%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[<h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
+<li><p>本项目来自<a href="https://gitee.com/lcg0124/bootdo">gitee李春光</a>，具体<a href="https://gitee.com/lcg0124/bootdo/wikis/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE?sort_id=64319">参考文档</a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57c6d1a9ae528fa2373d.png" alt="image-20210304220122324"></p>
+</li>
+<li><p>首先在本地IDEA启动成功</p>
+</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57dbd1a9ae528fa2e9f5.png" alt="image-20210304215220295"></p>
+<ul>
+<li>进入网址</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57ebd1a9ae528fa36741.png" alt="image-20210304215801788"></p>
+<ul>
+<li><p>使用maven打包bootdo并运行，bootdo项目生成jar包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">maven clean</span><br><span class="line">maven package</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57fcd1a9ae528fa3f3c0.png" alt="image-20210408152239126"></p>
+<ul>
+<li>把test文件都给注释掉</li>
+</ul>
+</li>
+<li><p>把jar包和Dockerfile文件放到同一目录下</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5812d1a9ae528fa4a47c.png" alt="image-20210408160354212"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Dockerfile</span><br><span class="line">  1 FROM java:8</span><br><span class="line">  2 </span><br><span class="line">  3 VOLUME /tmp</span><br><span class="line">  4 </span><br><span class="line">  5 COPY bootdo-2.0.0.jar app.jar</span><br><span class="line">  6 </span><br><span class="line">  7 RUN bash -c &quot;touch /app.jar&quot;</span><br><span class="line">  8 </span><br><span class="line">  9 EXPOSE 8088</span><br><span class="line"> 10 </span><br><span class="line"> 11 ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;, &quot;--spring.profiles.active=test&quot;, &quot;--server.port=8088&quot;, &quot;&gt; /log/app.log&quot;]</span><br></pre></td></tr></table></figure></li>
+<li><p>运行指令将jar包打包成镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image build -t bootdo-2.0.0 .</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b582ad1a9ae528fa55ad7.png" alt="image-20210408160443433"></p>
+</li>
+<li><p>查看镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5839d1a9ae528fa5d370.png" alt="image-20210408160750151"></p>
+</li>
+<li><p>通过jar包运行项目</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar study-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b584bd1a9ae528fa6621d.png" alt="image-20210422091705400"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5859d1a9ae528fa6d3c6.png" alt="image-20210422091719557"></p>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.csdn.net/qq_37525899/article/details/86736835">使用maven打包bootdo并运行</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>代码</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>比特币和区块链</title>
     <url>/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
     <content><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src= "/img/loading.gif" data-lazy-src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
@@ -58,13 +113,35 @@
 </li>
 </ul>
 <p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>科普</category>
       </categories>
       <tags>
         <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实现发送邮件</title>
+    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
+<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
+</ol>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
+<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
+<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
+
+<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
+]]></content>
+      <categories>
+        <category>代码</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -187,29 +264,6 @@
       </categories>
       <tags>
         <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实现发送邮件</title>
-    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
-<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
-</ol>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
-<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
-<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
-
-<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
-]]></content>
-      <categories>
-        <category>代码</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -650,61 +704,6 @@
       </categories>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bootdo项目通过jar包启动</title>
-    <url>/2021/05/24/bootdo%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87jar%E5%8C%85%E5%90%AF%E5%8A%A8/</url>
-    <content><![CDATA[<h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
-<li><p>本项目来自<a href="https://gitee.com/lcg0124/bootdo">gitee李春光</a>，具体<a href="https://gitee.com/lcg0124/bootdo/wikis/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE?sort_id=64319">参考文档</a></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57c6d1a9ae528fa2373d.png" alt="image-20210304220122324"></p>
-</li>
-<li><p>首先在本地IDEA启动成功</p>
-</li>
-</ul>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57dbd1a9ae528fa2e9f5.png" alt="image-20210304215220295"></p>
-<ul>
-<li>进入网址</li>
-</ul>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57ebd1a9ae528fa36741.png" alt="image-20210304215801788"></p>
-<ul>
-<li><p>使用maven打包bootdo并运行，bootdo项目生成jar包</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">maven clean</span><br><span class="line">maven package</span><br></pre></td></tr></table></figure>
-
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b57fcd1a9ae528fa3f3c0.png" alt="image-20210408152239126"></p>
-<ul>
-<li>把test文件都给注释掉</li>
-</ul>
-</li>
-<li><p>把jar包和Dockerfile文件放到同一目录下</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5812d1a9ae528fa4a47c.png" alt="image-20210408160354212"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Dockerfile</span><br><span class="line">  1 FROM java:8</span><br><span class="line">  2 </span><br><span class="line">  3 VOLUME /tmp</span><br><span class="line">  4 </span><br><span class="line">  5 COPY bootdo-2.0.0.jar app.jar</span><br><span class="line">  6 </span><br><span class="line">  7 RUN bash -c &quot;touch /app.jar&quot;</span><br><span class="line">  8 </span><br><span class="line">  9 EXPOSE 8088</span><br><span class="line"> 10 </span><br><span class="line"> 11 ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;, &quot;--spring.profiles.active=test&quot;, &quot;--server.port=8088&quot;, &quot;&gt; /log/app.log&quot;]</span><br></pre></td></tr></table></figure></li>
-<li><p>运行指令将jar包打包成镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image build -t bootdo-2.0.0 .</span><br></pre></td></tr></table></figure>
-
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b582ad1a9ae528fa55ad7.png" alt="image-20210408160443433"></p>
-</li>
-<li><p>查看镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5839d1a9ae528fa5d370.png" alt="image-20210408160750151"></p>
-</li>
-<li><p>通过jar包运行项目</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar study-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b584bd1a9ae528fa6621d.png" alt="image-20210422091705400"></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/608b5859d1a9ae528fa6d3c6.png" alt="image-20210422091719557"></p>
-</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/qq_37525899/article/details/86736835">使用maven打包bootdo并运行</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>代码</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
       </tags>
   </entry>
 </search>
