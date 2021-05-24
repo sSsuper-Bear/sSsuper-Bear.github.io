@@ -96,15 +96,66 @@
     <link href="https://sssuper-bear.github.io/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     <id>https://sssuper-bear.github.io/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</id>
     <published>2021-05-24T12:03:30.000Z</published>
-    <updated>2021-05-24T12:53:23.482Z</updated>
+    <updated>2021-05-24T13:07:49.406Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src= "/img/loading.gif" data-lazy-src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p><ul><li>2008年11月1日 中本聪《白皮书》</li><li>去中心化的电子<strong>记账</strong>系统<ul><li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li><li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li><li>三个问题<ul><li>以谁为准</li><li>为何记账</li><li>如何防伪</li></ul></li><li>记账奖励<ul><li>手续费</li><li>打包奖励<ul><li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li><li>一共有多少个比特币<ul><li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li></ul></li></ul></li><li>以谁为准<ul><li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li><li>挖矿原理<ul><li>哈希函数：<ul><li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li><li>正着算容易反着算难</li><li>sha256（美国国家安全局发明的一种算法）<ul><li>比如输入“Apple”输出一个256位的二进制数</li></ul></li></ul></li><li>原理<ul><li>字符串：前块头部+账单信息+时间戳+随机数<ul><li>改变这个随机数不断去试</li></ul></li><li>hash=sha256（sha256（字符串））</li><li>前n位必须为0</li><li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li></ul></li><li>难度n的确定</li></ul></li></ul></li></ul></li></ul></li></ul><p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src= "/img/loading.gif" data-lazy-src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p><ul><li>2008年11月1日 中本聪《白皮书》</li><li>去中心化的电子<strong>记账</strong>系统<ul><li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li><li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li><li>三个问题<ul><li>以谁为准</li><li>为何记账</li><li>如何防伪</li></ul></li><li>记账奖励<ul><li>手续费</li><li>打包奖励<ul><li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li><li>一共有多少个比特币<ul><li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li></ul></li></ul></li><li>以谁为准<ul><li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li><li>挖矿原理<ul><li>哈希函数：<ul><li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li><li>正着算容易反着算难</li><li>sha256（美国国家安全局发明的一种算法）<ul><li>比如输入“Apple”输出一个256位的二进制数</li></ul></li></ul></li><li>原理<ul><li>字符串：前块头部+账单信息+时间戳+随机数<ul><li>改变这个随机数不断去试</li></ul></li><li>hash=sha256（sha256（字符串））</li><li>前n位必须为0</li><li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li></ul></li><li>难度n的确定</li></ul></li></ul></li></ul></li></ul></li></ul><p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p><span id="more"></span>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h3 id=&quot;一：比特币：数字货币&quot;&gt;&lt;a href=&quot;#一：比特币：数字货币&quot; class=&quot;headerlink&quot; title=&quot;一：比特币：数字货币&quot;&gt;&lt;/a&gt;一：比特币：数字货币&lt;/h3&gt;&lt;p&gt;&lt;img src= &quot;/img/loading.gif&quot; data-lazy</summary>
-      
+    <summary type="html">&lt;h3 id=&quot;一：比特币：数字货币&quot;&gt;&lt;a href=&quot;#一：比特币：数字货币&quot; class=&quot;headerlink&quot; title=&quot;一：比特币：数字货币&quot;&gt;&lt;/a&gt;一：比特币：数字货币&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png&quot; alt=&quot;image-123&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2008年11月1日 中本聪《白皮书》&lt;/li&gt;
+&lt;li&gt;去中心化的电子&lt;strong&gt;记账&lt;/strong&gt;系统&lt;ul&gt;
+&lt;li&gt;现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*&lt;/li&gt;
+&lt;li&gt;很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链&lt;/li&gt;
+&lt;li&gt;三个问题&lt;ul&gt;
+&lt;li&gt;以谁为准&lt;/li&gt;
+&lt;li&gt;为何记账&lt;/li&gt;
+&lt;li&gt;如何防伪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;记账奖励&lt;ul&gt;
+&lt;li&gt;手续费&lt;/li&gt;
+&lt;li&gt;打包奖励&lt;ul&gt;
+&lt;li&gt;每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……&lt;/li&gt;
+&lt;li&gt;一共有多少个比特币&lt;ul&gt;
+&lt;li&gt;50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;以谁为准&lt;ul&gt;
+&lt;li&gt;工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。&lt;/li&gt;
+&lt;li&gt;挖矿原理&lt;ul&gt;
+&lt;li&gt;哈希函数：&lt;ul&gt;
+&lt;li&gt;我们能够把一个字符串通过一定的运算转换为摘要的形式&lt;/li&gt;
+&lt;li&gt;正着算容易反着算难&lt;/li&gt;
+&lt;li&gt;sha256（美国国家安全局发明的一种算法）&lt;ul&gt;
+&lt;li&gt;比如输入“Apple”输出一个256位的二进制数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;原理&lt;ul&gt;
+&lt;li&gt;字符串：前块头部+账单信息+时间戳+随机数&lt;ul&gt;
+&lt;li&gt;改变这个随机数不断去试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;hash=sha256（sha256（字符串））&lt;/li&gt;
+&lt;li&gt;前n位必须为0&lt;/li&gt;
+&lt;li&gt;如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;难度n的确定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考资料：&lt;a href=&quot;https://www.youtube.com/watch?v=g_fSistU3MQ&quot;&gt;比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
