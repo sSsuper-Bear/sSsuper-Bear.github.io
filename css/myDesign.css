@@ -94,4 +94,101 @@
     color: #fff;
     background-color: #49b1f5;
   }
+
+  /* 文章页背景 */
+/* .layout_post>#post {
+    background: rgba(255,255,255,.5);
+} */
+
+/* 所有页面背景 */
+#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
+    /* 以下代表透明度为0.5 */
+    background: rgba(255,255,255,.3);
+}
+
+#web_bg {
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+/* 动态渐变 */
+/* @keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#web_bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+} */
+
+/* 图片渐变  */
+/* #web_bg{
+    background-image: url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("https://upimage.alexhchu.com/2020/10/19/34446d0d37dde.jpg");
+} */
+
+
+/* #web_bg {
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -o-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -ms-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+  } */
   
