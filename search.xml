@@ -56,6 +56,29 @@
       </tags>
   </entry>
   <entry>
+    <title>python实现发送邮件</title>
+    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
+<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
+</ol>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
+<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
+<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
+
+<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
+]]></content>
+      <categories>
+        <category>代码</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>比特币和区块链</title>
     <url>/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
     <content><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src= "/img/loading.gif" data-lazy-src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
@@ -119,29 +142,6 @@
       </categories>
       <tags>
         <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实现发送邮件</title>
-    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
-<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
-</ol>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
-<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
-<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
-
-<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
-]]></content>
-      <categories>
-        <category>代码</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
