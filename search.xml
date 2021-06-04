@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>docker概念</title>
-    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
-<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
-<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
-</li>
-<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
-</li>
-<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
-</li>
-<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
-</li>
-<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
-</li>
-</ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bootdo项目通过jar包启动</title>
     <url>/2021/05/24/bootdo%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87jar%E5%8C%85%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
@@ -89,6 +57,37 @@
       </tags>
   </entry>
   <entry>
+    <title>docker概念</title>
+    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
+<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
+<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
+</li>
+<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
+</li>
+<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
+</li>
+<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
+</li>
+<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
+</li>
+</ul>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+</div>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现发送邮件</title>
     <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
@@ -113,11 +112,133 @@
       </tags>
   </entry>
   <entry>
+    <title>人像嘴唇颜色更改</title>
+    <url>/2021/06/04/%E4%BA%BA%E5%83%8F%E5%98%B4%E5%94%87%E9%A2%9C%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
+    <content><![CDATA[<h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
+<li><p>打开图片</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4138355f7f718862da7.png" alt="image-20210604112727351"></p>
+</li>
+<li><p>方法一</p>
+<ul>
+<li><p>新建一个空白图层，图层混合模式设为<em><strong>“颜色”</strong></em>，这样只会更改它的颜色，而不会更改他的质感。</p>
+</li>
+<li><p>选择画笔工具调整不透明度（51%）+流量（56%）</p>
+</li>
+<li><p>找到所需要的颜色，找到之后就可以直接画了</p>
+</li>
+<li><p>涂完之后如果觉得有点太过了的话，可以降低一点他的透明度。</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4298355f7f7188811e5.png" alt="image-20210604113032303"></p>
+</li>
+</ul>
+</li>
+<li><p>方法二</p>
+<ul>
+<li><p>建立一个纯色图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4348355f7f71888f1d2.png" alt="image-20210604141536603"></p>
+</li>
+<li><p>ctrl+i  反向蒙版颜色</p>
+</li>
+<li><p>把图层模式改成颜色</p>
+</li>
+<li><p>调节不透明度使其自然</p>
+</li>
+</ul>
+</li>
+<li><p>方法三</p>
+<ul>
+<li>对于已经涂了口红的图，嘴唇的颜色杂色不多的情况下</li>
+<li>复制图层，选择滤镜—&gt;camera raw</li>
+<li>HSL调整—&gt;饱和度—&gt;红色</li>
+<li>如果不想影响其他地方红色，选择蒙版，把她嘴唇涂出来</li>
+</ul>
+</li>
+<li><p>方法四</p>
+<ul>
+<li><p>添加选择可选颜色图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4448355f7f7188a45c7.png" alt="image-20210604150219774"></p>
+</li>
+<li><p>调节颜色之后，添加蒙版，选择嘴唇</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人像眉毛精致化处理</title>
+    <url>/2021/06/04/%E4%BA%BA%E5%83%8F%E7%9C%89%E6%AF%9B%E7%B2%BE%E8%87%B4%E5%8C%96%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
+<li>导入图像，稍微调整一下曝光度(+0.25)+对比度(+6)使眉毛比较明显。</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60b9d34d8355f7f71875cddc.png" alt="image-20210604101144306"></p>
+<ul>
+<li><p>放大图片，看一下眉毛所存在的问题</p>
+<ul>
+<li>眉毛中间有很多空缺</li>
+<li>外面存在杂发、杂眉毛</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60b9d35d8355f7f718771b44.png" alt="image-20210604101722568"></p>
+<ul>
+<li><p>处理步骤</p>
+<ul>
+<li><p>复制图层，用修补工具把外面杂乱的眉毛修掉</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3788355f7f718796aa5.png" alt="image-20210604102339995"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>用锁套工具将长得比较好的眉毛截选出来，然后将截选出的眉毛拷贝成一个图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3898355f7f7187ac111.png" alt="image-20210604102640501"></p>
+</li>
+<li><p>将眉毛移动到眉毛空缺的地方</p>
+</li>
+<li><p>利用自有变换工具（ctrl+t）调整角度，使其纹理走向与原图匹配</p>
+</li>
+<li><p>将图层混合模式改成深色</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3988355f7f7187bf9e0.png" alt="image-20210604103202011"></p>
+</li>
+<li><p>创建蒙版，<em><strong>ctrl+i</strong></em>蒙版反向（蒙版黑色不可见，白色可见）</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3a78355f7f7187d3db4.png" alt="image-20210604103253913"></p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3b48355f7f7187e5391.png" alt="image-20210604103800722"></p>
+</li>
+<li><p>使用画笔，将画笔颜色改成白色，降低画笔不透明度（这里不透明度为54%）。</p>
+</li>
+<li><p>将眉毛用白色画笔画出来</p>
+</li>
+<li><p>如果还不够就新建一个图层</p>
+</li>
+<li><p>利用吸管工具吸取一个眉毛中比较深的颜色</p>
+</li>
+<li><p>将画笔调小一点（2）不透明度调低一点（36%）</p>
+</li>
+<li><p>调整完毕之后就大功告成了</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3cb8355f7f718803ef7.png" alt="image-20210604112307771"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+</div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
