@@ -57,37 +57,6 @@
       </tags>
   </entry>
   <entry>
-    <title>docker概念</title>
-    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
-<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
-<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
-</li>
-<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
-</li>
-<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
-</li>
-<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
-</li>
-<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
-</li>
-</ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-</div>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python实现发送邮件</title>
     <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
@@ -109,6 +78,38 @@
       <tags>
         <tag>python</tag>
         <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker概念</title>
+    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
+<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
+<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
+</li>
+<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
+</li>
+<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
+</li>
+<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
+</li>
+<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
+</li>
+</ul>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
+            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+          </div>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -237,8 +238,9 @@
   <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-</div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
+            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+          </div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
@@ -255,6 +257,262 @@
       <tags>
         <tag>python</tag>
         <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机对焦参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
+<li><p>什么是对焦 </p>
+</li>
+<li><p>对焦区域</p>
+<ul>
+<li><p>区域自动对焦，大区域自动对焦</p>
+<ul>
+<li>特点：精度一般</li>
+<li>适合场景：运动员/运动题材</li>
+</ul>
+</li>
+<li><p>45点自动对焦</p>
+<ul>
+<li>特点：对焦容易/精确度较差</li>
+<li>适合场景：风格/大场景</li>
+</ul>
+</li>
+<li><p>单点自动对焦</p>
+<ul>
+<li>特点：精确度高</li>
+<li>适合场景：人物/产品/特写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对焦模式</p>
+<ul>
+<li><p>AF（自动对焦）</p>
+<ul>
+<li>使用<ul>
+<li>半按快门</li>
+</ul>
+</li>
+<li>分类<ul>
+<li>单次自动对焦—&gt;半按快门对焦一次，适合拍静止物体</li>
+<li>人工智能伺服对焦——半按快门对焦多次，适合拍运动物体</li>
+<li>人工智能自动对焦——适合拍无法准确预判是否运动的物体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MF（手动对焦）</p>
+<ul>
+<li><p>使用</p>
+<ul>
+<li><p>转动对焦环对焦</p>
+<p><img src="https://pic.imgdb.cn/item/60bc351d8355f7f718b747fa.png" alt="image-20210606101212207"></p>
+</li>
+</ul>
+</li>
+<li><p>适用场景</p>
+<ul>
+<li>暗环境下拍摄<ul>
+<li>在AF自动对焦模式下，经常会出现对焦困难的情况</li>
+</ul>
+</li>
+<li>逆光环境<ul>
+<li>光线进入镜头很多，有较强烈的眩光效果，用AF可能不太好对焦</li>
+</ul>
+</li>
+<li>光斑等特殊效果拍摄<ul>
+<li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机曝光参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
+<li><p>曝光三要素</p>
+<ul>
+<li><p>光圈 </p>
+<ul>
+<li>光圈在相机中是F来表示，F后面的数字越小，表示光圈越大（光圈越大—&gt;进光量越多）</li>
+<li>F+数字越小—&gt;光圈越大</li>
+<li>光圈越大，背景虚化越强    光圈越小，背景虚化越弱</li>
+<li>使用<ul>
+<li>当相机在<em><strong>Av光圈</strong></em>优先模式下，可以通过转动<em><strong>快门附近的拨盘</strong></em>进行调节。</li>
+<li>当相机在<em><strong>M手动模式</strong></em>的时候，转动<em><strong>DIAL FUNC拨盘</strong></em>进行调节。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60bc357f8355f7f718bc2167.png" alt="image-20210605183802551"></p>
+</li>
+<li><p>快门</p>
+<ul>
+<li>快门时间长—&gt;进光量多—&gt;照片亮</li>
+<li>1/60或60表示1/60秒，1’’表示1秒 </li>
+<li>短快门—&gt;抓拍瞬间，长快门—&gt;记录轨迹</li>
+<li>使用<ul>
+<li>Tv快门优先和M手动模式都是通过<em><strong>快门拨盘</strong></em>来调节 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ISO（感光度）</p>
+<ul>
+<li>感光度是感光元件对光线的敏感程度与，简称ISO</li>
+<li>数字越大—&gt;对光线越敏感，数字越小—&gt;对光线越不敏感</li>
+<li>ISO越高—&gt;噪点越多—&gt;画面越粗糙，ISO越低—&gt;噪点越少—&gt;画面越细腻</li>
+<li>手持排夜景、抓拍运动物体、长焦镜头拍摄可调高ISO</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>光圈、快门、ISO之间的关系</p>
+<ul>
+<li><p>以水龙头作为比喻</p>
+<ul>
+<li>阀门打开的大小—&gt;光圈大小</li>
+<li>水流的时间—&gt;快门时间</li>
+<li>流出水的总量—&gt;进光量</li>
+</ul>
+</li>
+<li><p>在光线比较充足的情况下，为了保证照片的画质，我们通常会选择100-200之间的低ISO，ISO作为一个相对固定的参数，我们暂时不予考虑</p>
+</li>
+<li><p>进光量一定 光圈越大—&gt;快门时间越短，光圈越小—&gt;快门时间越长</p>
+</li>
+<li><p>虚化效果—&gt;大光圈+短快门</p>
+</li>
+<li><p>运动轨迹/慢门效果—&gt;长快门+小光圈</p>
+</li>
+</ul>
+</li>
+<li><p>曝光模式 </p>
+<ul>
+<li><p>A+    全自动模式</p>
+<ul>
+<li>光圈、快门、ISO都由相机自动设置</li>
+</ul>
+</li>
+<li><p>P      程序自动模式</p>
+<ul>
+<li>光圈、快门由相机自动设置，ISO可以手动设置</li>
+</ul>
+</li>
+<li><p>Tv     快门优先模式</p>
+<ul>
+<li>快门时间、ISO可手动设置，光圈由相机自动匹配</li>
+</ul>
+</li>
+<li><p>Av     光圈优先模式(很多人喜欢这种模式)</p>
+<ul>
+<li>光圈、ISO可手动设置，快门速度由相机自动匹配</li>
+</ul>
+</li>
+<li><p>M      全手动模式</p>
+<ul>
+<li>光圈、快门、ISO都由我们手动设置</li>
+</ul>
+</li>
+<li><p>SCN  场景自动模式</p>
+<ul>
+<li><p>人像：相机会自动采用大光圈形成背景虚化突出人物</p>
+</li>
+<li><p>风光：相机自动采用小光圈使整体清晰</p>
+</li>
+<li><p>运动：相机自动提高快门速度跟容易抓拍运动物体</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>测光模式</p>
+<ul>
+<li><p>测光模式：相机可以自动侦测周围光线情况，侦测光线的方式不同就有了不同的测光模式</p>
+</li>
+<li><p>新手常用的测光模式：</p>
+<ul>
+<li><p>评价测光（矩阵）：把画面分成若干个区域进行测光，加权平均后作为曝光基准（适合生活中90%的拍摄场景）</p>
+</li>
+<li><p>点测光：对画面中的“点”进行测光作为曝光基准（适合在逆光等复杂的环境下进行拍摄）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>曝光补偿</p>
+<ul>
+<li>什么是曝光补偿：曝光补偿就是对画面亮度的补偿效果，在Av/Tv/P这种半自动模式下，可以手动调整曝光补偿改变画面亮度。</li>
+<li>曝光补偿在相机中是如何表示的：曝光补偿在相机中是以刻度表的形式呈现的，并且可以调节正负</li>
+<li>如何使用<ul>
+<li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
+<li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
+<li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机色彩参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
+<li><p>白平衡</p>
+<ul>
+<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
+</li>
+<li><p>几种白平衡模式</p>
+<ul>
+<li><p>自动（AWB）</p>
+</li>
+<li><p>日光</p>
+</li>
+<li><p>阴影</p>
+<ul>
+<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
+</ul>
+</li>
+<li><p>阴天</p>
+</li>
+<li><p>钨丝灯</p>
+</li>
+<li><p>白色荧光灯</p>
+<ul>
+<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
       </tags>
   </entry>
   <entry>
