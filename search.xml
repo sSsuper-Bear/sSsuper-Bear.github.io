@@ -134,9 +134,8 @@
 <li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
 </li>
 </ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+</div>
 
 
 
@@ -148,6 +147,30 @@
       </categories>
       <tags>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实现发送邮件</title>
+    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
+<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
+</ol>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
+<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
+<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
+
+<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>脚本</tag>
       </tags>
   </entry>
   <entry>
@@ -204,30 +227,6 @@
       <tags>
         <tag>java</tag>
         <tag>springboot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实现发送邮件</title>
-    <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
-<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
-</ol>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
-<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
-<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
-
-<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>脚本</tag>
       </tags>
   </entry>
   <entry>
@@ -405,9 +404,8 @@
   <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+</div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
