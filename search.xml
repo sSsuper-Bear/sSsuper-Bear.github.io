@@ -112,10 +112,11 @@
 </ul>
 ]]></content>
       <categories>
-        <category>-- 转载</category>
+        <category>转载</category>
       </categories>
       <tags>
-        <tag>-- python -- 转载</tag>
+        <tag>python</tag>
+        <tag>转载</tag>
       </tags>
   </entry>
   <entry>
@@ -175,6 +176,37 @@
       </tags>
   </entry>
   <entry>
+    <title>docker概念</title>
+    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
+<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
+<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
+</li>
+<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
+</li>
+<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
+</li>
+<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
+</li>
+<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
+</li>
+</ul>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+</div>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现发送邮件</title>
     <url>/2021/05/24/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
@@ -196,38 +228,6 @@
       <tags>
         <tag>python</tag>
         <tag>脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker概念</title>
-    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
-<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
-<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
-</li>
-<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
-</li>
-<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
-</li>
-<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
-</li>
-<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
-</li>
-</ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -287,6 +287,55 @@
       </categories>
       <tags>
         <tag>摄影</tag>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后期PS处理调色思路</title>
+    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
+<li>基础调整<ul>
+<li>白平衡<ul>
+<li>色温：控制照片冷暖感觉的工具</li>
+<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
+</ul>
+</li>
+<li>曝光：调节照片的明暗</li>
+<li>高光：压低高光，可以找回高光区的细节</li>
+<li>白色：压低白色，找回照片中白色的细节</li>
+<li>阴影：控制照片中偏暗的部分</li>
+<li>黑色：控制照片中黑色看不到细节的部分</li>
+</ul>
+</li>
+<li>HSL调整<ul>
+<li>色相：色彩的相貌<ul>
+<li>把某个颜色定义成自己拖动到的颜色</li>
+</ul>
+</li>
+<li>饱和度：颜色的纯度<ul>
+<li>数字越大说明纯度越高</li>
+</ul>
+</li>
+<li>明亮度：颜色的明暗程度<ul>
+<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
+</ul>
+</li>
+<li>如何使用？<ul>
+<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
+<li>降低橙色饱和度，使其皮肤通透点</li>
+<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
         <tag>PS</tag>
       </tags>
   </entry>
@@ -354,60 +403,10 @@
       </tags>
   </entry>
   <entry>
-    <title>后期PS处理调色思路</title>
-    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
-<li>基础调整<ul>
-<li>白平衡<ul>
-<li>色温：控制照片冷暖感觉的工具</li>
-<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
-</ul>
-</li>
-<li>曝光：调节照片的明暗</li>
-<li>高光：压低高光，可以找回高光区的细节</li>
-<li>白色：压低白色，找回照片中白色的细节</li>
-<li>阴影：控制照片中偏暗的部分</li>
-<li>黑色：控制照片中黑色看不到细节的部分</li>
-</ul>
-</li>
-<li>HSL调整<ul>
-<li>色相：色彩的相貌<ul>
-<li>把某个颜色定义成自己拖动到的颜色</li>
-</ul>
-</li>
-<li>饱和度：颜色的纯度<ul>
-<li>数字越大说明纯度越高</li>
-</ul>
-</li>
-<li>明亮度：颜色的明暗程度<ul>
-<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
-</ul>
-</li>
-<li>如何使用？<ul>
-<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
-<li>降低橙色饱和度，使其皮肤通透点</li>
-<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+</div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
@@ -683,72 +682,6 @@
       </tags>
   </entry>
   <entry>
-    <title>比特币和区块链</title>
-    <url>/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
-    <content><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
-<ul>
-<li>2008年11月1日 中本聪《白皮书》</li>
-<li>去中心化的电子<strong>记账</strong>系统<ul>
-<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
-<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
-<li>三个问题<ul>
-<li>以谁为准</li>
-<li>为何记账</li>
-<li>如何防伪</li>
-</ul>
-</li>
-<li>记账奖励<ul>
-<li>手续费</li>
-<li>打包奖励<ul>
-<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
-<li>一共有多少个比特币<ul>
-<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>以谁为准<ul>
-<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
-<li>挖矿原理<ul>
-<li>哈希函数：<ul>
-<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
-<li>正着算容易反着算难</li>
-<li>sha256（美国国家安全局发明的一种算法）<ul>
-<li>比如输入“Apple”输出一个256位的二进制数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>原理<ul>
-<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
-<li>改变这个随机数不断去试</li>
-</ul>
-</li>
-<li>hash=sha256（sha256（字符串））</li>
-<li>前n位必须为0</li>
-<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
-</ul>
-</li>
-<li>难度n的确定</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>摄影经验——转载</title>
     <url>/2021/06/07/%E6%91%84%E5%BD%B1%E7%BB%8F%E9%AA%8C%E2%80%94%E2%80%94%E8%BD%AC%E8%BD%BD/</url>
     <content><![CDATA[<h3 id="人像摄影怎么拍"><a href="#人像摄影怎么拍" class="headerlink" title="人像摄影怎么拍"></a>人像摄影怎么拍</h3><h2 id="1-构图"><a href="#1-构图" class="headerlink" title="1. 构图"></a><strong>1. 构图</strong></h2><p>首先，是人像拍摄中，构图的问题。</p>
@@ -853,6 +786,106 @@
       </categories>
       <tags>
         <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库常用指令</title>
+    <url>/2021/07/22/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="mysql-sql常用语句大全"><a href="#mysql-sql常用语句大全" class="headerlink" title="mysql sql常用语句大全"></a><a href="https://blog.csdn.net/hzw6991/article/details/87757426?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514485316780264064821%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=162514485316780264064821&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-87757426.pc_v2_rank_blog_default&utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&spm=1018.2226.3001.4450">mysql sql常用语句大全</a></h1><h3 id="一-、常用操作数据库的命令"><a href="#一-、常用操作数据库的命令" class="headerlink" title="一 、常用操作数据库的命令"></a>一 、常用操作数据库的命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.show databases; 查看所有的数据库</span><br><span class="line">2.create database test; 创建一个叫test的数据库</span><br><span class="line">3.drop database test;删除一个叫test的数据库</span><br><span class="line">4.use test;选中库 ,在建表之前必须要选择数据库</span><br><span class="line">5.show tables; 在选中的数据库之中查看所有的表</span><br><span class="line">6.create table 表名 (字段1 类型, 字段2 类型);</span><br><span class="line">7.desc 表名;查看所在的表的字段</span><br><span class="line">8.drop table 表名; 删除表</span><br><span class="line">9.show create database 库名;查看创建库的详细信息</span><br><span class="line">10.show create table 表名; 查看创建表的详细信息</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、修改表的命令"><a href="#二、修改表的命令" class="headerlink" title="二、修改表的命令"></a>二、修改表的命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.修改字段类型 alter table 表名 modify 字段 字段类型;</span><br><span class="line">2.添加新的字段 alter table 表名 add 字段 字段类型</span><br><span class="line">3.添加字段并指定位置  alter table 表名 add 字段 字段类型   after 字段;</span><br><span class="line">4.删除表字段  alter table 表名 drop 字段名;</span><br><span class="line">5.修改指定的字段  alter table 表名 change 原字段名字  新的字段名字 字段类型</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="三、对数据的操作"><a href="#三、对数据的操作" class="headerlink" title="三、对数据的操作"></a>三、对数据的操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.增加数据(insert)3种方式</span><br><span class="line">    1.1 insert into 表名 values(值1，值2，...)(很少用)</span><br><span class="line">    1.2 insert into 表名(字段1，字段2...) values(值1，值2，....);（较常用）</span><br><span class="line">    1.3 insert into 表名(字段1，字段2...) values(值1，值2，....)，(值1，值2，....)，(值1，值2，....);</span><br><span class="line">2.删除数据(delete) delete from 表名 where 条件 注意：where 条件必须加，否则数据会被全部删除</span><br><span class="line">3.更新数据(update)  update 表名 set字段1 = 值1, 字段2 = 值2 where 条件</span><br><span class="line">4.查询数据(select)</span><br><span class="line">    4.1 查询表中的所有数据   select * from 表名</span><br><span class="line">    4.2 指定数据查询    select 字段 from 表名 </span><br><span class="line">    根据条件查询出来的数据  select 字段 from 表名 where 条件 (最常用的)</span><br><span class="line">    where 条件后面跟的条件</span><br><span class="line">     关系：&gt;,&lt;,&gt;=,&lt;=,!=  </span><br><span class="line">     逻辑：or, and </span><br><span class="line">     区间：id between 4 and 6 ;闭区间，包含边界</span><br><span class="line">5.排序</span><br><span class="line">select 字段 from 表 order by 字段  排序关键词(desc | asc)</span><br><span class="line">排序关键词 desc 降序 asc 升序(默认)</span><br><span class="line">    5.1 通过字段来排序</span><br><span class="line">    例如 ：select * from star orser by money desc, age asc;   </span><br><span class="line">    5.2 多字段排序</span><br><span class="line">    select 字段 from 表 order by 字段1  desc |asc,...字段n desc| asc;</span><br><span class="line">6.常用的统计函数 sum，avg，count，max,min</span><br><span class="line">    只分组:select * from 表 group by 字段</span><br><span class="line">    例子: select count(sex) as re,sex from star group by sex having re &gt; 3;</span><br><span class="line">    分组统计: select count(sex) from star group by sex;</span><br><span class="line">7.分组 select * from 表名  limit 偏移量,数量</span><br><span class="line">    说明:</span><br><span class="line">        8.1.不写偏移量的话就是默认的为0</span><br><span class="line">        8.2.实现分页的时候必须写偏移量</span><br><span class="line">        偏移量怎么计算？:</span><br><span class="line">        limit (n-1)*数量 ,数量 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四、多表联合查询"><a href="#四、多表联合查询" class="headerlink" title="四、多表联合查询"></a>四、多表联合查询</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.内连接</span><br><span class="line">隐式内连接 select username,name from user,goods where user,gid=gods,gid;</span><br><span class="line">显示内连接</span><br><span class="line">select username,from user inner join goods on user.gid=goods.gid;</span><br><span class="line">select * from user left join goods on user.gid=goods.gid;</span><br><span class="line">2.外链接</span><br><span class="line">左连接 包含所有的左边表中的记录以及右边表中没有和他匹配的记录</span><br><span class="line">右连接 </span><br><span class="line">select * from user where gid in(select gid from goods);</span><br><span class="line">select * from user right jOin goods on user.gid=goods.gid;</span><br><span class="line">子嵌套查询</span><br><span class="line">数据联合查询</span><br><span class="line">select * from user left join goods on user.gid=goods.gid union select * from user right join goods on user.gid=goods.gid;</span><br><span class="line">两个表同时更新</span><br><span class="line">update user u, goods g set u.gid=12,g.price=1 where u.id=2 and u.gid=g.gid;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五、DCL-数据控制语言"><a href="#五、DCL-数据控制语言" class="headerlink" title="五、DCL 数据控制语言"></a>五、DCL 数据控制语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.创建用户:create user&#x27;xiaoming&#x27;@&#x27;localhost&#x27; identified by &#x27;666666&#x27;;</span><br><span class="line">2.授权用户:grant all on test.*to&#x27;xiaoming&#x27;@&#x27;localhost&#x27;;</span><br><span class="line">3.刷新权限:flush privileges;</span><br><span class="line">4.取消授权:revoke all on test.* from &#x27;xiaoming&#x27;@&#x27;localhost&#x27;;</span><br><span class="line">5.删除用户: drop user&#x27;xiaoming&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="六、DTL-数据事务语言"><a href="#六、DTL-数据事务语言" class="headerlink" title="六、DTL 数据事务语言"></a>六、DTL 数据事务语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">开启事务：set autocommit=0;</span><br><span class="line">操作回滚：rollback;</span><br><span class="line">提交事务：commit;</span><br></pre></td></tr></table></figure>
+
+<p> 转自：<a href="https://blog.csdn.net/hzw6991/article/details/87757426?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514485316780264064821%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=162514485316780264064821&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-87757426.pc_v2_rank_blog_default&amp;utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&amp;spm=1018.2226.3001.4450">https://blog.csdn.net/hzw6991/article/details/87757426?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514485316780264064821%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=162514485316780264064821&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-87757426.pc_v2_rank_blog_default&amp;utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&amp;spm=1018.2226.3001.4450</a></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>比特币和区块链</title>
+    <url>/2021/05/24/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
+    <content><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
+<ul>
+<li>2008年11月1日 中本聪《白皮书》</li>
+<li>去中心化的电子<strong>记账</strong>系统<ul>
+<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
+<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
+<li>三个问题<ul>
+<li>以谁为准</li>
+<li>为何记账</li>
+<li>如何防伪</li>
+</ul>
+</li>
+<li>记账奖励<ul>
+<li>手续费</li>
+<li>打包奖励<ul>
+<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
+<li>一共有多少个比特币<ul>
+<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以谁为准<ul>
+<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
+<li>挖矿原理<ul>
+<li>哈希函数：<ul>
+<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
+<li>正着算容易反着算难</li>
+<li>sha256（美国国家安全局发明的一种算法）<ul>
+<li>比如输入“Apple”输出一个256位的二进制数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
+<li>改变这个随机数不断去试</li>
+</ul>
+</li>
+<li>hash=sha256（sha256（字符串））</li>
+<li>前n位必须为0</li>
+<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
+</ul>
+</li>
+<li>难度n的确定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
