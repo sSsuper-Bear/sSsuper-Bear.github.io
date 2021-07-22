@@ -191,8 +191,9 @@
 <li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
 </li>
 </ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-</div>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
+            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+          </div>
 
 
 
@@ -291,55 +292,6 @@
       </tags>
   </entry>
   <entry>
-    <title>后期PS处理调色思路</title>
-    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
-<li>基础调整<ul>
-<li>白平衡<ul>
-<li>色温：控制照片冷暖感觉的工具</li>
-<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
-</ul>
-</li>
-<li>曝光：调节照片的明暗</li>
-<li>高光：压低高光，可以找回高光区的细节</li>
-<li>白色：压低白色，找回照片中白色的细节</li>
-<li>阴影：控制照片中偏暗的部分</li>
-<li>黑色：控制照片中黑色看不到细节的部分</li>
-</ul>
-</li>
-<li>HSL调整<ul>
-<li>色相：色彩的相貌<ul>
-<li>把某个颜色定义成自己拖动到的颜色</li>
-</ul>
-</li>
-<li>饱和度：颜色的纯度<ul>
-<li>数字越大说明纯度越高</li>
-</ul>
-</li>
-<li>明亮度：颜色的明暗程度<ul>
-<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
-</ul>
-</li>
-<li>如何使用？<ul>
-<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
-<li>降低橙色饱和度，使其皮肤通透点</li>
-<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>人像眉毛精致化处理</title>
     <url>/2021/06/04/%E4%BA%BA%E5%83%8F%E7%9C%89%E6%AF%9B%E7%B2%BE%E8%87%B4%E5%8C%96%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
@@ -403,10 +355,60 @@
       </tags>
   </entry>
   <entry>
+    <title>后期PS处理调色思路</title>
+    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
+<li>基础调整<ul>
+<li>白平衡<ul>
+<li>色温：控制照片冷暖感觉的工具</li>
+<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
+</ul>
+</li>
+<li>曝光：调节照片的明暗</li>
+<li>高光：压低高光，可以找回高光区的细节</li>
+<li>白色：压低白色，找回照片中白色的细节</li>
+<li>阴影：控制照片中偏暗的部分</li>
+<li>黑色：控制照片中黑色看不到细节的部分</li>
+</ul>
+</li>
+<li>HSL调整<ul>
+<li>色相：色彩的相貌<ul>
+<li>把某个颜色定义成自己拖动到的颜色</li>
+</ul>
+</li>
+<li>饱和度：颜色的纯度<ul>
+<li>数字越大说明纯度越高</li>
+</ul>
+</li>
+<li>明亮度：颜色的明暗程度<ul>
+<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
+</ul>
+</li>
+<li>如何使用？<ul>
+<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
+<li>降低橙色饱和度，使其皮肤通透点</li>
+<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-</div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
+            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+          </div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
