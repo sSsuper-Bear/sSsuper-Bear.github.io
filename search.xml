@@ -120,6 +120,38 @@
       </tags>
   </entry>
   <entry>
+    <title>docker概念</title>
+    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
+<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
+<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
+</li>
+<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
+</li>
+<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
+</li>
+<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
+</li>
+<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
+</li>
+</ul>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
+            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+          </div>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>bootdo项目通过jar包启动</title>
     <url>/2021/05/24/bootdo%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87jar%E5%8C%85%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
@@ -173,38 +205,6 @@
       <tags>
         <tag>java</tag>
         <tag>springboot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker概念</title>
-    <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
-<h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
-<li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
-</li>
-<li><p>容器：它可以类比成正在运行中的一个虚拟机。</p>
-</li>
-<li><p>tar文件：tar文件就类似于vm使用时的vmdk文件，它可以将镜像直接保存成一个tar文件，然后怎样给别人然后别人通过load指令，重新加载成一个镜像，然后通过run指令就可以起来一个正在运行中的容器了。</p>
-</li>
-<li><p>Dockerfile：Dockerfile相当于一个配置文件，通过写“如何构建”的步骤，来指定一个镜像是如何构建的。通过docker build指令可以将dockerfile构建成一个镜像。</p>
-</li>
-<li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
-</li>
-</ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -510,6 +510,47 @@
       </tags>
   </entry>
   <entry>
+    <title>控制相机色彩参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
+<li><p>白平衡</p>
+<ul>
+<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
+</li>
+<li><p>几种白平衡模式</p>
+<ul>
+<li><p>自动（AWB）</p>
+</li>
+<li><p>日光</p>
+</li>
+<li><p>阴影</p>
+<ul>
+<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
+</ul>
+</li>
+<li><p>阴天</p>
+</li>
+<li><p>钨丝灯</p>
+</li>
+<li><p>白色荧光灯</p>
+<ul>
+<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>控制相机曝光参数</title>
     <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
@@ -629,47 +670,6 @@
 <li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
 <li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
 <li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>摄影</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>控制相机色彩参数</title>
-    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
-<li><p>白平衡</p>
-<ul>
-<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
-</li>
-<li><p>几种白平衡模式</p>
-<ul>
-<li><p>自动（AWB）</p>
-</li>
-<li><p>日光</p>
-</li>
-<li><p>阴影</p>
-<ul>
-<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
-</ul>
-</li>
-<li><p>阴天</p>
-</li>
-<li><p>钨丝灯</p>
-</li>
-<li><p>白色荧光灯</p>
-<ul>
-<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1179,8 +1179,8 @@
 </li>
 </ul>
 <ul>
-<li>第一次握手: 服务端 可以确认<code>客服端</code>具有发送能力</li>
-<li>第二次握手: 客服端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
+<li>第一次握手: 服务端 可以确认<code>客户端</code>具有发送能力</li>
+<li>第二次握手: 客户端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
 <li>第三次握手: 服务端 可以确认<code>客户端</code>具有接收能力</li>
 </ul>
 <h5 id="为什么不能改成两次握手？"><a href="#为什么不能改成两次握手？" class="headerlink" title="为什么不能改成两次握手？"></a>为什么不能改成两次握手？</h5><p>如果两次握手，则会出现下面这种情况：</p>
