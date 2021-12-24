@@ -428,88 +428,6 @@
       </tags>
   </entry>
   <entry>
-    <title>控制相机对焦参数</title>
-    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
-<li><p>什么是对焦 </p>
-</li>
-<li><p>对焦区域</p>
-<ul>
-<li><p>区域自动对焦，大区域自动对焦</p>
-<ul>
-<li>特点：精度一般</li>
-<li>适合场景：运动员/运动题材</li>
-</ul>
-</li>
-<li><p>45点自动对焦</p>
-<ul>
-<li>特点：对焦容易/精确度较差</li>
-<li>适合场景：风格/大场景</li>
-</ul>
-</li>
-<li><p>单点自动对焦</p>
-<ul>
-<li>特点：精确度高</li>
-<li>适合场景：人物/产品/特写</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>对焦模式</p>
-<ul>
-<li><p>AF（自动对焦）</p>
-<ul>
-<li>使用<ul>
-<li>半按快门</li>
-</ul>
-</li>
-<li>分类<ul>
-<li>单次自动对焦—&gt;半按快门对焦一次，适合拍静止物体</li>
-<li>人工智能伺服对焦——半按快门对焦多次，适合拍运动物体</li>
-<li>人工智能自动对焦——适合拍无法准确预判是否运动的物体</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>MF（手动对焦）</p>
-<ul>
-<li><p>使用</p>
-<ul>
-<li><p>转动对焦环对焦</p>
-<p><img src="https://pic.imgdb.cn/item/60bc351d8355f7f718b747fa.png" alt="image-20210606101212207"></p>
-</li>
-</ul>
-</li>
-<li><p>适用场景</p>
-<ul>
-<li>暗环境下拍摄<ul>
-<li>在AF自动对焦模式下，经常会出现对焦困难的情况</li>
-</ul>
-</li>
-<li>逆光环境<ul>
-<li>光线进入镜头很多，有较强烈的眩光效果，用AF可能不太好对焦</li>
-</ul>
-</li>
-<li>光斑等特殊效果拍摄<ul>
-<li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>摄影</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>控制相机曝光参数</title>
     <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
@@ -629,6 +547,88 @@
 <li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
 <li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
 <li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机对焦参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
+<li><p>什么是对焦 </p>
+</li>
+<li><p>对焦区域</p>
+<ul>
+<li><p>区域自动对焦，大区域自动对焦</p>
+<ul>
+<li>特点：精度一般</li>
+<li>适合场景：运动员/运动题材</li>
+</ul>
+</li>
+<li><p>45点自动对焦</p>
+<ul>
+<li>特点：对焦容易/精确度较差</li>
+<li>适合场景：风格/大场景</li>
+</ul>
+</li>
+<li><p>单点自动对焦</p>
+<ul>
+<li>特点：精确度高</li>
+<li>适合场景：人物/产品/特写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对焦模式</p>
+<ul>
+<li><p>AF（自动对焦）</p>
+<ul>
+<li>使用<ul>
+<li>半按快门</li>
+</ul>
+</li>
+<li>分类<ul>
+<li>单次自动对焦—&gt;半按快门对焦一次，适合拍静止物体</li>
+<li>人工智能伺服对焦——半按快门对焦多次，适合拍运动物体</li>
+<li>人工智能自动对焦——适合拍无法准确预判是否运动的物体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MF（手动对焦）</p>
+<ul>
+<li><p>使用</p>
+<ul>
+<li><p>转动对焦环对焦</p>
+<p><img src="https://pic.imgdb.cn/item/60bc351d8355f7f718b747fa.png" alt="image-20210606101212207"></p>
+</li>
+</ul>
+</li>
+<li><p>适用场景</p>
+<ul>
+<li>暗环境下拍摄<ul>
+<li>在AF自动对焦模式下，经常会出现对焦困难的情况</li>
+</ul>
+</li>
+<li>逆光环境<ul>
+<li>光线进入镜头很多，有较强烈的眩光效果，用AF可能不太好对焦</li>
+</ul>
+</li>
+<li>光斑等特殊效果拍摄<ul>
+<li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1010,6 +1010,202 @@
       </categories>
       <tags>
         <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经验模态分解</title>
+    <url>/2021/12/24/%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%EF%BC%88EMD%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="经验模态分解"><a href="#经验模态分解" class="headerlink" title="经验模态分解"></a>经验模态分解</h3><p>经验模态分解(Empirical Mode Decomposition, EMD)是依据数据自身的时间尺度特征来进行信号分解，无需预先设定任何基函数，是一种时频域信号处理方式。<code>EMD</code>在处理非平稳及非线性数据上具有明显的优势，<strong>适合分析非线性非平稳的信号序列</strong>，具有较高的信噪比。<br><strong>平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间不发生变化<br><strong>非平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间发生变化</p>
+<p>该方法的关键是经验模式分解，使负载信号分解为有限个本征信号（Intrinsic Mode Function, IMF），分解出来的各个<code>IMF</code>分量包含了原信号的不同时间尺度的局部特征信息。通俗理解就是，<code>EMD</code>是一台机器，将一对混杂的硬币投进去，其会自动按照1元、5毛、1毛、5分、1分分好。</p>
+<h4 id="EMD原理"><a href="#EMD原理" class="headerlink" title="EMD原理"></a>EMD原理</h4><p>在物理上，如果瞬时频率有意义，那么函数必须是对称的，局部均值为零，并且具有相同的过零点和极值点数目。任何信号都是由若干本征模函数组成，一个<strong>本征模函数必须满足以下两个条件：</strong></p>
+<ul>
+<li>函数在整个时间范围内，局部极值点和过零点的数目必须相等或最多相差一个</li>
+<li>在任意时刻点，局部最大值的包络（上包络线）和局部最小值的包络（下包络线）平均必须为零，即上下包络线相对于时间轴局部对称</li>
+</ul>
+<p>画图解释：</p>
+<ol>
+<li><p>图线要反复跨越x轴</p>
+<p><img src="https://pic.imgdb.cn/item/61c5a3092ab3f51d91199fb3.jpg" alt="img"></p>
+<center>在整个数据段内，极值点的个数和过零点的个数必须相等或相差最多不能超过一个</center>
+
+<p>而不能像这样某次穿过零点后出现多个极点：</p>
+<p><img src="https://pic.imgdb.cn/item/61c5a32f2ab3f51d9119b2fe.jpg" alt="img"></p>
+</li>
+</ol>
+<center>极点数目偏多</center>
+
+<ol start="2">
+<li><p>包络线要对称：</p>
+<p><img src="https://pic.imgdb.cn/item/61c5a34e2ab3f51d9119c0a4.jpg" alt="img"></p>
+<center>包络线对称</center>
+
+<p>而不能像这样：</p>
+<p><img src="https://pic.imgdb.cn/item/61c5a36e2ab3f51d9119cad7.jpg" alt="img"></p>
+<center>包络线不对称</center></li>
+</ol>
+<p>对于上述第二条说明：他把经典的全局性要求修改为局部性要求，使瞬时频率不再受不对称波形所形成的不必要的波动所影响，实际上，这个条件应为“数据的局部均值是零”。但是对于非平稳数据来说，计算局部均值涉及到“局部时间尺度”的概念，而这是很难定义的，因此，在第二个条件中使用了局部极大值和局部极小值包络的平均为零来代替，是信号的波形局部对称。</p>
+<p><code>EMD</code>将输入信号分解为几个本征模函数和一个残差组成，即由下列公式组成：</p>
+<p>$$<br>I ( n ) = \sum _ { m = 1 } ^ { M } \operatorname { I M F _ { m } ( n ) + \operatorname { Res } _{m} ( n ) }<br>$$<br>其中<em>I</em>(n)表示输入信号，IMF<sub>m</sub>表示M<sup>th</sup>的本征模函数，Res<sub>M</sub>(n)表示残差</p>
+<h4 id="EMD分解过程"><a href="#EMD分解过程" class="headerlink" title="EMD分解过程"></a>EMD分解过程</h4><p>提取<code>IMF</code>的过程称为筛选，筛选的过程如下：</p>
+<p><img src="https://pic.imgdb.cn/item/61c5a38a2ab3f51d9119d5b7.jpg" alt="emd分解"></p>
+<ol>
+<li>标出局部极值点</li>
+<li>通过<strong>三次样条插值</strong>（cubic spline line）连接极大值点构成上包络线（upper envelope）,连接极小值点构成下包络线（lower envelope）</li>
+<li>求上下包络线的均值m<sub>1</sub></li>
+<li>用输入信号减去上下包络线均值</li>
+</ol>
+<p>$$<br>X ( t ) - m _ { 1 } = h _ { 1 }<br>$$</p>
+<p>​        上述过程的一次迭代不能保证h1是本征模函数（<code>IMF</code>），需要重复上述过程，直到h<sub>1</sub>是本征模函数（<code>IMF</code>）</p>
+<h4 id="停机准则"><a href="#停机准则" class="headerlink" title="停机准则"></a>停机准则</h4><p>停机准则决定了一个本征模函数（<code>IMF</code>）筛选过程执行的数目，有如下停机准则</p>
+<ul>
+<li><p>标准偏差（Standard Deviation, SD）<br>$$<br>S D _ { k } = \sum _ { t = 0 } ^ { T } \frac { | h _ { k - 1 } ( t ) - h _ { k } ( t ) |  ^ { 2 } } { h _ { k - 1 } ^ { 2 } (t)}<br>$$<br>当SD的值小于给定的阈值时，筛选过程停止</p>
+</li>
+<li><p>S Number准则</p>
+<p>定义为过零点和极值点相等或者至多差为1的连续筛选数目。一个S-Number被提前设置，只有当S次连续筛选后，每一次过零点和极值点保持相同（相等或者至多差1），筛选过程才停止</p>
+</li>
+<li><p>阈值方法</p>
+<p>阈值方法设置两个阈值，确保全局小的扰动同时考虑局部大的偏移</p>
+</li>
+</ul>
+<p>选择停机准则后，第一个<code>IMF</code>（c<sub>1</sub>）可以获得，c<sub>1</sub>为包含输入信号最大频率的成分（component）,之后分离c<sub>1</sub><br>$$<br>X ( t ) - c _ { 1 } = r _ { 1 }<br>$$<br>利用r<sub>1</sub>作为输入，获得其他的本征模函数</p>
+<h4 id="EMD限制（Limitations）"><a href="#EMD限制（Limitations）" class="headerlink" title="EMD限制（Limitations）"></a>EMD限制（Limitations）</h4><p><code>EMD</code>的主要缺点有如下</p>
+<ul>
+<li><p>末端效应</p>
+<p>末端效应发生在信号的开始和结尾，因为在信号开始之前和结尾之后没有样本点被考虑。大多数情况下，末端点并不是信号的极值，但是在执行<code>EMD</code>的过程中，极值包络线会在末端点发散（diverge），导致错误，进而扭曲了<code>IMF</code>在末端点的波形，而且这种错误在<code>EMD</code>分解过程中会累积</p>
+</li>
+<li><p>模态混叠问题</p>
+<p>模态混叠问题发上在<code>EMD</code>的执行过程中。出现下列情况之一就称为模态混合</p>
+<ul>
+<li>在同一个<code>IMF</code>分量中，存在尺度分布范围很宽却又各不相同的信号</li>
+<li>在不同的<code>IMF</code>分量中，存在着尺度相近的信号</li>
+</ul>
+<p>模态混叠问题使得特征提取、模型训练、模式识别变得困难，<code>IMF</code>失去了单一特征尺度的特征。<strong>集成经验模态分解(Ensemble empirical mode decomposition, EEMD)被提出用来解决模态混叠问题</strong></p>
+</li>
+</ul>
+<h4 id="EMD和其他方法对比"><a href="#EMD和其他方法对比" class="headerlink" title="EMD和其他方法对比"></a>EMD和其他方法对比</h4><p><img src="https://pic.imgdb.cn/item/61c5a3a52ab3f51d9119e379.jpg" alt="结果对比"></p>
+<h3 id="集成经验模态分解（EEMD）"><a href="#集成经验模态分解（EEMD）" class="headerlink" title="集成经验模态分解（EEMD）"></a>集成经验模态分解（EEMD）</h3><p>为了改善测量的准确性，集成平均是有效的方法（也就是多次测量取平均值）。信号极值点影响<code>IMF</code>,若分布不均匀时会出现<strong>模态混叠</strong>，白噪声的频谱均匀分布，白噪声是的信号会自动分布到合适的参考尺度上。由于零均值噪声的特性，噪音经过多次的平均计算后会相互抵消，这样集成均值的计算结果与原始信号的差值随着集成平均的次数增加而减少</p>
+<h4 id="EEMD的分解"><a href="#EEMD的分解" class="headerlink" title="EEMD的分解"></a>EEMD的分解</h4><ol>
+<li>给原始信号添加白噪声序列</li>
+<li>分解带有白噪声序列的输入信号，得到<code>IMFs</code>（第一次测量得到一系列的<code>IMFs</code>）</li>
+<li>重复第一和第二步，每次添加不同的白噪声序列（执行多次测量）</li>
+<li>获取相关<code>IMFs</code>集成的均值作为最后的结果（理解为多次测量取平均）</li>
+</ol>
+<p>添加的白噪声的两个属性</p>
+<ul>
+<li>添加的白噪声导致所有时间尺度上机制分布的相对均匀分布（The added white noise leads to relatively even distribution of extrema distribution on all timescales）</li>
+<li>通过集成平均，添加的噪声会被移除（噪声的均值为0）</li>
+</ul>
+<h3 id="EMD-python使用"><a href="#EMD-python使用" class="headerlink" title="EMD python使用"></a>EMD python使用</h3><ul>
+<li><p>安装EMD包</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install EMD-signal</span><br></pre></td></tr></table></figure></li>
+<li><p>测试代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Emd</span>(<span class="params">dataset</span>):</span></span><br><span class="line">    values = dataset[<span class="string">&#x27;request&#x27;</span>].tolist()</span><br><span class="line">    S = np.array(values)</span><br><span class="line">    emd = EMD()</span><br><span class="line">    <span class="comment"># emd.emd(S,max_imf=3)</span></span><br><span class="line">    emd.emd(S)</span><br><span class="line">    imfs, res = emd.get_imfs_and_residue()</span><br><span class="line">    <span class="keyword">return</span> imfs, res</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://muyi110.github.io/2019/%E6%B5%85%E8%B0%88%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3-EMD/">浅谈经验模态分解-EMD</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/40005057">这篇文章能让你明白经验模态分解（EMD）——基础理论篇</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>腾讯面经</title>
+    <url>/2021/12/24/%E9%9D%A2%E7%BB%8F-%E8%85%BE%E8%AE%AF/</url>
+    <content><![CDATA[<p><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">腾讯一面</a>：</p>
+<h4 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h4><p>进程间有六种通信方式：</p>
+<ol>
+<li><strong>管道（pipe）及有名管道（named pipe）</strong>：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信</li>
+<li><strong>信号（signal）</strong>：信号是在软件层次上对中断机制的一种模拟，它是比较复杂的通信方式，用于通知进程有某事件发生，一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的</li>
+<li><strong>消息队列（message queue）</strong>：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限的进程可以按照一定的规则向消息队列中添加新信息；对消息队列有读权限的进程可以从消息队列中读取信息</li>
+<li><strong>共享内存（share memory）</strong>：他使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量（也就是一个进行在未完成写操作之前，另一个进程不能读取）</li>
+<li><strong>信号量（semaphore）</strong>：它是一个计数器，信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据（而信号量一般常用于保护一段代码，使其每次只被一个执行线程运行）。对于二值信号量（0-1），信号量大于0时，可以对进程操作，等于0时要等待，知道信号量大于0</li>
+<li><strong>套接字（socket）</strong>：一种更为一般的进程通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛</li>
+</ol>
+<h4 id="僵尸进程和孤儿进程"><a href="#僵尸进程和孤儿进程" class="headerlink" title="僵尸进程和孤儿进程"></a>僵尸进程和孤儿进程</h4><p><strong>僵尸进程：</strong>一个父进程利用fork创建子进程，如果子进程退出，而父进程没有利用wait或wait pid来获取子进程的状态信息，那么子进程的状态描述符依然保存在系统中。</p>
+<p>在Linux进程的状态中，僵尸进程是非常特殊的一种，它已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，仅仅在进程列表中保留一个位置，记在该进程的退出状态等信息，供其他进程收集，除此之外，僵尸进程需要它的父进程来为它收尸，如果他的父进程没有处理这个僵尸进程的措施，那么它就一直保持僵尸状态，如果这时父进程结束了，那么init进程自动会接手这个子进程，为它收尸，他还是能被清除的。但是如果父进程是进入一个循环，不会结束，那么子进程就会一直保持僵尸状态，这就是为什么系统中有时会很多僵尸进程。</p>
+<p><strong>僵尸进程解决</strong></p>
+<ul>
+<li>调用wait函数，进程一旦调用了wait，就立即阻塞自己，由wait自动分析是否当前进程的某个子进程已经退出，如果让它找到了这样一个已经变成僵尸的子进程，wait就会收集这个子进程的信息，并把它彻底销毁后返回；如果没有找到这样一个子进程，wait就会一直阻塞在这里，知道有一个出现为止</li>
+<li>当子进程终止时，内核就会向它的父进程发送一个SIGCHLD信号，当父进程接收到SIGCHLD信号后就应该调用wait或waitpid函数对子进程进行善后处理，释放子进程占用的资源</li>
+</ul>
+<p><strong>孤儿进程：</strong>一个父进程退出，而它的一个或几个子进程仍然还在运行，那么这些子进程就会变成孤儿进程，孤儿进程将被init进程（进程号为1）所收养，并有init进程对它们完成状态收集的工作</p>
+<p>子进程死亡需要父进程来处理，那么意味着正常的进程应该是子进程先于父进程死亡。当父进程先于子进程死亡时，子进程死亡时没父进程处理，这个死亡的子进程就是孤儿进程。但孤儿进程与僵尸进程不同的是，由于父进程已经死亡，系统会帮助父进程回收处理孤儿进程。所以孤儿进程实际上是不占用资源的，因为它终究是被系统回收了。不会向僵尸进程那样占用ID，损害运行系统。</p>
+<h4 id="TCP为啥需要三次握手"><a href="#TCP为啥需要三次握手" class="headerlink" title="TCP为啥需要三次握手"></a>TCP为啥需要三次握手</h4><h5 id="三次握手原理"><a href="#三次握手原理" class="headerlink" title="三次握手原理"></a>三次握手原理</h5><p><img src="https://pic.imgdb.cn/item/61c5a2a82ab3f51d91197b15.jpg" alt="这里写图片描述"></p>
+<ol>
+<li><p>上图的名词解释</p>
+<ul>
+<li>SYN：同步序号。<strong>它表示建立连接</strong>。TCP规定SYN=1时不能携带数据，但要消耗一个序号，因此随机选取一个序列号为seq=x数据包（该数据包里就是一个标记seq，并没有任何有效的数据）</li>
+<li>ACK：确认序号。<strong>它表示响应</strong>（都能响应了 那肯定上一步就连接成功了啊，所以说ACK=1代表确认连接成功啦）</li>
+</ul>
+<p>因此<strong>SYN和ACK同时为1，表示建立连接之后的响应</strong>；而只是<strong>单个的SYN=1，表示的只是建立连接。</strong></p>
+<ul>
+<li>seq：（sequence number）序列号。他是发送端数据包的初始序列号。<strong>seq=x表示发送端数据包的初始序号为x</strong>（seq=0就代表这是第0号帧）</li>
+<li>ack：（acknowledge number）确认号。它是对这次收到数据包的确认，以及对下次收到数据包的期待。<strong>ack=x+1表示我方到x位置的所有数据都已正确收到，且我方告知对方：我期待你下次给我发送包的初始序号（seq）是x+1。</strong></li>
+</ul>
+<p>为了方便记忆，可以这么理解：SYN/ACK是TCP协议层面的标记，而seq/ack是数据层面的标记。</p>
+</li>
+</ol>
+<h5 id="TCP三次握手过程："><a href="#TCP三次握手过程：" class="headerlink" title="TCP三次握手过程："></a><strong>TCP三次握手过程：</strong></h5><ol>
+<li><strong>首先Client向Server发送连接：SYN=1，seq=x；</strong><ul>
+<li><strong>因为</strong>要<strong>建立连接，所以SYN=1</strong>；又<strong>因为</strong>TCP规定SYN=1时不能携带数据，但要消耗一个序号，<strong>所以</strong>Client随机选取一个<strong>初始序号seq=x</strong>。（因为并没有相应动作，所以这里没ACK什么事，我们就认为ACK=0吧）</li>
+<li>发送后Client进入syn_sent状态，表示客户端等待服务器的回复</li>
+</ul>
+</li>
+<li><strong>Server收到请求后 再向Client发送确认：SYN=1，ACK=1，seq=y，ack=x+1；</strong><ul>
+<li>因为Server建立连接后做出了相应，所以SYN=1，ACK=1.因为TCP规定SYN=1时不能携带数据，但要消耗一个序号，所以Server随机选取一个初始序号seq=y。又因为Server到x为止的所有数据都已正确收到了，且Server告诉Client：我期待你下次给我发送包的初始序号（seq）是x+1，所以ack=x+1。</li>
+<li>发送后服务器进入syn_rcvd，表示服务器已经收到Client的连接请求，等待Client的确认。</li>
+</ul>
+</li>
+<li><strong>Client收到确认后还需再次发送确认，同时携带要发送给Server的数据：ACK=1，seq=x+1,ack=y+1;连接建立</strong><ul>
+<li><strong>因为</strong>有响应动作，<strong>所以ACK=1</strong>（因为要携带发送的数据，所以这没SYN什么事）。<strong>因为2中s</strong>erver已经告诉了这次它想收到包的初始序列号是x+1，<strong>所以初始序号为seq=x+1</strong>。<strong>又因为</strong>Client到y为止的所有数据都已正确收到了，准备接收序列号为y+1的包，<strong>所以ack=y+1</strong></li>
+<li>server收到后，这个TCP连接就进入到Established状态，就可以发起http请求了。</li>
+</ul>
+</li>
+</ol>
+<p><strong>形象些：</strong></p>
+<ul>
+<li><p>第一次握手，由浏览器发起，告诉服务器我要发送请求了</p>
+</li>
+<li><p>第二次握手，由服务器发起，告诉浏览器我准备接收了，你赶紧发送吧</p>
+</li>
+<li><p>第三次握手，由浏览器发送，告诉服务器，我马上发了，准备接收吧</p>
+<h5 id="为什么需要三次握手，两次不行吗？"><a href="#为什么需要三次握手，两次不行吗？" class="headerlink" title="为什么需要三次握手，两次不行吗？"></a>为什么需要三次握手，两次不行吗？</h5><p>其实这是由TCP的自身特点可靠传输决定的。客户端和服务端要进行可靠传输，那么就需要确认<code>双方</code>的<code>接收和发送能力</code>,不然容易出现丢包的现象</p>
+</li>
+</ul>
+<ul>
+<li>第一次握手: 服务端 可以确认<code>客服端</code>具有发送能力</li>
+<li>第二次握手: 客服端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
+<li>第三次握手: 服务端 可以确认<code>客户端</code>具有接收能力</li>
+</ul>
+<h5 id="为什么不能改成两次握手？"><a href="#为什么不能改成两次握手？" class="headerlink" title="为什么不能改成两次握手？"></a>为什么不能改成两次握手？</h5><p>如果两次握手，则会出现下面这种情况：</p>
+<p>如客户端发出连接请求，但因连接请求报文丢失而未收到确认，于是客户端再重传一次连接请求。后来收到了确认，建立了连接。数据传输完毕后，就释放了连接，客户端共发出了两个连接请求报文段，其中第一个丢失，第二个到达了服务端，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达服务端，此时服务端误认为客户端又发出一次新的连接请求，于是就向客户端发出确认报文段，同意建立连接，不采用三次握手，只要服务端发出确认，就建立新的连接了，此时客户端忽略服务端发来的确认，也不发送数据，则服务端一直等待客户端发送数据，浪费资源。</p>
+<h5 id="三次握手过程中可以携带数据吗？"><a href="#三次握手过程中可以携带数据吗？" class="headerlink" title="三次握手过程中可以携带数据吗？"></a>三次握手过程中可以携带数据吗？</h5><p>其实第三次握手的时候,是可以携带数据的.但是,第一次,第二次握手不可以携带数据.</p>
+<p>为什么这样呢?假如第一次握手可以携带数据的话,如果有人要恶意攻击服务器,那他每次都在第一次握手中的<code>SYN</code>报文中放入大量的数据.因为攻击者根本就不理服务器的接收 发送能力是否正常,然后疯狂重复发<code>SYN</code>报文的话,这会让服务器话费很多时间 内存空间来接收这些报文.</p>
+<p>也就是说,第一次握手不可以放数据,其中一个简单的原因就是会让服务器更加容易受到攻击了.而对于第三次的话,此时客户端已经处于<code>ESTAB-LISHED</code>状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据也没啥毛病。</p>
+<h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><h5 id="static-assert"><a href="#static-assert" class="headerlink" title="static_assert"></a>static_assert</h5><p>static_assert这个关键字，用来做编译期间的断言，因此叫做静态断言。</p>
+<p>语法：static_assert(常量表达式，提示字符串)——如果第一个参数常量表达式的值为真（true或者非零值），那么static_assert不做任何事情，就像它不存在一样，否则会产生一条编译错误，错误位置就是该static_assert语句所在行，错误提示就是第二个参数提示字符串。</p>
+<p>编译器在遇到一个static_assert语句时，通常立刻将其第一个参数作为常量表达式进行演算，但如果该常量表达式依赖于某些模板参数，则延迟到模板实例化时再进行演算，这就让检查模板参数成为了可能。</p>
+<p>static_assert的断言表达式的结果必须是在编译时期可以计算的表达式，即必须是常量表达式。如果使用变量，则会导致错误</p>
+<h5 id="write和fwrite"><a href="#write和fwrite" class="headerlink" title="write和fwrite"></a>write和fwrite</h5><p>fwrite：带缓冲区；write：不带缓冲区</p>
+<h5 id="程序中1-0是在编译期出错还是在运行的时候出错"><a href="#程序中1-0是在编译期出错还是在运行的时候出错" class="headerlink" title="程序中1/0是在编译期出错还是在运行的时候出错"></a>程序中1/0是在编译期出错还是在运行的时候出错</h5><p>在linux系统中gcc编译期测试：编译可以通过，运行时报错</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/</a></li>
+<li><a href="https://blog.csdn.net/lengxiao1993/article/details/82771768">https://blog.csdn.net/lengxiao1993/article/details/82771768</a></li>
+<li><a href="https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md">https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1450,202 +1646,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经验模态分解</title>
-    <url>/2021/12/24/%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%EF%BC%88EMD%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="经验模态分解"><a href="#经验模态分解" class="headerlink" title="经验模态分解"></a>经验模态分解</h3><p>经验模态分解(Empirical Mode Decomposition, EMD)是依据数据自身的时间尺度特征来进行信号分解，无需预先设定任何基函数，是一种时频域信号处理方式。<code>EMD</code>在处理非平稳及非线性数据上具有明显的优势，<strong>适合分析非线性非平稳的信号序列</strong>，具有较高的信噪比。<br><strong>平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间不发生变化<br><strong>非平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间发生变化</p>
-<p>该方法的关键是经验模式分解，使负载信号分解为有限个本征信号（Intrinsic Mode Function, IMF），分解出来的各个<code>IMF</code>分量包含了原信号的不同时间尺度的局部特征信息。通俗理解就是，<code>EMD</code>是一台机器，将一对混杂的硬币投进去，其会自动按照1元、5毛、1毛、5分、1分分好。</p>
-<h4 id="EMD原理"><a href="#EMD原理" class="headerlink" title="EMD原理"></a>EMD原理</h4><p>在物理上，如果瞬时频率有意义，那么函数必须是对称的，局部均值为零，并且具有相同的过零点和极值点数目。任何信号都是由若干本征模函数组成，一个<strong>本征模函数必须满足以下两个条件：</strong></p>
-<ul>
-<li>函数在整个时间范围内，局部极值点和过零点的数目必须相等或最多相差一个</li>
-<li>在任意时刻点，局部最大值的包络（上包络线）和局部最小值的包络（下包络线）平均必须为零，即上下包络线相对于时间轴局部对称</li>
-</ul>
-<p>画图解释：</p>
-<ol>
-<li><p>图线要反复跨越x轴</p>
-<p><img src="https://pic.imgdb.cn/item/61c5a3092ab3f51d91199fb3.jpg" alt="img"></p>
-<center>在整个数据段内，极值点的个数和过零点的个数必须相等或相差最多不能超过一个</center>
-
-<p>而不能像这样某次穿过零点后出现多个极点：</p>
-<p><img src="https://pic.imgdb.cn/item/61c5a32f2ab3f51d9119b2fe.jpg" alt="img"></p>
-</li>
-</ol>
-<center>极点数目偏多</center>
-
-<ol start="2">
-<li><p>包络线要对称：</p>
-<p><img src="https://pic.imgdb.cn/item/61c5a34e2ab3f51d9119c0a4.jpg" alt="img"></p>
-<center>包络线对称</center>
-
-<p>而不能像这样：</p>
-<p><img src="https://pic.imgdb.cn/item/61c5a36e2ab3f51d9119cad7.jpg" alt="img"></p>
-<center>包络线不对称</center></li>
-</ol>
-<p>对于上述第二条说明：他把经典的全局性要求修改为局部性要求，使瞬时频率不再受不对称波形所形成的不必要的波动所影响，实际上，这个条件应为“数据的局部均值是零”。但是对于非平稳数据来说，计算局部均值涉及到“局部时间尺度”的概念，而这是很难定义的，因此，在第二个条件中使用了局部极大值和局部极小值包络的平均为零来代替，是信号的波形局部对称。</p>
-<p><code>EMD</code>将输入信号分解为几个本征模函数和一个残差组成，即由下列公式组成：</p>
-<p>$$<br>I ( n ) = \sum _ { m = 1 } ^ { M } \operatorname { I M F _ { m } ( n ) + \operatorname { Res } _{m} ( n ) }<br>$$<br>其中<em>I</em>(n)表示输入信号，IMF<sub>m</sub>表示M<sup>th</sup>的本征模函数，Res<sub>M</sub>(n)表示残差</p>
-<h4 id="EMD分解过程"><a href="#EMD分解过程" class="headerlink" title="EMD分解过程"></a>EMD分解过程</h4><p>提取<code>IMF</code>的过程称为筛选，筛选的过程如下：</p>
-<p><img src="https://pic.imgdb.cn/item/61c5a38a2ab3f51d9119d5b7.jpg" alt="emd分解"></p>
-<ol>
-<li>标出局部极值点</li>
-<li>通过<strong>三次样条插值</strong>（cubic spline line）连接极大值点构成上包络线（upper envelope）,连接极小值点构成下包络线（lower envelope）</li>
-<li>求上下包络线的均值m<sub>1</sub></li>
-<li>用输入信号减去上下包络线均值</li>
-</ol>
-<p>$$<br>X ( t ) - m _ { 1 } = h _ { 1 }<br>$$</p>
-<p>​        上述过程的一次迭代不能保证h1是本征模函数（<code>IMF</code>），需要重复上述过程，直到h<sub>1</sub>是本征模函数（<code>IMF</code>）</p>
-<h4 id="停机准则"><a href="#停机准则" class="headerlink" title="停机准则"></a>停机准则</h4><p>停机准则决定了一个本征模函数（<code>IMF</code>）筛选过程执行的数目，有如下停机准则</p>
-<ul>
-<li><p>标准偏差（Standard Deviation, SD）<br>$$<br>S D _ { k } = \sum _ { t = 0 } ^ { T } \frac { | h _ { k - 1 } ( t ) - h _ { k } ( t ) |  ^ { 2 } } { h _ { k - 1 } ^ { 2 } (t)}<br>$$<br>当SD的值小于给定的阈值时，筛选过程停止</p>
-</li>
-<li><p>S Number准则</p>
-<p>定义为过零点和极值点相等或者至多差为1的连续筛选数目。一个S-Number被提前设置，只有当S次连续筛选后，每一次过零点和极值点保持相同（相等或者至多差1），筛选过程才停止</p>
-</li>
-<li><p>阈值方法</p>
-<p>阈值方法设置两个阈值，确保全局小的扰动同时考虑局部大的偏移</p>
-</li>
-</ul>
-<p>选择停机准则后，第一个<code>IMF</code>（c<sub>1</sub>）可以获得，c<sub>1</sub>为包含输入信号最大频率的成分（component）,之后分离c<sub>1</sub><br>$$<br>X ( t ) - c _ { 1 } = r _ { 1 }<br>$$<br>利用r<sub>1</sub>作为输入，获得其他的本征模函数</p>
-<h4 id="EMD限制（Limitations）"><a href="#EMD限制（Limitations）" class="headerlink" title="EMD限制（Limitations）"></a>EMD限制（Limitations）</h4><p><code>EMD</code>的主要缺点有如下</p>
-<ul>
-<li><p>末端效应</p>
-<p>末端效应发生在信号的开始和结尾，因为在信号开始之前和结尾之后没有样本点被考虑。大多数情况下，末端点并不是信号的极值，但是在执行<code>EMD</code>的过程中，极值包络线会在末端点发散（diverge），导致错误，进而扭曲了<code>IMF</code>在末端点的波形，而且这种错误在<code>EMD</code>分解过程中会累积</p>
-</li>
-<li><p>模态混叠问题</p>
-<p>模态混叠问题发上在<code>EMD</code>的执行过程中。出现下列情况之一就称为模态混合</p>
-<ul>
-<li>在同一个<code>IMF</code>分量中，存在尺度分布范围很宽却又各不相同的信号</li>
-<li>在不同的<code>IMF</code>分量中，存在着尺度相近的信号</li>
-</ul>
-<p>模态混叠问题使得特征提取、模型训练、模式识别变得困难，<code>IMF</code>失去了单一特征尺度的特征。<strong>集成经验模态分解(Ensemble empirical mode decomposition, EEMD)被提出用来解决模态混叠问题</strong></p>
-</li>
-</ul>
-<h4 id="EMD和其他方法对比"><a href="#EMD和其他方法对比" class="headerlink" title="EMD和其他方法对比"></a>EMD和其他方法对比</h4><p><img src="https://pic.imgdb.cn/item/61c5a3a52ab3f51d9119e379.jpg" alt="结果对比"></p>
-<h3 id="集成经验模态分解（EEMD）"><a href="#集成经验模态分解（EEMD）" class="headerlink" title="集成经验模态分解（EEMD）"></a>集成经验模态分解（EEMD）</h3><p>为了改善测量的准确性，集成平均是有效的方法（也就是多次测量取平均值）。信号极值点影响<code>IMF</code>,若分布不均匀时会出现<strong>模态混叠</strong>，白噪声的频谱均匀分布，白噪声是的信号会自动分布到合适的参考尺度上。由于零均值噪声的特性，噪音经过多次的平均计算后会相互抵消，这样集成均值的计算结果与原始信号的差值随着集成平均的次数增加而减少</p>
-<h4 id="EEMD的分解"><a href="#EEMD的分解" class="headerlink" title="EEMD的分解"></a>EEMD的分解</h4><ol>
-<li>给原始信号添加白噪声序列</li>
-<li>分解带有白噪声序列的输入信号，得到<code>IMFs</code>（第一次测量得到一系列的<code>IMFs</code>）</li>
-<li>重复第一和第二步，每次添加不同的白噪声序列（执行多次测量）</li>
-<li>获取相关<code>IMFs</code>集成的均值作为最后的结果（理解为多次测量取平均）</li>
-</ol>
-<p>添加的白噪声的两个属性</p>
-<ul>
-<li>添加的白噪声导致所有时间尺度上机制分布的相对均匀分布（The added white noise leads to relatively even distribution of extrema distribution on all timescales）</li>
-<li>通过集成平均，添加的噪声会被移除（噪声的均值为0）</li>
-</ul>
-<h3 id="EMD-python使用"><a href="#EMD-python使用" class="headerlink" title="EMD python使用"></a>EMD python使用</h3><ul>
-<li><p>安装EMD包</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install EMD-signal</span><br></pre></td></tr></table></figure></li>
-<li><p>测试代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Emd</span>(<span class="params">dataset</span>):</span></span><br><span class="line">    values = dataset[<span class="string">&#x27;request&#x27;</span>].tolist()</span><br><span class="line">    S = np.array(values)</span><br><span class="line">    emd = EMD()</span><br><span class="line">    <span class="comment"># emd.emd(S,max_imf=3)</span></span><br><span class="line">    emd.emd(S)</span><br><span class="line">    imfs, res = emd.get_imfs_and_residue()</span><br><span class="line">    <span class="keyword">return</span> imfs, res</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="https://muyi110.github.io/2019/%E6%B5%85%E8%B0%88%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3-EMD/">浅谈经验模态分解-EMD</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/40005057">这篇文章能让你明白经验模态分解（EMD）——基础理论篇</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>信号处理</category>
-      </categories>
-      <tags>
-        <tag>信号处理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>腾讯面经</title>
-    <url>/2021/12/24/%E9%9D%A2%E7%BB%8F-%E8%85%BE%E8%AE%AF/</url>
-    <content><![CDATA[<p><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">腾讯一面</a>：</p>
-<h4 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h4><p>进程间有六种通信方式：</p>
-<ol>
-<li><strong>管道（pipe）及有名管道（named pipe）</strong>：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信</li>
-<li><strong>信号（signal）</strong>：信号是在软件层次上对中断机制的一种模拟，它是比较复杂的通信方式，用于通知进程有某事件发生，一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的</li>
-<li><strong>消息队列（message queue）</strong>：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限的进程可以按照一定的规则向消息队列中添加新信息；对消息队列有读权限的进程可以从消息队列中读取信息</li>
-<li><strong>共享内存（share memory）</strong>：他使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量（也就是一个进行在未完成写操作之前，另一个进程不能读取）</li>
-<li><strong>信号量（semaphore）</strong>：它是一个计数器，信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据（而信号量一般常用于保护一段代码，使其每次只被一个执行线程运行）。对于二值信号量（0-1），信号量大于0时，可以对进程操作，等于0时要等待，知道信号量大于0</li>
-<li><strong>套接字（socket）</strong>：一种更为一般的进程通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛</li>
-</ol>
-<h4 id="僵尸进程和孤儿进程"><a href="#僵尸进程和孤儿进程" class="headerlink" title="僵尸进程和孤儿进程"></a>僵尸进程和孤儿进程</h4><p><strong>僵尸进程：</strong>一个父进程利用fork创建子进程，如果子进程退出，而父进程没有利用wait或wait pid来获取子进程的状态信息，那么子进程的状态描述符依然保存在系统中。</p>
-<p>在Linux进程的状态中，僵尸进程是非常特殊的一种，它已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，仅仅在进程列表中保留一个位置，记在该进程的退出状态等信息，供其他进程收集，除此之外，僵尸进程需要它的父进程来为它收尸，如果他的父进程没有处理这个僵尸进程的措施，那么它就一直保持僵尸状态，如果这时父进程结束了，那么init进程自动会接手这个子进程，为它收尸，他还是能被清除的。但是如果父进程是进入一个循环，不会结束，那么子进程就会一直保持僵尸状态，这就是为什么系统中有时会很多僵尸进程。</p>
-<p><strong>僵尸进程解决</strong></p>
-<ul>
-<li>调用wait函数，进程一旦调用了wait，就立即阻塞自己，由wait自动分析是否当前进程的某个子进程已经退出，如果让它找到了这样一个已经变成僵尸的子进程，wait就会收集这个子进程的信息，并把它彻底销毁后返回；如果没有找到这样一个子进程，wait就会一直阻塞在这里，知道有一个出现为止</li>
-<li>当子进程终止时，内核就会向它的父进程发送一个SIGCHLD信号，当父进程接收到SIGCHLD信号后就应该调用wait或waitpid函数对子进程进行善后处理，释放子进程占用的资源</li>
-</ul>
-<p><strong>孤儿进程：</strong>一个父进程退出，而它的一个或几个子进程仍然还在运行，那么这些子进程就会变成孤儿进程，孤儿进程将被init进程（进程号为1）所收养，并有init进程对它们完成状态收集的工作</p>
-<p>子进程死亡需要父进程来处理，那么意味着正常的进程应该是子进程先于父进程死亡。当父进程先于子进程死亡时，子进程死亡时没父进程处理，这个死亡的子进程就是孤儿进程。但孤儿进程与僵尸进程不同的是，由于父进程已经死亡，系统会帮助父进程回收处理孤儿进程。所以孤儿进程实际上是不占用资源的，因为它终究是被系统回收了。不会向僵尸进程那样占用ID，损害运行系统。</p>
-<h4 id="TCP为啥需要三次握手"><a href="#TCP为啥需要三次握手" class="headerlink" title="TCP为啥需要三次握手"></a>TCP为啥需要三次握手</h4><h5 id="三次握手原理"><a href="#三次握手原理" class="headerlink" title="三次握手原理"></a>三次握手原理</h5><p><img src="https://pic.imgdb.cn/item/61c5a2a82ab3f51d91197b15.jpg" alt="这里写图片描述"></p>
-<ol>
-<li><p>上图的名词解释</p>
-<ul>
-<li>SYN：同步序号。<strong>它表示建立连接</strong>。TCP规定SYN=1时不能携带数据，但要消耗一个序号，因此随机选取一个序列号为seq=x数据包（该数据包里就是一个标记seq，并没有任何有效的数据）</li>
-<li>ACK：确认序号。<strong>它表示响应</strong>（都能响应了 那肯定上一步就连接成功了啊，所以说ACK=1代表确认连接成功啦）</li>
-</ul>
-<p>因此<strong>SYN和ACK同时为1，表示建立连接之后的响应</strong>；而只是<strong>单个的SYN=1，表示的只是建立连接。</strong></p>
-<ul>
-<li>seq：（sequence number）序列号。他是发送端数据包的初始序列号。<strong>seq=x表示发送端数据包的初始序号为x</strong>（seq=0就代表这是第0号帧）</li>
-<li>ack：（acknowledge number）确认号。它是对这次收到数据包的确认，以及对下次收到数据包的期待。<strong>ack=x+1表示我方到x位置的所有数据都已正确收到，且我方告知对方：我期待你下次给我发送包的初始序号（seq）是x+1。</strong></li>
-</ul>
-<p>为了方便记忆，可以这么理解：SYN/ACK是TCP协议层面的标记，而seq/ack是数据层面的标记。</p>
-</li>
-</ol>
-<h5 id="TCP三次握手过程："><a href="#TCP三次握手过程：" class="headerlink" title="TCP三次握手过程："></a><strong>TCP三次握手过程：</strong></h5><ol>
-<li><strong>首先Client向Server发送连接：SYN=1，seq=x；</strong><ul>
-<li><strong>因为</strong>要<strong>建立连接，所以SYN=1</strong>；又<strong>因为</strong>TCP规定SYN=1时不能携带数据，但要消耗一个序号，<strong>所以</strong>Client随机选取一个<strong>初始序号seq=x</strong>。（因为并没有相应动作，所以这里没ACK什么事，我们就认为ACK=0吧）</li>
-<li>发送后Client进入syn_sent状态，表示客户端等待服务器的回复</li>
-</ul>
-</li>
-<li><strong>Server收到请求后 再向Client发送确认：SYN=1，ACK=1，seq=y，ack=x+1；</strong><ul>
-<li>因为Server建立连接后做出了相应，所以SYN=1，ACK=1.因为TCP规定SYN=1时不能携带数据，但要消耗一个序号，所以Server随机选取一个初始序号seq=y。又因为Server到x为止的所有数据都已正确收到了，且Server告诉Client：我期待你下次给我发送包的初始序号（seq）是x+1，所以ack=x+1。</li>
-<li>发送后服务器进入syn_rcvd，表示服务器已经收到Client的连接请求，等待Client的确认。</li>
-</ul>
-</li>
-<li><strong>Client收到确认后还需再次发送确认，同时携带要发送给Server的数据：ACK=1，seq=x+1,ack=y+1;连接建立</strong><ul>
-<li><strong>因为</strong>有响应动作，<strong>所以ACK=1</strong>（因为要携带发送的数据，所以这没SYN什么事）。<strong>因为2中s</strong>erver已经告诉了这次它想收到包的初始序列号是x+1，<strong>所以初始序号为seq=x+1</strong>。<strong>又因为</strong>Client到y为止的所有数据都已正确收到了，准备接收序列号为y+1的包，<strong>所以ack=y+1</strong></li>
-<li>server收到后，这个TCP连接就进入到Established状态，就可以发起http请求了。</li>
-</ul>
-</li>
-</ol>
-<p><strong>形象些：</strong></p>
-<ul>
-<li><p>第一次握手，由浏览器发起，告诉服务器我要发送请求了</p>
-</li>
-<li><p>第二次握手，由服务器发起，告诉浏览器我准备接收了，你赶紧发送吧</p>
-</li>
-<li><p>第三次握手，由浏览器发送，告诉服务器，我马上发了，准备接收吧</p>
-<h5 id="为什么需要三次握手，两次不行吗？"><a href="#为什么需要三次握手，两次不行吗？" class="headerlink" title="为什么需要三次握手，两次不行吗？"></a>为什么需要三次握手，两次不行吗？</h5><p>其实这是由TCP的自身特点可靠传输决定的。客户端和服务端要进行可靠传输，那么就需要确认<code>双方</code>的<code>接收和发送能力</code>,不然容易出现丢包的现象</p>
-</li>
-</ul>
-<ul>
-<li>第一次握手: 服务端 可以确认<code>客服端</code>具有发送能力</li>
-<li>第二次握手: 客服端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
-<li>第三次握手: 服务端 可以确认<code>客户端</code>具有接收能力</li>
-</ul>
-<h5 id="为什么不能改成两次握手？"><a href="#为什么不能改成两次握手？" class="headerlink" title="为什么不能改成两次握手？"></a>为什么不能改成两次握手？</h5><p>如果两次握手，则会出现下面这种情况：</p>
-<p>如客户端发出连接请求，但因连接请求报文丢失而未收到确认，于是客户端再重传一次连接请求。后来收到了确认，建立了连接。数据传输完毕后，就释放了连接，客户端共发出了两个连接请求报文段，其中第一个丢失，第二个到达了服务端，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达服务端，此时服务端误认为客户端又发出一次新的连接请求，于是就向客户端发出确认报文段，同意建立连接，不采用三次握手，只要服务端发出确认，就建立新的连接了，此时客户端忽略服务端发来的确认，也不发送数据，则服务端一直等待客户端发送数据，浪费资源。</p>
-<h5 id="三次握手过程中可以携带数据吗？"><a href="#三次握手过程中可以携带数据吗？" class="headerlink" title="三次握手过程中可以携带数据吗？"></a>三次握手过程中可以携带数据吗？</h5><p>其实第三次握手的时候,是可以携带数据的.但是,第一次,第二次握手不可以携带数据.</p>
-<p>为什么这样呢?假如第一次握手可以携带数据的话,如果有人要恶意攻击服务器,那他每次都在第一次握手中的<code>SYN</code>报文中放入大量的数据.因为攻击者根本就不理服务器的接收 发送能力是否正常,然后疯狂重复发<code>SYN</code>报文的话,这会让服务器话费很多时间 内存空间来接收这些报文.</p>
-<p>也就是说,第一次握手不可以放数据,其中一个简单的原因就是会让服务器更加容易受到攻击了.而对于第三次的话,此时客户端已经处于<code>ESTAB-LISHED</code>状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据也没啥毛病。</p>
-<h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><h5 id="static-assert"><a href="#static-assert" class="headerlink" title="static_assert"></a>static_assert</h5><p>static_assert这个关键字，用来做编译期间的断言，因此叫做静态断言。</p>
-<p>语法：static_assert(常量表达式，提示字符串)——如果第一个参数常量表达式的值为真（true或者非零值），那么static_assert不做任何事情，就像它不存在一样，否则会产生一条编译错误，错误位置就是该static_assert语句所在行，错误提示就是第二个参数提示字符串。</p>
-<p>编译器在遇到一个static_assert语句时，通常立刻将其第一个参数作为常量表达式进行演算，但如果该常量表达式依赖于某些模板参数，则延迟到模板实例化时再进行演算，这就让检查模板参数成为了可能。</p>
-<p>static_assert的断言表达式的结果必须是在编译时期可以计算的表达式，即必须是常量表达式。如果使用变量，则会导致错误</p>
-<h5 id="write和fwrite"><a href="#write和fwrite" class="headerlink" title="write和fwrite"></a>write和fwrite</h5><p>fwrite：带缓冲区；write：不带缓冲区</p>
-<h5 id="程序中1-0是在编译期出错还是在运行的时候出错"><a href="#程序中1-0是在编译期出错还是在运行的时候出错" class="headerlink" title="程序中1/0是在编译期出错还是在运行的时候出错"></a>程序中1/0是在编译期出错还是在运行的时候出错</h5><p>在linux系统中gcc编译期测试：编译可以通过，运行时报错</p>
-<p>参考：</p>
-<ul>
-<li><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/</a></li>
-<li><a href="https://blog.csdn.net/lengxiao1993/article/details/82771768">https://blog.csdn.net/lengxiao1993/article/details/82771768</a></li>
-<li><a href="https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md">https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
       </tags>
   </entry>
 </search>
