@@ -66,6 +66,30 @@
   </entry>
   
   <entry>
+    <title>Savitzky-Golay 滤波器</title>
+    <link href="https://sssuper-bear.github.io/2021/12/24/Savitzky-Golay%20%E6%BB%A4%E6%B3%A2%E5%99%A8/"/>
+    <id>https://sssuper-bear.github.io/2021/12/24/Savitzky-Golay%20%E6%BB%A4%E6%B3%A2%E5%99%A8/</id>
+    <published>2021-12-23T16:00:00.000Z</published>
+    <updated>2021-12-24T12:11:11.533Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Savitzky-Golay-滤波器"><a href="#Savitzky-Golay-滤波器" class="headerlink" title="Savitzky-Golay 滤波器"></a>Savitzky-Golay 滤波器</h4><p>Savitzky-Golay平滑滤波是光谱预处理中常用滤波方法，它的<strong>核心思想是对一定长度窗口内的数据点进行k阶多项式拟合，从而得到拟合后的结果</strong>。对他进行离散化处理后，<strong>S-G滤波其实是一种移动窗口的加权平均算法，</strong>但是其加权系数不是简单的窗口函数，而是通过在滑动窗口内对定高阶多项式的最小二乘拟合得出。</p><p>Savitzky-Golay平滑滤波被广泛地运用于数据流平滑除噪，是一种在时域内基于局域多项式最小二乘法拟合的滤波方法。<strong>这种滤波器最大的特点在于在滤除噪声的同时可以确保信号的形状、宽度不变。</strong></p><p>使用平滑滤波器对信号滤波时，<strong>实际上是拟合了信号中的低频成分，而将高频成分平滑出去了</strong>。如果噪声在高频端，那么滤波的结果就是去除了噪声，反之，若噪声在低频段，那么滤波的结果就是留下了噪声。</p><p>总之，平滑滤波是光谱分析中常用的预处理方法之一。用Savitzky-Golay方法进行平滑滤波，可以提高光谱的平滑性，并降低噪音的干扰。S-G平滑滤波的效果，随着选取窗宽不同而不同，可以满足多种不同场合的要求。</p><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><ul><li><p>测试代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">y_smooth = scipy.signal.savgol_filter(y,5,3)  </span><br><span class="line"></span><br><span class="line"># 备注：</span><br><span class="line">y：代表曲线点坐标（x,y）中的y值数组</span><br><span class="line">window_length：窗口长度，该值需为正奇整数。例如：此处取值53</span><br><span class="line">k值：polyorder为对窗口内的数据点进行k阶多项式拟合，k的值需要小于window_length。例如：此处取值3</span><br><span class="line">mode：确定了要应用滤波器的填充信号的扩展类型。（This determines the type of extension to use for the padded signal to which t</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>window_length和K这两个值对曲线的影响。</p><ul><li>window_length对曲线的平滑作用：window_length的值越小，曲线月贴近真实曲线，window_length值越大，平滑效果越厉害（该值必须为正奇整数）</li><li>k值对曲线的平滑作用：k值越大，曲线越贴近真实曲线；k值越小，曲线平滑越厉害。另外，当k值较大时，受窗口长度限制，拟合会出现问题，高频曲线会变成直线。</li></ul></li></ul><h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><ul><li><a href="https://www.cnblogs.com/manuowen-123/p/14967367.html">https://www.cnblogs.com/manuowen-123/p/14967367.html</a></li><li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;Savitzky-Golay-滤波器&quot;&gt;&lt;a href=&quot;#Savitzky-Golay-滤波器&quot; class=&quot;headerlink&quot; title=&quot;Savitzky-Golay 滤波器&quot;&gt;&lt;/a&gt;Savitzky-Golay 滤波器&lt;/h4&gt;&lt;p&gt;Savitz</summary>
+      
+    
+    
+    
+    <category term="信号处理" scheme="https://sssuper-bear.github.io/categories/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="信号处理" scheme="https://sssuper-bear.github.io/tags/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库常用指令</title>
     <link href="https://sssuper-bear.github.io/2021/07/22/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
     <id>https://sssuper-bear.github.io/2021/07/22/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
