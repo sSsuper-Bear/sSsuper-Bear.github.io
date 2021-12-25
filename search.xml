@@ -1101,7 +1101,7 @@
 <li><p>测试代码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Emd</span>(<span class="params">dataset</span>):</span></span><br><span class="line">    values = dataset[<span class="string">&#x27;request&#x27;</span>].tolist()</span><br><span class="line">    S = np.array(values)</span><br><span class="line">    emd = EMD()</span><br><span class="line">    <span class="comment"># emd.emd(S,max_imf=3)</span></span><br><span class="line">    emd.emd(S)</span><br><span class="line">    imfs, res = emd.get_imfs_and_residue()</span><br><span class="line">    <span class="keyword">return</span> imfs, res</span><br></pre></td></tr></table></figure></li>
 </ul>
-<iframe src="//player.bilibili.com/player.html?aid=252323893&bvid=BV1WY411W7uj&cid=460097777&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://www.bilibili.com/video/BV1WY411W7uj?share_source=copy_web" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
