@@ -220,9 +220,8 @@
 <li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
 </li>
 </ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+</div>
 
 
 
@@ -384,60 +383,10 @@
       </tags>
   </entry>
   <entry>
-    <title>后期PS处理调色思路</title>
-    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
-<li>基础调整<ul>
-<li>白平衡<ul>
-<li>色温：控制照片冷暖感觉的工具</li>
-<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
-</ul>
-</li>
-<li>曝光：调节照片的明暗</li>
-<li>高光：压低高光，可以找回高光区的细节</li>
-<li>白色：压低白色，找回照片中白色的细节</li>
-<li>阴影：控制照片中偏暗的部分</li>
-<li>黑色：控制照片中黑色看不到细节的部分</li>
-</ul>
-</li>
-<li>HSL调整<ul>
-<li>色相：色彩的相貌<ul>
-<li>把某个颜色定义成自己拖动到的颜色</li>
-</ul>
-</li>
-<li>饱和度：颜色的纯度<ul>
-<li>数字越大说明纯度越高</li>
-</ul>
-</li>
-<li>明亮度：颜色的明暗程度<ul>
-<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
-</ul>
-</li>
-<li>如何使用？<ul>
-<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
-<li>降低橙色饱和度，使其皮肤通透点</li>
-<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+</div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
@@ -523,6 +472,47 @@
 <li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机色彩参数</title>
+    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
+<li><p>白平衡</p>
+<ul>
+<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
+</li>
+<li><p>几种白平衡模式</p>
+<ul>
+<li><p>自动（AWB）</p>
+</li>
+<li><p>日光</p>
+</li>
+<li><p>阴影</p>
+<ul>
+<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
+</ul>
+</li>
+<li><p>阴天</p>
+</li>
+<li><p>钨丝灯</p>
+</li>
+<li><p>白色荧光灯</p>
+<ul>
+<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
 </ul>
 </li>
 </ul>
@@ -658,47 +648,6 @@
 <li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
 <li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
 <li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>摄影</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>控制相机色彩参数</title>
-    <url>/2021/06/06/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
-<li><p>白平衡</p>
-<ul>
-<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
-</li>
-<li><p>几种白平衡模式</p>
-<ul>
-<li><p>自动（AWB）</p>
-</li>
-<li><p>日光</p>
-</li>
-<li><p>阴影</p>
-<ul>
-<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
-</ul>
-</li>
-<li><p>阴天</p>
-</li>
-<li><p>钨丝灯</p>
-</li>
-<li><p>白色荧光灯</p>
-<ul>
-<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -851,6 +800,55 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后期PS处理调色思路</title>
+    <url>/2021/06/07/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
+<li>基础调整<ul>
+<li>白平衡<ul>
+<li>色温：控制照片冷暖感觉的工具</li>
+<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
+</ul>
+</li>
+<li>曝光：调节照片的明暗</li>
+<li>高光：压低高光，可以找回高光区的细节</li>
+<li>白色：压低白色，找回照片中白色的细节</li>
+<li>阴影：控制照片中偏暗的部分</li>
+<li>黑色：控制照片中黑色看不到细节的部分</li>
+</ul>
+</li>
+<li>HSL调整<ul>
+<li>色相：色彩的相貌<ul>
+<li>把某个颜色定义成自己拖动到的颜色</li>
+</ul>
+</li>
+<li>饱和度：颜色的纯度<ul>
+<li>数字越大说明纯度越高</li>
+</ul>
+</li>
+<li>明亮度：颜色的明暗程度<ul>
+<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
+</ul>
+</li>
+<li>如何使用？<ul>
+<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
+<li>降低橙色饱和度，使其皮肤通透点</li>
+<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
       </tags>
   </entry>
   <entry>
@@ -1042,100 +1040,6 @@
       </tags>
   </entry>
   <entry>
-    <title>腾讯面经</title>
-    <url>/2021/12/24/%E9%9D%A2%E7%BB%8F-%E8%85%BE%E8%AE%AF/</url>
-    <content><![CDATA[<p><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">腾讯一面</a>：</p>
-<h4 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h4><p>进程间有六种通信方式：</p>
-<ol>
-<li><strong>管道（pipe）及有名管道（named pipe）</strong>：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信</li>
-<li><strong>信号（signal）</strong>：信号是在软件层次上对中断机制的一种模拟，它是比较复杂的通信方式，用于通知进程有某事件发生，一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的</li>
-<li><strong>消息队列（message queue）</strong>：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限的进程可以按照一定的规则向消息队列中添加新信息；对消息队列有读权限的进程可以从消息队列中读取信息</li>
-<li><strong>共享内存（share memory）</strong>：他使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量（也就是一个进行在未完成写操作之前，另一个进程不能读取）</li>
-<li><strong>信号量（semaphore）</strong>：它是一个计数器，信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据（而信号量一般常用于保护一段代码，使其每次只被一个执行线程运行）。对于二值信号量（0-1），信号量大于0时，可以对进程操作，等于0时要等待，知道信号量大于0</li>
-<li><strong>套接字（socket）</strong>：一种更为一般的进程通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛</li>
-</ol>
-<h4 id="僵尸进程和孤儿进程"><a href="#僵尸进程和孤儿进程" class="headerlink" title="僵尸进程和孤儿进程"></a>僵尸进程和孤儿进程</h4><p><strong>僵尸进程：</strong>一个父进程利用fork创建子进程，如果子进程退出，而父进程没有利用wait或wait pid来获取子进程的状态信息，那么子进程的状态描述符依然保存在系统中。</p>
-<p>在Linux进程的状态中，僵尸进程是非常特殊的一种，它已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，仅仅在进程列表中保留一个位置，记在该进程的退出状态等信息，供其他进程收集，除此之外，僵尸进程需要它的父进程来为它收尸，如果他的父进程没有处理这个僵尸进程的措施，那么它就一直保持僵尸状态，如果这时父进程结束了，那么init进程自动会接手这个子进程，为它收尸，他还是能被清除的。但是如果父进程是进入一个循环，不会结束，那么子进程就会一直保持僵尸状态，这就是为什么系统中有时会很多僵尸进程。</p>
-<p><strong>僵尸进程解决</strong></p>
-<ul>
-<li>调用wait函数，进程一旦调用了wait，就立即阻塞自己，由wait自动分析是否当前进程的某个子进程已经退出，如果让它找到了这样一个已经变成僵尸的子进程，wait就会收集这个子进程的信息，并把它彻底销毁后返回；如果没有找到这样一个子进程，wait就会一直阻塞在这里，知道有一个出现为止</li>
-<li>当子进程终止时，内核就会向它的父进程发送一个SIGCHLD信号，当父进程接收到SIGCHLD信号后就应该调用wait或waitpid函数对子进程进行善后处理，释放子进程占用的资源</li>
-</ul>
-<p><strong>孤儿进程：</strong>一个父进程退出，而它的一个或几个子进程仍然还在运行，那么这些子进程就会变成孤儿进程，孤儿进程将被init进程（进程号为1）所收养，并有init进程对它们完成状态收集的工作</p>
-<p>子进程死亡需要父进程来处理，那么意味着正常的进程应该是子进程先于父进程死亡。当父进程先于子进程死亡时，子进程死亡时没父进程处理，这个死亡的子进程就是孤儿进程。但孤儿进程与僵尸进程不同的是，由于父进程已经死亡，系统会帮助父进程回收处理孤儿进程。所以孤儿进程实际上是不占用资源的，因为它终究是被系统回收了。不会向僵尸进程那样占用ID，损害运行系统。</p>
-<h4 id="TCP为啥需要三次握手"><a href="#TCP为啥需要三次握手" class="headerlink" title="TCP为啥需要三次握手"></a>TCP为啥需要三次握手</h4><h5 id="三次握手原理"><a href="#三次握手原理" class="headerlink" title="三次握手原理"></a>三次握手原理</h5><p><img src="https://pic.imgdb.cn/item/61c5a2a82ab3f51d91197b15.jpg" alt="这里写图片描述"></p>
-<ol>
-<li><p>上图的名词解释</p>
-<ul>
-<li>SYN：同步序号。<strong>它表示建立连接</strong>。TCP规定SYN=1时不能携带数据，但要消耗一个序号，因此随机选取一个序列号为seq=x数据包（该数据包里就是一个标记seq，并没有任何有效的数据）</li>
-<li>ACK：确认序号。<strong>它表示响应</strong>（都能响应了 那肯定上一步就连接成功了啊，所以说ACK=1代表确认连接成功啦）</li>
-</ul>
-<p>因此<strong>SYN和ACK同时为1，表示建立连接之后的响应</strong>；而只是<strong>单个的SYN=1，表示的只是建立连接。</strong></p>
-<ul>
-<li>seq：（sequence number）序列号。他是发送端数据包的初始序列号。<strong>seq=x表示发送端数据包的初始序号为x</strong>（seq=0就代表这是第0号帧）</li>
-<li>ack：（acknowledge number）确认号。它是对这次收到数据包的确认，以及对下次收到数据包的期待。<strong>ack=x+1表示我方到x位置的所有数据都已正确收到，且我方告知对方：我期待你下次给我发送包的初始序号（seq）是x+1。</strong></li>
-</ul>
-<p>为了方便记忆，可以这么理解：SYN/ACK是TCP协议层面的标记，而seq/ack是数据层面的标记。</p>
-</li>
-</ol>
-<h5 id="TCP三次握手过程："><a href="#TCP三次握手过程：" class="headerlink" title="TCP三次握手过程："></a><strong>TCP三次握手过程：</strong></h5><ol>
-<li><strong>首先Client向Server发送连接：SYN=1，seq=x；</strong><ul>
-<li><strong>因为</strong>要<strong>建立连接，所以SYN=1</strong>；又<strong>因为</strong>TCP规定SYN=1时不能携带数据，但要消耗一个序号，<strong>所以</strong>Client随机选取一个<strong>初始序号seq=x</strong>。（因为并没有相应动作，所以这里没ACK什么事，我们就认为ACK=0吧）</li>
-<li>发送后Client进入syn_sent状态，表示客户端等待服务器的回复</li>
-</ul>
-</li>
-<li><strong>Server收到请求后 再向Client发送确认：SYN=1，ACK=1，seq=y，ack=x+1；</strong><ul>
-<li>因为Server建立连接后做出了相应，所以SYN=1，ACK=1.因为TCP规定SYN=1时不能携带数据，但要消耗一个序号，所以Server随机选取一个初始序号seq=y。又因为Server到x为止的所有数据都已正确收到了，且Server告诉Client：我期待你下次给我发送包的初始序号（seq）是x+1，所以ack=x+1。</li>
-<li>发送后服务器进入syn_rcvd，表示服务器已经收到Client的连接请求，等待Client的确认。</li>
-</ul>
-</li>
-<li><strong>Client收到确认后还需再次发送确认，同时携带要发送给Server的数据：ACK=1，seq=x+1,ack=y+1;连接建立</strong><ul>
-<li><strong>因为</strong>有响应动作，<strong>所以ACK=1</strong>（因为要携带发送的数据，所以这没SYN什么事）。<strong>因为2中s</strong>erver已经告诉了这次它想收到包的初始序列号是x+1，<strong>所以初始序号为seq=x+1</strong>。<strong>又因为</strong>Client到y为止的所有数据都已正确收到了，准备接收序列号为y+1的包，<strong>所以ack=y+1</strong></li>
-<li>server收到后，这个TCP连接就进入到Established状态，就可以发起http请求了。</li>
-</ul>
-</li>
-</ol>
-<p><strong>形象些：</strong></p>
-<ul>
-<li><p>第一次握手，由浏览器发起，告诉服务器我要发送请求了</p>
-</li>
-<li><p>第二次握手，由服务器发起，告诉浏览器我准备接收了，你赶紧发送吧</p>
-</li>
-<li><p>第三次握手，由浏览器发送，告诉服务器，我马上发了，准备接收吧</p>
-<h5 id="为什么需要三次握手，两次不行吗？"><a href="#为什么需要三次握手，两次不行吗？" class="headerlink" title="为什么需要三次握手，两次不行吗？"></a>为什么需要三次握手，两次不行吗？</h5><p>其实这是由TCP的自身特点可靠传输决定的。客户端和服务端要进行可靠传输，那么就需要确认<code>双方</code>的<code>接收和发送能力</code>,不然容易出现丢包的现象</p>
-</li>
-</ul>
-<ul>
-<li>第一次握手: 服务端 可以确认<code>客户端</code>具有发送能力</li>
-<li>第二次握手: 客户端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
-<li>第三次握手: 服务端 可以确认<code>客户端</code>具有接收能力</li>
-</ul>
-<h5 id="为什么不能改成两次握手？"><a href="#为什么不能改成两次握手？" class="headerlink" title="为什么不能改成两次握手？"></a>为什么不能改成两次握手？</h5><p>如果两次握手，则会出现下面这种情况：</p>
-<p>如客户端发出连接请求，但因连接请求报文丢失而未收到确认，于是客户端再重传一次连接请求。后来收到了确认，建立了连接。数据传输完毕后，就释放了连接，客户端共发出了两个连接请求报文段，其中第一个丢失，第二个到达了服务端，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达服务端，此时服务端误认为客户端又发出一次新的连接请求，于是就向客户端发出确认报文段，同意建立连接，不采用三次握手，只要服务端发出确认，就建立新的连接了，此时客户端忽略服务端发来的确认，也不发送数据，则服务端一直等待客户端发送数据，浪费资源。</p>
-<h5 id="三次握手过程中可以携带数据吗？"><a href="#三次握手过程中可以携带数据吗？" class="headerlink" title="三次握手过程中可以携带数据吗？"></a>三次握手过程中可以携带数据吗？</h5><p>其实第三次握手的时候,是可以携带数据的.但是,第一次,第二次握手不可以携带数据.</p>
-<p>为什么这样呢?假如第一次握手可以携带数据的话,如果有人要恶意攻击服务器,那他每次都在第一次握手中的<code>SYN</code>报文中放入大量的数据.因为攻击者根本就不理服务器的接收 发送能力是否正常,然后疯狂重复发<code>SYN</code>报文的话,这会让服务器话费很多时间 内存空间来接收这些报文.</p>
-<p>也就是说,第一次握手不可以放数据,其中一个简单的原因就是会让服务器更加容易受到攻击了.而对于第三次的话,此时客户端已经处于<code>ESTAB-LISHED</code>状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据也没啥毛病。</p>
-<h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><h5 id="static-assert"><a href="#static-assert" class="headerlink" title="static_assert"></a>static_assert</h5><p>static_assert这个关键字，用来做编译期间的断言，因此叫做静态断言。</p>
-<p>语法：static_assert(常量表达式，提示字符串)——如果第一个参数常量表达式的值为真（true或者非零值），那么static_assert不做任何事情，就像它不存在一样，否则会产生一条编译错误，错误位置就是该static_assert语句所在行，错误提示就是第二个参数提示字符串。</p>
-<p>编译器在遇到一个static_assert语句时，通常立刻将其第一个参数作为常量表达式进行演算，但如果该常量表达式依赖于某些模板参数，则延迟到模板实例化时再进行演算，这就让检查模板参数成为了可能。</p>
-<p>static_assert的断言表达式的结果必须是在编译时期可以计算的表达式，即必须是常量表达式。如果使用变量，则会导致错误</p>
-<h5 id="write和fwrite"><a href="#write和fwrite" class="headerlink" title="write和fwrite"></a>write和fwrite</h5><p>fwrite：带缓冲区；write：不带缓冲区</p>
-<h5 id="程序中1-0是在编译期出错还是在运行的时候出错"><a href="#程序中1-0是在编译期出错还是在运行的时候出错" class="headerlink" title="程序中1/0是在编译期出错还是在运行的时候出错"></a>程序中1/0是在编译期出错还是在运行的时候出错</h5><p>在linux系统中gcc编译期测试：编译可以通过，运行时报错</p>
-<p>参考：</p>
-<ul>
-<li><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/</a></li>
-<li><a href="https://blog.csdn.net/lengxiao1993/article/details/82771768">https://blog.csdn.net/lengxiao1993/article/details/82771768</a></li>
-<li><a href="https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md">https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>经验模态分解</title>
     <url>/2021/12/24/%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%EF%BC%88EMD%EF%BC%89/</url>
     <content><![CDATA[<h3 id="经验模态分解"><a href="#经验模态分解" class="headerlink" title="经验模态分解"></a>经验模态分解</h3><p>经验模态分解(Empirical Mode Decomposition, EMD)是依据数据自身的时间尺度特征来进行信号分解，无需预先设定任何基函数，是一种时频域信号处理方式。<code>EMD</code>在处理非平稳及非线性数据上具有明显的优势，<strong>适合分析非线性非平稳的信号序列</strong>，具有较高的信噪比。<br><strong>平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间不发生变化<br><strong>非平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间发生变化</p>
@@ -1247,6 +1151,100 @@
       </categories>
       <tags>
         <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>腾讯面经</title>
+    <url>/2021/12/24/%E9%9D%A2%E7%BB%8F-%E8%85%BE%E8%AE%AF/</url>
+    <content><![CDATA[<p><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">腾讯一面</a>：</p>
+<h4 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h4><p>进程间有六种通信方式：</p>
+<ol>
+<li><strong>管道（pipe）及有名管道（named pipe）</strong>：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信</li>
+<li><strong>信号（signal）</strong>：信号是在软件层次上对中断机制的一种模拟，它是比较复杂的通信方式，用于通知进程有某事件发生，一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的</li>
+<li><strong>消息队列（message queue）</strong>：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限的进程可以按照一定的规则向消息队列中添加新信息；对消息队列有读权限的进程可以从消息队列中读取信息</li>
+<li><strong>共享内存（share memory）</strong>：他使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量（也就是一个进行在未完成写操作之前，另一个进程不能读取）</li>
+<li><strong>信号量（semaphore）</strong>：它是一个计数器，信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据（而信号量一般常用于保护一段代码，使其每次只被一个执行线程运行）。对于二值信号量（0-1），信号量大于0时，可以对进程操作，等于0时要等待，知道信号量大于0</li>
+<li><strong>套接字（socket）</strong>：一种更为一般的进程通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛</li>
+</ol>
+<h4 id="僵尸进程和孤儿进程"><a href="#僵尸进程和孤儿进程" class="headerlink" title="僵尸进程和孤儿进程"></a>僵尸进程和孤儿进程</h4><p><strong>僵尸进程：</strong>一个父进程利用fork创建子进程，如果子进程退出，而父进程没有利用wait或wait pid来获取子进程的状态信息，那么子进程的状态描述符依然保存在系统中。</p>
+<p>在Linux进程的状态中，僵尸进程是非常特殊的一种，它已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，仅仅在进程列表中保留一个位置，记在该进程的退出状态等信息，供其他进程收集，除此之外，僵尸进程需要它的父进程来为它收尸，如果他的父进程没有处理这个僵尸进程的措施，那么它就一直保持僵尸状态，如果这时父进程结束了，那么init进程自动会接手这个子进程，为它收尸，他还是能被清除的。但是如果父进程是进入一个循环，不会结束，那么子进程就会一直保持僵尸状态，这就是为什么系统中有时会很多僵尸进程。</p>
+<p><strong>僵尸进程解决</strong></p>
+<ul>
+<li>调用wait函数，进程一旦调用了wait，就立即阻塞自己，由wait自动分析是否当前进程的某个子进程已经退出，如果让它找到了这样一个已经变成僵尸的子进程，wait就会收集这个子进程的信息，并把它彻底销毁后返回；如果没有找到这样一个子进程，wait就会一直阻塞在这里，知道有一个出现为止</li>
+<li>当子进程终止时，内核就会向它的父进程发送一个SIGCHLD信号，当父进程接收到SIGCHLD信号后就应该调用wait或waitpid函数对子进程进行善后处理，释放子进程占用的资源</li>
+</ul>
+<p><strong>孤儿进程：</strong>一个父进程退出，而它的一个或几个子进程仍然还在运行，那么这些子进程就会变成孤儿进程，孤儿进程将被init进程（进程号为1）所收养，并有init进程对它们完成状态收集的工作</p>
+<p>子进程死亡需要父进程来处理，那么意味着正常的进程应该是子进程先于父进程死亡。当父进程先于子进程死亡时，子进程死亡时没父进程处理，这个死亡的子进程就是孤儿进程。但孤儿进程与僵尸进程不同的是，由于父进程已经死亡，系统会帮助父进程回收处理孤儿进程。所以孤儿进程实际上是不占用资源的，因为它终究是被系统回收了。不会向僵尸进程那样占用ID，损害运行系统。</p>
+<h4 id="TCP为啥需要三次握手"><a href="#TCP为啥需要三次握手" class="headerlink" title="TCP为啥需要三次握手"></a>TCP为啥需要三次握手</h4><h5 id="三次握手原理"><a href="#三次握手原理" class="headerlink" title="三次握手原理"></a>三次握手原理</h5><p><img src="https://pic.imgdb.cn/item/61c5a2a82ab3f51d91197b15.jpg" alt="这里写图片描述"></p>
+<ol>
+<li><p>上图的名词解释</p>
+<ul>
+<li>SYN：同步序号。<strong>它表示建立连接</strong>。TCP规定SYN=1时不能携带数据，但要消耗一个序号，因此随机选取一个序列号为seq=x数据包（该数据包里就是一个标记seq，并没有任何有效的数据）</li>
+<li>ACK：确认序号。<strong>它表示响应</strong>（都能响应了 那肯定上一步就连接成功了啊，所以说ACK=1代表确认连接成功啦）</li>
+</ul>
+<p>因此<strong>SYN和ACK同时为1，表示建立连接之后的响应</strong>；而只是<strong>单个的SYN=1，表示的只是建立连接。</strong></p>
+<ul>
+<li>seq：（sequence number）序列号。他是发送端数据包的初始序列号。<strong>seq=x表示发送端数据包的初始序号为x</strong>（seq=0就代表这是第0号帧）</li>
+<li>ack：（acknowledge number）确认号。它是对这次收到数据包的确认，以及对下次收到数据包的期待。<strong>ack=x+1表示我方到x位置的所有数据都已正确收到，且我方告知对方：我期待你下次给我发送包的初始序号（seq）是x+1。</strong></li>
+</ul>
+<p>为了方便记忆，可以这么理解：SYN/ACK是TCP协议层面的标记，而seq/ack是数据层面的标记。</p>
+</li>
+</ol>
+<h5 id="TCP三次握手过程："><a href="#TCP三次握手过程：" class="headerlink" title="TCP三次握手过程："></a><strong>TCP三次握手过程：</strong></h5><ol>
+<li><strong>首先Client向Server发送连接：SYN=1，seq=x；</strong><ul>
+<li><strong>因为</strong>要<strong>建立连接，所以SYN=1</strong>；又<strong>因为</strong>TCP规定SYN=1时不能携带数据，但要消耗一个序号，<strong>所以</strong>Client随机选取一个<strong>初始序号seq=x</strong>。（因为并没有相应动作，所以这里没ACK什么事，我们就认为ACK=0吧）</li>
+<li>发送后Client进入syn_sent状态，表示客户端等待服务器的回复</li>
+</ul>
+</li>
+<li><strong>Server收到请求后 再向Client发送确认：SYN=1，ACK=1，seq=y，ack=x+1；</strong><ul>
+<li>因为Server建立连接后做出了相应，所以SYN=1，ACK=1.因为TCP规定SYN=1时不能携带数据，但要消耗一个序号，所以Server随机选取一个初始序号seq=y。又因为Server到x为止的所有数据都已正确收到了，且Server告诉Client：我期待你下次给我发送包的初始序号（seq）是x+1，所以ack=x+1。</li>
+<li>发送后服务器进入syn_rcvd，表示服务器已经收到Client的连接请求，等待Client的确认。</li>
+</ul>
+</li>
+<li><strong>Client收到确认后还需再次发送确认，同时携带要发送给Server的数据：ACK=1，seq=x+1,ack=y+1;连接建立</strong><ul>
+<li><strong>因为</strong>有响应动作，<strong>所以ACK=1</strong>（因为要携带发送的数据，所以这没SYN什么事）。<strong>因为2中s</strong>erver已经告诉了这次它想收到包的初始序列号是x+1，<strong>所以初始序号为seq=x+1</strong>。<strong>又因为</strong>Client到y为止的所有数据都已正确收到了，准备接收序列号为y+1的包，<strong>所以ack=y+1</strong></li>
+<li>server收到后，这个TCP连接就进入到Established状态，就可以发起http请求了。</li>
+</ul>
+</li>
+</ol>
+<p><strong>形象些：</strong></p>
+<ul>
+<li><p>第一次握手，由浏览器发起，告诉服务器我要发送请求了</p>
+</li>
+<li><p>第二次握手，由服务器发起，告诉浏览器我准备接收了，你赶紧发送吧</p>
+</li>
+<li><p>第三次握手，由浏览器发送，告诉服务器，我马上发了，准备接收吧</p>
+<h5 id="为什么需要三次握手，两次不行吗？"><a href="#为什么需要三次握手，两次不行吗？" class="headerlink" title="为什么需要三次握手，两次不行吗？"></a>为什么需要三次握手，两次不行吗？</h5><p>其实这是由TCP的自身特点可靠传输决定的。客户端和服务端要进行可靠传输，那么就需要确认<code>双方</code>的<code>接收和发送能力</code>,不然容易出现丢包的现象</p>
+</li>
+</ul>
+<ul>
+<li>第一次握手: 服务端 可以确认<code>客户端</code>具有发送能力</li>
+<li>第二次握手: 客户端 可以确认<code>服务端</code>具有接收能力和发送能力</li>
+<li>第三次握手: 服务端 可以确认<code>客户端</code>具有接收能力</li>
+</ul>
+<h5 id="为什么不能改成两次握手？"><a href="#为什么不能改成两次握手？" class="headerlink" title="为什么不能改成两次握手？"></a>为什么不能改成两次握手？</h5><p>如果两次握手，则会出现下面这种情况：</p>
+<p>如客户端发出连接请求，但因连接请求报文丢失而未收到确认，于是客户端再重传一次连接请求。后来收到了确认，建立了连接。数据传输完毕后，就释放了连接，客户端共发出了两个连接请求报文段，其中第一个丢失，第二个到达了服务端，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达服务端，此时服务端误认为客户端又发出一次新的连接请求，于是就向客户端发出确认报文段，同意建立连接，不采用三次握手，只要服务端发出确认，就建立新的连接了，此时客户端忽略服务端发来的确认，也不发送数据，则服务端一直等待客户端发送数据，浪费资源。</p>
+<h5 id="三次握手过程中可以携带数据吗？"><a href="#三次握手过程中可以携带数据吗？" class="headerlink" title="三次握手过程中可以携带数据吗？"></a>三次握手过程中可以携带数据吗？</h5><p>其实第三次握手的时候,是可以携带数据的.但是,第一次,第二次握手不可以携带数据.</p>
+<p>为什么这样呢?假如第一次握手可以携带数据的话,如果有人要恶意攻击服务器,那他每次都在第一次握手中的<code>SYN</code>报文中放入大量的数据.因为攻击者根本就不理服务器的接收 发送能力是否正常,然后疯狂重复发<code>SYN</code>报文的话,这会让服务器话费很多时间 内存空间来接收这些报文.</p>
+<p>也就是说,第一次握手不可以放数据,其中一个简单的原因就是会让服务器更加容易受到攻击了.而对于第三次的话,此时客户端已经处于<code>ESTAB-LISHED</code>状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以能携带数据也没啥毛病。</p>
+<h4 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h4><h5 id="static-assert"><a href="#static-assert" class="headerlink" title="static_assert"></a>static_assert</h5><p>static_assert这个关键字，用来做编译期间的断言，因此叫做静态断言。</p>
+<p>语法：static_assert(常量表达式，提示字符串)——如果第一个参数常量表达式的值为真（true或者非零值），那么static_assert不做任何事情，就像它不存在一样，否则会产生一条编译错误，错误位置就是该static_assert语句所在行，错误提示就是第二个参数提示字符串。</p>
+<p>编译器在遇到一个static_assert语句时，通常立刻将其第一个参数作为常量表达式进行演算，但如果该常量表达式依赖于某些模板参数，则延迟到模板实例化时再进行演算，这就让检查模板参数成为了可能。</p>
+<p>static_assert的断言表达式的结果必须是在编译时期可以计算的表达式，即必须是常量表达式。如果使用变量，则会导致错误</p>
+<h5 id="write和fwrite"><a href="#write和fwrite" class="headerlink" title="write和fwrite"></a>write和fwrite</h5><p>fwrite：带缓冲区；write：不带缓冲区</p>
+<h5 id="程序中1-0是在编译期出错还是在运行的时候出错"><a href="#程序中1-0是在编译期出错还是在运行的时候出错" class="headerlink" title="程序中1/0是在编译期出错还是在运行的时候出错"></a>程序中1/0是在编译期出错还是在运行的时候出错</h5><p>在linux系统中gcc编译期测试：编译可以通过，运行时报错</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/</a></li>
+<li><a href="https://blog.csdn.net/lengxiao1993/article/details/82771768">https://blog.csdn.net/lengxiao1993/article/details/82771768</a></li>
+<li><a href="https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md">https://github.com/Vuact/Blog/blob/main/base/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.md</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
