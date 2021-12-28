@@ -4875,26 +4875,6 @@ mjx-container[jax='CHTML'][display='true'] {
   outline: 0;
   line-height: 2;
 }
-.aplayer {
-  color: #4c4948;
-}
-#article-container .aplayer {
-  margin: 0 0 1rem;
-}
-#article-container .aplayer ol,
-#article-container .aplayer ul {
-  margin: 0;
-  padding: 0;
-}
-#article-container .aplayer ol li,
-#article-container .aplayer ul li {
-  margin: 0;
-  padding: 0 15px;
-}
-#article-container .aplayer ol li:before,
-#article-container .aplayer ul li:before {
-  content: none;
-}
 [data-theme="dark"] div.btns {
   filter: brightness(0.7);
 }
