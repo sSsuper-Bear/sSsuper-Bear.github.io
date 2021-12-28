@@ -615,6 +615,25 @@
       </tags>
   </entry>
   <entry>
+    <title>差分与复原</title>
+    <url>/2021/12/26/%E5%B7%AE%E5%88%86%E4%B8%8E%E5%A4%8D%E5%8E%9F/</url>
+    <content><![CDATA[<h1 id="时间序列的差分与复原"><a href="#时间序列的差分与复原" class="headerlink" title="时间序列的差分与复原"></a>时间序列的差分与复原</h1><p><strong>在时序分析时，我们经常需要将原始序列进行差分，然后做出拟合或者预测，最后还需要将拟合的或者预测的值恢复成原始序列。这里，使用Pandas的Series中的diff和cumsum函数可以方便的实现。</strong></p>
+<h2 id="一阶差分与复原"><a href="#一阶差分与复原" class="headerlink" title="一阶差分与复原"></a>一阶差分与复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2, 4, 3, 5, 6, 7, 4, 5, 6, 3, 2, 4])</span><br><span class="line">time_series_diff = time_series.diff(1).dropna()</span><br><span class="line">time_series_restored = pd.Series([time_series[0]], index=[time_series.index[0]]).append(time_series_diff).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="多阶差分复原"><a href="#多阶差分复原" class="headerlink" title="多阶差分复原"></a>多阶差分复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2,4,3,5,6,7,4,5,6,3,2,4], index=pd.date_range(start=&#x27;2000&#x27;, periods=12, freq=&#x27;a&#x27;))</span><br><span class="line">time_series_diff = time_series</span><br><span class="line">diff_times = 3</span><br><span class="line">first_values = []</span><br><span class="line">for i in range(diff_times):</span><br><span class="line">    first_values.append(pd.Series([time_series_diff[0]],index=[time_series_diff.index[0]]))</span><br><span class="line">    time_series_diff = time_series_diff.diff(1).dropna()</span><br><span class="line"></span><br><span class="line">time_series_restored = time_series_diff</span><br><span class="line">for first in reversed(first_values):</span><br><span class="line">    time_series_restored = first.append(time_series_restored).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
+<li><a href="https://www.jianshu.com/p/88d663ecdf25">Pandas 连续差分diff后恢复原始的序列</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
     <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
@@ -636,25 +655,6 @@
       <tags>
         <tag>python</tag>
         <tag>脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>差分与复原</title>
-    <url>/2021/12/26/%E5%B7%AE%E5%88%86%E4%B8%8E%E5%A4%8D%E5%8E%9F/</url>
-    <content><![CDATA[<h1 id="时间序列的差分与复原"><a href="#时间序列的差分与复原" class="headerlink" title="时间序列的差分与复原"></a>时间序列的差分与复原</h1><p><strong>在时序分析时，我们经常需要将原始序列进行差分，然后做出拟合或者预测，最后还需要将拟合的或者预测的值恢复成原始序列。这里，使用Pandas的Series中的diff和cumsum函数可以方便的实现。</strong></p>
-<h2 id="一阶差分与复原"><a href="#一阶差分与复原" class="headerlink" title="一阶差分与复原"></a>一阶差分与复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2, 4, 3, 5, 6, 7, 4, 5, 6, 3, 2, 4])</span><br><span class="line">time_series_diff = time_series.diff(1).dropna()</span><br><span class="line">time_series_restored = pd.Series([time_series[0]], index=[time_series.index[0]]).append(time_series_diff).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h2 id="多阶差分复原"><a href="#多阶差分复原" class="headerlink" title="多阶差分复原"></a>多阶差分复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2,4,3,5,6,7,4,5,6,3,2,4], index=pd.date_range(start=&#x27;2000&#x27;, periods=12, freq=&#x27;a&#x27;))</span><br><span class="line">time_series_diff = time_series</span><br><span class="line">diff_times = 3</span><br><span class="line">first_values = []</span><br><span class="line">for i in range(diff_times):</span><br><span class="line">    first_values.append(pd.Series([time_series_diff[0]],index=[time_series_diff.index[0]]))</span><br><span class="line">    time_series_diff = time_series_diff.diff(1).dropna()</span><br><span class="line"></span><br><span class="line">time_series_restored = time_series_diff</span><br><span class="line">for first in reversed(first_values):</span><br><span class="line">    time_series_restored = first.append(time_series_restored).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
-<li><a href="https://www.jianshu.com/p/88d663ecdf25">Pandas 连续差分diff后恢复原始的序列</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>study</category>
-      </categories>
-      <tags>
-        <tag>信号处理</tag>
       </tags>
   </entry>
   <entry>
