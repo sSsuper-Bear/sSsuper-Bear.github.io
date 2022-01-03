@@ -2229,6 +2229,138 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaSE</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="linux基本命令"><a href="#linux基本命令" class="headerlink" title="linux基本命令"></a><a href="https://www.nowcoder.com/discuss/807495?type=all&order=recall&pos=&page=0&ncTraceId=&channel=-1&source_id=search_all_nctrack&gio_id=5C27F5E8CC05D3FEFF557CD8FC40F544-1641215720650">linux基本命令</a></h2><h6 id="cd-（change-directory：英文释义是改变目录）切换目录"><a href="#cd-（change-directory：英文释义是改变目录）切换目录" class="headerlink" title="cd （change directory：英文释义是改变目录）切换目录"></a>cd （change directory：英文释义是改变目录）切换目录</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd ../ ;跳到上级目录</span><br><span class="line">cd /opt ;不管现在到那直接跳到指定的opt文件夹中</span><br><span class="line">cd ~ ;切换当前用户的家目录。root用户的家目录就是root目录。 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="pwd-（print-working-directory：显示当前工作目录的绝对路径）"><a href="#pwd-（print-working-directory：显示当前工作目录的绝对路径）" class="headerlink" title="pwd （print working directory：显示当前工作目录的绝对路径）"></a>pwd （print working directory：显示当前工作目录的绝对路径）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pwd </span><br><span class="line">显示当前的绝对路径 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="ls-（ls：list的缩写，查看列表）查看当前目录下的所有文件夹（ls-只列出文件名或目录名）"><a href="#ls-（ls：list的缩写，查看列表）查看当前目录下的所有文件夹（ls-只列出文件名或目录名）" class="headerlink" title="ls （ls：list的缩写，查看列表）查看当前目录下的所有文件夹（ls 只列出文件名或目录名）"></a>ls （ls：list的缩写，查看列表）查看当前目录下的所有文件夹（ls 只列出文件名或目录名）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -a ;显示所有文件夹,隐藏文件也显示出来</span><br><span class="line">ls -R ;连同子目录一起列出来 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="ll-（ll：list的缩写，查看列表详情）查看当前目录下的所有详细信息和文件夹（ll-结果是详细-有时间-是否可读写等信息）"><a href="#ll-（ll：list的缩写，查看列表详情）查看当前目录下的所有详细信息和文件夹（ll-结果是详细-有时间-是否可读写等信息）" class="headerlink" title="ll （ll：list的缩写，查看列表详情）查看当前目录下的所有详细信息和文件夹（ll 结果是详细,有时间,是否可读写等信息）"></a>ll （ll：list的缩写，查看列表详情）查看当前目录下的所有详细信息和文件夹（ll 结果是详细,有时间,是否可读写等信息）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ll -a ;显示所有文件,隐藏文件也显示出来</span><br><span class="line">ll -R ;连同子目录内容一起列出来</span><br><span class="line">ll -h ;友好展示详情信息,可以看大小</span><br><span class="line">ll -al ;即能显示隐藏文件又能显示详细列表。 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="touch-（touch：创建文件）创建文件"><a href="#touch-（touch：创建文件）创建文件" class="headerlink" title="touch （touch：创建文件）创建文件"></a>touch （touch：创建文件）创建文件</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">touch test.txt  ;创建test.txt文件</span><br><span class="line">touch /opt/java/test.java ;在指定目录创建test.java文件 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="mkdir-（mkdir：创建目录）-创建目录"><a href="#mkdir-（mkdir：创建目录）-创建目录" class="headerlink" title="mkdir （mkdir：创建目录） 创建目录"></a>mkdir （mkdir：创建目录） 创建目录</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir 文件夹名称 ;在此目录创建文件夹</span><br><span class="line">mkdir /opt/java/jdk ;在指定目录创建文件夹 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="cat-（concatenate：显示或把多个文本文件连接起来）查看文件命令（可以快捷查看当前文件的内容）（不能快速定位到最后一页）"><a href="#cat-（concatenate：显示或把多个文本文件连接起来）查看文件命令（可以快捷查看当前文件的内容）（不能快速定位到最后一页）" class="headerlink" title="cat （concatenate：显示或把多个文本文件连接起来）查看文件命令（可以快捷查看当前文件的内容）（不能快速定位到最后一页）"></a>cat （concatenate：显示或把多个文本文件连接起来）查看文件命令（可以快捷查看当前文件的内容）（不能快速定位到最后一页）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat lj.log ;快捷查看文件命令 </span><br><span class="line">Ctrl + c ;暂停显示文件</span><br><span class="line">Ctrl + d ;退出查看文件命令 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="more-（more：更多的意思）分页查看文件命令（不能快速定位到最后一页）"><a href="#more-（more：更多的意思）分页查看文件命令（不能快速定位到最后一页）" class="headerlink" title="more （more：更多的意思）分页查看文件命令（不能快速定位到最后一页）"></a>more （more：更多的意思）分页查看文件命令（不能快速定位到最后一页）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">回车：向下n行，需要定义，默认为1行。</span><br><span class="line">空格键：向下滚动一屏或Ctrl+F</span><br><span class="line">B：返回上一层或Ctrl+B</span><br><span class="line">q：退出more 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="less-（lese：较少的意思）分页查看文件命令（可以快速定位到最后一页）"><a href="#less-（lese：较少的意思）分页查看文件命令（可以快速定位到最后一页）" class="headerlink" title="less （lese：较少的意思）分页查看文件命令（可以快速定位到最后一页）"></a>less （lese：较少的意思）分页查看文件命令（可以快速定位到最后一页）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">less -m 显示类似于more命令的百分比。</span><br><span class="line">less -N 显示每行的行号。(大写的N)</span><br><span class="line">两参数一起使用如：less -mN 文件名，如此可分页并显示行号。</span><br><span class="line"></span><br><span class="line">空格键：前下一页或page down。</span><br><span class="line">回车：向下一行。</span><br><span class="line">b：后退一页 或 page up。</span><br><span class="line">q：退出。</span><br><span class="line">d：前进半页。</span><br><span class="line">u：后退半页 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="tail（尾巴）-查看文件命令（看最后多少行）"><a href="#tail（尾巴）-查看文件命令（看最后多少行）" class="headerlink" title="tail（尾巴） 查看文件命令（看最后多少行）"></a>tail（尾巴） 查看文件命令（看最后多少行）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tail -10 ;文件名 看最后10行 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="cp（copy单词缩写，复制功能）"><a href="#cp（copy单词缩写，复制功能）" class="headerlink" title="cp（copy单词缩写，复制功能）"></a>cp（copy单词缩写，复制功能）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp /opt/java/java.log /opt/logs/ ;把java.log 复制到/opt/logs/下</span><br><span class="line">cp /opt/java/java.log /opt/logs/aaa.log ;把java.log 复制到/opt/logs/下并且改名为aaa.log</span><br><span class="line">cp -r /opt/java /opt/logs ;把文件夹及内容复制到logs文件中 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="mv（move单词缩写，移动功能，该文件名称功能）"><a href="#mv（move单词缩写，移动功能，该文件名称功能）" class="headerlink" title="mv（move单词缩写，移动功能，该文件名称功能）"></a>mv（move单词缩写，移动功能，该文件名称功能）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mv /opt/java/java.log /opt/mysql/ ;移动文件到mysql目录下</span><br><span class="line">mv java.log mysql.log ;把java.log改名为mysql.log 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="rm（remove：移除的意思）删除文件，或文件夹"><a href="#rm（remove：移除的意思）删除文件，或文件夹" class="headerlink" title="rm（remove：移除的意思）删除文件，或文件夹"></a>rm（remove：移除的意思）删除文件，或文件夹</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-f或--force 强制删除文件或目录。删除文件不包括文件夹的文件    </span><br><span class="line">-r或-R或--recursive 递归处理，将指定目录下的所有文件及子目录一并删除。 </span><br><span class="line">-rf 强制删除文件夹及内容</span><br><span class="line"></span><br><span class="line">rm 文件名 ;安全删除命令  （yes删除 no取消）</span><br><span class="line">rm -rf 强制删除文件夹及内容</span><br><span class="line">rm -rf *  删除当前目录下的所有内容。</span><br><span class="line">rm -rf /* 删除Linux系统根目录下所有的内容。系统将完蛋。 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="find-（find：找到的意思）查找指定文件或目录"><a href="#find-（find：找到的意思）查找指定文件或目录" class="headerlink" title="find （find：找到的意思）查找指定文件或目录"></a>find （find：找到的意思）查找指定文件或目录</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* 表示0~多个任意字符。</span><br><span class="line"></span><br><span class="line">find -name 文件名;按照指定名称查找在当前目录下查找文件</span><br><span class="line">find / -name 文件名按照指定名称全局查找文件</span><br><span class="line">find -name &#x27;*文件名&#x27; ;任意前缀加上文件名在当前目录下查找文件</span><br><span class="line">find / -name &#x27;*文件名*&#x27; ;全局进行模糊查询带文件名的文件 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="vi-（VIsual：视觉）文本编辑器-类似win的记事本-（操作类似于地下的vim命令，看底下vim-的操作）"><a href="#vi-（VIsual：视觉）文本编辑器-类似win的记事本-（操作类似于地下的vim命令，看底下vim-的操作）" class="headerlink" title="vi （VIsual：视觉）文本编辑器 类似win的记事本 （操作类似于地下的vim命令，看底下vim 的操作）"></a>vi （VIsual：视觉）文本编辑器 类似win的记事本 （操作类似于地下的vim命令，看底下vim 的操作）</h6><h6 id="vim-（VI-IMproved：改进版视觉）改进版文本编辑器-（不管是文件查看还是文件编辑-按-Shift-上或者下可以上下移动查看视角）"><a href="#vim-（VI-IMproved：改进版视觉）改进版文本编辑器-（不管是文件查看还是文件编辑-按-Shift-上或者下可以上下移动查看视角）" class="headerlink" title="vim （VI IMproved：改进版视觉）改进版文本编辑器   （不管是文件查看还是文件编辑 按 Shift + 上或者下可以上下移动查看视角）"></a>vim （VI IMproved：改进版视觉）改进版文本编辑器   （不管是文件查看还是文件编辑 按 Shift + 上或者下可以上下移动查看视角）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入”vim 文件名” 打开文件，刚刚时是”一般模式”。</span><br><span class="line"></span><br><span class="line">一般模式：可以浏览文件内容，可以进行文本快捷操作。如单行复制，多行复制，单行删除，多行删除，（退出）等。</span><br><span class="line">插入模式：可以编辑文件内容。</span><br><span class="line">底行模式：可以进行强制退出操作,不保存   :q!</span><br><span class="line">         可以进行保存并退出操作       :wq</span><br><span class="line"></span><br><span class="line">按下”i”或”a”或”o”键，从”一般模式”，进入”插入模式（编辑模式）”。</span><br><span class="line">在编辑模式下按”Esc” 即可到一般模式</span><br><span class="line">在一般模式下按”:”，冒号进入底行模式。</span><br><span class="line"></span><br><span class="line">在一般模式下的快捷键</span><br><span class="line">    dd ;删除一整行</span><br><span class="line">    X ;向前删除  等同于windowns系统中的删除键</span><br><span class="line">    x ;向后删除和大写x相反方向</span><br><span class="line">    Ctrl + f ;向后看一页</span><br><span class="line">    Ctrl + b ;向前看一页</span><br><span class="line">    u ;撤销上一步操作</span><br><span class="line">    /word ;向下查找word关键字  输入:n查找下一个,N查找上一个（不管是哪个查找都是全局查找 只不过n的方向相反）</span><br><span class="line">    ?log ;向上查找log关键字  输入:n查找上一个,N查找下一个</span><br><span class="line">    :1,90s/redis/Redis/g ;把1-90行的redis替换为Redis。语法n1,n2s/原关键字/新关键字/g，n1代表其实行,n2代表结尾行,g是必须要的</span><br><span class="line">    :0 ;光标移动到第一行</span><br><span class="line">    :$ ;光标移动到最后一行</span><br><span class="line">    :300 ;光标移动到300行,输入多少数字移动到多少行</span><br><span class="line">    :w  ;保存</span><br><span class="line">    :w! ;强制保存</span><br><span class="line">    :q  ;退出</span><br><span class="line">    :q! ;强制退出</span><br><span class="line">    5dd ;删除后面5行,打一个参数为自己填写</span><br><span class="line">    5x ;删除此光标后面5个字符</span><br><span class="line">    d1G ;删除此光标之前的所有</span><br><span class="line">    d0 ;从光标当前位置删除到此行的第一个位置</span><br><span class="line">    yy ;复制</span><br><span class="line">    p ;在光标的下面进行粘贴</span><br><span class="line">    P ;在光标的上门进行粘贴 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="管道命令（把多个命令组合起来使用）"><a href="#管道命令（把多个命令组合起来使用）" class="headerlink" title="| 管道命令（把多个命令组合起来使用）"></a>| 管道命令（把多个命令组合起来使用）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">管道命令的语法：命令1 | 命令2 | 命令3。 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="grep-（grep-：正则表达式）正则表达式，用于字符串的搜索工作-模糊查询-。不懂可以先过"><a href="#grep-（grep-：正则表达式）正则表达式，用于字符串的搜索工作-模糊查询-。不懂可以先过" class="headerlink" title="grep （grep ：正则表达式）正则表达式，用于字符串的搜索工作(模糊查询)。不懂可以先过"></a>grep （grep ：正则表达式）正则表达式，用于字符串的搜索工作(模糊查询)。不懂可以先过</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">单独使用：</span><br><span class="line">grep String test.java ；在test.java文件中查找String的位置，返回整行</span><br><span class="line">一般此命令不会单独使用下面列几个常用的命令（地下通过管道命令组合起来使用）</span><br><span class="line"></span><br><span class="line">ps aux|grep java ；查找带java关键字的进程</span><br><span class="line">ll |grep java ；查找带java关键字的文件夹及文件 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="yum-install-y-lrzsz-命令（实现win到Linux文件互相简单上传文件）"><a href="#yum-install-y-lrzsz-命令（实现win到Linux文件互相简单上传文件）" class="headerlink" title="yum install -y lrzsz 命令（实现win到Linux文件互相简单上传文件）"></a>yum install -y lrzsz 命令（实现win到Linux文件互相简单上传文件）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#（实际上就是在Linux系统中下载了一个插件）下了了此安装包后就可以实现win系统到linux之间拉文件拉文件</span><br><span class="line">#等待下载完了就可以输入：</span><br><span class="line"></span><br><span class="line">rz  从win系统中选择文件上传到Linux系统中</span><br><span class="line"></span><br><span class="line">sz  文件名 选择Linux系统的文件复制到win系统中 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="tar-（解压-压缩-命令）"><a href="#tar-（解压-压缩-命令）" class="headerlink" title="tar （解压 压缩 命令）"></a>tar （解压 压缩 命令）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">常用的组合命令：</span><br><span class="line">-z 是否需要用gzip压缩。</span><br><span class="line">-c 建立一个压缩文件的参数指令(create) –压缩</span><br><span class="line">    -x 解开一个压缩文件的参数指令(extract) –解压  </span><br><span class="line">    -v 压缩的过程中显示文件(verbose)</span><br><span class="line">    -f 使用档名，在f之后要立即接档中(file)</span><br><span class="line">    常用解压参数组合：zxvf</span><br><span class="line">    常用压缩参数组合：zcvf </span><br><span class="line"></span><br><span class="line">解压命令：</span><br><span class="line">tar -zxvf redis-3.2.8.tar.gz ；解压到当前文件夹</span><br><span class="line">tar -zxvf redis-3.2.8.tar.gz -C /opt/java/ ；解压到指定目录</span><br><span class="line"></span><br><span class="line">压缩命令：（注意 语法有点反了，我反正每次都搞反）</span><br><span class="line">tar -zcvf redis-3.2.8.tar.gz  redis-3.2.8/  ;语法 tar -zcvf  压缩后的名称  要压缩的文件</span><br><span class="line">tar -zcvf 压缩后的文件（可指定目录）  要压缩的文件（可指定目录） 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="ps-（process-status：进程状态，类似于windows的任务管理器）"><a href="#ps-（process-status：进程状态，类似于windows的任务管理器）" class="headerlink" title="ps （process status：进程状态，类似于windows的任务管理器）"></a>ps （process status：进程状态，类似于windows的任务管理器）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">常用组合：ps -ef     标准的格式查看系统进程</span><br><span class="line">      ps -aux    BSD格式查看系统进程</span><br><span class="line">      ps -aux|grep redis  BSD格式查看进程名称带有redis的系统进程（常用技巧）</span><br><span class="line">//显示进程的一些属性,需要了解（ps aux）</span><br><span class="line">USER     //用户名</span><br><span class="line">PID         //进程ID号,用来杀死进程的</span><br><span class="line">%CPU     //进程占用的CPU的百分比</span><br><span class="line">%MEM     //占用内存的的百分比</span><br><span class="line">VSZ      //该进程使用的虚拟內存量（KB）</span><br><span class="line">RSS      //该进程占用的固定內存量（KB）</span><br><span class="line">STAT     //进程的状态</span><br><span class="line">START    //该进程被触发启动时间</span><br><span class="line">TIME     //该进程实际使用CPU运行的时间 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="clear-清屏命令。（强迫症患者使用）"><a href="#clear-清屏命令。（强迫症患者使用）" class="headerlink" title="clear 清屏命令。（强迫症患者使用）"></a>clear 清屏命令。（强迫症患者使用）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill 命令用来中止一个进程。（要配合ps命令使用，配合pid关闭进程）</span><br><span class="line">（ps类似于打开任务管理器，kill类似于关闭进程）</span><br><span class="line">    kill -5 进程的PID ;推荐,和平关闭进程</span><br><span class="line">    kill -9 PID ;不推荐,强制杀死进程 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="ifconfig命令"><a href="#ifconfig命令" class="headerlink" title="ifconfig命令"></a>ifconfig命令</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用于查看和更改网络接口的地址和参数，包括IP地址、网络掩码、广播地址，使用权限是超级用户。（一般是用来查看的，很少更改）</span><br><span class="line">如果此命令输入无效，先输入yum -y install net-tools</span><br><span class="line">ifconfig 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="ping-（用于检测与目标的连通性）语法：ping-ip地址"><a href="#ping-（用于检测与目标的连通性）语法：ping-ip地址" class="headerlink" title="ping （用于检测与目标的连通性）语法：ping ip地址"></a>ping （用于检测与目标的连通性）语法：ping ip地址</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试：</span><br><span class="line">1、在Windows操作系统中cmdipconfig，查看本机IP地址：</span><br><span class="line">2、再到LInux系统中输入 ping ip地址</span><br><span class="line">（公司电脑，我就不暴露Ip了,没图片  自己去试）</span><br><span class="line">按Ctrl + C 可以停止测试。 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="free-命令-（显示系统内存）"><a href="#free-命令-（显示系统内存）" class="headerlink" title="free 命令 （显示系统内存）"></a>free 命令 （显示系统内存）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#显示系统内存使用情况，包括物理内存、交互区内存(swap)和内核缓冲区内存。</span><br><span class="line">-b 以Byte显示内存使用情况</span><br><span class="line">-k 以kb为单位显示内存使用情况</span><br><span class="line">-m 以mb为单位显示内存使用情况</span><br><span class="line">-g 以gb为单位显示内存使用情况</span><br><span class="line">-s&lt;间隔秒数&gt; 持续显示内存</span><br><span class="line">-t 显示内存使用总合 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="top-命令"><a href="#top-命令" class="headerlink" title="top 命令"></a>top 命令</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#显示当前系统正在执行的进程的相关信息，包括进程 ID、内存占用率、CPU 占用率等</span><br><span class="line">-c 显示完整的进程命令</span><br><span class="line">-s 保密模式</span><br><span class="line">-p &lt;进程号&gt; 指定进程显示</span><br><span class="line">-n &lt;次数&gt;循环显示次数 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="netstat-命令"><a href="#netstat-命令" class="headerlink" title="netstat 命令"></a>netstat 命令</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Linux netstat命令用于显示网络状态。</span><br><span class="line">#利用netstat指令可让你得知整个Linux系统的网络情况。</span><br><span class="line">#语法：</span><br><span class="line">netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip] 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="file-（可查看文件类型）"><a href="#file-（可查看文件类型）" class="headerlink" title="file （可查看文件类型）"></a>file （可查看文件类型）</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">file 文件名 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="重启linux"><a href="#重启linux" class="headerlink" title="重启linux"></a>重启linux</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Linux centos 重启命令：reboot 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="关机linux"><a href="#关机linux" class="headerlink" title="关机linux"></a>关机linux</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Linux centos 关机命令：halt 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="同步时间命令"><a href="#同步时间命令" class="headerlink" title="同步时间命令"></a>同步时间命令</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ntpdate ntp1.aliyun.com 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="更改为北京时间命令"><a href="#更改为北京时间命令" class="headerlink" title="更改为北京时间命令"></a>更改为北京时间命令</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf /etc/localtime</span><br><span class="line">ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 复制代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="查看时间命令："><a href="#查看时间命令：" class="headerlink" title="查看时间命令："></a>查看时间命令：</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
     <title>实战例子</title>
     <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E5%AE%9E%E6%88%98%E4%BE%8B%E5%AD%90/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://muyi110.github.io/2019/%E8%85%BE%E8%AE%AF%E4%B8%80%E9%9D%A2/">腾讯一面</a>：</p>
@@ -2320,9 +2452,58 @@
       </categories>
   </entry>
   <entry>
+    <title>操作系统</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>指在系统中正在运行的一个应用程序；程序一旦运行就是进程；或者更专业化来说：进程是指程序执行时的一个实例，即它是程序已经执行到课中程度的数据结构的汇集。从内核的观点看，进程的目的就是担当分配系统资源（CPU时间、内存等）的基本单位。</p>
+<p><strong>线程进程的区别体现在4个方面：</strong></p>
+<p>1、因为进程拥有独立的堆栈空间和数据段，所以每当启动一个新的进程必须分配给它独立的地址空间，建立众多的数据表来维护它的代码段、堆栈段和数据段，这对于多进程来说十分“奢侈”，系统开销比较大，而线程不一样，线程拥有独立的堆栈空间，但是共享数据段，它们彼此之间使用相同的地址空间，共享大部分数据，比进程更节俭，开销比较小，切换速度也比进程快，效率高，但是正由于进程之间独立的特点，使得进程安全性比较高，也因为进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。一个线程死掉就等于整个进程死掉。</p>
+<p>2、体现在通信机制上面，正因为进程之间互不干扰，相互独立，进程的通信机制相对很复杂，譬如管道，信号，消息队列，共享内存，套接字等通信机制，而线程由于共享数据段所以通信机制很方便。。</p>
+<p>3、体现在CPU系统上面，线程使得CPU系统更加有效，因为操作系统会保证当线程数不大于CPU数目时，不同的线程运行于不同的CPU上。</p>
+<p>4、体现在程序结构上，举一个简明易懂的列子：当我们使用进程的时候，我们不自主的使用if else嵌套来判断pid，使得程序结构繁琐，但是当我们使用线程的时候，基本上可以甩掉它，当然程序内部执行功能单元需要使用的时候还是要使用，所以线程对程序结构的改善有很大帮助。</p>
+<p><strong>什么情况下使用进程个线程：</strong></p>
+<p>1、需要频繁创建销毁的优先使用线程；因为对进程来说创建和销毁一个进程代价是很大的</p>
+<p>2、线程的切换速度快，所以在需要大量计算，切换频繁时用线程，还有耗时的操作使用线程可提高应用程序的响应</p>
+<p>3、因为对CPU系统的效率使用上线程更占优，所以可能要发展到多机分布的用进程，多核分布用线程</p>
+<p>4、并行操作时使用线程，如C/S架构的服务器端并发线程响应用户的请求</p>
+<p>5、需要更稳定安全时，适合选择进程；需要速度时，选择线程更好</p>
+<p>​    因为我的项目中需要对数据段的数据共享，可以被多个程序所修改，所以使用线程来完成此操作，无需加入复杂的通信机制，使用进程需要添加复杂的通信机制实现数据段的共享，增加了我的代码的繁琐，而且使用线程开销小，项目运行的速度快，效率高。</p>
+<p>​    如果只用进程的话，虽然安全性高，但是对代码的简洁性不好，程序结构繁琐，开销比较大，还需要加入复杂的通信机制，会使得我的项目代码量大大增加，切换速度会变的很慢，执行效率降低不少。。。</p>
+<p><strong>进程和线程的关系：</strong></p>
+<p>1、一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程。线程是操作系统可识别的最小执行和调度单位。</p>
+<p>2、资源分配给进程，同一进程的所有线程共享该进程的所有资源。 同一进程中的多个线程共享代码段(代码和常量)，数据段(全局变量和静态变量)，扩展段(堆存储)。但是每个线程拥有自己的栈段，栈段又叫运行时段，用来存放所有局部变量和临时变量。</p>
+<p>3、处理机分给线程，即真正在处理机上运行的是线程。</p>
+<p>4、线程在执行过程中，需要协作同步。不同进程的线程间要利用消息通信的办法实现同步。</p>
+<p><strong>系统线程数量上限是多少</strong></p>
+<p><strong>参考回答：</strong></p>
+<p>Linux 系统中单个进程的最大线程数有其最大的限制 PTHREAD_THREADS_MAX。</p>
+<p>这个限制可以在/usr/include/bits/local_lim.h中查看 ，对 linuxthreads 这个值一般是 1024，对于 nptl 则没有硬性的限制，仅仅受限于系统的资源。</p>
+<p>这个系统的资源主要就是线程的 stack 所占用的内存，用 ulimit -s 可以查看默认的线程栈大小，一般情况下，这个值是8M=8192KB</p>
+<p><strong>如何杀死一个进程</strong></p>
+<p>kill pid</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>系统分配处理器时间资源的基本单元，或者说进程之内独立执行的一个单元执行流。进程——资源分配的最小单位，线程——程序执行的最小单位。</p>
+<p><strong>多线程一般用在哪些地方？</strong></p>
+<p>1、java多线程一般多用于高并发的地方，如订单状态的修改，可以通过多线程，固定时间执行修改订单状态，还有就是支付方面一般都会用到多线程。</p>
+<p>2、最典型的如：</p>
+<p>用户注册完成送大礼包/积分之类，且积分等也是另一个系统并比较耗时；且这类任务即使失败也不是特别重要的。<br>后台线程：比如定期执行一些特殊任务，如定期更新配置文件，任务调度（如quartz），一些监控用于定期信息采集等。</p>
+<p>3、最典型的应用比如tomcat，tomcat内部采用的就是多线程，上百个客户端访问同一个web应用，tomcat接入后都是把后续的处理扔给一个新的线程来处理，这个新的线程最后调用到我们的servlet程序，比如doGet或者doPost方法。</p>
+<p>如果不采用多线程机制，上百个人同时访问一个web应用的时候，tomcat就得排队串行处理了，那样客户端根本是无法忍受那种访问速度的。</p>
+<p>还有就是需要异步处理的时候，需要使用多线程。比如task a和task b要并行处理，单个线程只能串行处理，先做完task a然后再做task b。如果想要多个task同时执行的话，就必须为每个task分配一个线程，然后通过java虚拟机的线程调度，来同时执行多个任务。比如你的CPU是多核心的话，就可以让一个CPU执行一个线程。如果只有一个CPU的话，底层是按照分时复用的原则，各个线程按照时间片来获得CPU资源。</p>
+<p>4、特别耗时的操作，如备份数据库，可以开个线程执行备份，然后执行返回，前台不断向后台询问线程执行状态</p>
+<p>5、一个业务逻辑有很多次的循环，每次循环之间没有影响，比如验证1万条url路径是否存在，正常情况要循环1万次，逐个去验证每一条URL，这样效率会很低，假设验证一条需要1分钟，总共就需要1万分钟，有点恐怖。这时可以用多线程，将1万条URL分成50等份，开50个线程，没个线程只需验证200条，这样所有的线程执行完是远小于1万分钟的。</p>
+<p>6、需要知道一个任务的执行进度，比如我们常看到的进度条，实现方式可以是在任务中加入一个整型属性变量(这样不同方法可以共享)，任务执行一定程度就给变量值加1，另外开一个线程按时间间隔不断去访问这个变量，并反馈给用户。</p>
+<p>总之使用多线程就是为了充分利用cpu的资源，提高程序执行效率，当你发现一个业务逻辑执行效率特别低，耗时特别长，就可以考虑使用多线程。不过CPU执行哪个线程的时间和顺序是不确定的，即使设置了线程的优先级，因此使用多线程</p>
+<p><strong>多线程的优点？</strong><br>1、使用线程可以把占据时间长的程序中的任务放到后台去处理<br>2、用户界面可以更加吸引人，这样比如用户点击了一个按钮去触发某些事件的处理，可以弹出一个进度条来显示处理的进度<br>3、程序的运行速度可能加快<br>4、在一些等待的任务实现上如用户输入、文件读写和网络收发数据等，线程就比较有用了。在这种情况下可以释放一些珍贵的资源如内存占用等等。<br>5、多个线程交替执行，减少或避免因程序阻塞或意外情况造成的响应过慢现象，降低了用户等待的概率。</p>
+<p><strong>多线程的缺点？</strong><br>1、如果有大量的线程,会影响性能,因为操作系统需要在它们之间切换。<br>2、更多的线程需要更多的内存空间。<br>3、程可能会给程序带来更多“bug”，因此要小心使用<br>4、程的中止需要考虑其对程序运行的影响。<br>5、通常块模型数据是在多个线程间共享的，需要防止线程死锁情况的发生。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h3><p>开个QQ，开了一个进程；开了迅雷，开了一个进程。在QQ的这个进程里，传输文字开一个线程、传输语音开了一个线程、弹出对话框又开了一个线程。所以运行某个软件，相当于开了一个进程。在这个软件运行的过程里（在这个进程里），多个工作支撑的完成QQ的运行，那么这“多个工作”分别有一个线程。所以一个进程管着多个线程。通俗的讲：“进程是爹妈，管着众多的线程儿子”…</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
     <title>时间复杂度与空间复杂度</title>
     <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="时间复杂度与空间复杂度"><a href="#时间复杂度与空间复杂度" class="headerlink" title="时间复杂度与空间复杂度"></a>时间复杂度与空间复杂度</h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h3 id="O-1-常数阶"><a href="#O-1-常数阶" class="headerlink" title="O(1) 常数阶"></a>O(1) 常数阶</h3><p>0(1) 复杂度算法也称之为常数阶算法。这里的 <code>1</code> 是用来代指常量，也就是说这个算法的效率是固定的，无论你的数据量如何变化，效率都一样，这种复杂度也是最优的一种算法。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="时间复杂度与空间复杂度"><a href="#时间复杂度与空间复杂度" class="headerlink" title="时间复杂度与空间复杂度"></a><a href="https://www.cnblogs.com/lonely-wolf/p/15674526.html">时间复杂度与空间复杂度</a></h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h3 id="O-1-常数阶"><a href="#O-1-常数阶" class="headerlink" title="O(1) 常数阶"></a>O(1) 常数阶</h3><p>0(1) 复杂度算法也称之为常数阶算法。这里的 <code>1</code> 是用来代指常量，也就是说这个算法的效率是固定的，无论你的数据量如何变化，效率都一样，这种复杂度也是最优的一种算法。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = a + b + c;</span><br><span class="line">    System.out.println(sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面的示例中不论有多少行代码，时间复杂度都是属于常数阶。换言之：只要代码不存在<strong>循环</strong>，<strong>递归</strong>等循环类调用，不论代码有多少行，其复杂度都是常数阶</p>
