@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sssuper-bear.github.io/2022/01/03/%E9%9D%A2%E8%AF%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</loc>
+    
+    <lastmod>2022-01-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sssuper-bear.github.io/2022/01/03/%E6%91%84%E5%BD%B1/%E6%89%8B%E6%9C%BA%E6%8B%8D%E7%85%A7%E6%8A%80%E5%B7%A7/</loc>
+    
+    <lastmod>2022-01-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sssuper-bear.github.io/2022/01/03/%E6%91%84%E5%BD%B1/PsTips/</loc>
+    
+    <lastmod>2022-01-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sssuper-bear.github.io/2022/01/03/%E9%A3%9F%E7%89%A9/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C/</loc>
     
     <lastmod>2022-01-03</lastmod>
@@ -539,6 +560,13 @@
   
   <url>
     <loc>https://sssuper-bear.github.io/categories/%E5%88%B7%E9%A2%98/</loc>
+    <lastmod>2022-01-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sssuper-bear.github.io/categories/PS/</loc>
     <lastmod>2022-01-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

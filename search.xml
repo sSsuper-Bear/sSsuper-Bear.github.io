@@ -811,6 +811,21 @@
       </tags>
   </entry>
   <entry>
+    <title>PsTips</title>
+    <url>/2022/01/03/%E6%91%84%E5%BD%B1/PsTips/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+<li>[ 画笔增大</li>
+<li>] 画笔减小</li>
+<li>ctrl+i 反向</li>
+<li>ctrl+t 自由变换工具</li>
+<li>调出红色非选区遮罩：快捷键shift+alt + 点</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>人像嘴唇颜色更改</title>
     <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E5%98%B4%E5%94%87%E9%A2%9C%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
@@ -2305,6 +2320,71 @@
       </categories>
   </entry>
   <entry>
+    <title>时间复杂度与空间复杂度</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="时间复杂度与空间复杂度"><a href="#时间复杂度与空间复杂度" class="headerlink" title="时间复杂度与空间复杂度"></a>时间复杂度与空间复杂度</h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h3 id="O-1-常数阶"><a href="#O-1-常数阶" class="headerlink" title="O(1) 常数阶"></a>O(1) 常数阶</h3><p>0(1) 复杂度算法也称之为常数阶算法。这里的 <code>1</code> 是用来代指常量，也就是说这个算法的效率是固定的，无论你的数据量如何变化，效率都一样，这种复杂度也是最优的一种算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = a + b + c;</span><br><span class="line">    System.out.println(sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的示例中不论有多少行代码，时间复杂度都是属于常数阶。换言之：只要代码不存在<strong>循环</strong>，<strong>递归</strong>等循环类调用，不论代码有多少行，其复杂度都是常数阶</p>
+<h3 id="O-n-线性阶"><a href="#O-n-线性阶" class="headerlink" title="O(n) 线性阶"></a>O(n) 线性阶</h3><p><code>O(n)</code> 复杂度算法也称之为线性阶。比如下面这个示例我们应该怎么分析复杂度呢？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print1</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前面常量阶没分析是因为常量阶比较容易理解，接下来我们就以线性阶这个为例子来分析下具体是怎么得到的。</p>
+<p>我们假设每一行代码的执行时间是 <code>T</code>，那么上面这段代码的执行复杂度是多少呢？</p>
+<p>答案很明显，那就是 <code>T+n*T</code>，也就是 <code>(n+1)T</code>，而在算法中有一个原则，那就是常量可以被忽略，所以就得到了 <code>nT</code>，换成大 <code>O</code> 表示法就是 <code>O(n)</code>。</p>
+<p>这只是一个简略的计算过程，大家也不用较真说每行代码执行时间可能不一样之类的，也不要较真说 <code>for</code> 循环占用了一行，下面的大括号也占用了一行，如果要较真这个，那我建议可以去想一下 <code>1=1</code> 为什么等于 <code>2</code>。</p>
+<p>算法中的复杂度反应的只是一个趋势，这里 <code>O(n)</code> 反应的就是一个趋势，也就是随着 <code>n</code> 的变化，算法的执行时间是会降低的。</p>
+<h3 id="O-n²-平方阶"><a href="#O-n²-平方阶" class="headerlink" title="O(n²) 平方阶"></a>O(n²) 平方阶</h3><p>知道了上面的线性阶，那么平方阶就很好理解了，双层循环就是平方阶，同理，三次循环就是立方阶，<code>k</code> 次循环就是 <code>k</code> 次方阶。</p>
+<h3 id="O-logn-对数阶"><a href="#O-logn-对数阶" class="headerlink" title="O(logn) 对数阶"></a>O(logn) 对数阶</h3><p><code>O(logn)</code> 也称之为对数阶，对数阶也很常见，像二分查找，二叉树之类的问题中会见到比较多的对数阶复杂度，但是对数阶也是比较难理解的一种算法复杂度。</p>
+<p>下面我们还是来看一个例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print2</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码又该如何分析复杂度呢？这段代码最关键就是要分析出 <code>while</code> 循环中到底循环了多少次，我们观察这个循环，发现 <code>i</code> 并不是逐一递增，而是不断的翻倍：<code>1-&gt;2-&gt;4-&gt;8-&gt;16-&gt;32-&gt;64</code> 一直到等于 <code>n</code> 为止才会结束，所以我们得到了这样的一个公式：<code>2^x=n</code>。</p>
+<p>也就是我们只要计算出 <code>x</code> 的值，就得到了循环次数，而根据高中的数学知识我们可以得到 <code>x=log2n</code>（<code>2</code> 在下面，是底数，试了几种方法都打不出来，放弃了），所以根据上面线性阶的分析方法，我们省略常量，就得到了示例中的算法复杂度为 <code>O(log2n)</code>。</p>
+<p>同样的分析方式，下面的例子，我们可以很快的分析出复杂度就为 <code>O(log3n)</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">    i = i * <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面得到的 <code>log3n</code> 我们可以再做进一步的转换：<code>log3n=log32 * log2n</code>，而 <code>log32</code>（注意这几个地方的 <code>3</code> 是底数，在下面） 是一个常量，常量可以省略，所以也就得到了：<code>O(log3n)=O(log2n)</code>。同样的道理，不论底数是多少，其实最终都可以转化成和 <code>O(log2n)</code> 相等，正因为如此，为了方便，我们算法中通常就会省略底数，直接写作 <code>O(logn)</code>。</p>
+<p>上面的数学公式大家如果忘了或者看不懂也没关系，只要记住不论对数的底数是多少，我们都算作 <code>O(logn)</code>，而对于一个算法的复杂度是否是对数阶，还有一个简易的判断方法：<strong>当循环中下标以指定倍数形式衰减，那么这就是一个对数阶</strong>。</p>
+<h3 id="O-nlogn-线性对数阶"><a href="#O-nlogn-线性对数阶" class="headerlink" title="O(nlogn) 线性对数阶"></a>O(nlogn) 线性对数阶</h3><p>如果理解了上面的对数阶，那么这种线性对数阶就非常好理解了，只需要在对数阶的算法中再嵌一层循环就是线性对数阶：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析了前面这些最常用的时间复杂度，其实我们可以得到以下规律：</p>
+<ul>
+<li>只要是常量级别，不论多大，效率都是一样的（如：常量阶复杂度例子）。</li>
+<li>分析一段代码的时间复杂度，只需要分析执行次数最多的一段代码（如：所以例子中我们只分析了循环体中代码执行次数）。</li>
+<li>嵌套代码的复杂度等于嵌套内外代码复杂度的乘积（如：分析线性对数阶复杂度例子）。</li>
+</ul>
+<h3 id="其他复杂度"><a href="#其他复杂度" class="headerlink" title="其他复杂度"></a>其他复杂度</h3><p>除了上面常用的复杂度之外，另外还有指数阶，阶层阶，根号阶等，这些接触的相对会较少，我们就不特意做分析了，如果大家感兴趣的话，可以自己去了解下。</p>
+<h3 id="组合式复杂度分析"><a href="#组合式复杂度分析" class="headerlink" title="组合式复杂度分析"></a>组合式复杂度分析</h3><p>前面我们分析的都是只有一段代码比较复杂的情况下得到的复杂度结果，那么假如我一个算法中，有多段代码都比较复杂呢？这时候复杂度该如何分析？</p>
+<h4 id="取最大复杂度作为整个算法复杂度"><a href="#取最大复杂度作为整个算法复杂度" class="headerlink" title="取最大复杂度作为整个算法复杂度"></a>取最大复杂度作为整个算法复杂度</h4><p>我们先看下面这个例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print1</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        System.out.println(j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p=<span class="number">0</span>;p&lt;n;p++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> q=<span class="number">0</span>;q&lt;n;q++)&#123;</span><br><span class="line">            System.out.println(p+q);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子中有三个循环，首先第一个，是一个常量，那么根据前面的结论，不论这个常量是多大，都属于常量级，所以第一个循环中的复杂度为 <code>O(1)</code>，第二个和第三个循环我们前面也分析过，复杂度分别为 <code>O(n)</code> 和 <code>O(n²)</code>。</p>
+<p>也就是这一段代码中有三段代码产生了三种不同复杂度，而且这三个复杂度可以很明显得到的大小关系为：<code>O(1)&lt;O(n)&lt;O(n²)</code>，像这种在同一个算法中有明确大小关系的，我们就可以直接取最大值作为这个算法的复杂度，所以这个例子中算法的复杂度就是 <code>O(n²)</code>。</p>
+<h4 id="取多个复杂度之和作为整个算法复杂度"><a href="#取多个复杂度之和作为整个算法复杂度" class="headerlink" title="取多个复杂度之和作为整个算法复杂度"></a>取多个复杂度之和作为整个算法复杂度</h4><p>接下来我们再来看一个例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print2</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        System.out.println(j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n;k++)&#123;</span><br><span class="line">        System.out.println(k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子我们同样对三段循环分别分析可以分别得到如下复杂度：<code>O(1)</code>，<code>O(m)</code>，<code>O(n)</code>。这时候我们只能知道 <code>O(1)</code> 最小可以忽略，但是后面两个无法却无法确定大小，所以这时候我们需要取两段循环复杂度之和来作为算法的复杂度，所以可以得到这个例子的算法复杂度为：<code>O(m+n)</code>。</p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>空间复杂度全称就是渐进空间复杂度，用来表示算法的存储空间与数据规模之间的增长关系。和时间复杂度一样，空间复杂度也是用大 <code>O</code> 进行表示。</p>
+<p>其实学会了分析时间复杂度，那么空间复杂度的分析就简单了，主要就看我们在一个算法当中到底有没有使用到了额外的空间来进行存储数据，然后判断这个额外空间的大小会不会随着 <code>n</code> 的变化而变化，从而得到空间复杂度。</p>
+<p>我们来看一个给数组赋值例子，假设这就是一个算法，我们可以来分析下这个算法的空间复杂度：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        arr[i]=n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一开始定义了一个变量，这里需要空间，但是这是一个常量级的（不随 <code>n</code> 的变化而变化），然后再定义了一个数组，数组的长度为 <code>n</code>，这里数组也需要占用空间，而且数组的空间是随着 <code>n</code> 的变化而变化的，其余代码没有占用额外空间，所以我们就可以认为上面示例中的空间复杂度为 <code>O(n)</code>。</p>
+<p>对于算法的空间复杂度也可以简单的进行总结一下：</p>
+<ul>
+<li>如果申请的是有限个数（常量）的变量，空间复杂度为 <code>O(1)</code>。</li>
+<li>如果申请的是一维数组，队列或者链表等，那么空间复杂度为 <code>O(n)</code>。</li>
+<li>如果申请的是二维数组，那么空间复杂度为 <code>O(n²)</code>。</li>
+<li>如果是在循环体中申请的数组等，可能就需要取嵌套的乘积来作为空间复杂度，这种就需要具体的进一步分析</li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
     <title>可乐鸡翅</title>
     <url>/2022/01/03/%E9%A3%9F%E7%89%A9/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="可乐鸡翅"><a href="#可乐鸡翅" class="headerlink" title="可乐鸡翅"></a><a href="https://www.bilibili.com/video/BV1pJ411v7S9?from=search&seid=2151627749794461067">可乐鸡翅</a></h3><ul>
@@ -2845,6 +2925,513 @@
       <tags>
         <tag>mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>手机拍照技巧</title>
+    <url>/2022/01/03/%E6%91%84%E5%BD%B1/%E6%89%8B%E6%9C%BA%E6%8B%8D%E7%85%A7%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="自拍"><a href="#自拍" class="headerlink" title="自拍"></a>自拍</h4><ul>
+<li>灯光在头顶，正午拍照，光源在头顶，脸上会有非常明显的三角形投影，不适合自拍。<ul>
+<li>脸部朝向灯光的方向，避免顶光在脸部形成强烈的投影</li>
+<li>带个帽子</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208205624811.png" alt="image-20201208205624811"></p>
+<ul>
+<li><p>室内怎么让自拍照更美？靠近窗户的时候，逆光，脸部光线不好。</p>
+</li>
+<li><p>换个方向，面向光源，逆光自拍会看到脸部的瑕疵（颗粒，皱纹等等），顺光自拍可以减少脸部的瑕疵。</p>
+</li>
+<li><p>自拍角度决定你的胖瘦。</p>
+<ul>
+<li><p>低于30°的仰拍角，容易拍出圆乎乎的大脸</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208210135055.png" alt="image-20201208210135055"></p>
+</li>
+<li><p>手机保持30-45°的仰拍角度，更容易拍出巴掌脸与尖下巴</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208210352336.png" alt="image-20201208210352336"></p>
+</li>
+<li><p>脸大脸圆？学会遮挡术</p>
+<ul>
+<li><p>利用树叶花朵等作为前景，虚化并遮住部分脸，即显得脸小又增加画面趣味。(借助道具，手、围巾、帽子、花花草草。)</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208210639392.png" alt="image-20201208210639392"></p>
+</li>
+<li><p>还可以用双手或者单手托脸既可以遮住部分脸又显得可爱</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208210742655.png" alt="image-20201208210742655"></p>
+</li>
+<li><p>借助道具，比如饮料杯遮住部分脸</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208210830160.png" alt="image-20201208210830160"></p>
+</li>
+</ul>
+</li>
+<li><p>怎么让自拍照看起来不像自拍照</p>
+<ul>
+<li>借助手机自拍杆+定时遥控器</li>
+<li>放在桌子或者窗台+定时自拍</li>
+</ul>
+</li>
+<li><p>全身照瞬间拥有大长腿</p>
+<ul>
+<li>错误角度：俯拍容易拍的比本人显矮</li>
+<li>蹲下来采用仰拍角度<ul>
+<li>脚与地面的留白一定要少留地面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208211431040.png" alt="image-20201208211431040"></p>
+<h4 id="拍照的构图"><a href="#拍照的构图" class="headerlink" title="拍照的构图"></a>拍照的构图</h4><ul>
+<li><p><strong>黄金分割</strong>，拍摄人像不知道把任务放置于画面哪个位置的时候，置于黄金分割点是最稳妥的构图方法。</p>
+<ul>
+<li><p>设置九宫格四个交叉点的位置就是黄金分割点</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208211908865.png" alt="image-20201208211908865"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208211942688.png" alt="image-20201208211942688"></p>
+</li>
+<li><p><strong>点构图</strong>：点构图是拍摄环境人像时，最喜欢使用的一种构图方法，这样的构图，<strong>人物在画面里的比例很小</strong>，强调环境与人物和谐统一的关系。</p>
+<ul>
+<li>点构图的适用场景通常为视野开阔画面干净纯粹没有过多杂物的环境</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208212412080.png" alt="image-20201208212412080"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208212426560.png" alt="image-20201208212426560"></p>
+<ul>
+<li><p><strong>对角线构图</strong>：拍摄静物或者风光照片时，对角线构图特别适用</p>
+<ul>
+<li><p>对角线构图适合用于拍摄静物、花草植物或大面积的草坪、画面中有道路的自然风景</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208212932256.png" alt="image-20201208212932256"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208212723202.png" alt="image-20201208212723202"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208212746080.png" alt="image-20201208212746080"></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>中心对称构图</strong> </p>
+<ul>
+<li><p>有倒影的时候，为了追求画面平衡对称，把人物放置于画面正中间，倒影与人物聚焦中心对称点</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213049793.png" alt="image-20201208213049793"></p>
+</li>
+<li><p>横构图中如果有弧形的线条横穿画面拍摄主体为一颗树时，可以将树放置于画面正中心</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213322513.png" alt="image-20201208213322513"></p>
+</li>
+<li><p>用竖构图拍摄人物特写，为了画面饱满，突出人物神态，也适用中心对称构图。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213428017.png" alt="image-20201208213428017"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213437744.png" alt="image-20201208213437744"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>三角形构图</strong>，利用三角形构图，达到画面的平衡、稳定、饱满同时又不失灵活与动感</p>
+<ul>
+<li><p>拍摄静物或者人像时都可以尝试三角形构图</p>
+<p><img src="images/image-20201208213524368.png?lastModify=1607434632" alt="image-20201208213524368"></p>
+</li>
+<li><p>拍摄前摆设物品时，有意识的选择三角形构图，把几个物品分别放在三个角，这样构图比较饱满不会显得呆板。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213739834.png" alt="image-20201208213739834"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213755697.png" alt="image-20201208213755697"></p>
+</li>
+<li><p>拍摄人像如何使用三角形构图</p>
+<ul>
+<li><p>利用模特的手或腿摆出不同的pose，让人物呈现三角形的构图画面</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208213944752.png" alt="image-20201208213944752"></p>
+</li>
+<li><p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214024680.png" alt="image-20201208214024680"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214041217.png" alt="image-20201208214041217"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>引导线构图</strong>，利用画面中的线条，引导观者的目光，让视线可以汇聚到画面的焦点</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214225858.png" alt="image-20201208214225858"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214244817.png" alt="image-20201208214244817"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214254865.png" alt="image-20201208214254865"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214707089.png" alt="image-20201208214707089"></p>
+</li>
+<li><p><strong>重复线条构图</strong>：利用画面中规律排列的物体进行构图，让照片充满工整与秩序感</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214916083.png" alt="image-20201208214916083"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214926913.png" alt="image-20201208214926913"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214937969.png" alt="image-20201208214937969"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214946433.png" alt="image-20201208214946433"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208214955154.png" alt="image-20201208214955154"></p>
+</li>
+<li><p><strong>开放式构图</strong>：主体不一定放在画中心，有意在画面周围留下被切割的不完整形象，引导观众产生画外空间联想</p>
+<ul>
+<li><p>什么是封闭式构图：讲究画面完整，主体在画面之中，构图较工整，框架内部布局均衡、严禁、完整</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215546274.png" alt="image-20201208215546274"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215809810.png" alt="image-20201208215809810"></p>
+</li>
+<li><p>什么是开放式构图：主体不一定放在画中心，注重主体与画外的联系有意在画面周围留下切割的不完整形象，引导观众突破画框限制，产生画外空间联系</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215557329.png" alt="image-20201208215557329"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215825762.png" alt="image-20201208215825762"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215840816.png" alt="image-20201208215840816"></p>
+</li>
+<li><p>开放式构图拍摄静物或美食：拍摄画面里，桌面露出一小部分边角，这样的开放构图也会让人产生能长久注视画面思考遐想的效果</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208215955632.png" alt="image-20201208215955632"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>前景虚化构图</strong>：利用花草树木等物品作为前景，用大光圈拍摄虚化前景，制造梦幻、神秘的画面</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208220521634.png" alt="image-20201208220521634"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208220549714.png" alt="image-20201208220549714"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208220601698.png" alt="image-20201208220601698"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208220615777.png" alt="image-20201208220615777"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201208220625584.png" alt="image-20201208220625584"></p>
+</li>
+</ul>
+<h4 id="小道具"><a href="#小道具" class="headerlink" title="小道具"></a>小道具</h4><ul>
+<li><p>拍照的时候不知道手往哪里放，眼睛该往哪儿看</p>
+</li>
+<li><p>道具一：书、报纸、杂志</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210113723831.png" alt="image-20201210113723831"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210113740913.png" alt="image-20201210113740913"></p>
+</li>
+<li><p>道具二：食物（假装吃，假装喝）</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210113840257.png" alt="image-20201210113840257"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114107202.png" alt="image-20201210114107202"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114038513.png" alt="image-20201210114038513"></p>
+</li>
+<li><p>道具三：围巾、披肩、帽子</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114229969.png" alt="image-20201210114229969"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114249425.png" alt="image-20201210114249425"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114304577.png" alt="image-20201210114304577"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114315969.png" alt="image-20201210114315969"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114348323.png" alt="image-20201210114348323"></p>
+</li>
+<li><p>相机</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114427329.png" alt="image-20201210114427329"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114455826.png" alt="image-20201210114455826"></p>
+</li>
+<li><p>镜子</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114556977.png" alt="image-20201210114556977"></p>
+</li>
+<li><p>花草树叶等植物</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114640865.png" alt="image-20201210114640865"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114711890.png" alt="image-20201210114711890"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114746689.png" alt="image-20201210114746689"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114928673.png" alt="image-20201210114928673"></p>
+</li>
+<li><p>自行车</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210114958755.png" alt="image-20201210114958755"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115016593.png" alt="image-20201210115016593"></p>
+</li>
+<li><p>雨、雪、风、阳光</p>
+<ul>
+<li>雨，躲在屋檐下把手放在头顶装作要遮雨一样</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115258513.png" alt="image-20201210115258513"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115315522.png" alt="image-20201210115315522"></p>
+<ul>
+<li>雪</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115421905.png" alt="image-20201210115421905"></p>
+<ul>
+<li>雪+逆光<ul>
+<li>最好是很细颗粒的雪花，逆光拍摄，把雪花朝着镜头洒过来</li>
+<li>模特洒雪花的同时要保持微笑，表情不能太奔放与放松</li>
+<li>伞，伞柄不能把脸遮住</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115832982.png" alt="image-20201210115832982"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115851699.png" alt="image-20201210115851699"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210115924946.png" alt="image-20201210115924946"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120224994.png" alt="image-20201210120224994"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120244786.png" alt="image-20201210120244786"></p>
+</li>
+<li><p>风</p>
+<ul>
+<li>当有风的时候，利用风将头发和衣服吹起来</li>
+<li>最好是顺风，迎着风摆pose，眼神表情一定要到位</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120424421.png" alt="image-20201210120424421"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120529268.png" alt="image-20201210120529268"></p>
+</li>
+<li><p>阳光</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120614675.png" alt="image-20201210120614675"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120829954.png" alt="image-20201210120829954"></p>
+</li>
+<li><p>逆光拍摄</p>
+<ul>
+<li>日出、日落是逆光拍摄的最佳时间段</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210120959832.png" alt="image-20201210120959832"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210121240403.png" alt="image-20201210121240403"></p>
+<ul>
+<li>当屋外太阳比较高时可以选择路面有积雪的或者四周有白色墙面的环境进行拍摄逆光</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210121734771.png" alt="image-20201210121734771"></p>
+<ul>
+<li>或者躲进屋内拍摄逆光</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210121820695.png" alt="image-20201210121820695"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210121830145.png" alt="image-20201210121830145"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201210121839586.png" alt="image-20201210121839586"></p>
+<ul>
+<li>逆光帮手：三棱镜</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211222932427.png" alt="image-20201211222932427"></p>
+<ul>
+<li>逆光剪影怎么拍<ul>
+<li>人物背后要有大面积空景，不能有山等阻挡（山顶、楼顶、海边、或者站高一点与其他人物脱离）</li>
+</ul>
+</li>
+<li>光背景过亮 人脸过黑怎么办<ul>
+<li>对焦锁焦以后加曝光</li>
+</ul>
+</li>
+<li>逆光条件不理想，比如天空惨白怎么办<ul>
+<li>只利用光线，天空部分少拍入画面</li>
+</ul>
+</li>
+<li>太阳角度比较高的逆光拍摄<ul>
+<li>可以选择室内拍摄，让光线透过玻璃窗打进屋内</li>
+<li>寻找有积雪、四周白色墙壁环境的地方拍摄逆光，让白色物体的反光对人物进行补光</li>
+</ul>
+</li>
+<li>巧妙的利用小道具制造不一样的逆光（三棱镜）</li>
+<li>逆光拍摄剪影有哪些诀窍<ul>
+<li>任务的背后要有大面积的空景，不能有建筑物或山等阻挡</li>
+<li>天空中最好有美丽的火烧云，这样逆光照片色彩好看</li>
+<li>最好挑选在山顶、楼顶、海边等空旷环境拍摄逆光剪影</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>哪些小技巧，可以让你的照片更有感觉</p>
+<ul>
+<li><p>虚化背景，突出主题（相机人像模式）。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224712762.png" alt="image-20201211224712762"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224731048.png" alt="image-20201211224731048"></p>
+</li>
+<li><p>三棱镜：遮挡杂物，营造梦幻效果。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224823643.png" alt="image-20201211224823643"></p>
+</li>
+<li><p>分身效果：全景模式下模特由起始点移动到结束点，中间不能有路人闯入。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224920330.png" alt="image-20201211224920330"></p>
+</li>
+<li><p>镜面效果：积水，湖泊</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224938235.png" alt="image-20201211224938235"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211224957947.png" alt="image-20201211224957947"></p>
+</li>
+<li><p>悬浮效果：站板凳上一张，空景一张，app合成去掉板凳（设置一个蒙版，把它擦出来）</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225121692.png" alt="image-20201211225121692"></p>
+</li>
+<li><p>制造画框，将拍摄主体置于任何框内</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225222522.png" alt="image-20201211225222522"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225238832.png" alt="image-20201211225238832"></p>
+</li>
+<li><p>用手机如何拍出车辆运动轨迹的照片</p>
+<ul>
+<li>快门速度设置到1/20,1/30秒的速度</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225456114.png" alt="image-20201211225456114"></p>
+</li>
+<li><p>一组人像：景大人小，互相衬托，人景合一</p>
+<ul>
+<li>尝试拍摄景大人小的环境人像，这样的照片更耐看</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225614266.png" alt="image-20201211225614266"></p>
+<ul>
+<li>环境人像要斟酌人物着装是否与环境相呼应</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225706777.png" alt="image-20201211225706777"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225718601.png" alt="image-20201211225718601"></p>
+</li>
+</ul>
+</li>
+<li><p>男友拍照指南？？？</p>
+<ul>
+<li><p>餐厅</p>
+<ul>
+<li><p>挑选靠窗户的光源位置，让女朋友面朝窗户</p>
+</li>
+<li><p>跟实物合影，可以近距离高角度把她和食物一起拍进画面</p>
+</li>
+<li><p>注意看看脸上细节，进行补妆</p>
+</li>
+<li><p>端着水杯，或者利用桌上的植物作为虚化的前景增添照片的意境</p>
+</li>
+<li><p>不一定要看镜头，不看镜头的照片可能更加自然</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211225858985.png" alt="image-20201211225858985"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230014394.png" alt="image-20201211230014394"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230232644.png" alt="image-20201211230232644"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230320730.png" alt="image-20201211230320730"></p>
+</li>
+</ul>
+</li>
+<li><p>街景拍照</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230434330.png" alt="image-20201211230434330"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230456826.png" alt="image-20201211230456826"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230537417.png" alt="image-20201211230537417"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211230832809.png" alt="image-20201211230832809"></p>
+</li>
+<li><p>旅行拍摄赢芳心</p>
+<ul>
+<li><p>大头照与景大人小的照片都要拍</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231020307.png" alt="image-20201211231020307"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231032234.png" alt="image-20201211231032234"></p>
+</li>
+<li><p>寻找好的光源或者利用小道具，让她的皮肤在镜头里显得水汪汪</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231125843.png" alt="image-20201211231125843"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231135144.png" alt="image-20201211231135144"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231148765.png" alt="image-20201211231148765"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231159066.png" alt="image-20201211231159066"></p>
+</li>
+<li><p>想避开人群或拍出大长腿只需要蹲下拍摄</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231255965.png" alt="image-20201211231255965"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231304281.png" alt="image-20201211231304281"></p>
+</li>
+<li><p>手机采用竖构图拍摄更容易拉长腿</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201211231335864.png" alt="image-20201211231335864"></p>
+</li>
+<li><p>与可爱的小动物合影，抓拍自然生动的照片</p>
+<p>​    <img src="images/image-20201211231418986.png" alt="image-20201211231418986"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>拍美食</strong> </p>
+<ul>
+<li><p>尽量在光线充足明亮的地方拍照，最好是靠近窗户的光源</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213133702979.png" alt="image-20201213133702979"></p>
+</li>
+<li><p>当地特色美食纪念照</p>
+<ul>
+<li><p>寻找漂亮的背景，如店铺的招牌</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213133824287.png" alt="image-20201213133824287"></p>
+</li>
+<li><p>尽量让拍摄角度与背景面板保持垂直平行</p>
+</li>
+<li><p>用当地的特色建筑或街道作为背景</p>
+</li>
+</ul>
+</li>
+<li><p>只拍一款美食时诀窍</p>
+<ul>
+<li><p>构图采用中心点构图，将一盘美食放置于画面最中间（尽量让整盘食物充满画面，但也不能太拥挤，画面至少保留餐盘边缘）</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213134024640.png" alt="image-20201213134024640"></p>
+</li>
+</ul>
+</li>
+<li><p>采用俯拍，保持30-45°的角度拍摄</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213134215182.png" alt="image-20201213134215182"></p>
+</li>
+<li><p>部分实物，采用特殊角度拍摄</p>
+<ul>
+<li><p>饮料蛋糕冰淇淋等有立体感的食物，有时候采用平视角度更加合适</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213134343823.png" alt="image-20201213134343823"></p>
+</li>
+<li><p>整桌的食物更适合俯视平拍角度</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135433744.png" alt="image-20201213135433744"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135454240.png" alt="image-20201213135454240"></p>
+</li>
+<li><p>加入手的元素，让照片有互动感</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135532991.png" alt="image-20201213135532991"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135552575.png" alt="image-20201213135552575"></p>
+</li>
+<li><p>拍摄前整理盘内食物形状与盘边食物残渣</p>
+</li>
+<li><p>利用小道具让画面摆脱单调，更丰富</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135846143.png" alt="image-20201213135846143"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135857777.png" alt="image-20201213135857777"></p>
+</li>
+<li><p>foodie APP</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213135944030.png" alt="image-20201213135944030"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>拯救镜头恐惧症</strong></p>
+<ul>
+<li><p>低头微笑</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140114237.png" alt="image-20201213140114237"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140144768.png" alt="image-20201213140144768"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140201519.png" alt="image-20201213140201519"></p>
+</li>
+<li><p>撩头发</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140221731.png" alt="image-20201213140221731"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140236419.png" alt="image-20201213140236419"></p>
+</li>
+<li><p>回眸一笑</p>
+<ul>
+<li>回眸时，压低头。否则容易拍出大脸</li>
+<li>回眸瞬间记得用头发遮下脸，别用力太猛把头发甩开了</li>
+<li>回头时可以保持微笑，头与身体朝镜头方向倾斜一些，这样可以显瘦</li>
+<li>若想要自然状态，可以不看镜头，看自己的斜后方</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140306240.png" alt="image-20201213140306240"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140322080.png" alt="image-20201213140322080"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140331437.png" alt="image-20201213140331437"></p>
+</li>
+<li><p>托住脸颊</p>
+<ul>
+<li><p>轻轻放在脸颊旁边，真正托住脸颊的话，脸会被压变形</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140703775.png" alt="image-20201213140703775"></p>
+</li>
+<li><p>不看镜头，等待观看，凝视</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140738606.png" alt="image-20201213140738606"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140753038.png" alt="image-20201213140753038"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140806898.png" alt="image-20201213140806898"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140822623.png" alt="image-20201213140822623"></p>
+</li>
+<li><p>借助食物饮料等作为道具拿在手里</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140909615.png" alt="image-20201213140909615"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213140958000.png" alt="image-20201213140958000"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141013536.png" alt="image-20201213141013536"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141025585.png" alt="image-20201213141025585"></p>
+</li>
+<li><p>抬头闭眼微笑</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141052558.png" alt="image-20201213141052558"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141103600.png" alt="image-20201213141103600"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141128318.png" alt="image-20201213141128318"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141139502.png" alt="image-20201213141139502"></p>
+</li>
+<li><p>坐下来</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141242494.png" alt="image-20201213141242494"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141255040.png" alt="image-20201213141255040"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141310287.png" alt="image-20201213141310287"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141327583.png" alt="image-20201213141327583"></p>
+</li>
+<li><p>奔跑（奔跑的速度比平时慢一点，动作比平时夸张，拍摄角度最好从侧面拍摄）</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141426483.png" alt="image-20201213141426483"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141505295.png" alt="image-20201213141505295"></p>
+</li>
+<li><p>走路（连拍，步子迈的明显一些）</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141536080.png" alt="image-20201213141536080"></p>
+</li>
+<li><p>跳跃</p>
+<ul>
+<li>机位蹲低，可以显高</li>
+<li>跳跃时人脸容易变形、表情不受控制，采用侧面拍摄可以避免尴尬</li>
+</ul>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141749071.png" alt="image-20201213141749071"></p>
+</li>
+<li><p>旋转，转圈</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141822223.png" alt="image-20201213141822223"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141832320.png" alt="image-20201213141832320"></p>
+</li>
+<li><p>凝望镜头，眼睛里要有戏</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20201213141917825.png" alt="image-20201213141917825"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://www.bilibili.com/video/BV1Gb411S7wC?from=search&seid=5668966452379294491">手机摄影之生活拍照技巧</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
   </entry>
   <entry>
     <title>计算机网络</title>
