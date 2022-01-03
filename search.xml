@@ -157,6 +157,54 @@
       </tags>
   </entry>
   <entry>
+    <title>python实现发送邮件</title>
+    <url>/2021/05/24/%E5%B0%8F%E8%84%9A%E6%9C%AC/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
+<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
+</ol>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
+<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
+<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
+<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
+
+<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片压缩</title>
+    <url>/2021/05/27/%E5%B0%8F%E8%84%9A%E6%9C%AC/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
+            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+          </div>
+
+<p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
+<!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
+
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tree 压缩图片</span></span><br><span class="line">|-- compress</span><br><span class="line">|-- compressPic.py</span><br><span class="line">|-- finish</span><br><span class="line">`-- prepare</span><br><span class="line">    |-- test</span><br><span class="line">    |   `-- IMG1.JPG</span><br><span class="line">    `-- test2</span><br><span class="line">        `-- IMG2.JPG</span><br></pre></td></tr></table></figure>
+
+<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2021/5/25 14:54 </span></span><br><span class="line"><span class="comment"># @Author : SuperBear</span></span><br><span class="line"><span class="comment"># @File : compressPic.py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os, shutil</span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片压缩批处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compressImage</span>(<span class="params">srcPath, dstPath</span>):</span></span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(srcPath):</span><br><span class="line">        <span class="comment"># 如果不存在目的目录则创建一个，保持层级结构</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dstPath):</span><br><span class="line">            os.makedirs(dstPath)</span><br><span class="line">        <span class="comment"># 拼接完整的文件或文件夹路径</span></span><br><span class="line">        srcFile = os.path.join(srcPath, filename)</span><br><span class="line">        dstFile = os.path.join(dstPath, filename)</span><br><span class="line">        <span class="comment"># 如果是文件就处理</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(srcFile):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 打开原图片缩小后保存，可以用if srcFile.endswith(&quot;.jpg&quot;)或者split，splitext等函数等针对特定文件压缩</span></span><br><span class="line">                sImg = Image.<span class="built_in">open</span>(srcFile)</span><br><span class="line">                w, h = sImg.size</span><br><span class="line">                dImg = sImg.resize((<span class="built_in">int</span>(w / <span class="number">1.5</span>), <span class="built_in">int</span>(h / <span class="number">1.5</span>)), Image.ANTIALIAS)  <span class="comment"># 设置压缩尺寸和选项，注意尺寸要用括号</span></span><br><span class="line">                dImg.save(dstFile)  <span class="comment"># 也可以用srcFile原路径保存,或者更改后缀保存，save这个函数后面可以加压缩编码选项JPEG之类的</span></span><br><span class="line">                <span class="built_in">print</span>(dstPath+ dstFile + <span class="string">&quot; 成功！&quot;</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                <span class="built_in">print</span>(dstFile + <span class="string">&quot;失败！&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果是文件夹就递归</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(srcFile):</span><br><span class="line">            <span class="comment"># print(srcFile)</span></span><br><span class="line">            compressImage(srcFile, dstFile)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 遍历压缩图片</span></span><br><span class="line">    compressImage(<span class="string">&quot;./prepare&quot;</span>, <span class="string">&quot;./compress&quot;</span>)</span><br><span class="line">    <span class="comment"># 移动文件夹prepare到finish</span></span><br><span class="line">    src_path = <span class="string">&#x27;./prepare/&#x27;</span></span><br><span class="line">    target_path = <span class="string">&#x27;./finish/&#x27;</span></span><br><span class="line">    file_list = os.listdir(src_path)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(file_list) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">            shutil.move(src_path + file, target_path + file)</span><br></pre></td></tr></table></figure>
+
+<p>github源代码：<a href="https://github.com/sSsuper-Bear/compressPicture/tree/master">https://github.com/sSsuper-Bear/compressPicture/tree/master</a></p>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二分法</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%88%86%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="374-猜数字大小"><a href="#374-猜数字大小" class="headerlink" title="374. 猜数字大小"></a><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">374. 猜数字大小</a></h4><p>难度简单165</p>
@@ -702,54 +750,6 @@
       <categories>
         <category>刷题</category>
       </categories>
-  </entry>
-  <entry>
-    <title>python实现发送邮件</title>
-    <url>/2021/05/24/%E5%B0%8F%E8%84%9A%E6%9C%AC/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
-<li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
-</ol>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16f.png" alt="img"></p>
-<p>2.点击开启pop/smtp服务后，会弹出验证密保，就是通过密保手机号，发送“配置邮件客户端”到1069 0700 69，（自己用手机弄一下就好了），用自己手机发送完后点击“我已发送”</p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be179.png" alt="img"></p>
-<p>3.点击“我已发送”后会弹出一个开启POP3/SMTP服务的授权码，这个授权码很重要，要记住这个授权码：授权码很重要，然后点击确定。</p>
-<p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be193.png" alt="img"></p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.utils import formataddr</span><br><span class="line"></span><br><span class="line">my_sender = &#x27;XXXXXXXXX@qq.com&#x27;  # 发件人邮箱账号</span><br><span class="line">my_pass = &#x27;XXXXXXXXXXXXXXXXX&#x27;  # 发件人SMTP授权码</span><br><span class="line">my_user = &#x27;XXXXXXXXX@qq.com&#x27;  # 收件人邮箱账号，我这边发送给自己</span><br><span class="line">msg = MIMEText(&#x27;出bug了&#x27;, &#x27;plain&#x27;, &#x27;utf-8&#x27;)</span><br><span class="line">msg[&#x27;From&#x27;] = formataddr([&quot;xxxxxx&quot;, my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号</span><br><span class="line">msg[&#x27;To&#x27;] = formataddr([&quot;xxxxxx&quot;, my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号</span><br><span class="line">msg[&#x27;Subject&#x27;] = &quot;bug&quot;  # 邮件的主题，也可以说是标题</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器</span><br><span class="line">server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码</span><br><span class="line">server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件</span><br><span class="line">server.quit()  # 关闭连接</span><br></pre></td></tr></table></figure>
-
-<p>参考文献：<a href="https://blog.csdn.net/weixin_38166074/article/details/91350457?utm_term=qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%82%AE%E4%BB%B6api&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-91350457&spm=3001.4430">java编写QQ邮箱发送邮件_调用QQ邮箱接口</a><br><a href="https://juejin.cn/post/6844903865083494408">Python3实现邮箱发送</a></p>
-]]></content>
-      <categories>
-        <category>study</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图片压缩</title>
-    <url>/2021/05/27/%E5%B0%8F%E8%84%9A%E6%9C%AC/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
-
-<p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
-<!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
-
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tree 压缩图片</span></span><br><span class="line">|-- compress</span><br><span class="line">|-- compressPic.py</span><br><span class="line">|-- finish</span><br><span class="line">`-- prepare</span><br><span class="line">    |-- test</span><br><span class="line">    |   `-- IMG1.JPG</span><br><span class="line">    `-- test2</span><br><span class="line">        `-- IMG2.JPG</span><br></pre></td></tr></table></figure>
-
-<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2021/5/25 14:54 </span></span><br><span class="line"><span class="comment"># @Author : SuperBear</span></span><br><span class="line"><span class="comment"># @File : compressPic.py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os, shutil</span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片压缩批处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compressImage</span>(<span class="params">srcPath, dstPath</span>):</span></span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(srcPath):</span><br><span class="line">        <span class="comment"># 如果不存在目的目录则创建一个，保持层级结构</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dstPath):</span><br><span class="line">            os.makedirs(dstPath)</span><br><span class="line">        <span class="comment"># 拼接完整的文件或文件夹路径</span></span><br><span class="line">        srcFile = os.path.join(srcPath, filename)</span><br><span class="line">        dstFile = os.path.join(dstPath, filename)</span><br><span class="line">        <span class="comment"># 如果是文件就处理</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(srcFile):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 打开原图片缩小后保存，可以用if srcFile.endswith(&quot;.jpg&quot;)或者split，splitext等函数等针对特定文件压缩</span></span><br><span class="line">                sImg = Image.<span class="built_in">open</span>(srcFile)</span><br><span class="line">                w, h = sImg.size</span><br><span class="line">                dImg = sImg.resize((<span class="built_in">int</span>(w / <span class="number">1.5</span>), <span class="built_in">int</span>(h / <span class="number">1.5</span>)), Image.ANTIALIAS)  <span class="comment"># 设置压缩尺寸和选项，注意尺寸要用括号</span></span><br><span class="line">                dImg.save(dstFile)  <span class="comment"># 也可以用srcFile原路径保存,或者更改后缀保存，save这个函数后面可以加压缩编码选项JPEG之类的</span></span><br><span class="line">                <span class="built_in">print</span>(dstPath+ dstFile + <span class="string">&quot; 成功！&quot;</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                <span class="built_in">print</span>(dstFile + <span class="string">&quot;失败！&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果是文件夹就递归</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(srcFile):</span><br><span class="line">            <span class="comment"># print(srcFile)</span></span><br><span class="line">            compressImage(srcFile, dstFile)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 遍历压缩图片</span></span><br><span class="line">    compressImage(<span class="string">&quot;./prepare&quot;</span>, <span class="string">&quot;./compress&quot;</span>)</span><br><span class="line">    <span class="comment"># 移动文件夹prepare到finish</span></span><br><span class="line">    src_path = <span class="string">&#x27;./prepare/&#x27;</span></span><br><span class="line">    target_path = <span class="string">&#x27;./finish/&#x27;</span></span><br><span class="line">    file_list = os.listdir(src_path)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(file_list) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">            shutil.move(src_path + file, target_path + file)</span><br></pre></td></tr></table></figure>
-
-<p>github源代码：<a href="https://github.com/sSsuper-Bear/compressPicture/tree/master">https://github.com/sSsuper-Bear/compressPicture/tree/master</a></p>
-]]></content>
-      <categories>
-        <category>study</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>脚本</tag>
-      </tags>
   </entry>
   <entry>
     <title>Typora自动上传图片</title>
