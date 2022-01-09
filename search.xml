@@ -157,6 +157,49 @@
       </tags>
   </entry>
   <entry>
+    <title>二叉树</title>
+    <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
+<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明:</strong> 1 &lt;= n &lt;= 109</p>
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findIntegers</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据构建斐波那也数列</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;  i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        String numStr = getBinary(num);</span><br><span class="line">        <span class="comment">//一位位移动，不连续遇到1加上它</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numStr.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(numStr.charAt(i) == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res  += dp[numStr.length() - i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; numStr.charAt(i - <span class="number">1</span> ) == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//整数 转 二进制数</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getBinary</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sb.insert(<span class="number">0</span>,num &amp; <span class="number">1</span>);</span><br><span class="line">            num &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="678-有效的括号字符串"><a href="#678-有效的括号字符串" class="headerlink" title="678. 有效的括号字符串"></a><a href="https://leetcode-cn.com/problems/valid-parenthesis-string/">678. 有效的括号字符串</a></h4><p>给定一个只包含三种字符的字符串：<code>（ </code>，<code>）</code> 和 <code>*</code>，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
+<ol>
+<li>任何左括号 <code>(</code> 必须有相应的右括号 <code>)</code>。</li>
+<li>任何右括号 <code>)</code> 必须有相应的左括号 <code>(</code> 。</li>
+<li>左括号 <code>(</code> 必须在对应的右括号之前 <code>)</code>。</li>
+<li><code>*</code> 可以被视为单个右括号 <code>)</code> ，或单个左括号 <code>(</code> ，或一个空字符串。</li>
+<li>一个空字符串也被视为有效字符串。</li>
+</ol>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;()&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*)&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*))&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkValidString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// l: 左括号最少可能有多少个</span></span><br><span class="line">        <span class="comment">// r: 左括号最多可能有多少个</span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 遇到&#x27;(&#x27;所有可能性加一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;)&#x27;所有可能性减一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;*&#x27;，最少的可能性可以变少，最多的可能性也同样可以变多，这取决于这个星号最终我们看成什么，但是可能性都在</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                l++; r++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                l--; r--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l--; r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 当前左括号最少个数不能为负</span></span><br><span class="line">            l = Math.max(l, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 这种情况其实发生在r本身是负数的时候，也就是我们常见的右括号太多了</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 能取到0个左括号才是满足平衡的</span></span><br><span class="line">        <span class="keyword">return</span> l == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+  </entry>
+  <entry>
     <title>二分法</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%88%86%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="374-猜数字大小"><a href="#374-猜数字大小" class="headerlink" title="374. 猜数字大小"></a><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">374. 猜数字大小</a></h4><p>难度简单165</p>
@@ -200,49 +243,6 @@
 </ul>
 <p><strong>解答：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> <span class="keyword">extends</span> <span class="title">GuessGame</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">guessNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">1</span>, right=n;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right -left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(guess(mid) &lt;=<span class="number">0</span>) right = mid;</span><br><span class="line">            <span class="keyword">else</span> left = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>二叉树</title>
-    <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
-<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明:</strong> 1 &lt;= n &lt;= 109</p>
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findIntegers</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据构建斐波那也数列</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;  i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        String numStr = getBinary(num);</span><br><span class="line">        <span class="comment">//一位位移动，不连续遇到1加上它</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numStr.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(numStr.charAt(i) == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res  += dp[numStr.length() - i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; numStr.charAt(i - <span class="number">1</span> ) == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//整数 转 二进制数</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getBinary</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sb.insert(<span class="number">0</span>,num &amp; <span class="number">1</span>);</span><br><span class="line">            num &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h4 id="678-有效的括号字符串"><a href="#678-有效的括号字符串" class="headerlink" title="678. 有效的括号字符串"></a><a href="https://leetcode-cn.com/problems/valid-parenthesis-string/">678. 有效的括号字符串</a></h4><p>给定一个只包含三种字符的字符串：<code>（ </code>，<code>）</code> 和 <code>*</code>，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
-<ol>
-<li>任何左括号 <code>(</code> 必须有相应的右括号 <code>)</code>。</li>
-<li>任何右括号 <code>)</code> 必须有相应的左括号 <code>(</code> 。</li>
-<li>左括号 <code>(</code> 必须在对应的右括号之前 <code>)</code>。</li>
-<li><code>*</code> 可以被视为单个右括号 <code>)</code> ，或单个左括号 <code>(</code> ，或一个空字符串。</li>
-<li>一个空字符串也被视为有效字符串。</li>
-</ol>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;()&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*)&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*))&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkValidString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// l: 左括号最少可能有多少个</span></span><br><span class="line">        <span class="comment">// r: 左括号最多可能有多少个</span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 遇到&#x27;(&#x27;所有可能性加一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;)&#x27;所有可能性减一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;*&#x27;，最少的可能性可以变少，最多的可能性也同样可以变多，这取决于这个星号最终我们看成什么，但是可能性都在</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                l++; r++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                l--; r--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l--; r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 当前左括号最少个数不能为负</span></span><br><span class="line">            l = Math.max(l, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 这种情况其实发生在r本身是负数的时候，也就是我们常见的右括号太多了</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 能取到0个左括号才是满足平衡的</span></span><br><span class="line">        <span class="keyword">return</span> l == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -380,40 +380,6 @@
       </categories>
   </entry>
   <entry>
-    <title>堆栈</title>
-    <url>/2022/01/07/%E5%88%B7%E9%A2%98/%E5%A0%86%E6%A0%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h1><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
-<p>数据范围： n\le1000<em>n</em>≤1000</p>
-<p>要求：存储n个元素的空间复杂度为 O(n)<em>O</em>(<em>n</em>) ，插入与删除的时间复杂度都是 O(1)<em>O</em>(1)</p>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH1&quot;,&quot;PSH2&quot;,&quot;POP&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>返回值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1,2</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;PSH1&quot;:代表将1插入队列尾部</span><br><span class="line">&quot;PSH2&quot;:代表将2插入队列尾部</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回1</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回2   </span><br></pre></td></tr></table></figure>
-
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH2&quot;,&quot;POP&quot;,&quot;PSH1&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>返回值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2,1</span><br></pre></td></tr></table></figure>
-
-<p>思路：</p>
-<ul>
-<li>push操作就直接往stack1中push</li>
-<li>pop操作需要分类一下：如果stack2为空，那么需要将stack1中的数据<strong>全部</strong>转移到stack2中，然后在对stack2进行pop，如果stack2不为空，直接pop就ok。</li>
-</ul>
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack1.empty() &amp;&amp; stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">                stack2.push(stack1.pop())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-  </entry>
-  <entry>
     <title>字符串</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="68-文本左右对齐"><a href="#68-文本左右对齐" class="headerlink" title="68. 文本左右对齐"></a><a href="https://leetcode-cn.com/problems/text-justification/">68. 文本左右对齐</a></h4><p>给定一个单词数组和一个长度 <em>maxWidth</em>，重新排版单词，使其成为每行恰好有 <em>maxWidth</em> 个字符，且左右两端对齐的文本。</p>
@@ -507,6 +473,40 @@
 
 
 
+
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>堆栈</title>
+    <url>/2022/01/07/%E5%88%B7%E9%A2%98/%E5%A0%86%E6%A0%88/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h1><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
+<p>数据范围： n\le1000<em>n</em>≤1000</p>
+<p>要求：存储n个元素的空间复杂度为 O(n)<em>O</em>(<em>n</em>) ，插入与删除的时间复杂度都是 O(1)<em>O</em>(1)</p>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH1&quot;,&quot;PSH2&quot;,&quot;POP&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1,2</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;PSH1&quot;:代表将1插入队列尾部</span><br><span class="line">&quot;PSH2&quot;:代表将2插入队列尾部</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回1</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回2   </span><br></pre></td></tr></table></figure>
+
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH2&quot;,&quot;POP&quot;,&quot;PSH1&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2,1</span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<ul>
+<li>push操作就直接往stack1中push</li>
+<li>pop操作需要分类一下：如果stack2为空，那么需要将stack1中的数据<strong>全部</strong>转移到stack2中，然后在对stack2进行pop，如果stack2不为空，直接pop就ok。</li>
+</ul>
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack1.empty() &amp;&amp; stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">                stack2.push(stack1.pop())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -632,6 +632,132 @@
 <p><strong>思路：</strong>对数组进行排序，当前与前一个的根节点相同时，跳过这一次遍历</p>
 <p><strong>解答：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permuteUnique(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>[] used = <span class="keyword">new</span> <span class="keyword">boolean</span>[len];</span><br><span class="line">        List&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line"></span><br><span class="line">        dfs(nums, len,<span class="number">0</span>,path, used,res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> len, <span class="keyword">int</span> depth,</span></span></span><br><span class="line"><span class="params"><span class="function">                List&lt;Integer&gt; path, <span class="keyword">boolean</span>[] used,</span></span></span><br><span class="line"><span class="params"><span class="function">                List&lt;List&lt;Integer&gt;&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (depth == len) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(path));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(used[i]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">// used[i-1] == false保证前一个根节点，刚撤销选择</span></span><br><span class="line">            <span class="comment">// i&gt;0保证第二位开始</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>] &amp;&amp; used[i-<span class="number">1</span>] == <span class="keyword">false</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            path.add(nums[i]);</span><br><span class="line">            used[i]=<span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">            dfs(nums, len, depth+<span class="number">1</span>, path, used, res);</span><br><span class="line">            used[i]=<span class="keyword">false</span>;</span><br><span class="line">            path.remove(path.size() - <span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="NC41-最长无重复子数组"><a href="#NC41-最长无重复子数组" class="headerlink" title="NC41 最长无重复子数组"></a><a href="https://www.nowcoder.com/practice/b56799ebfd684fb394bd315e89324fb4?tpId=188&&tqId=38553&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC41 最长无重复子数组</a></h4><p>知识点<a href="https://www.nowcoder.com/ta/job-code-high-week?tag=585">哈希</a><a href="https://www.nowcoder.com/ta/job-code-high-week?tag=5054">双指针</a><a href="https://www.nowcoder.com/ta/job-code-high-week?tag=578">数组</a></p>
+<p> 描述</p>
+<p>给定一个长度为n的数组arr，返回arr的最长无重复元素子数组的长度，无重复指的是所有数字都不相同。</p>
+<p>子数组是连续的，比如[1,3,5,7,9]的子数组有[1,3]，[3,5,7]等等，但是[1,3,7]不是子数组</p>
+<p>数据范围：0≤arre.length*≤10<sup>6</sup>，0&lt;*a**r**r*[*i*]≤10<sup>5</sup></p>
+<p>要求：空间复杂度 O*(*n)，时间复杂度 O(nlogn)</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,3,4,5]</span><br></pre></td></tr></table></figure>
+
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,3,4,5]是最长子数组      </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,2,3,4,3]</span><br></pre></td></tr></table></figure>
+
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,3,4]是最长子数组      </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例3</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[9]</span><br></pre></td></tr></table></figure>
+
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例4</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,3,1,2,3,2,2]</span><br></pre></td></tr></table></figure>
+
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">最长子数组为[1,2,3]     </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例5</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,2,3,4,8,99,3]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">最长子数组为[2,3,4,8,99]  </span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>两个指针，一个i一个j，最开始的时候i和j指向第一个元素</li>
+<li>然后i往后移，把扫描过的元素都放到map中</li>
+<li>如果i扫描过的元素没有重复的就一直往后移，顺便记录一下最大值<code>max</code></li>
+<li>移动j的时候应该为 Math.max(j, map.get(arr[i]) + 1)</li>
+<li>重复的数字可能在之前<strong>移动j的时候跳过了</strong>，所以j的位置不动。</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr int整型一维数组 the array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int整型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxLength</span> <span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span> (arr.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(arr[i])) j = Math.max(j, map.get(arr[i]) + <span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">            map.put(arr[i], i);</span><br><span class="line">            max = Math.max(max, i-j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="NC65-斐波那契数列"><a href="#NC65-斐波那契数列" class="headerlink" title="NC65 斐波那契数列"></a>NC65 斐波那契数列</h4><p>知识点<a href="https://www.nowcoder.com/ta/job-code-high-week?tag=578">数组</a></p>
+<p><strong>描述</strong></p>
+<p>大家都知道斐波那契数列，现在要求输入一个正整数 n ，请你输出斐波那契数列的第 n 项。</p>
+<p>斐波那契数列是一个满足$$f i b ( x ) = { \begin{array}  { l l  }  { 1 }   &amp; { x = 1 , 2 } \ { fib ( x - 1 ) + fib ( x - 2 ) } &amp; { x \gt 2 } \end{array}$$的数列</p>
+<p>数据范围：1≤<em>n</em>≤39</p>
+<p>要求：空间复杂度 O*(1)，时间复杂度 <em>O</em>(<em>n</em>) ，本题也有时间复杂度 O(logn)的解法</p>
+<p><strong>输入描述：</strong></p>
+<p>一个正整数n</p>
+<p><strong>返回值描述：</strong></p>
+<p>输出一个正整数。</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">根据斐波那契数列的定义可知，fib(1)=1,fib(2)=1,fib(3)=fib(3-1)+fib(3-2)=2,fib(4)=fib(4-1)+fib(4-2)=3，所以答案为4。      </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>递归<ul>
+<li>往前推，遇到1或2才返回</li>
+</ul>
+</li>
+<li>循环<ul>
+<li>循环n-2次，直接交换数据a,b,c</li>
+</ul>
+</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"><span class="comment">//         if (n == 1 || n == 2) return 1;</span></span><br><span class="line"><span class="comment">//         int a = 1, b = 1, c = 0;</span></span><br><span class="line"><span class="comment">//         for (int i = 2; i &lt; n; i++) &#123;</span></span><br><span class="line"><span class="comment">//             c = a+b;</span></span><br><span class="line"><span class="comment">//             a = b;</span></span><br><span class="line"><span class="comment">//             b = c; </span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//         return c;</span></span><br><span class="line">        <span class="comment">// 递归</span></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Fibonacci(n-<span class="number">1</span>)+Fibonacci(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -925,6 +1051,549 @@
       </tags>
   </entry>
   <entry>
+    <title>PsTips</title>
+    <url>/2022/01/03/%E6%91%84%E5%BD%B1/PsTips/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+<li>[ 画笔增大</li>
+<li>] 画笔减小</li>
+<li>ctrl+i 反向</li>
+<li>ctrl+t 自由变换工具</li>
+<li>调出红色非选区遮罩：快捷键shift+alt + 点</li>
+</ul>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>人像嘴唇颜色更改</title>
+    <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E5%98%B4%E5%94%87%E9%A2%9C%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
+<li><p>打开图片</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4138355f7f718862da7.png" alt="image-20210604112727351"></p>
+</li>
+<li><p>方法一</p>
+<ul>
+<li><p>新建一个空白图层，图层混合模式设为<em><strong>“颜色”</strong></em>，这样只会更改它的颜色，而不会更改他的质感。</p>
+</li>
+<li><p>选择画笔工具调整不透明度（51%）+流量（56%）</p>
+</li>
+<li><p>找到所需要的颜色，找到之后就可以直接画了</p>
+</li>
+<li><p>涂完之后如果觉得有点太过了的话，可以降低一点他的透明度。</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4298355f7f7188811e5.png" alt="image-20210604113032303"></p>
+</li>
+</ul>
+</li>
+<li><p>方法二</p>
+<ul>
+<li><p>建立一个纯色图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4348355f7f71888f1d2.png" alt="image-20210604141536603"></p>
+</li>
+<li><p>ctrl+i  反向蒙版颜色</p>
+</li>
+<li><p>把图层模式改成颜色</p>
+</li>
+<li><p>调节不透明度使其自然</p>
+</li>
+</ul>
+</li>
+<li><p>方法三</p>
+<ul>
+<li>对于已经涂了口红的图，嘴唇的颜色杂色不多的情况下</li>
+<li>复制图层，选择滤镜—&gt;camera raw</li>
+<li>HSL调整—&gt;饱和度—&gt;红色</li>
+<li>如果不想影响其他地方红色，选择蒙版，把她嘴唇涂出来</li>
+</ul>
+</li>
+<li><p>方法四</p>
+<ul>
+<li><p>添加选择可选颜色图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d4448355f7f7188a45c7.png" alt="image-20210604150219774"></p>
+</li>
+<li><p>调节颜色之后，添加蒙版，选择嘴唇</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+        <tag>人像</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人像眉毛精致化处理</title>
+    <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E7%9C%89%E6%AF%9B%E7%B2%BE%E8%87%B4%E5%8C%96%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
+<li>导入图像，稍微调整一下曝光度(+0.25)+对比度(+6)使眉毛比较明显。</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60b9d34d8355f7f71875cddc.png" alt="image-20210604101144306"></p>
+<ul>
+<li><p>放大图片，看一下眉毛所存在的问题</p>
+<ul>
+<li>眉毛中间有很多空缺</li>
+<li>外面存在杂发、杂眉毛</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60b9d35d8355f7f718771b44.png" alt="image-20210604101722568"></p>
+<ul>
+<li><p>处理步骤</p>
+<ul>
+<li><p>复制图层，用修补工具把外面杂乱的眉毛修掉</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3788355f7f718796aa5.png" alt="image-20210604102339995"></p>
+</li>
+<li><p>用锁套工具将长得比较好的眉毛截选出来，然后将截选出的眉毛拷贝成一个图层</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3898355f7f7187ac111.png" alt="image-20210604102640501"></p>
+</li>
+<li><p>将眉毛移动到眉毛空缺的地方</p>
+</li>
+<li><p>利用自有变换工具（ctrl+t）调整角度，使其纹理走向与原图匹配</p>
+</li>
+<li><p>将图层混合模式改成深色</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3988355f7f7187bf9e0.png" alt="image-20210604103202011"></p>
+</li>
+<li><p>创建蒙版，<em><strong>ctrl+i</strong></em>蒙版反向（蒙版黑色不可见，白色可见）</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3a78355f7f7187d3db4.png" alt="image-20210604103253913"></p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3b48355f7f7187e5391.png" alt="image-20210604103800722"></p>
+</li>
+<li><p>使用画笔，将画笔颜色改成白色，降低画笔不透明度（这里不透明度为54%）。</p>
+</li>
+<li><p>将眉毛用白色画笔画出来</p>
+</li>
+<li><p>如果还不够就新建一个图层</p>
+</li>
+<li><p>利用吸管工具吸取一个眉毛中比较深的颜色</p>
+</li>
+<li><p>将画笔调小一点（2）不透明度调低一点（36%）</p>
+</li>
+<li><p>调整完毕之后就大功告成了</p>
+<p><img src="https://pic.imgdb.cn/item/60b9d3cb8355f7f718803ef7.png" alt="image-20210604112307771"></p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+        <tag>人像</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后期PS处理调色思路</title>
+    <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
+<li>基础调整<ul>
+<li>白平衡<ul>
+<li>色温：控制照片冷暖感觉的工具</li>
+<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
+</ul>
+</li>
+<li>曝光：调节照片的明暗</li>
+<li>高光：压低高光，可以找回高光区的细节</li>
+<li>白色：压低白色，找回照片中白色的细节</li>
+<li>阴影：控制照片中偏暗的部分</li>
+<li>黑色：控制照片中黑色看不到细节的部分</li>
+</ul>
+</li>
+<li>HSL调整<ul>
+<li>色相：色彩的相貌<ul>
+<li>把某个颜色定义成自己拖动到的颜色</li>
+</ul>
+</li>
+<li>饱和度：颜色的纯度<ul>
+<li>数字越大说明纯度越高</li>
+</ul>
+</li>
+<li>明亮度：颜色的明暗程度<ul>
+<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
+</ul>
+</li>
+<li>如何使用？<ul>
+<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
+<li>降低橙色饱和度，使其皮肤通透点</li>
+<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机对焦参数</title>
+    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
+<li><p>什么是对焦</p>
+</li>
+<li><p>对焦区域</p>
+<ul>
+<li><p>区域自动对焦，大区域自动对焦</p>
+<ul>
+<li>特点：精度一般</li>
+<li>适合场景：运动员/运动题材</li>
+</ul>
+</li>
+<li><p>45点自动对焦</p>
+<ul>
+<li>特点：对焦容易/精确度较差</li>
+<li>适合场景：风格/大场景</li>
+</ul>
+</li>
+<li><p>单点自动对焦</p>
+<ul>
+<li>特点：精确度高</li>
+<li>适合场景：人物/产品/特写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对焦模式</p>
+<ul>
+<li><p>AF（自动对焦）</p>
+<ul>
+<li>使用<ul>
+<li>半按快门</li>
+</ul>
+</li>
+<li>分类<ul>
+<li>单次自动对焦—&gt;半按快门对焦一次，适合拍静止物体</li>
+<li>人工智能伺服对焦——半按快门对焦多次，适合拍运动物体</li>
+<li>人工智能自动对焦——适合拍无法准确预判是否运动的物体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MF（手动对焦）</p>
+<ul>
+<li><p>使用</p>
+<ul>
+<li><p>转动对焦环对焦</p>
+<p><img src="https://pic.imgdb.cn/item/60bc351d8355f7f718b747fa.png" alt="image-20210606101212207"></p>
+</li>
+</ul>
+</li>
+<li><p>适用场景</p>
+<ul>
+<li>暗环境下拍摄<ul>
+<li>在AF自动对焦模式下，经常会出现对焦困难的情况</li>
+</ul>
+</li>
+<li>逆光环境<ul>
+<li>光线进入镜头很多，有较强烈的眩光效果，用AF可能不太好对焦</li>
+</ul>
+</li>
+<li>光斑等特殊效果拍摄<ul>
+<li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>相机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机曝光参数</title>
+    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
+<li><p>曝光三要素</p>
+<ul>
+<li><p>光圈</p>
+<ul>
+<li>光圈在相机中是F来表示，F后面的数字越小，表示光圈越大（光圈越大—&gt;进光量越多）</li>
+<li>F+数字越小—&gt;光圈越大</li>
+<li>光圈越大，背景虚化越强    光圈越小，背景虚化越弱</li>
+<li>使用<ul>
+<li>当相机在<em><strong>Av光圈</strong></em>优先模式下，可以通过转动<em><strong>快门附近的拨盘</strong></em>进行调节。</li>
+<li>当相机在<em><strong>M手动模式</strong></em>的时候，转动<em><strong>DIAL FUNC拨盘</strong></em>进行调节。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/60bc357f8355f7f718bc2167.png" alt="image-20210605183802551"></p>
+</li>
+<li><p>快门</p>
+<ul>
+<li>快门时间长—&gt;进光量多—&gt;照片亮</li>
+<li>1/60或60表示1/60秒，1’’表示1秒</li>
+<li>短快门—&gt;抓拍瞬间，长快门—&gt;记录轨迹</li>
+<li>使用<ul>
+<li>Tv快门优先和M手动模式都是通过<em><strong>快门拨盘</strong></em>来调节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ISO（感光度）</p>
+<ul>
+<li>感光度是感光元件对光线的敏感程度与，简称ISO</li>
+<li>数字越大—&gt;对光线越敏感，数字越小—&gt;对光线越不敏感</li>
+<li>ISO越高—&gt;噪点越多—&gt;画面越粗糙，ISO越低—&gt;噪点越少—&gt;画面越细腻</li>
+<li>手持排夜景、抓拍运动物体、长焦镜头拍摄可调高ISO</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>光圈、快门、ISO之间的关系</p>
+<ul>
+<li><p>以水龙头作为比喻</p>
+<ul>
+<li>阀门打开的大小—&gt;光圈大小</li>
+<li>水流的时间—&gt;快门时间</li>
+<li>流出水的总量—&gt;进光量</li>
+</ul>
+</li>
+<li><p>在光线比较充足的情况下，为了保证照片的画质，我们通常会选择100-200之间的低ISO，ISO作为一个相对固定的参数，我们暂时不予考虑</p>
+</li>
+<li><p>进光量一定 光圈越大—&gt;快门时间越短，光圈越小—&gt;快门时间越长</p>
+</li>
+<li><p>虚化效果—&gt;大光圈+短快门</p>
+</li>
+<li><p>运动轨迹/慢门效果—&gt;长快门+小光圈</p>
+</li>
+</ul>
+</li>
+<li><p>曝光模式</p>
+<ul>
+<li><p>A+    全自动模式</p>
+<ul>
+<li>光圈、快门、ISO都由相机自动设置</li>
+</ul>
+</li>
+<li><p>P      程序自动模式</p>
+<ul>
+<li>光圈、快门由相机自动设置，ISO可以手动设置</li>
+</ul>
+</li>
+<li><p>Tv     快门优先模式</p>
+<ul>
+<li>快门时间、ISO可手动设置，光圈由相机自动匹配</li>
+</ul>
+</li>
+<li><p>Av     光圈优先模式(很多人喜欢这种模式)</p>
+<ul>
+<li>光圈、ISO可手动设置，快门速度由相机自动匹配</li>
+</ul>
+</li>
+<li><p>M      全手动模式</p>
+<ul>
+<li>光圈、快门、ISO都由我们手动设置</li>
+</ul>
+</li>
+<li><p>SCN  场景自动模式</p>
+<ul>
+<li>人像：相机会自动采用大光圈形成背景虚化突出人物</li>
+<li>风光：相机自动采用小光圈使整体清晰</li>
+<li>运动：相机自动提高快门速度跟容易抓拍运动物体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>测光模式</p>
+<ul>
+<li><p>测光模式：相机可以自动侦测周围光线情况，侦测光线的方式不同就有了不同的测光模式</p>
+</li>
+<li><p>新手常用的测光模式：</p>
+<ul>
+<li>评价测光（矩阵）：把画面分成若干个区域进行测光，加权平均后作为曝光基准（适合生活中90%的拍摄场景）</li>
+<li>点测光：对画面中的“点”进行测光作为曝光基准（适合在逆光等复杂的环境下进行拍摄）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>曝光补偿</p>
+<ul>
+<li>什么是曝光补偿：曝光补偿就是对画面亮度的补偿效果，在Av/Tv/P这种半自动模式下，可以手动调整曝光补偿改变画面亮度。</li>
+<li>曝光补偿在相机中是如何表示的：曝光补偿在相机中是以刻度表的形式呈现的，并且可以调节正负</li>
+<li>如何使用<ul>
+<li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
+<li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
+<li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>相机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>控制相机色彩参数</title>
+    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
+<li><p>白平衡</p>
+<ul>
+<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
+</li>
+<li><p>几种白平衡模式</p>
+<ul>
+<li><p>自动（AWB）</p>
+</li>
+<li><p>日光</p>
+</li>
+<li><p>阴影</p>
+<ul>
+<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
+</ul>
+</li>
+<li><p>阴天</p>
+</li>
+<li><p>钨丝灯</p>
+</li>
+<li><p>白色荧光灯</p>
+<ul>
+<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>相机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>摄影经验——转载</title>
+    <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E6%91%84%E5%BD%B1%E7%BB%8F%E9%AA%8C%E2%80%94%E2%80%94%E8%BD%AC%E8%BD%BD/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像摄影怎么拍"><a href="#人像摄影怎么拍" class="headerlink" title="人像摄影怎么拍"></a>人像摄影怎么拍</h3><h2 id="1-构图"><a href="#1-构图" class="headerlink" title="1. 构图"></a><strong>1. 构图</strong></h2><p>首先，是人像拍摄中，构图的问题。</p>
+<p>关于构图在摄影中的重要性大家都有自己的认知，面对于不同的摄影风格，有的风格讲究构图讲究严谨，例如古风，有的风格构图上更倾向于自然不拘谨，例如很多日系生活感的照片拍摄，有的风格会倾向于以画面的张力和情绪为优先考虑，而完全不会被构图束缚。例如我们都听说的日本荒木老前辈，所以摄影的构图该如何去做，其实取决于你所喜欢并想要做到极致的那一类摄影风格而定。</p>
+<p>我今天就说一下我自己的构图习惯，我的拍摄风格，多数是安静的画面，画面感比较干净，构图也算是偏向严谨类方向的类型，当然我的风格也可能会慢慢转变，毕竟这些都是受自己的审美所影响的，审美发生了变化，风格也会慢慢的发生变化。</p>
+<p>我的很多学生，来找我报名课程系统学习摄影的时候，他们多数都是近似一张白纸，在这样的情况下，面对构图的问题，我基本会对他们有两点要求：就是<strong>先用好居中构图和三分之一构图。</strong>用好这两种构图方法的同时再慢慢去找到自己在摄影中的风格和感觉，当这两种构图方法能运用得心应手的时候， 再去在画面中尝试加入别的变化也是很轻松的事情。</p>
+<p>你可能会说：老师，你说的这两种方法我都懂都明白，这也太简单了吧？其实，你能把居中构图和三分之一构图用明白，用好，并不是一件看上去那么简单的事情呦~~~</p>
+<p>我对学生的要求是：用三分之一构图去拍照，画面的人物主体虽然在这个位置，但是<strong>你要尝试用别的方法让他们在画面中找到平衡感</strong>；使用居中构图的时候，<strong>尝试用你的创意让的照片变的与众不同</strong>。</p>
+<p><img src="https://pic2.zhimg.com/v2-22c0ce4a3965d372445b1af9f364720d_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L，客户的拍摄，青海茶卡盐湖</p>
+<p>例如这张照片，如果从构图上说，他就是一个很普通的居中构图，但是因为加入了多重曝光的创意配合夕阳时的美丽景色，让照片变的不那么普通。</p>
+<p><img src="https://pic4.zhimg.com/v2-bc609a0d431d430d607c4fe65e86b7f3_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p><img src="https://pic4.zhimg.com/v2-8537eddd6a8ac347b287c858661e4247_b.jpg" alt="img"></p>
+<p>这是一张三分之一构图的照片,人物位于照片中的三分之一的位置，虽然只是简单的坐在那里，但是因为<strong>人物视线的方向与光线的互动</strong>，给阅读这张照片的读者做出了读图的引导，也是因为这样简单的互动，让照片有了氛围感。</p>
+<p><img src="https://pic1.zhimg.com/v2-ac0ed4d69b7c1b8fe37ebb729c96f5c4_b.jpg" alt="img"></p>
+<p>佳能胶片机EOS1V+2470 2.8L+portra400 拍摄于香港</p>
+<p><img src="https://pic4.zhimg.com/v2-53160f3e08573c69bb18a77b51e49e7f_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p>而这两张照片人物也是所处于三分之一的位置，通过线条的延伸感和画面中其他的色块，来让画面变的平衡。</p>
+<p>我在拍摄当中，极少出现那类地平线歪歪斜斜的画面，<strong>多数都是这类四平八稳的构图方式。</strong>但是就像给大家展示的思路那样，我喜欢用画面中其他的元素，让这类构图简单的画面，变得不那么普通。</p>
+<p>虽然看似基础，但可以变化的思路真的是超级多，构图的其他思路就真的太多了，什么框式构图，什么线条，什么构图中的三角形，但觉得你不妨先把最基本的做到最好，我总会和学生们墨迹一句话:对于摄影师来说，好的拍摄习惯一旦养成以后，就会像吃饭，睡觉一样变成你的一种习惯，好的构图习惯和用光方式也是一样可以成为这样的习惯。</p>
+<p>其实我自己现在在拍照的时候很多都是习惯性的就那样去拍摄了，拍摄的当时并没有刻意 的去烧脑纠结什么构图之类的，希望这个思路可以对大家有点启发。</p>
+<h2 id="2-引导模特"><a href="#2-引导模特" class="headerlink" title="2. 引导模特"></a><strong>2. 引导模特</strong></h2><p>人像拍摄中，如何沟通引导被拍摄的人，拍出自然的感觉呢？</p>
+<p>关于引导的思路很多摄影师都是不一样的，我今天就和大家说一下最简单的方法，这个引导的思路也有很多摄影师都提到过。可能你们都听腻了，我管这类方法称为<strong>《代入法》</strong>。</p>
+<p>有些同学一听这个名字就能猜到个七七八八，有些同学听到这个名词的时候一脸懵逼。我举个例子，很多同学都关心的，怎么把女孩拍得好看拍得自然。我觉得当你以男朋友的视角去代入自己的角色，那时想到的画面都不会很做作，尝试脑补女孩子和男朋友互动的画面感，然后去做引导多数都会比较自然。</p>
+<p><img src="https://pic1.zhimg.com/v2-86306b8ffa8d7a6ca4d23f13c114d410_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p><img src="https://pic4.zhimg.com/v2-d3c9dfb4326bfcfdf3ba868b9d47c10f_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p><img src="https://pic3.zhimg.com/v2-f41d6a3d8c2d0b29d8bd21bab7b66592_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p><img src="https://pic4.zhimg.com/v2-4c00007666f61d07cb2637cad08324df_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
+<p>我比较喜欢拍外景的环境人像，觉得那样会有更多的元素可以互动，这套照片是我在给报名面授课程的同学们，上课时所拍摄的。那次也是第一次尝试室内生活感的主题，我当时设计主题时的思路就是想拍那种假日和女朋友腻在家里的感觉，在拍摄之前就事先通过民宿的照片，观看到场地的情况，<strong>脑补了很多情侣之间可能会发生的场景</strong>。</p>
+<p>例如周末赖床，男朋友给女朋友做早餐，女朋友在衣柜中淘气的画面等，虽然不像严谨的商业摄影那种会写成ppt的格式，但<strong>每个场景也都是自己脑补带入过的</strong>。只有这样，你到了拍摄场地，才能用语言把你想要的感觉比较清晰的告诉给模特，当语言不能清晰传达的时候，我甚至会直接在那个位置做一个我脑海中动作，我很多面授同学我看到过这一幕都……</p>
+<p>我猜，看这篇文章的朋友，肯定有好多，在拍摄面对模特，连自己想要的感觉都用语言说不清楚的吧? 你要想一下，<strong>你自己都说不出来的东西怎么指望模特可以很好的理解呢</strong></p>
+<p><img src="https://pic1.zhimg.com/v2-2288251b24c93aff73d5346c1bf76408_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于香港</p>
+<p>这张照片在拍摄的时候，我很简单的和小青说: 闭上眼睛，感觉阳光照在脸上很舒服的感觉。其实很多的时候，你脑中有了画面感，再用语言表达，就是一件很简单的事情了。</p>
+<p><img src="https://pic1.zhimg.com/v2-336f690b0ae39d568a7c5eedf77c0d5c_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于斯里兰卡</p>
+<p>这张照片，是我和朋友一起在斯里兰卡旅行的时候拍摄的，当时是暴风雨的前夕，乌云就是那么恐怖的，其实当时的引导很简单，我当时告诉楠楠：你感觉远方的云在和你说话，你把手放在耳边闭上眼睛在安静的听他和你说话。实际上当时乌云密布老恐怖了……你明白自己想要的画面，就可以做出轻松的引导。</p>
+<p><img src="https://pic2.zhimg.com/v2-e6283ef36ab4884c9ad17f94fa2e4a15_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于大理</p>
+<p>这是我帮朋友在云南大理拍摄的全家福，引导的时候，我和圆圆（孩子的妈妈）说，你和女儿商量一句话，然后你们一起在老公的耳边用手挡住感觉要说悄悄话，当时母女俩说的好像是：爸爸是大坏蛋。然后老公很自然地就笑了，<strong>因为预估到会有很多真实感的画面，所以这张照片拍摄的时候，我是开连拍模式拍摄的</strong>。</p>
+<p><img src="https://pic1.zhimg.com/v2-03a838da35a3bdbace9e4b8ba4f50154_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于大理</p>
+<p>这张在拍摄的时候，我让他们夫妻俩紧紧的亲孩子的脸颊，小宝贝的脸肉嘟嘟的被爸爸妈妈的嘴挤住，一笑自然就是这样的小表情了。</p>
+<p>另外作为一位也是从萌新小白走过来的摄影师说句心里话，<strong>你闷头在家里就算是看过1万位顶级大咖的经验分享，都不如自己去认真的策划拍个10场</strong>，别看我和你说的好像很简单 ，你也感觉是理解了，但是自己上手去做也还是需要很多临场经验的，所以，别懒别仅仅是看纸上谈兵，动起来多去实现你心中的想法，引导的经验都是这样越来越丰富的。</p>
+<h2 id="3-天气"><a href="#3-天气" class="headerlink" title="3. 天气"></a><strong>3. 天气</strong></h2><p>如何在各种不同天气情况下，无论光线是否完美，都可以很好的完成拍摄呢？</p>
+<p>我到现在好像就只有下雪天没拍过了，面对各种各样的天气我也算是见过世面了，昨天和前天还在济州岛一边拍摄一边被风吹雨打。</p>
+<p>我们一步一步来说，首先是阳光晴好的日子，一般在日照正常的地区，如果拍摄的时间你可以控制，我比较建议上午选择10点30-11点之前的时间进行室外部分的拍摄，下午选择三点半左右到日落结束的时间，因为<strong>这些时间段的阳光没有那么强烈</strong>，相机的宽容度你前期控制一下都没有太大问题的。</p>
+<p>晴天的日子室内就不必说了，都不会有太大的影响，但是如果你是想玩光影创意的话，例如这样：</p>
+<p><img src="https://pic4.zhimg.com/v2-fa4c546c8023df7f71ea65422b0c57f3_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于深圳</p>
+<p><img src="https://pic3.zhimg.com/v2-c5b7a87b3eba8635559e9f90651de69e_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于深圳</p>
+<p>这类的室内光影创意就比较建议参考刚才所说的室外拍摄时间段了，也是因为光线会比较好控制。</p>
+<p>然后我们说说<strong>阴天</strong>的时候，阴天的时候，我的建议是多找顺光的位置去进行拍摄，虽然阴天没有直射光，但是你找到顺光的位置面部的光线质感应该也都不会很差，例如这几张照片我就是狂风暴雨前后拍摄的。</p>
+<p><img src="https://pic4.zhimg.com/v2-cf139d2453fbe1d42efc103416f9ebaf_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于我的香港摄影面授课程</p>
+<p><img src="https://pic2.zhimg.com/v2-c0e2a470097f32a76c6104565f3a5385_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L ，拍摄于我的香港摄影面授课程</p>
+<p>大家可以看到，天空阴的云都完全没有层次了，面部的光感还是可以拍到和打了闪光灯一样的效果，虽然有些许的后期辅助，但是前期的拍摄至关重要，<strong>这就是在阴天顺光拍摄的一个思路</strong>，希望对大家有些许的帮助。</p>
+<p>另外关于白平衡，我都是<strong>自动白平衡</strong>的，现在相机的电子化程度我觉得白平衡是可以信任的，我自己使用的是一台佳能5D4相机。就算是自动白平衡有些许的偏差，我们在LR里面都是可以很轻松的去做白平衡统一。</p>
+<h2 id="4-策划思路"><a href="#4-策划思路" class="headerlink" title="4. 策划思路"></a><strong>4. 策划思路</strong></h2><p>下面我们说一下：关于一次人像拍摄的策划思路。这个问题我用之前拍摄的一套作品作为案例，<strong>真实的还原一下我当时策划的情况</strong>。这样分析案例，应该比生硬地和大家说道理效果会更好。</p>
+<p><img src="https://pic4.zhimg.com/v2-88f39d4aebcd212e765d8b8329db5527_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L</p>
+<p>就是这组照片，听课的同学应该有很多都会去图虫看片的吧，这组在图虫挺受欢迎的，之前报名京东的摄影比赛，还得了最受欢迎作品奖，最受欢迎作品完全是看网友人气来评选的。</p>
+<p>我在拍摄的初期是在手机浏览民宿的时候看到了一家位于深圳很有感觉的场地，当时看到的场景是这样的：</p>
+<p><img src="https://pic2.zhimg.com/v2-41831df41c26f9b93570e7154849c815_b.jpg" alt="img"></p>
+<p><img src="https://pic1.zhimg.com/v2-24761009ccaf3d0f978adfc268021578_b.jpg" alt="img"></p>
+<p><img src="https://pic1.zhimg.com/v2-d8cdc211b7c01d6324d3e98eb56c40ec_b.jpg" alt="img"></p>
+<p><img src="https://pic4.zhimg.com/v2-28fa4d3bf39e06c5e007912570b42723_b.jpg" alt="img"></p>
+<p>那段时间广州的天气如果没有空调真的是痛不欲生，所以我对室内的拍摄特别的感兴趣。看到这么干净的场景，脑子里立刻就有了这样的色彩组合。</p>
+<p><img src="https://pic1.zhimg.com/v2-ce6386cf00619092ff0e6fd805518d4c_b.jpg" alt="img"></p>
+<p>我可能是因为有了一些拍摄的经验，所以面对这类很干净的拍摄场地很快就可以找到服装和环境色搭配的感觉，如果对这类搭配你们开始找不到感觉的时候，<strong>可以尝试网上找一些配色表</strong>，把环境色往里面套用一下。</p>
+<p><img src="https://pic1.zhimg.com/v2-5efabd3e62a884dbc88c72384876d64c_b.jpg" alt="img"></p>
+<p>色彩都是有自己的语言的，另外什么颜色搭配在一起也都是有讲究的。刚开始对于没有经验的萌新来说，<strong>巧用配色表是比较有效率有质量的配色解决办法</strong>。我是在自己定下了照片的色彩配比以后购买了一件蓝色的男士衬衣，出片效果来看这样的男朋友款式衬衣效果还蛮不错的。</p>
+<p>拍摄的前期准备都到位了，在拍摄当天我也是像前面和同学们说的那样，有代入感地去和模特在拍摄中沟通。这位朋友叫妙妙，我在拍摄之前和妙妙沟通说想拍一套一个女孩周末自己在家，那种没有肉欲的清冷私房，其实拍摄的时候妙妙上下都有穿打底的，但是因为角度控制到位，基本出片的感觉传达到了，基本是这样的：</p>
+<p><img src="https://pic4.zhimg.com/v2-ba9e88e0f42c485fde00666ab2b3419f_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
+<p><img src="https://pic3.zhimg.com/v2-19e34862855e03bec10dbe86ffc3fca2_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
+<p><img src="https://pic4.zhimg.com/v2-7a3a9620aad6c2859c2632f3bb0d8037_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
+<p><img src="https://pic3.zhimg.com/v2-5fb3fad81b506037a590cf5e3d1b842e_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
+<p>顺便一提中间还有小插曲，我们拍着拍着老板的狗来巡场了。被我顺手抓来入境，然后效果还不错，所以拍摄的时候也要多随机应变。说道这里，大家应该明白了，一次有质量的拍摄：踩点，适合场景的选择，服装和场景色彩的搭配，以及模特的引导都是同样重要的。</p>
+<h2 id="5-皮肤如何后期"><a href="#5-皮肤如何后期" class="headerlink" title="5. 皮肤如何后期"></a><strong>5.</strong> <strong>皮肤如何后期</strong></h2><p>关于通透的问题我给大家看一张原片：</p>
+<p><img src="https://pic3.zhimg.com/v2-2dd8f9327c6eeabc99c71bbb78f677f2_b.jpg" alt="img"></p>
+<p>佳能5D4+24 70 2.8L 拍摄于我在广州的摄影面授课程</p>
+<p>这是一张只有曝光度调整的原片，我是想和大家说一个道理。很多同学有误区，觉得照片舒服都是靠后期的。<strong>实际前期的拍摄非常的重要</strong>，后期是实现前期想法的辅助工具，关于皮肤处理的部分这个真的就不是一小时能说完的问题了。</p>
+<p>（悄悄告诉大家，<strong>我和AIRPHOTO最近合作了一期人像修肤的课程</strong>，对这块感兴趣的小伙伴，可以查看<a href="https://link.zhihu.com/?target=http://mp.weixin.qq.com/s/ctrX1btn0hyAlxJH8l0taA">这么好的皮肤质感，为什么不是我修的？！</a>报名哦）</p>
+<p><img src="https://pic4.zhimg.com/v2-2abd7b92c13de7e924ca21c185bec6cf_b.jpg" alt="img"></p>
+<h2 id="6-如何约漂亮女生"><a href="#6-如何约漂亮女生" class="headerlink" title="6. 如何约漂亮女生"></a><strong>6.</strong> <strong>如何约漂亮女生</strong></h2><p>其实我想说，我刚才以上说的几个问题，分享的经验思路。你全都很好地做到了，就可以轻松的靠实力约到好看的妹子当模特了。这个是最实在的大实话，其他的撩妹技巧都是浮云。</p>
+<p><img src="https://pic2.zhimg.com/v2-75e7224167ed9416b3dd39b659a9b071_b.jpg" alt="img"></p>
+<h3 id="转载自：-https-zhuanlan-zhihu-com-p-30879193"><a href="#转载自：-https-zhuanlan-zhihu-com-p-30879193" class="headerlink" title="转载自： https://zhuanlan.zhihu.com/p/30879193"></a>转载自： <a href="https://zhuanlan.zhihu.com/p/30879193">https://zhuanlan.zhihu.com/p/30879193</a></h3>]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>人像</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AI斗地主</title>
     <url>/2021/07/20/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%B8%9C%E8%A5%BF/AI%E6%96%97%E5%9C%B0%E4%B8%BB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="DouZero分析"><a href="#DouZero分析" class="headerlink" title="DouZero分析"></a>DouZero分析</h2><h3 id="1-DouZero介绍"><a href="#1-DouZero介绍" class="headerlink" title="1.DouZero介绍"></a>1.DouZero介绍</h3><p>DouZero项目地址：<a href="https://github.com/kwai/DouZero">https://github.com/kwai/DouZero</a></p>
@@ -1029,6 +1698,208 @@
       <tags>
         <tag>python</tag>
         <tag>InterestingCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>比特币和区块链</title>
+    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
+<ul>
+<li>2008年11月1日 中本聪《白皮书》</li>
+<li>去中心化的电子<strong>记账</strong>系统<ul>
+<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
+<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
+<li>三个问题<ul>
+<li>以谁为准</li>
+<li>为何记账</li>
+<li>如何防伪</li>
+</ul>
+</li>
+<li>记账奖励<ul>
+<li>手续费</li>
+<li>打包奖励<ul>
+<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
+<li>一共有多少个比特币<ul>
+<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以谁为准<ul>
+<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
+<li>挖矿原理<ul>
+<li>哈希函数：<ul>
+<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
+<li>正着算容易反着算难</li>
+<li>sha256（美国国家安全局发明的一种算法）<ul>
+<li>比如输入“Apple”输出一个256位的二进制数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
+<li>改变这个随机数不断去试</li>
+</ul>
+</li>
+<li>hash=sha256（sha256（字符串））</li>
+<li>前n位必须为0</li>
+<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
+</ul>
+</li>
+<li>难度n的确定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>源代码包”和“二进制包”的区别</title>
+    <url>/2022/01/03/%E7%A7%91%E6%99%AE/%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8C%85%E2%80%9D%E5%92%8C%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
+<p>source code 是程序員寫的碼， binary code 是機器跑的碼。 source code 得經過 compile 才能成為 binary code 。 </p>
+<p>RPM 有分兩種：binary rpm 跟 source rpm 。<br>前者是編好的 binary ，安裝就可用。<br>後者是還沒編好的 source ，需 rebuild 之後才能安裝。</p>
+<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。<br>mysql-5.0.45.tar.gz 是 源码包    像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包</p>
+<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *. 或者tar ytvf *.bz2</p>
+<p>源代码包里的文件往往会含有种种源代码文件，头文件*.h、c代码源文件*.c、C++代码源文件*.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动通讯技术</title>
+    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E7%A7%BB%E5%8A%A8%E9%80%9A%E8%AE%AF%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
+<h4 id="一：移动通讯技术"><a href="#一：移动通讯技术" class="headerlink" title="一：移动通讯技术"></a>一：移动通讯技术</h4><ul>
+<li><p>1G：移动蜂窝技术 </p>
+<ul>
+<li>传输的是模拟信号，只能传输语音不能传输文字，保密性很差，而且通话质量也不好</li>
+</ul>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a06.png" alt="image-20210107124105969"></p>
+</li>
+<li><p>2G：数字信号</p>
+<ul>
+<li>一段语音，进行采样，转换为数字，再转换为二进制码传输</li>
+<li>这样既能传输语音也能传输文字还能进行加密</li>
+</ul>
+</li>
+<li><p>3G：CDMA（码分多址）</p>
+</li>
+<li><p>4G：OFDMA（正交频分多址）</p>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a0f.png" alt="image-20210107124612998"></p>
+<ul>
+<li>他可以在同一个频段内传输很多个信号。信号彼此是正交的，一个信号最强的时候其他信号为0。这样一来，虽然他们都在一个频段内却不会彼此干扰。</li>
+</ul>
+</li>
+</ul>
+<h4 id="二：5G-5G毫米波"><a href="#二：5G-5G毫米波" class="headerlink" title="二：5G/5G毫米波"></a>二：5G/5G毫米波</h4><ul>
+<li>高速率<ul>
+<li>4G 5G速率对比<ul>
+<li>4G：100Mbps（大约是10M字节每秒）</li>
+<li>5G：2Gbps</li>
+</ul>
+</li>
+<li>香农公式  C=Wlog2（1+S/N）<ul>
+<li>C：速率极限（再怎么编码都超不过这个速率）</li>
+<li>W：频带宽度（1Ghz-2Ghz的频率那么频宽就有1Ghz）</li>
+<li>S：信号功率</li>
+<li>N：噪声功率</li>
+</ul>
+</li>
+<li>4G频段<ul>
+<li>中国移动885M-909Mhz（24Mhz带宽） 930M-954Mhz（24Mhz带宽）</li>
+</ul>
+</li>
+<li>5G频段<ul>
+<li>6Ghz以下（sub6 5G）<ul>
+<li>大概是5倍的4G</li>
+<li>中国移动拿到两个5G频段<ul>
+<li>2515M-2575M（160M带宽）</li>
+<li>4800M-4900M（100M带宽）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>24Ghz以上（毫米波5G）（24-100Ghz）<ul>
+<li>大概是4倍的sub6 5G</li>
+</ul>
+</li>
+<li>VR眼镜带的时间长了会头晕？<ul>
+<li>视频不够高清</li>
+<li>延迟比较严重</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>低延迟<ul>
+<li>4G：10ms-100ms</li>
+<li>5G-sub6：1ms</li>
+<li>5G-毫米波：0.1ms</li>
+<li>工业、远程医疗</li>
+</ul>
+</li>
+<li>大容量<ul>
+<li>4G：2000个/平方公里</li>
+<li>5G：100万个/平方公里</li>
+<li>万物互联</li>
+</ul>
+</li>
+</ul>
+<h3 id="三毫米波5G挑战"><a href="#三毫米波5G挑战" class="headerlink" title="三毫米波5G挑战"></a>三毫米波5G挑战</h3><ul>
+<li><p>频率高、衰减快、覆盖范围小</p>
+</li>
+<li><p>波长短、衍射差（播不能绕过障碍物）、易于遮挡</p>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li><p>波束赋形</p>
+<ul>
+<li>好几根天线，彼此之间相位不同，发生干涉，结果导致向一个方向发射比较强的电磁波</li>
+</ul>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a18.png" alt="image-20210107130727862"></p>
+</li>
+<li><p>波束追踪</p>
+<p><img src="https://img.imgdb.cn/item/607a6b148322e6675c121d9d.png" alt="image-20210107130937454"></p>
+<ul>
+<li>走哪跟到哪</li>
+</ul>
+</li>
+<li><p>波束反射</p>
+<ul>
+<li>通过墙的反射</li>
+</ul>
+</li>
+<li><p>波束切换</p>
+<ul>
+<li>手机在多个基站之间进行切换</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考文献：<a href="https://www.youtube.com/watch?v=VdSFah46d7Y">5G到底是什么？它能成为创造未来的新科技吗？</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
@@ -2026,751 +2897,6 @@
       </categories>
   </entry>
   <entry>
-    <title>PsTips</title>
-    <url>/2022/01/03/%E6%91%84%E5%BD%B1/PsTips/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
-<li>[ 画笔增大</li>
-<li>] 画笔减小</li>
-<li>ctrl+i 反向</li>
-<li>ctrl+t 自由变换工具</li>
-<li>调出红色非选区遮罩：快捷键shift+alt + 点</li>
-</ul>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>人像嘴唇颜色更改</title>
-    <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E5%98%B4%E5%94%87%E9%A2%9C%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
-<li><p>打开图片</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d4138355f7f718862da7.png" alt="image-20210604112727351"></p>
-</li>
-<li><p>方法一</p>
-<ul>
-<li><p>新建一个空白图层，图层混合模式设为<em><strong>“颜色”</strong></em>，这样只会更改它的颜色，而不会更改他的质感。</p>
-</li>
-<li><p>选择画笔工具调整不透明度（51%）+流量（56%）</p>
-</li>
-<li><p>找到所需要的颜色，找到之后就可以直接画了</p>
-</li>
-<li><p>涂完之后如果觉得有点太过了的话，可以降低一点他的透明度。</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d4298355f7f7188811e5.png" alt="image-20210604113032303"></p>
-</li>
-</ul>
-</li>
-<li><p>方法二</p>
-<ul>
-<li><p>建立一个纯色图层</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d4348355f7f71888f1d2.png" alt="image-20210604141536603"></p>
-</li>
-<li><p>ctrl+i  反向蒙版颜色</p>
-</li>
-<li><p>把图层模式改成颜色</p>
-</li>
-<li><p>调节不透明度使其自然</p>
-</li>
-</ul>
-</li>
-<li><p>方法三</p>
-<ul>
-<li>对于已经涂了口红的图，嘴唇的颜色杂色不多的情况下</li>
-<li>复制图层，选择滤镜—&gt;camera raw</li>
-<li>HSL调整—&gt;饱和度—&gt;红色</li>
-<li>如果不想影响其他地方红色，选择蒙版，把她嘴唇涂出来</li>
-</ul>
-</li>
-<li><p>方法四</p>
-<ul>
-<li><p>添加选择可选颜色图层</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d4448355f7f7188a45c7.png" alt="image-20210604150219774"></p>
-</li>
-<li><p>调节颜色之后，添加蒙版，选择嘴唇</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-        <tag>人像</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人像眉毛精致化处理</title>
-    <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E7%9C%89%E6%AF%9B%E7%B2%BE%E8%87%B4%E5%8C%96%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
-<li>导入图像，稍微调整一下曝光度(+0.25)+对比度(+6)使眉毛比较明显。</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/60b9d34d8355f7f71875cddc.png" alt="image-20210604101144306"></p>
-<ul>
-<li><p>放大图片，看一下眉毛所存在的问题</p>
-<ul>
-<li>眉毛中间有很多空缺</li>
-<li>外面存在杂发、杂眉毛</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/60b9d35d8355f7f718771b44.png" alt="image-20210604101722568"></p>
-<ul>
-<li><p>处理步骤</p>
-<ul>
-<li><p>复制图层，用修补工具把外面杂乱的眉毛修掉</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3788355f7f718796aa5.png" alt="image-20210604102339995"></p>
-</li>
-<li><p>用锁套工具将长得比较好的眉毛截选出来，然后将截选出的眉毛拷贝成一个图层</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3898355f7f7187ac111.png" alt="image-20210604102640501"></p>
-</li>
-<li><p>将眉毛移动到眉毛空缺的地方</p>
-</li>
-<li><p>利用自有变换工具（ctrl+t）调整角度，使其纹理走向与原图匹配</p>
-</li>
-<li><p>将图层混合模式改成深色</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3988355f7f7187bf9e0.png" alt="image-20210604103202011"></p>
-</li>
-<li><p>创建蒙版，<em><strong>ctrl+i</strong></em>蒙版反向（蒙版黑色不可见，白色可见）</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3a78355f7f7187d3db4.png" alt="image-20210604103253913"></p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3b48355f7f7187e5391.png" alt="image-20210604103800722"></p>
-</li>
-<li><p>使用画笔，将画笔颜色改成白色，降低画笔不透明度（这里不透明度为54%）。</p>
-</li>
-<li><p>将眉毛用白色画笔画出来</p>
-</li>
-<li><p>如果还不够就新建一个图层</p>
-</li>
-<li><p>利用吸管工具吸取一个眉毛中比较深的颜色</p>
-</li>
-<li><p>将画笔调小一点（2）不透明度调低一点（36%）</p>
-</li>
-<li><p>调整完毕之后就大功告成了</p>
-<p><img src="https://pic.imgdb.cn/item/60b9d3cb8355f7f718803ef7.png" alt="image-20210604112307771"></p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-        <tag>人像</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后期PS处理调色思路</title>
-    <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
-<li>基础调整<ul>
-<li>白平衡<ul>
-<li>色温：控制照片冷暖感觉的工具</li>
-<li>色调：照片整体的一个色彩倾向（一般默认不调）</li>
-</ul>
-</li>
-<li>曝光：调节照片的明暗</li>
-<li>高光：压低高光，可以找回高光区的细节</li>
-<li>白色：压低白色，找回照片中白色的细节</li>
-<li>阴影：控制照片中偏暗的部分</li>
-<li>黑色：控制照片中黑色看不到细节的部分</li>
-</ul>
-</li>
-<li>HSL调整<ul>
-<li>色相：色彩的相貌<ul>
-<li>把某个颜色定义成自己拖动到的颜色</li>
-</ul>
-</li>
-<li>饱和度：颜色的纯度<ul>
-<li>数字越大说明纯度越高</li>
-</ul>
-</li>
-<li>明亮度：颜色的明暗程度<ul>
-<li>拉高橙色，画面中橙色就会变亮一些，拉低橙色，画面中的橙色就会变暗一些</li>
-</ul>
-</li>
-<li>如何使用？<ul>
-<li>亚洲人的皮肤<em><strong>橙色</strong></em>是最多的，亚洲人的皮肤关键在于橙色<ul>
-<li>降低橙色饱和度，使其皮肤通透点</li>
-<li>提高橙色明亮度，使其皮肤白皙水嫩</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>控制相机对焦参数</title>
-    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
-<li><p>什么是对焦</p>
-</li>
-<li><p>对焦区域</p>
-<ul>
-<li><p>区域自动对焦，大区域自动对焦</p>
-<ul>
-<li>特点：精度一般</li>
-<li>适合场景：运动员/运动题材</li>
-</ul>
-</li>
-<li><p>45点自动对焦</p>
-<ul>
-<li>特点：对焦容易/精确度较差</li>
-<li>适合场景：风格/大场景</li>
-</ul>
-</li>
-<li><p>单点自动对焦</p>
-<ul>
-<li>特点：精确度高</li>
-<li>适合场景：人物/产品/特写</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>对焦模式</p>
-<ul>
-<li><p>AF（自动对焦）</p>
-<ul>
-<li>使用<ul>
-<li>半按快门</li>
-</ul>
-</li>
-<li>分类<ul>
-<li>单次自动对焦—&gt;半按快门对焦一次，适合拍静止物体</li>
-<li>人工智能伺服对焦——半按快门对焦多次，适合拍运动物体</li>
-<li>人工智能自动对焦——适合拍无法准确预判是否运动的物体</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>MF（手动对焦）</p>
-<ul>
-<li><p>使用</p>
-<ul>
-<li><p>转动对焦环对焦</p>
-<p><img src="https://pic.imgdb.cn/item/60bc351d8355f7f718b747fa.png" alt="image-20210606101212207"></p>
-</li>
-</ul>
-</li>
-<li><p>适用场景</p>
-<ul>
-<li>暗环境下拍摄<ul>
-<li>在AF自动对焦模式下，经常会出现对焦困难的情况</li>
-</ul>
-</li>
-<li>逆光环境<ul>
-<li>光线进入镜头很多，有较强烈的眩光效果，用AF可能不太好对焦</li>
-</ul>
-</li>
-<li>光斑等特殊效果拍摄<ul>
-<li>转动对焦环，直到出现较漂亮的光斑效果，再进行拍摄</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>相机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>控制相机曝光参数</title>
-    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
-<li><p>曝光三要素</p>
-<ul>
-<li><p>光圈</p>
-<ul>
-<li>光圈在相机中是F来表示，F后面的数字越小，表示光圈越大（光圈越大—&gt;进光量越多）</li>
-<li>F+数字越小—&gt;光圈越大</li>
-<li>光圈越大，背景虚化越强    光圈越小，背景虚化越弱</li>
-<li>使用<ul>
-<li>当相机在<em><strong>Av光圈</strong></em>优先模式下，可以通过转动<em><strong>快门附近的拨盘</strong></em>进行调节。</li>
-<li>当相机在<em><strong>M手动模式</strong></em>的时候，转动<em><strong>DIAL FUNC拨盘</strong></em>进行调节。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/60bc357f8355f7f718bc2167.png" alt="image-20210605183802551"></p>
-</li>
-<li><p>快门</p>
-<ul>
-<li>快门时间长—&gt;进光量多—&gt;照片亮</li>
-<li>1/60或60表示1/60秒，1’’表示1秒</li>
-<li>短快门—&gt;抓拍瞬间，长快门—&gt;记录轨迹</li>
-<li>使用<ul>
-<li>Tv快门优先和M手动模式都是通过<em><strong>快门拨盘</strong></em>来调节</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>ISO（感光度）</p>
-<ul>
-<li>感光度是感光元件对光线的敏感程度与，简称ISO</li>
-<li>数字越大—&gt;对光线越敏感，数字越小—&gt;对光线越不敏感</li>
-<li>ISO越高—&gt;噪点越多—&gt;画面越粗糙，ISO越低—&gt;噪点越少—&gt;画面越细腻</li>
-<li>手持排夜景、抓拍运动物体、长焦镜头拍摄可调高ISO</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>光圈、快门、ISO之间的关系</p>
-<ul>
-<li><p>以水龙头作为比喻</p>
-<ul>
-<li>阀门打开的大小—&gt;光圈大小</li>
-<li>水流的时间—&gt;快门时间</li>
-<li>流出水的总量—&gt;进光量</li>
-</ul>
-</li>
-<li><p>在光线比较充足的情况下，为了保证照片的画质，我们通常会选择100-200之间的低ISO，ISO作为一个相对固定的参数，我们暂时不予考虑</p>
-</li>
-<li><p>进光量一定 光圈越大—&gt;快门时间越短，光圈越小—&gt;快门时间越长</p>
-</li>
-<li><p>虚化效果—&gt;大光圈+短快门</p>
-</li>
-<li><p>运动轨迹/慢门效果—&gt;长快门+小光圈</p>
-</li>
-</ul>
-</li>
-<li><p>曝光模式</p>
-<ul>
-<li><p>A+    全自动模式</p>
-<ul>
-<li>光圈、快门、ISO都由相机自动设置</li>
-</ul>
-</li>
-<li><p>P      程序自动模式</p>
-<ul>
-<li>光圈、快门由相机自动设置，ISO可以手动设置</li>
-</ul>
-</li>
-<li><p>Tv     快门优先模式</p>
-<ul>
-<li>快门时间、ISO可手动设置，光圈由相机自动匹配</li>
-</ul>
-</li>
-<li><p>Av     光圈优先模式(很多人喜欢这种模式)</p>
-<ul>
-<li>光圈、ISO可手动设置，快门速度由相机自动匹配</li>
-</ul>
-</li>
-<li><p>M      全手动模式</p>
-<ul>
-<li>光圈、快门、ISO都由我们手动设置</li>
-</ul>
-</li>
-<li><p>SCN  场景自动模式</p>
-<ul>
-<li>人像：相机会自动采用大光圈形成背景虚化突出人物</li>
-<li>风光：相机自动采用小光圈使整体清晰</li>
-<li>运动：相机自动提高快门速度跟容易抓拍运动物体</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>测光模式</p>
-<ul>
-<li><p>测光模式：相机可以自动侦测周围光线情况，侦测光线的方式不同就有了不同的测光模式</p>
-</li>
-<li><p>新手常用的测光模式：</p>
-<ul>
-<li>评价测光（矩阵）：把画面分成若干个区域进行测光，加权平均后作为曝光基准（适合生活中90%的拍摄场景）</li>
-<li>点测光：对画面中的“点”进行测光作为曝光基准（适合在逆光等复杂的环境下进行拍摄）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>曝光补偿</p>
-<ul>
-<li>什么是曝光补偿：曝光补偿就是对画面亮度的补偿效果，在Av/Tv/P这种半自动模式下，可以手动调整曝光补偿改变画面亮度。</li>
-<li>曝光补偿在相机中是如何表示的：曝光补偿在相机中是以刻度表的形式呈现的，并且可以调节正负</li>
-<li>如何使用<ul>
-<li>白加黑减（拍白色占比比较大的物体加一点曝光补偿，拍黑色占比比较大的物体减一些曝光补偿）</li>
-<li>明快小清新风格照片：交易点曝光补偿，让照片微微过曝</li>
-<li>剪影效果照片：减一点曝光补偿，让剪影效果更加明显</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>相机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>控制相机色彩参数</title>
-    <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
-<li><p>白平衡</p>
-<ul>
-<li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
-</li>
-<li><p>几种白平衡模式</p>
-<ul>
-<li><p>自动（AWB）</p>
-</li>
-<li><p>日光</p>
-</li>
-<li><p>阴影</p>
-<ul>
-<li>拍摄夕阳是，想要营造暖色调，故意调到阴影白平衡，让相机给画面加入更多的暖色调</li>
-</ul>
-</li>
-<li><p>阴天</p>
-</li>
-<li><p>钨丝灯</p>
-</li>
-<li><p>白色荧光灯</p>
-<ul>
-<li>拍摄大海时，为了突出大海碧蓝的清冷效果，也可以故意设置成白色荧光灯白平衡，让相机为画面加入更多的蓝色调</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>相机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>摄影经验——转载</title>
-    <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E6%91%84%E5%BD%B1%E7%BB%8F%E9%AA%8C%E2%80%94%E2%80%94%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像摄影怎么拍"><a href="#人像摄影怎么拍" class="headerlink" title="人像摄影怎么拍"></a>人像摄影怎么拍</h3><h2 id="1-构图"><a href="#1-构图" class="headerlink" title="1. 构图"></a><strong>1. 构图</strong></h2><p>首先，是人像拍摄中，构图的问题。</p>
-<p>关于构图在摄影中的重要性大家都有自己的认知，面对于不同的摄影风格，有的风格讲究构图讲究严谨，例如古风，有的风格构图上更倾向于自然不拘谨，例如很多日系生活感的照片拍摄，有的风格会倾向于以画面的张力和情绪为优先考虑，而完全不会被构图束缚。例如我们都听说的日本荒木老前辈，所以摄影的构图该如何去做，其实取决于你所喜欢并想要做到极致的那一类摄影风格而定。</p>
-<p>我今天就说一下我自己的构图习惯，我的拍摄风格，多数是安静的画面，画面感比较干净，构图也算是偏向严谨类方向的类型，当然我的风格也可能会慢慢转变，毕竟这些都是受自己的审美所影响的，审美发生了变化，风格也会慢慢的发生变化。</p>
-<p>我的很多学生，来找我报名课程系统学习摄影的时候，他们多数都是近似一张白纸，在这样的情况下，面对构图的问题，我基本会对他们有两点要求：就是<strong>先用好居中构图和三分之一构图。</strong>用好这两种构图方法的同时再慢慢去找到自己在摄影中的风格和感觉，当这两种构图方法能运用得心应手的时候， 再去在画面中尝试加入别的变化也是很轻松的事情。</p>
-<p>你可能会说：老师，你说的这两种方法我都懂都明白，这也太简单了吧？其实，你能把居中构图和三分之一构图用明白，用好，并不是一件看上去那么简单的事情呦~~~</p>
-<p>我对学生的要求是：用三分之一构图去拍照，画面的人物主体虽然在这个位置，但是<strong>你要尝试用别的方法让他们在画面中找到平衡感</strong>；使用居中构图的时候，<strong>尝试用你的创意让的照片变的与众不同</strong>。</p>
-<p><img src="https://pic2.zhimg.com/v2-22c0ce4a3965d372445b1af9f364720d_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L，客户的拍摄，青海茶卡盐湖</p>
-<p>例如这张照片，如果从构图上说，他就是一个很普通的居中构图，但是因为加入了多重曝光的创意配合夕阳时的美丽景色，让照片变的不那么普通。</p>
-<p><img src="https://pic4.zhimg.com/v2-bc609a0d431d430d607c4fe65e86b7f3_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p><img src="https://pic4.zhimg.com/v2-8537eddd6a8ac347b287c858661e4247_b.jpg" alt="img"></p>
-<p>这是一张三分之一构图的照片,人物位于照片中的三分之一的位置，虽然只是简单的坐在那里，但是因为<strong>人物视线的方向与光线的互动</strong>，给阅读这张照片的读者做出了读图的引导，也是因为这样简单的互动，让照片有了氛围感。</p>
-<p><img src="https://pic1.zhimg.com/v2-ac0ed4d69b7c1b8fe37ebb729c96f5c4_b.jpg" alt="img"></p>
-<p>佳能胶片机EOS1V+2470 2.8L+portra400 拍摄于香港</p>
-<p><img src="https://pic4.zhimg.com/v2-53160f3e08573c69bb18a77b51e49e7f_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p>而这两张照片人物也是所处于三分之一的位置，通过线条的延伸感和画面中其他的色块，来让画面变的平衡。</p>
-<p>我在拍摄当中，极少出现那类地平线歪歪斜斜的画面，<strong>多数都是这类四平八稳的构图方式。</strong>但是就像给大家展示的思路那样，我喜欢用画面中其他的元素，让这类构图简单的画面，变得不那么普通。</p>
-<p>虽然看似基础，但可以变化的思路真的是超级多，构图的其他思路就真的太多了，什么框式构图，什么线条，什么构图中的三角形，但觉得你不妨先把最基本的做到最好，我总会和学生们墨迹一句话:对于摄影师来说，好的拍摄习惯一旦养成以后，就会像吃饭，睡觉一样变成你的一种习惯，好的构图习惯和用光方式也是一样可以成为这样的习惯。</p>
-<p>其实我自己现在在拍照的时候很多都是习惯性的就那样去拍摄了，拍摄的当时并没有刻意 的去烧脑纠结什么构图之类的，希望这个思路可以对大家有点启发。</p>
-<h2 id="2-引导模特"><a href="#2-引导模特" class="headerlink" title="2. 引导模特"></a><strong>2. 引导模特</strong></h2><p>人像拍摄中，如何沟通引导被拍摄的人，拍出自然的感觉呢？</p>
-<p>关于引导的思路很多摄影师都是不一样的，我今天就和大家说一下最简单的方法，这个引导的思路也有很多摄影师都提到过。可能你们都听腻了，我管这类方法称为<strong>《代入法》</strong>。</p>
-<p>有些同学一听这个名字就能猜到个七七八八，有些同学听到这个名词的时候一脸懵逼。我举个例子，很多同学都关心的，怎么把女孩拍得好看拍得自然。我觉得当你以男朋友的视角去代入自己的角色，那时想到的画面都不会很做作，尝试脑补女孩子和男朋友互动的画面感，然后去做引导多数都会比较自然。</p>
-<p><img src="https://pic1.zhimg.com/v2-86306b8ffa8d7a6ca4d23f13c114d410_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p><img src="https://pic4.zhimg.com/v2-d3c9dfb4326bfcfdf3ba868b9d47c10f_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p><img src="https://pic3.zhimg.com/v2-f41d6a3d8c2d0b29d8bd21bab7b66592_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p><img src="https://pic4.zhimg.com/v2-4c00007666f61d07cb2637cad08324df_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，来自我的广州面授摄影教学课程</p>
-<p>我比较喜欢拍外景的环境人像，觉得那样会有更多的元素可以互动，这套照片是我在给报名面授课程的同学们，上课时所拍摄的。那次也是第一次尝试室内生活感的主题，我当时设计主题时的思路就是想拍那种假日和女朋友腻在家里的感觉，在拍摄之前就事先通过民宿的照片，观看到场地的情况，<strong>脑补了很多情侣之间可能会发生的场景</strong>。</p>
-<p>例如周末赖床，男朋友给女朋友做早餐，女朋友在衣柜中淘气的画面等，虽然不像严谨的商业摄影那种会写成ppt的格式，但<strong>每个场景也都是自己脑补带入过的</strong>。只有这样，你到了拍摄场地，才能用语言把你想要的感觉比较清晰的告诉给模特，当语言不能清晰传达的时候，我甚至会直接在那个位置做一个我脑海中动作，我很多面授同学我看到过这一幕都……</p>
-<p>我猜，看这篇文章的朋友，肯定有好多，在拍摄面对模特，连自己想要的感觉都用语言说不清楚的吧? 你要想一下，<strong>你自己都说不出来的东西怎么指望模特可以很好的理解呢</strong></p>
-<p><img src="https://pic1.zhimg.com/v2-2288251b24c93aff73d5346c1bf76408_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于香港</p>
-<p>这张照片在拍摄的时候，我很简单的和小青说: 闭上眼睛，感觉阳光照在脸上很舒服的感觉。其实很多的时候，你脑中有了画面感，再用语言表达，就是一件很简单的事情了。</p>
-<p><img src="https://pic1.zhimg.com/v2-336f690b0ae39d568a7c5eedf77c0d5c_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于斯里兰卡</p>
-<p>这张照片，是我和朋友一起在斯里兰卡旅行的时候拍摄的，当时是暴风雨的前夕，乌云就是那么恐怖的，其实当时的引导很简单，我当时告诉楠楠：你感觉远方的云在和你说话，你把手放在耳边闭上眼睛在安静的听他和你说话。实际上当时乌云密布老恐怖了……你明白自己想要的画面，就可以做出轻松的引导。</p>
-<p><img src="https://pic2.zhimg.com/v2-e6283ef36ab4884c9ad17f94fa2e4a15_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于大理</p>
-<p>这是我帮朋友在云南大理拍摄的全家福，引导的时候，我和圆圆（孩子的妈妈）说，你和女儿商量一句话，然后你们一起在老公的耳边用手挡住感觉要说悄悄话，当时母女俩说的好像是：爸爸是大坏蛋。然后老公很自然地就笑了，<strong>因为预估到会有很多真实感的画面，所以这张照片拍摄的时候，我是开连拍模式拍摄的</strong>。</p>
-<p><img src="https://pic1.zhimg.com/v2-03a838da35a3bdbace9e4b8ba4f50154_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于大理</p>
-<p>这张在拍摄的时候，我让他们夫妻俩紧紧的亲孩子的脸颊，小宝贝的脸肉嘟嘟的被爸爸妈妈的嘴挤住，一笑自然就是这样的小表情了。</p>
-<p>另外作为一位也是从萌新小白走过来的摄影师说句心里话，<strong>你闷头在家里就算是看过1万位顶级大咖的经验分享，都不如自己去认真的策划拍个10场</strong>，别看我和你说的好像很简单 ，你也感觉是理解了，但是自己上手去做也还是需要很多临场经验的，所以，别懒别仅仅是看纸上谈兵，动起来多去实现你心中的想法，引导的经验都是这样越来越丰富的。</p>
-<h2 id="3-天气"><a href="#3-天气" class="headerlink" title="3. 天气"></a><strong>3. 天气</strong></h2><p>如何在各种不同天气情况下，无论光线是否完美，都可以很好的完成拍摄呢？</p>
-<p>我到现在好像就只有下雪天没拍过了，面对各种各样的天气我也算是见过世面了，昨天和前天还在济州岛一边拍摄一边被风吹雨打。</p>
-<p>我们一步一步来说，首先是阳光晴好的日子，一般在日照正常的地区，如果拍摄的时间你可以控制，我比较建议上午选择10点30-11点之前的时间进行室外部分的拍摄，下午选择三点半左右到日落结束的时间，因为<strong>这些时间段的阳光没有那么强烈</strong>，相机的宽容度你前期控制一下都没有太大问题的。</p>
-<p>晴天的日子室内就不必说了，都不会有太大的影响，但是如果你是想玩光影创意的话，例如这样：</p>
-<p><img src="https://pic4.zhimg.com/v2-fa4c546c8023df7f71ea65422b0c57f3_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于深圳</p>
-<p><img src="https://pic3.zhimg.com/v2-c5b7a87b3eba8635559e9f90651de69e_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于深圳</p>
-<p>这类的室内光影创意就比较建议参考刚才所说的室外拍摄时间段了，也是因为光线会比较好控制。</p>
-<p>然后我们说说<strong>阴天</strong>的时候，阴天的时候，我的建议是多找顺光的位置去进行拍摄，虽然阴天没有直射光，但是你找到顺光的位置面部的光线质感应该也都不会很差，例如这几张照片我就是狂风暴雨前后拍摄的。</p>
-<p><img src="https://pic4.zhimg.com/v2-cf139d2453fbe1d42efc103416f9ebaf_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于我的香港摄影面授课程</p>
-<p><img src="https://pic2.zhimg.com/v2-c0e2a470097f32a76c6104565f3a5385_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L ，拍摄于我的香港摄影面授课程</p>
-<p>大家可以看到，天空阴的云都完全没有层次了，面部的光感还是可以拍到和打了闪光灯一样的效果，虽然有些许的后期辅助，但是前期的拍摄至关重要，<strong>这就是在阴天顺光拍摄的一个思路</strong>，希望对大家有些许的帮助。</p>
-<p>另外关于白平衡，我都是<strong>自动白平衡</strong>的，现在相机的电子化程度我觉得白平衡是可以信任的，我自己使用的是一台佳能5D4相机。就算是自动白平衡有些许的偏差，我们在LR里面都是可以很轻松的去做白平衡统一。</p>
-<h2 id="4-策划思路"><a href="#4-策划思路" class="headerlink" title="4. 策划思路"></a><strong>4. 策划思路</strong></h2><p>下面我们说一下：关于一次人像拍摄的策划思路。这个问题我用之前拍摄的一套作品作为案例，<strong>真实的还原一下我当时策划的情况</strong>。这样分析案例，应该比生硬地和大家说道理效果会更好。</p>
-<p><img src="https://pic4.zhimg.com/v2-88f39d4aebcd212e765d8b8329db5527_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L</p>
-<p>就是这组照片，听课的同学应该有很多都会去图虫看片的吧，这组在图虫挺受欢迎的，之前报名京东的摄影比赛，还得了最受欢迎作品奖，最受欢迎作品完全是看网友人气来评选的。</p>
-<p>我在拍摄的初期是在手机浏览民宿的时候看到了一家位于深圳很有感觉的场地，当时看到的场景是这样的：</p>
-<p><img src="https://pic2.zhimg.com/v2-41831df41c26f9b93570e7154849c815_b.jpg" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/v2-24761009ccaf3d0f978adfc268021578_b.jpg" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/v2-d8cdc211b7c01d6324d3e98eb56c40ec_b.jpg" alt="img"></p>
-<p><img src="https://pic4.zhimg.com/v2-28fa4d3bf39e06c5e007912570b42723_b.jpg" alt="img"></p>
-<p>那段时间广州的天气如果没有空调真的是痛不欲生，所以我对室内的拍摄特别的感兴趣。看到这么干净的场景，脑子里立刻就有了这样的色彩组合。</p>
-<p><img src="https://pic1.zhimg.com/v2-ce6386cf00619092ff0e6fd805518d4c_b.jpg" alt="img"></p>
-<p>我可能是因为有了一些拍摄的经验，所以面对这类很干净的拍摄场地很快就可以找到服装和环境色搭配的感觉，如果对这类搭配你们开始找不到感觉的时候，<strong>可以尝试网上找一些配色表</strong>，把环境色往里面套用一下。</p>
-<p><img src="https://pic1.zhimg.com/v2-5efabd3e62a884dbc88c72384876d64c_b.jpg" alt="img"></p>
-<p>色彩都是有自己的语言的，另外什么颜色搭配在一起也都是有讲究的。刚开始对于没有经验的萌新来说，<strong>巧用配色表是比较有效率有质量的配色解决办法</strong>。我是在自己定下了照片的色彩配比以后购买了一件蓝色的男士衬衣，出片效果来看这样的男朋友款式衬衣效果还蛮不错的。</p>
-<p>拍摄的前期准备都到位了，在拍摄当天我也是像前面和同学们说的那样，有代入感地去和模特在拍摄中沟通。这位朋友叫妙妙，我在拍摄之前和妙妙沟通说想拍一套一个女孩周末自己在家，那种没有肉欲的清冷私房，其实拍摄的时候妙妙上下都有穿打底的，但是因为角度控制到位，基本出片的感觉传达到了，基本是这样的：</p>
-<p><img src="https://pic4.zhimg.com/v2-ba9e88e0f42c485fde00666ab2b3419f_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
-<p><img src="https://pic3.zhimg.com/v2-19e34862855e03bec10dbe86ffc3fca2_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
-<p><img src="https://pic4.zhimg.com/v2-7a3a9620aad6c2859c2632f3bb0d8037_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
-<p><img src="https://pic3.zhimg.com/v2-5fb3fad81b506037a590cf5e3d1b842e_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L 拍摄于深圳</p>
-<p>顺便一提中间还有小插曲，我们拍着拍着老板的狗来巡场了。被我顺手抓来入境，然后效果还不错，所以拍摄的时候也要多随机应变。说道这里，大家应该明白了，一次有质量的拍摄：踩点，适合场景的选择，服装和场景色彩的搭配，以及模特的引导都是同样重要的。</p>
-<h2 id="5-皮肤如何后期"><a href="#5-皮肤如何后期" class="headerlink" title="5. 皮肤如何后期"></a><strong>5.</strong> <strong>皮肤如何后期</strong></h2><p>关于通透的问题我给大家看一张原片：</p>
-<p><img src="https://pic3.zhimg.com/v2-2dd8f9327c6eeabc99c71bbb78f677f2_b.jpg" alt="img"></p>
-<p>佳能5D4+24 70 2.8L 拍摄于我在广州的摄影面授课程</p>
-<p>这是一张只有曝光度调整的原片，我是想和大家说一个道理。很多同学有误区，觉得照片舒服都是靠后期的。<strong>实际前期的拍摄非常的重要</strong>，后期是实现前期想法的辅助工具，关于皮肤处理的部分这个真的就不是一小时能说完的问题了。</p>
-<p>（悄悄告诉大家，<strong>我和AIRPHOTO最近合作了一期人像修肤的课程</strong>，对这块感兴趣的小伙伴，可以查看<a href="https://link.zhihu.com/?target=http://mp.weixin.qq.com/s/ctrX1btn0hyAlxJH8l0taA">这么好的皮肤质感，为什么不是我修的？！</a>报名哦）</p>
-<p><img src="https://pic4.zhimg.com/v2-2abd7b92c13de7e924ca21c185bec6cf_b.jpg" alt="img"></p>
-<h2 id="6-如何约漂亮女生"><a href="#6-如何约漂亮女生" class="headerlink" title="6. 如何约漂亮女生"></a><strong>6.</strong> <strong>如何约漂亮女生</strong></h2><p>其实我想说，我刚才以上说的几个问题，分享的经验思路。你全都很好地做到了，就可以轻松的靠实力约到好看的妹子当模特了。这个是最实在的大实话，其他的撩妹技巧都是浮云。</p>
-<p><img src="https://pic2.zhimg.com/v2-75e7224167ed9416b3dd39b659a9b071_b.jpg" alt="img"></p>
-<h3 id="转载自：-https-zhuanlan-zhihu-com-p-30879193"><a href="#转载自：-https-zhuanlan-zhihu-com-p-30879193" class="headerlink" title="转载自： https://zhuanlan.zhihu.com/p/30879193"></a>转载自： <a href="https://zhuanlan.zhihu.com/p/30879193">https://zhuanlan.zhihu.com/p/30879193</a></h3>]]></content>
-      <categories>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>人像</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>比特币和区块链</title>
-    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
-<ul>
-<li>2008年11月1日 中本聪《白皮书》</li>
-<li>去中心化的电子<strong>记账</strong>系统<ul>
-<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
-<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
-<li>三个问题<ul>
-<li>以谁为准</li>
-<li>为何记账</li>
-<li>如何防伪</li>
-</ul>
-</li>
-<li>记账奖励<ul>
-<li>手续费</li>
-<li>打包奖励<ul>
-<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
-<li>一共有多少个比特币<ul>
-<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>以谁为准<ul>
-<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
-<li>挖矿原理<ul>
-<li>哈希函数：<ul>
-<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
-<li>正着算容易反着算难</li>
-<li>sha256（美国国家安全局发明的一种算法）<ul>
-<li>比如输入“Apple”输出一个256位的二进制数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>原理<ul>
-<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
-<li>改变这个随机数不断去试</li>
-</ul>
-</li>
-<li>hash=sha256（sha256（字符串））</li>
-<li>前n位必须为0</li>
-<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
-</ul>
-</li>
-<li>难度n的确定</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>源代码包”和“二进制包”的区别</title>
-    <url>/2022/01/03/%E7%A7%91%E6%99%AE/%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8C%85%E2%80%9D%E5%92%8C%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
-<p>source code 是程序員寫的碼， binary code 是機器跑的碼。 source code 得經過 compile 才能成為 binary code 。 </p>
-<p>RPM 有分兩種：binary rpm 跟 source rpm 。<br>前者是編好的 binary ，安裝就可用。<br>後者是還沒編好的 source ，需 rebuild 之後才能安裝。</p>
-<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。<br>mysql-5.0.45.tar.gz 是 源码包    像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包</p>
-<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *. 或者tar ytvf *.bz2</p>
-<p>源代码包里的文件往往会含有种种源代码文件，头文件*.h、c代码源文件*.c、C++代码源文件*.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>移动通讯技术</title>
-    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E7%A7%BB%E5%8A%A8%E9%80%9A%E8%AE%AF%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
-<h4 id="一：移动通讯技术"><a href="#一：移动通讯技术" class="headerlink" title="一：移动通讯技术"></a>一：移动通讯技术</h4><ul>
-<li><p>1G：移动蜂窝技术 </p>
-<ul>
-<li>传输的是模拟信号，只能传输语音不能传输文字，保密性很差，而且通话质量也不好</li>
-</ul>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a06.png" alt="image-20210107124105969"></p>
-</li>
-<li><p>2G：数字信号</p>
-<ul>
-<li>一段语音，进行采样，转换为数字，再转换为二进制码传输</li>
-<li>这样既能传输语音也能传输文字还能进行加密</li>
-</ul>
-</li>
-<li><p>3G：CDMA（码分多址）</p>
-</li>
-<li><p>4G：OFDMA（正交频分多址）</p>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a0f.png" alt="image-20210107124612998"></p>
-<ul>
-<li>他可以在同一个频段内传输很多个信号。信号彼此是正交的，一个信号最强的时候其他信号为0。这样一来，虽然他们都在一个频段内却不会彼此干扰。</li>
-</ul>
-</li>
-</ul>
-<h4 id="二：5G-5G毫米波"><a href="#二：5G-5G毫米波" class="headerlink" title="二：5G/5G毫米波"></a>二：5G/5G毫米波</h4><ul>
-<li>高速率<ul>
-<li>4G 5G速率对比<ul>
-<li>4G：100Mbps（大约是10M字节每秒）</li>
-<li>5G：2Gbps</li>
-</ul>
-</li>
-<li>香农公式  C=Wlog2（1+S/N）<ul>
-<li>C：速率极限（再怎么编码都超不过这个速率）</li>
-<li>W：频带宽度（1Ghz-2Ghz的频率那么频宽就有1Ghz）</li>
-<li>S：信号功率</li>
-<li>N：噪声功率</li>
-</ul>
-</li>
-<li>4G频段<ul>
-<li>中国移动885M-909Mhz（24Mhz带宽） 930M-954Mhz（24Mhz带宽）</li>
-</ul>
-</li>
-<li>5G频段<ul>
-<li>6Ghz以下（sub6 5G）<ul>
-<li>大概是5倍的4G</li>
-<li>中国移动拿到两个5G频段<ul>
-<li>2515M-2575M（160M带宽）</li>
-<li>4800M-4900M（100M带宽）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>24Ghz以上（毫米波5G）（24-100Ghz）<ul>
-<li>大概是4倍的sub6 5G</li>
-</ul>
-</li>
-<li>VR眼镜带的时间长了会头晕？<ul>
-<li>视频不够高清</li>
-<li>延迟比较严重</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>低延迟<ul>
-<li>4G：10ms-100ms</li>
-<li>5G-sub6：1ms</li>
-<li>5G-毫米波：0.1ms</li>
-<li>工业、远程医疗</li>
-</ul>
-</li>
-<li>大容量<ul>
-<li>4G：2000个/平方公里</li>
-<li>5G：100万个/平方公里</li>
-<li>万物互联</li>
-</ul>
-</li>
-</ul>
-<h3 id="三毫米波5G挑战"><a href="#三毫米波5G挑战" class="headerlink" title="三毫米波5G挑战"></a>三毫米波5G挑战</h3><ul>
-<li><p>频率高、衰减快、覆盖范围小</p>
-</li>
-<li><p>波长短、衍射差（播不能绕过障碍物）、易于遮挡</p>
-</li>
-<li><p>解决方案</p>
-<ul>
-<li><p>波束赋形</p>
-<ul>
-<li>好几根天线，彼此之间相位不同，发生干涉，结果导致向一个方向发射比较强的电磁波</li>
-</ul>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a18.png" alt="image-20210107130727862"></p>
-</li>
-<li><p>波束追踪</p>
-<p><img src="https://img.imgdb.cn/item/607a6b148322e6675c121d9d.png" alt="image-20210107130937454"></p>
-<ul>
-<li>走哪跟到哪</li>
-</ul>
-</li>
-<li><p>波束反射</p>
-<ul>
-<li>通过墙的反射</li>
-</ul>
-</li>
-<li><p>波束切换</p>
-<ul>
-<li>手机在多个基站之间进行切换</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考文献：<a href="https://www.youtube.com/watch?v=VdSFah46d7Y">5G到底是什么？它能成为创造未来的新科技吗？</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL学习笔记</title>
     <url>/2021/05/24/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
@@ -3209,469 +3335,6 @@
       <tags>
         <tag>mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>JavaSE</title>
-    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/JavaSE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h3><h4 id="String，StringBuilder，StringBuffer的区别："><a href="#String，StringBuilder，StringBuffer的区别：" class="headerlink" title="String，StringBuilder，StringBuffer的区别："></a>String，StringBuilder，StringBuffer的区别：</h4><ol>
-<li><p>操作数量较少的字符串用<strong>String，不可修改</strong>的字符串；</p>
-<p>String是不可变的对象，因此每次在对String类进行改变的时候都会生成一个新的string对象。在某些情况下，String对象的字符串拼接其实是被Java Compiler编译成了StringBuffer对象的拼接，所以这些时候String对象的速度并不会比StringBuffer对象慢。如下String的拼接优化。</p>
-</li>
-<li><p>在单线程且操作大量字符串用<strong>StringBuilder</strong>,<strong>速度快</strong>，但<strong>线程不安全，可修改</strong>；</p>
-</li>
-<li><p>在多线程且操作大量字符串用<strong>StringBuffer，线程安全，可修改</strong>。</p>
-<p>使用StringBuffer类时，每次都会对StringBuffer对象本身进行操作，而不是生成新的对象并改变对象引用，所以多数情况下推荐使用StringBuffer，特别是字符串对象经常要改变的情况</p>
-</li>
-</ol>
-<h4 id="String的拼接优化"><a href="#String的拼接优化" class="headerlink" title="String的拼接优化:"></a>String的拼接优化:</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String s = s1 + s2;</span><br><span class="line">java实际运行时优化为</span><br><span class="line">String s = new StringBuilder(s1).append(s2).toString();</span><br></pre></td></tr></table></figure>
-
-<h4 id="Java支持的数据类型有哪些"><a href="#Java支持的数据类型有哪些" class="headerlink" title="Java支持的数据类型有哪些"></a>Java支持的数据类型有哪些</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Java语言支持的8种基本数据类型是：</span><br><span class="line">byte</span><br><span class="line">short</span><br><span class="line">int</span><br><span class="line">long</span><br><span class="line">float</span><br><span class="line">double</span><br><span class="line">boolean</span><br><span class="line">char</span><br></pre></td></tr></table></figure>
-
-<h4 id="什么是自动拆装箱"><a href="#什么是自动拆装箱" class="headerlink" title="什么是自动拆装箱"></a>什么是自动拆装箱</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">自动装箱是Java编译器在基本数据类型和对应的对象包装类型之间做的一个转化。比如：把int转化成Integer，double转化成Double，等等。反之就是自动拆箱</span><br></pre></td></tr></table></figure>
-
-<h4 id="int-和-Integer-有什么区别"><a href="#int-和-Integer-有什么区别" class="headerlink" title="int 和 Integer 有什么区别"></a>int 和 Integer 有什么区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Int是java的原始数据类型，Integer是java为int提供的封装类。</span><br><span class="line">Java为每个原始类型提供了封装类。</span><br><span class="line">原始类型封装类</span><br><span class="line">booleanBoolean</span><br><span class="line">charCharacter</span><br><span class="line">byteByte</span><br><span class="line">shortShort</span><br><span class="line">intInteger</span><br><span class="line">longLong</span><br><span class="line">floatFloat</span><br><span class="line">doubleDouble</span><br></pre></td></tr></table></figure>
-
-<h4 id="amp-和-amp-amp-的区别"><a href="#amp-和-amp-amp-的区别" class="headerlink" title="&amp;和&amp;&amp;的区别"></a>&amp;和&amp;&amp;的区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&amp;运算符有两种用法：(1)按位与；(2)逻辑与。&amp;&amp;运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(&quot;&quot;)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</span><br></pre></td></tr></table></figure>
-
-<h4 id="Java中如何跳出当前的多重嵌套循环"><a href="#Java中如何跳出当前的多重嵌套循环" class="headerlink" title="Java中如何跳出当前的多重嵌套循环"></a>Java中如何跳出当前的多重嵌套循环</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在最外层循环前加一个标记如A，然后用break A;可以跳出多重循环</span><br></pre></td></tr></table></figure>
-
-<h4 id="比较一下Java和JavaSciprt"><a href="#比较一下Java和JavaSciprt" class="headerlink" title="比较一下Java和JavaSciprt"></a>比较一下Java和JavaSciprt</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JavaScript 与Java是两个公司开发的不同的两个产品。Java 是原Sun Microsystems公司推出的面向对象的程序设计语言，特别适合于互联网应用程序开发；而JavaScript是Netscape公司的产品，为了扩展Netscape浏览器的功能而开发的一种可以嵌入Web页面中运行的基于对象和事件驱动的解释性语言。JavaScript的前身是LiveScript；而Java的前身是Oak语言。</span><br><span class="line">下面对两种语言间的异同作如下比较：</span><br><span class="line">- 基于对象和面向对象：Java是一种真正的面向对象的语言，即使是开发简单的程序，必须设计对象；JavaScript是种脚本语言，它可以用来制作与网络无关的，与用户交互作用的复杂软件。它是一种基于对象（Object-Based）和事件驱动（Event-Driven）的编程语言，因而它本身提供了非常丰富的内部对象供设计人员使用。</span><br><span class="line">- 解释和编译：Java的源代码在执行之前，必须经过编译。JavaScript是一种解释性编程语言，其源代码不需经过编译，由浏览器解释执行。（目前的浏览器几乎都使用了JIT（即时编译）技术来提升JavaScript的运行效率）</span><br><span class="line">- 强类型变量和类型弱变量：Java采用强类型变量检查，即所有变量在编译之前必须作声明；JavaScript中变量是弱类型的，甚至在使用变量前可以不作声明，JavaScript的解释器在运行时检查推断其数据类型。</span><br><span class="line">- 代码格式不一样</span><br></pre></td></tr></table></figure>
-
-<h4 id="数组-Array-和列表-ArrayList-的区别"><a href="#数组-Array-和列表-ArrayList-的区别" class="headerlink" title="数组(Array)和列表(ArrayList)的区别"></a>数组(Array)和列表(ArrayList)的区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array和ArrayList的不同点：</span><br><span class="line">Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。</span><br><span class="line">Array大小是固定的，ArrayList的大小是动态变化的。</span><br><span class="line">ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。</span><br><span class="line">对于基本类型数据，集合使用自动装箱来减少编码工作量。但是，当处理固定大小的基本数据类型的时候，这种方式相对比较慢。</span><br></pre></td></tr></table></figure>
-
-<h4 id="什么是值传递和引用传递"><a href="#什么是值传递和引用传递" class="headerlink" title="什么是值传递和引用传递"></a>什么是值传递和引用传递</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">值传递是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量.</span><br><span class="line">引用传递一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。所以对引用对象进行操作会同时改变原对象.一般认为,java内的传递都是值传递</span><br></pre></td></tr></table></figure>
-
-<h4 id="为什么会出现4-0-3-6-0-40000001这种现象"><a href="#为什么会出现4-0-3-6-0-40000001这种现象" class="headerlink" title="为什么会出现4.0-3.6=0.40000001这种现象"></a>为什么会出现4.0-3.6=0.40000001这种现象</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2进制的小数无法精确的表达10进制小数，计算机在计算10进制小数的过程中要先转换为2进制进行计算，这个过程中出现了误差。</span><br><span class="line">出现0.40000001的情况可以使用BigDecimal类解决，其实浮点数基本上都不精确，BigDecimal使用String来解决的</span><br></pre></td></tr></table></figure>
-
-<h4 id="十进制的数在内存中是怎么存的"><a href="#十进制的数在内存中是怎么存的" class="headerlink" title="十进制的数在内存中是怎么存的"></a>十进制的数在内存中是怎么存的</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">补码的形式。把一个十进制转换为二进制的方法是：把被转换的十进制数反复地除以 2，直到商为 0 为止，所得余数（从末位读起）就是这个数的二进制表示，简单地说，就是 &quot;除 2 取余法&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20211125151652729.png" alt="image-20211125151652729"></p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20211125151705033.png" alt="image-20211125151705033"></p>
-<h4 id="原码、反码和补码"><a href="#原码、反码和补码" class="headerlink" title="原码、反码和补码"></a>原码、反码和补码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">原码：是一种计算机中对数字的二进制定点表示法。原码表示法在数值前面增加了一位符号位（即最高位为符号位）：正数该位为 0，负数该位为 1</span><br><span class="line"></span><br><span class="line">反码：一个数字用原码表示是容易理解的，但是需要单独一个位来表示符号位，并且在进行加法时，计算机需要先识别某个二进制原码是正数还是负数，识别出来之后再进行相应的运算。这样效率不高，能不能让计算机在进行运算时不用去管符号位，也就是让符号位参与运算。要实现这个功能，我们就要用到反码。</span><br><span class="line">对于单个数值（二进制的 0 和 1）而言，对其进行取反操作就是将 0 变为 1，1 变为 0。正数的反码和原码一样，负数的反码就是在原码的基础上符号位保持不变，其他位取反。</span><br><span class="line"></span><br><span class="line">补码：补码是一种用二进制表示有符号数的方法。正数和 0 的补码就是该数字本身。负数的补码则是将其对应正数按位取反再加 1。补码系统的最大优点是可以在加法或减法处理中，不需因为数字的正负而使用不同的计算方式</span><br><span class="line">只要一种加法电路就可以处理各种有符号数加法，而且减法可以用一个数加上另一个数的补码来表示，因此只要有加法电路和补码电路即可以完成各种有符号数加法和减法，在电路设计上相当方便。</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">十进制</th>
-<th align="center">原码</th>
-<th align="center">反码</th>
-<th align="center">补码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">6</td>
-<td align="center">0000 0110</td>
-<td align="center">0000 0110</td>
-<td align="center">0000 0110</td>
-</tr>
-<tr>
-<td align="center">-3</td>
-<td align="center">1000 0011</td>
-<td align="center">1111 1100</td>
-<td align="center">1111 1101</td>
-</tr>
-</tbody></table>
-<h4 id="符号“-”比较的是什么"><a href="#符号“-”比较的是什么" class="headerlink" title="符号“==”比较的是什么"></a>符号“==”比较的是什么</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">“==”对比两个对象基于内存引用，如果两个对象的引用完全相同（指向同一个对象）时，“==”操作将返回true，否则返回false。“==”如果两边是基本类型，就是比较数值是否相等。</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="final关键字是怎么用的"><a href="#final关键字是怎么用的" class="headerlink" title="final关键字是怎么用的"></a>final关键字是怎么用的</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</span><br><span class="line"></span><br><span class="line">对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="说说HashMap的原理"><a href="#说说HashMap的原理" class="headerlink" title="说说HashMap的原理"></a><a href="https://www.cnblogs.com/woshimrf/p/hashmap.html">说说HashMap的原理</a></h3><blockquote>
-<p>它根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。</p>
-</blockquote>
-<p>答：HashMap是通过哈希表的数组链表实现的。内部维护一个Node数组，当put时，计算key hash后的值当做索引。如果数组中该位置为null，则放入value。然后判断是否需要扩容，返回null。如果数组上已经有元素，判断hash和key是否相等，相等就表示找到node节点了，不相等则判断该元素是TreeNode还是普通Node。如果是TreeNode，则按照TreeNode的put方法插入。如果不是TreeNode, 遍历链表，对比hash和key，若都不相等，则插入队尾，如果链表长度大于等于8，将链表转换为TreeNode。找到node之后，node不为null则赋值value。最后返回原来的value。</p>
-<h4 id="如何扩容"><a href="#如何扩容" class="headerlink" title="如何扩容"></a>如何扩容</h4><p>答：(直接说1.8的内容，想要装逼体验深度就对比1.7. 比如1.7扩容会导致链表重排倒置，1.8不会，1.8不用再次计算hash等。当然，这样回答要准备好继续入坑，为什么，如何做到)</p>
-<p>要说扩容，首先要知道原来的容量以及什么时候扩容。HashMap初始化的时候可以指定<code>initialCapacity</code>和<code>loadfactor</code>。<code>capacity</code>是2的指数倍，表示数组的长度。</p>
-<p><code>loadfactor</code>表示达到容量的百分比后扩容。<code>threshold=capacity*loadfactor</code>就是HashMap对象中可以容纳的最大K-V键值对数量。</p>
-<p>所以，当size(当前K-V键值对数量)超过<code>threshold</code>，则进行扩容。当然，如果capacity已经大于2^30，则直接将<code>threshold=Integer.MAX_VALUE</code>, 就不扩容了，碰撞吧。</p>
-<p>扩容的时候先计算容量，扩大为原来的2倍，对应<code>threshold</code>也扩大为原来的2倍。</p>
-<p>然后将原来数组上的元素复制到新的数组。对于冲突碰撞的结点，是TreeNode则按TreeNode插入，不是TreeNode则将链表的一半平分到其他新增的索引位置。</p>
-<p>关于几个数字。<code>loadfactor=0.75; DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; MAXIMUM_CAPACITY = 1 &lt;&lt; 30; TREEIFY_THRESHOLD = 8</code>。也就是说，对于我们平时直接new 的HashMap对象，默认数组长度为16，最大容纳12个，超过12个则扩容；当发生碰撞的数量小于8个则维护链表，当数量大于8个则改造成TreeNode.</p>
-<h4 id="说TreeNode是怎么put的"><a href="#说TreeNode是怎么put的" class="headerlink" title="说TreeNode是怎么put的"></a>说TreeNode是怎么put的</h4><p>红黑树</p>
-<h4 id="如何get"><a href="#如何get" class="headerlink" title="如何get"></a>如何get</h4><p>答： 既然知道HashMap的存储原理，那个get也就呼之欲出了。 首先，计算hash索引，如果头结点不为null，如果头结点hash以及key都相等，则取出。</p>
-<p>如果头结点不相等，并且next不为nul，判断next是否是TreeNode, 如果是TreeNode则TreeNode get.</p>
-<p>如果不是TreeNode, 遍历链表，找到hash和key相等的取出value。</p>
-<h4 id="HashMap是线程安全的吗"><a href="#HashMap是线程安全的吗" class="headerlink" title="HashMap是线程安全的吗"></a>HashMap是线程安全的吗</h4><p>答：不是，高并发中不仅会不安全，还有可能造成死循环(扩容的时候)。想要在并发中使用<strong>，请使用ConcurrentHashMap.</strong></p>
-<p><a href="https://www.jianshu.com/p/6bc2d81a3f7f"><strong>实现线程安全的方式有三种</strong>，分别是使用<strong>HashTable</strong>、<strong>Collections.SynchronizeMap</strong>、<strong>ConcurrentHashMap</strong>。</a></p>
-<h5 id="一、HashTable"><a href="#一、HashTable" class="headerlink" title="一、HashTable"></a>一、HashTable</h5><p>Hashtable 源码中是使用 synchronized 来保证线程安全的，比如下面的 get 方法和 put 等方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">remove</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; t)</span> </span>&#123; ... &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>所以当一个线程访问 HashTable 的同步方法时，其他线程如果也要访问同步方法，会被阻塞住。因此Hashtable效率很低，基本被废弃。。</p>
-<h5 id="二、SynchronizedMap"><a href="#二、SynchronizedMap" class="headerlink" title="二、SynchronizedMap"></a>二、SynchronizedMap</h5><p>SynchronizedMap是Collectionis的内部类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用方法</span></span><br><span class="line">Map m = Collections.synchronizedMap(<span class="keyword">new</span> HashMap());</span><br><span class="line"></span><br><span class="line"><span class="comment">//源码部分</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; <span class="function">Map&lt;K,V&gt; <span class="title">synchronizedMap</span><span class="params">(Map&lt;K,V&gt; m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SynchronizedMap&lt;&gt;(m);</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@serial</span> include</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1978198479659022715L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;K,V&gt; m;     <span class="comment">// Backing Map</span></span><br><span class="line">        <span class="keyword">final</span> Object      mutex;        <span class="comment">// Object on which to synchronize</span></span><br><span class="line"></span><br><span class="line">        SynchronizedMap(Map&lt;K,V&gt; m) &#123;</span><br><span class="line">            <span class="keyword">this</span>.m = Objects.requireNonNull(m);</span><br><span class="line">            mutex = <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        SynchronizedMap(Map&lt;K,V&gt; m, Object mutex) &#123;</span><br><span class="line">            <span class="keyword">this</span>.m = m;</span><br><span class="line">            <span class="keyword">this</span>.mutex = mutex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.size();&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.isEmpty();&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.containsKey(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.containsValue(value);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.get(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.put(key, value);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">remove</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.remove(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; map)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;m.putAll(map);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;m.clear();&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Set&lt;K&gt; keySet;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Collection&lt;V&gt; values;</span><br></pre></td></tr></table></figure>
-
-<p>Collections.synchronizedMap()和Hashtable一样，实现上在调用map所有方法时，都对整个map进行同步。效率还是硬伤。</p>
-<h5 id="三、ConcurrentHashMap"><a href="#三、ConcurrentHashMap" class="headerlink" title="三、ConcurrentHashMap"></a>三、ConcurrentHashMap</h5><p>ConcurrentHashMap使用分段锁技术，将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问，能够实现真正的并发访问,极大提升了效率。相关源码敬请期待！</p>
-<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>参考： </p>
-<ul>
-<li><a href="https://www.cnblogs.com/zhuyapeng/p/13750644.html">https://www.cnblogs.com/zhuyapeng/p/13750644.html</a></li>
-<li><a href="https://www.cnblogs.com/gofighting/p/5437998.html">https://www.cnblogs.com/gofighting/p/5437998.html</a></li>
-<li><a href="https://tech.meituan.com/2016/12/02/redblack-tree.html">https://tech.meituan.com/2016/12/02/redblack-tree.html</a></li>
-</ul>
-<p>红黑树:二叉树+高度限制<br>二叉树：确定了它的查找非常快。<br>高度限制：这个是取普通二叉树和平衡二叉树之间。<br>普通二叉树，只管插入不做调整，可能会出现单链很长。<br>平衡二叉树，所有的链高度相等，但存就需要调整，非常耗时。<br>红黑树，最长单链不会超过最短单链2倍，这样也确定它存的耗时也居中。</p>
-<p>红黑树特点5条：<br>1.所有节点非红即黑。<br>2.根节点为黑节点。<br>3.所有叶子节（null）点为黑色。<br>4.所有节点到叶子节点中黑色节点数目相同。（确定最长单链不会超过最短单链2倍）<br>5.如果一个节点为红色，则它的子节点节点必须为黑色。换句话说：从每个叶子到根的所有路径上不能有两个连续的红色结点</p>
-<p>红黑树的操作：<br>查：二叉树的特性决定它高效。<br>增：加入红节点，根据旋转、着色来保持红黑树特性。<br>删：根据旋转、着色来保持红黑树特性。</p>
-<p><strong>红黑树相关定理</strong></p>
-<p><strong>1. 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。</strong></p>
-<p>   根据上面的性质5我们知道上图的红黑树每条路径上都是3个黑结点。因此最短路径长度为2(没有红结点的路径)。再根据性质4(两个红结点不能相连)和性质1，2(叶子和根必须是黑结点)。那么我们可以得出：一条具有3个黑结点的路径上最多只能有2个红结点(红黑间隔存在)。也就是说黑深度为2（根结点也是黑色）的红黑树最长路径为4，最短路径为2。从这一点我们可以看出红黑树是 大致平衡的。 (当然比平衡二叉树要差一些，AVL的平衡因子最多为1)</p>
-<p><strong>2. 红黑的树高(h)不大于两倍的红黑树的黑深度(bd)，即h&lt;=2bd</strong></p>
-<p>   根据定理1，我们不难说明这一点。bd是红黑树的最短路径长度。而可能的最长路径长度(树高的最大值)就是红黑相间的路径，等于2bd。因此h&lt;=2bd。</p>
-<p><strong>3. 一棵拥有n个内部结点(不包括叶子结点)的红黑树的树高h&lt;=2log(n+1)</strong></p>
-<p>   下面我们首先证明一颗有n个内部结点的红黑树满足n&gt;=2^bd-1。这可以用数学归纳法证明，施归纳于树高h。当h=0时，这相当于是一个叶结点，黑高度bd为0，而内部结点数量n为0，此时0&gt;=2^0-1成立。假设树高h&lt;=t时，n&gt;=2^bd-1成立，我们记一颗树高 为t+1的红黑树的根结点的左子树的内部结点数量为nl，右子树的内部结点数量为nr，记这两颗子树的黑高度为bd’（注意这两颗子树的黑高度必然一 样），显然这两颗子树的树高&lt;=t，于是有nl&gt;=2^bd’-1以及nr&gt;=2^bd’-1，将这两个不等式相加有nl+nr&gt;=2^(bd’+1)-2，将该不等式左右加1，得到n&gt;=2^(bd’+1)-1，很显然bd’+1&gt;=bd，于是前面的不等式可以 变为n&gt;=2^bd-1，这样就证明了一颗有n个内部结点的红黑树满足n&gt;=2^bd-1。</p>
-<p>​    在根据定理2，h&lt;=2bd。即n&gt;=2^(h/2)-1，那么h&lt;=2log(n+1)</p>
-<p>​    从这里我们能够看出，红黑树的查找长度最多不超过2log(n+1)，因此其查找时间复杂度也是O(log N)级别的。</p>
-<p><strong>红黑树的操作</strong></p>
-<p>因为每一个红黑树也是一个特化的二叉查找树，因此红黑树上的查找操作与普通二叉查找树上的查找操作相同。然而，在红黑树上进行插入操作和删除操作会导致不 再符合红黑树的性质。恢复红黑树的属性需要少量(O(log n))的颜色变更(实际是非常快速的)和不超过三次树旋转(对于插入操作是两次)。 虽然插入和删除很复杂，但操作时间仍可以保持为 O(log n) 次 。</p>
-<p><strong>红黑树的优势</strong></p>
-<p>红黑树能够以O(log2(N))的时间复杂度进行搜索、插入、删除操作。此外,任何不平衡都会在3次旋转之内解决。这一点是AVL所不具备的。</p>
-<p>而且实际应用中，很多语言都实现了红黑树的数据结构。比如 TreeMap, TreeSet(Java )、 STL(C++)等。</p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计算机网络</title>
-    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="HTTP，HTTPS"><a href="#HTTP，HTTPS" class="headerlink" title="HTTP，HTTPS"></a><a href="https://www.cnblogs.com/klb561/p/10289199.html">HTTP，HTTPS</a></h2><h3 id="1-HTTP，HTTPS-概念"><a href="#1-HTTP，HTTPS-概念" class="headerlink" title="1. HTTP，HTTPS 概念"></a>1. HTTP，HTTPS 概念</h3><p>  HTTP：<strong>HTTP</strong>协议以<strong>明文的方式发送内容</strong>，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息，如：卡号、密码等支付信息。<br>  HTTPS：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。是以安全为目标的HTTP通道，简单讲是HTTP的安全版。<br>  HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安全；另一种就是确认网站的真实性。</p>
-<h3 id="2-HTTP与HTTPS的区别"><a href="#2-HTTP与HTTPS的区别" class="headerlink" title="2. HTTP与HTTPS的区别"></a>2. HTTP与HTTPS的区别</h3><pre><code>   1. https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。
-      2. http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。
-      3. http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
-      4. http的连接很简单，是无状态的；HTTPS协议是SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
-</code></pre>
-<h3 id="3-HTTPS的工作原理"><a href="#3-HTTPS的工作原理" class="headerlink" title="3. HTTPS的工作原理"></a>3. HTTPS的工作原理</h3><p>我们都知道HTTPS能够加密信息，以免敏感信息被第三方获取，所以<strong>很多银行网站或电子邮箱等等安全级别较高的服务都会采用HTTPS协议</strong></p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/1-150H120343I41.jpg" alt="HTTP与HTTPS的区别-马海祥博客"></p>
-<p>客户端在使用HTTPS方式与Web服务器<strong>通信时有以下几个步骤</strong>，如图所示。</p>
-<pre><code>（1）客户使用https的URL访问Web服务器，要求与Web服务器建立SSL连接。
-
-（2）Web服务器收到客户端请求后，会将网站的证书信息（证书中包含公钥）传送一份给客户端。
-
-（3）客户端的浏览器与Web服务器开始协商SSL连接的安全等级，也就是信息加密的等级。
-
-（4）客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并传送给网站。
-
-（5）Web服务器利用自己的私钥解密出会话密钥。
-
-（6）Web服务器利用会话密钥加密与客户端之间的通信。
-</code></pre>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2012071410212142.gif" alt="img"></p>
-<h3 id="4-HTTPS的优点"><a href="#4-HTTPS的优点" class="headerlink" title="4. HTTPS的优点"></a>4. HTTPS的优点</h3><p>尽管HTTPS并非绝对安全，<strong>掌握根证书的机构、掌握加密算法的组织</strong>同样可以进行中间人形式的攻击，但HTTPS仍是现行架构下最安全的解决方案，主要有以下几个好处：</p>
-<pre><code>（1）使用HTTPS协议可认证用户和服务器，确保数据发送到正确的客户机和服务器；
-
-（2）HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全，可防止数据在传输过程中不被窃取、改变，确保数据的完整性。
-
-（3）HTTPS是现行架构下最安全的解决方案，虽然不是绝对安全，但它大幅增加了中间人攻击的成本。
-
-（4）谷歌曾在2014年8月份调整搜索引擎算法，并称“比起同等HTTP网站，采用HTTPS加密的网站在搜索结果中的排名将会更高”
-</code></pre>
-<h3 id="5-HTTPS的缺点"><a href="#5-HTTPS的缺点" class="headerlink" title="5. HTTPS的缺点"></a>5. HTTPS的缺点</h3><p>虽然说HTTPS有很大的优势，但其相对来说，还是存在不足之处的：</p>
-<pre><code>（1）HTTPS协议**握手阶段比较费时**，会使页面的加载时间延长近50%，增加10%到20%的耗电；
-
-（2）HTTPS连接**缓存不如HTTP高效**，会增加数据开销和功耗，甚至已有的安全措施也会因此而受到影响；
-
-（3）**SSL证书需要钱**，功能越强大的证书费用越高，个人网站、小网站没有必要一般不会用。
-
-（4）**SSL证书通常需要绑定IP**，不能在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗。
-
-（5）HTTPS协议的**加密范围也比较有限**，在黑客攻击、拒绝服务攻击、服务器劫持等方面几乎起不到什么作用。最关键的，SSL证书的信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间人攻击一样可行。
-</code></pre>
-<h3 id="6-http切换到HTTPS"><a href="#6-http切换到HTTPS" class="headerlink" title="6. http切换到HTTPS"></a>6. http切换到HTTPS</h3><pre><code>如果需要将网站从http切换到https到底该如何实现呢？
-</code></pre>
-<p>   这里需要将页面中所有的链接，例如js，css，图片等等链接都由http改为https。例如：<a href="http://www.baidu.com改为https//www.baidu.com">http://www.baidu.com改为https://www.baidu.com</a></p>
-<pre><code>BTW，这里虽然将http切换为了https，还是建议保留http。所以我们在切换的时候可以做http和https的兼容，具体实现方式是，去掉页面链接中的http头部，这样可以自动匹配http头和https头。例如：将http://www.baidu.com改为//www.baidu.com。然后当用户从http的入口进入访问页面时，页面就是http，如果用户是从https的入口进入访问页面，页面即使https的。
-</code></pre>
-<h3 id="7-http的缓存机制（前端）"><a href="#7-http的缓存机制（前端）" class="headerlink" title="7. http的缓存机制（前端）"></a>7. <a href="https://www.cnblogs.com/chenqf/p/6386163.html">http的缓存机制</a>（前端）</h3><h4 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h4><p>HTTP报文就是浏览器和服务器间通信时发送及响应的数据块。<br>浏览器向服务器请求数据，发送请求(request)报文；服务器向浏览器返回数据，返回响应(response)报文。<br>报文信息主要分为两部分：</p>
-<ol>
-<li>包含属性的首部(header)————————–附加信息（cookie，缓存信息等）与缓存相关的规则信息，均包含在header中</li>
-<li>包含数据的主体部分(body)———————–HTTP请求真正想要传输的部分</li>
-</ol>
-<h4 id="缓存规则解析"><a href="#缓存规则解析" class="headerlink" title="缓存规则解析"></a>缓存规则解析</h4><h2 id="cookie和session的区别详解"><a href="#cookie和session的区别详解" class="headerlink" title="cookie和session的区别详解"></a><a href="https://www.cnblogs.com/klb561/p/10289199.html">cookie和session的区别详解</a></h2><h3 id="cookie和session的定义："><a href="#cookie和session的定义：" class="headerlink" title="cookie和session的定义："></a>cookie和session的定义：</h3><p>当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，<strong>Cookie 会把你在网站上所打的文字或是一些选择，都纪录下来</strong>。当下次你再光临同一个网站，WEB 服务器会先看看有没有它上次留下的 Cookie 资料，有的话，就会依据 Cookie里的内容来判断使用者，送出特定的网页内容给你。 Cookie 的使用很普遍，许多有提供个人化服务的网站，都是利用 Cookie来辨认使用者，以方便送出使用者量身定做的内容，像是 Web 接口的免费 email 网站，都要用到 Cookie。</p>
-<p>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。</p>
-<p>同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上它还有其他选择。</p>
-<p>cookie机制。正统的cookie分发是通过扩展HTTP协议来实现的，服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。然而纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
-<p>cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。<strong>这种生命期为浏览器会话期的cookie被称为会话cookie</strong>。 </p>
-<p>会话cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p>
-<p><strong>session机制</strong>。session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p>
-<p>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来。使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但<strong>cookie可以被人为的禁止</strong>，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。经常被使用的一种技术叫做<strong>URL重写</strong>，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如： </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;testform&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/xxx&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;jsessionid&quot;</span> <span class="attr">value</span>=<span class="string">&quot;ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-
-<p>实际上这种技术可以简单的用对action应用URL重写来代替。</p>
-<h3 id="cookie和session的区别："><a href="#cookie和session的区别：" class="headerlink" title="cookie和session的区别："></a>cookie和session的区别：</h3><p>1、cookie数据存放在<strong>客户的浏览器上</strong>，session数据放在<strong>服务器上</strong>。</p>
-<p>2、<strong>cookie不是很安全</strong>，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗<br>      <strong>考虑到安全应当使用session</strong>。</p>
-<p>3、<strong>session</strong>会在一定时间内保存在服务器上。当访问增多，<strong>会比较占用你服务器的性能</strong><br>     考虑到减轻服务器性能方面，应当使用COOKIE。</p>
-<p>4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p>
-<p>5、所以个人建议：<br>      将登陆信息等重要信息存放为SESSION<br>      其他信息如果需要保留，可以放在COOKIE中</p>
-<h2 id="TCP，UDP"><a href="#TCP，UDP" class="headerlink" title="TCP，UDP"></a><a href="https://www.cnblogs.com/fundebug/p/differences-of-tcp-and-udp.html">TCP，UDP</a></h2><h3 id="1-TCP-IP网络模型"><a href="#1-TCP-IP网络模型" class="headerlink" title="1. TCP/IP网络模型"></a>1. TCP/IP网络模型</h3><p>TCP/IP 是互联网相关的各类协议族的总称，比如：TCP，UDP，IP，FTP，HTTP，ICMP，SMTP 等都属于 TCP/IP 族内的协议。</p>
-<p>TCP/IP模型是互联网的基础，它是一系列网络协议的总称。这些协议可以划分为四层，分别为链路层、网络层、传输层和应用层。</p>
-<ul>
-<li>链路层：负责封装和解封装IP报文，发送和接受ARP/RARP报文等。</li>
-<li>网络层：负责路由以及把分组报文发送给目标网络或主机。</li>
-<li>传输层：负责对报文进行分组和重组，并以TCP或UDP协议格式封装报文。</li>
-<li>应用层：负责向用户提供应用程序，比如HTTP、FTP、Telnet、DNS、SMTP等。</li>
-</ul>
-<table border="1">
-    <tr>
-        <th align="center">OSI七层模型</th>   <!-- 左对齐 -->
-        <th align="center"> TCP/IP概念层模型</th> <!-- 居中对其（默认）-->
-        <th align="center">功能</th>  <!-- 右对齐-->
-        <th align="center">TCP/IP协议族</th>  <!-- 右对齐-->
-    </tr>
-    <tr>
-        <td>应用层</td>
-        <td rowspan="3">应用层</td>
-        <td>文件传输，电子邮件，文件服务，虚拟终端</td>
-        <td>TFTP，HTTP，SNMP，DNS，Telnet</td>
-    </tr>
-    <tr>
-        <td>表示层</td>
-        <td>数据格式化，代码转换，数据加密</td>
-        <td>没有协议</td>
-    </tr>
-    <tr>
-        <td>会话层</td>
-        <td>解除或建立与别的接口的联系</td>
-        <td>没有协议</td>
-    </tr>
-    <tr>
-        <td>传输层</td>
-        <td>传输层</td>
-        <td>提供端到端的接口</td>
-        <td>TCP，UDP</td>
-    </tr>
-    <tr>
-        <td>网络层</td>
-        <td>网络层</td>
-        <td>为数据包选择路由</td>
-        <td>IP，ICMP，RIP，OSPF，BGF，IGMP</td>
-    </tr>
-    <tr>
-        <td>数据链路层</td>
-        <td rowspan="2">链路层</td>
-        <td>传输有地址的帧以及错误检测功能</td>
-        <td>SLIP，CSLIP，PPP，ARP，RARP，MTU</td>
-    </tr>
-    <tr>
-        <td>物理层</td>
-        <td>以二进制数据形式在物理层媒体上传输数据</td>
-        <td>ISO2110.IEEE802，IEEE802.2</td>
-    </tr>
-</table>
-
-<p>在网络体系结构中网络通信的建立必须是在通信双方的对等层进行，不能交错。 在整个数据传输过程中，<strong>数据在发送端时经过各层时都要附加上相应层的协议头和协议尾</strong>（仅数据链路层需要封装协议尾）部分，也就是要对数据进行协议封装，以标识对应层所用的通信协议。接下去介绍TCP/IP 中有两个具有代表性的传输层协议—-TCP 和 UDP。</p>
-<h3 id="2-UDP"><a href="#2-UDP" class="headerlink" title="2. UDP"></a>2. UDP</h3><p>UDP协议全称是用户数据报协议，在网络中它与TCP协议一样<strong>用于处理数据包</strong>，是一种<strong>无连接的协议</strong>。在OSI模型中，在第四层——<strong>传输层，处于IP协议的上一层</strong>。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。</p>
-<h4 id="UDP特点"><a href="#UDP特点" class="headerlink" title="UDP特点"></a>UDP特点</h4><h5 id="1-面向无连接"><a href="#1-面向无连接" class="headerlink" title="1. 面向无连接"></a>1. 面向无连接</h5><p>首先 UDP 是不需要和 TCP一样在发送数据前进行三次握手建立连接的，想发数据就可以开始发送了。并且也只是数据报文的搬运工，不会对数据报文进行任何拆分和拼接操作。</p>
-<p>具体来说就是：</p>
-<ul>
-<li>在发送端，应用层将数据传递给传输层的 UDP 协议，UDP 只会给数据增加一个 UDP 头标识下是 UDP 协议，然后就传递给网络层了</li>
-<li>在接收端，网络层将数据传递给传输层，UDP 只去除 IP 报文头就传递给应用层，不会任何拼接操作</li>
-</ul>
-<h5 id="2-有单播，多播，广播的功能"><a href="#2-有单播，多播，广播的功能" class="headerlink" title="2. 有单播，多播，广播的功能"></a>2. 有单播，多播，广播的功能</h5><p>UDP 不止支持一对一的传输方式，同样支持一对多，多对多，多对一的方式，也就是说 <strong>UDP 提供了单播，多播，广播的功能</strong>。</p>
-<h5 id="3-UDP是面向报文的"><a href="#3-UDP是面向报文的" class="headerlink" title="3. UDP是面向报文的"></a>3. UDP是面向报文的</h5><p>发送方的UDP对应用程序交下来的报文，在添加首部后就向下交付IP层。UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。因此，应用程序必须选择合适大小的报文</p>
-<h5 id="4-不可靠性"><a href="#4-不可靠性" class="headerlink" title="4. 不可靠性"></a>4. 不可靠性</h5><p>首先不可靠性体现在无连接上，通信都不需要建立连接，想发就发，这样的情况肯定不可靠。</p>
-<p>并且收到什么数据就传递什么数据，并且也不会备份数据，发送数据也不会关心对方是否已经正确接收到数据了。</p>
-<p>再者网络环境时好时坏，但是 UDP 因为没有拥塞控制，一直会以恒定的速度发送数据。即使网络条件不好，也不会对发送速率进行调整。这样实现的弊端就是在网络条件不好的情况下可能会导致丢包，但是优点也很明显，在某些实时性要求高的场景（比如电话会议）就需要使用 UDP 而不是 TCP。</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2019-03-21-02.gif" alt="img"></p>
-<p>从上面的动态图可以得知，UDP只会把想发的数据报文一股脑的丢给对方，并不在意数据有无安全完整到达。</p>
-<h5 id="5-头部开销小，传输数据报文时是很高效的。"><a href="#5-头部开销小，传输数据报文时是很高效的。" class="headerlink" title="5. 头部开销小，传输数据报文时是很高效的。"></a>5. 头部开销小，传输数据报文时是很高效的。</h5><p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2019-03-21-03.png" alt="img"></p>
-<p>UDP 头部包含了以下几个数据：</p>
-<ul>
-<li>两个十六位的端口号，分别为源端口（可选字段）和目标端口</li>
-<li>整个数据报文的长度</li>
-<li>整个数据报文的检验和（IPv4 可选 字段），该字段用于发现头部信息和数据中的错误</li>
-</ul>
-<p>因此 UDP 的头部开销小，只有八字节，相比 TCP 的至少二十字节要少得多，在传输数据报文时是很高效的</p>
-<h3 id="3-TCP与UDP的比较"><a href="#3-TCP与UDP的比较" class="headerlink" title="3. TCP与UDP的比较"></a>3. TCP与UDP的比较</h3><table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">UDP</th>
-<th align="left">TCP</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">是否连接</td>
-<td align="left">无连接</td>
-<td align="left">面向连接</td>
-</tr>
-<tr>
-<td align="left">是否可靠</td>
-<td align="left">不可靠传输，不使用流量控制和拥塞控制</td>
-<td align="left">可靠传输，使用流量控制和拥塞控制</td>
-</tr>
-<tr>
-<td align="left">连接对象个数</td>
-<td align="left">支持一对一，一对多，多对一和多对多交互通信</td>
-<td align="left">只能是一对一通信</td>
-</tr>
-<tr>
-<td align="left">传输方式</td>
-<td align="left">面向报文</td>
-<td align="left">面向字节流</td>
-</tr>
-<tr>
-<td align="left">首部开销</td>
-<td align="left">首部开销小，仅8字节</td>
-<td align="left">首部最小20字节，最大60字节</td>
-</tr>
-<tr>
-<td align="left">适用场景</td>
-<td align="left">适用于实时应用（IP电话、视频会议、直播等）</td>
-<td align="left">适用于要求可靠传输的应用，例如文件传输</td>
-</tr>
-</tbody></table>
-<ul>
-<li><strong>TCP</strong>向上层提供面向<strong>连接的可靠服务</strong> ，<strong>UDP</strong>向上层提供<strong>无连接不可靠服务</strong>。</li>
-<li>虽然 <strong>UDP</strong> 并没有 TCP 传输来的准确，但是也能在很多<strong>实时性要求高</strong>的地方有所作为</li>
-<li>对数据<strong>准确性要求高</strong>，速度可以相对较慢的，可以选用<strong>TCP</strong></li>
-</ul>
-<h2 id="从输入-URL-到页面加载显示完成的过程"><a href="#从输入-URL-到页面加载显示完成的过程" class="headerlink" title="从输入 URL 到页面加载显示完成的过程"></a><a href="https://www.cnblogs.com/dinghuihua/p/6739340.html">从输入 URL 到页面加载显示完成的过程</a></h2><p>可以将这个问题拆分为两个过程：</p>
-<ol>
-<li>用户输入url——&gt;客户端（浏览器）拿到服务端的数据</li>
-<li>浏览器拿到收据——&gt;呈现页面（也就是浏览器工作过程）</li>
-</ol>
-<h3 id="输入网址到浏览器获得资源的过程"><a href="#输入网址到浏览器获得资源的过程" class="headerlink" title="输入网址到浏览器获得资源的过程"></a>输入网址到浏览器获得资源的过程</h3><ol>
-<li><p><strong>输入网址：<a href="http://www.baidu.com/">www.baidu.com</a></strong></p>
-<p>把url分为协议、网络地址、路径资源三部分</p>
-<ul>
-<li>协议：从该计算机获取资源的方式，有HTTP、HTTPS、FTP等，不同协议有不同的通讯内容格式</li>
-<li>网络地址：指连接网络上的哪一台计算机，可以是域名、IP地址，可以包括端口号。如：“<a href="http://www.cnblogs.com”、“192.168.0.91:8080”">www.cnblogs.com”、“192.168.0.91:8080”</a></li>
-<li>资源路径：指从服务器上获取哪一项资源。如 “/dinghuihua/p/6674719.html”</li>
-</ul>
-</li>
-<li><p><strong>通过DNS解析获得网址的对应IP</strong></p>
-<p>当发送一个url请求时，不管这个url是web页面的url还是web页面上的每个资源的url，浏览器都会开启一个线程处理该请求，同时在远程DNS服务器上启动一个DNS查询，这能使浏览器获得请求对应的IP地址</p>
-<blockquote>
-<p>PS: 脑补为啥有DNS这玩意…因为要人类记住辣么多计算机能记住的IP地址怎么可能嘛…它就是起到域名解析的作用的</p>
-<p>dns是将域名和IP进行绑定的，通过域名找到互联网上实际的物理地址的服务器，找到这个服务器后，服务器会把请求解析，找到该文件(上下文)后将其推送给浏览器， 浏览器就会把这个html文件通过它自己的浏览器内核定义好的规范解析渲染出来(渲染:呈现元素)</p>
-</blockquote>
-<p>这一步包括DNS的具体查找过程</p>
-<ul>
-<li>浏览器缓存 – 浏览器会缓存DNS记录一段时间。 有趣的是，操作系统没有告诉浏览器储存DNS记录的时间，这样不同浏览器会储存个自固定的一个时间（2分钟到30分钟不等）。</li>
-<li>系统缓存 – 如果在浏览器缓存里没有找到需要的记录，浏览器会做一个系统调用（windows里是gethostbyname）。这样便可获得系统缓存中的记录。</li>
-<li>路由器缓存 – 接着，前面的查询请求发向路由器，它一般会有自己的DNS缓存。</li>
-<li>ISP DNS 缓存 – 接下来要check的就是ISP缓存DNS的服务器。在这一般都能找到相应的缓存记录。</li>
-<li>递归搜索 – 你的ISP的DNS服务器从跟域名服务器开始进行递归搜索，从.com顶级域名服务器到Facebook的域名服务器。一般DNS服务器的缓存中会有.com域名服务器中的域名，所以到顶级服务器的匹配过程不是那么必要了。</li>
-</ul>
-<ol start="3">
-<li><strong>浏览器与远程web服务器 通过TCP三次握手协商来建立一个 TCP/IP 连接</strong></li>
-</ol>
-<p>​       该握手包括一个“同步报文”，一个“同步-应答报文”和一个“应答报文”，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。</p>
-<ol start="4">
-<li><p><strong>浏览器 通过TCP/IP连接 向web服务器 发送一个 HTTP 请求</strong></p>
-</li>
-<li><p><strong>服务器的永久重定向响应（从 <a href="http://example.com/">http://example.com</a> 到 <a href="http://www.example.com)/">http://www.example.com）</a></strong></p>
-</li>
-<li><p><strong>浏览器跟踪重定向地址</strong></p>
-</li>
-<li><p><strong>服务器处理请求</strong></p>
-</li>
-<li><p><strong>服务器返回一个 HTTP 响应</strong></p>
-</li>
-<li><p>到这里便是浏览器的工作过程了。。。</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>　    　    浏览器显示 HTML<br>　        　浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）<br>　        　浏览器发送异步请求</p>
-<h3 id="浏览器获得资源后到呈现页面的过程"><a href="#浏览器获得资源后到呈现页面的过程" class="headerlink" title="浏览器获得资源后到呈现页面的过程"></a>浏览器获得资源后到呈现页面的过程</h3><p>常用的浏览器有很多，有IE、Firefox、Safari、Chrome以及Opera，还有很多国产浏览器，像360浏览器啊这些，它们的存在共同点都是为了让用户看到各种各样的网站，它们不同的是内核的不同，因此可能会给前端工程师们带来一些浏览器的差异性兼容性问题。</p>
-<p>* 浏览器主要的功能：通过向服务器请求，来获取你所想要的网络资源，并将它渲染到浏览器窗口中。而资源类型通常是html文件，但也可能是PDF，图片或者是其他类型的资源。</p>
-<p>* 浏览器的内核（渲染引擎）有：</p>
-<p> user agent : 代表浏览器内核,不特指哪个浏览器</p>
-<table>
-<thead>
-<tr>
-<th>浏览器内核</th>
-<th>厂商前缀</th>
-<th>代表浏览器</th>
-<th>内核背景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Trident</td>
-<td>－ms－</td>
-<td>IE浏览器系列</td>
-<td>该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。</td>
-</tr>
-<tr>
-<td>Gecko</td>
-<td>－moz－</td>
-<td>Firefox</td>
-<td>Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器)也采用了该内核，Gecko的特点是代码完全公开</td>
-</tr>
-<tr>
-<td>Webkit</td>
-<td>－webkit－</td>
-<td>Safari</td>
-<td>Safari内核,Chrome内核原型，开源，包含了来自KDE项目和苹果公司的一些组件，主要用于Mac OS系统，它的特点在于源码解构清晰、渲染速度极快，缺点是网页代码的兼容性不高，导致一些编写不标准的网页无法正常显示</td>
-</tr>
-<tr>
-<td>Blink</td>
-<td>－webkit－</td>
-<td>Chrome、opera等除IE、Firefox、Safari之外的几乎所有浏览器（几乎所有国产双内核浏览器（Trident/Blink）如360、猎豹、qq、百度等）</td>
-<td>Blink是一个由Google和Opera Software开发的浏览器排版引擎，是基于Webkit内核的子项目</td>
-</tr>
-<tr>
-<td>Presto</td>
-<td>－o－</td>
-<td>Opera前内核［现已废弃］</td>
-<td>Opera12.17及更早版本曾经采用的内核，现已停止开发并废弃</td>
-</tr>
-</tbody></table>
-<p>其实浏览器拿到资源数据后，便开始浏览器渲染引擎的基本渲染流程</p>
-<p> <img src="https://gitee.com/sssuperbear/typora/raw/master/img/1141057-20170420163157399-2096441652.png" alt="img"></p>
-<p>渲染引擎开始解析HTML文档，并把标签转化成内容树中的DOM节点。同时它也开始解析样式数据，外链的css文件以及style标签内的样式。所有这些样式数据以及HTML中的可见性指令都是用来创建另一棵树－－render 树。</p>
-<p>现在页面就呈现在我们面前了。。。</p>
-<h3 id="HTTP状态码有哪些"><a href="#HTTP状态码有哪些" class="headerlink" title="HTTP状态码有哪些"></a>HTTP状态码有哪些</h3><ul>
-<li>1xx 【消息】服务器收到请求，需要请求者继续执行操作  </li>
-<li>2xx 【成功】请求已成功被服务器接收、理解、并接受。</li>
-<li>3xx 【重定向】客户端需要采取进一步的操作以完成请求</li>
-<li>4xx 【客户端请求错误】客户端错误，请求包含语法错误或无法完成请求</li>
-<li>5xx 【服务器错误】服务器在处理请求的过程中发生了错误</li>
-</ul>
-<p>常见的有：</p>
-<ul>
-<li>200 OK //客户端请求成功</li>
-<li>304 Not Modified // 未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源</li>
-<li>400 Bad Request //客户端请求有语法错误，不能被服务器所理解</li>
-<li>401 Unauthorized  // 当前请求要求用户的身份认证</li>
-<li>403 Forbidden // 服务器理解请求客户端的请求，但是拒绝执行此请求</li>
-<li>404 Not Found //请求资源不存在，输入了错误的URL</li>
-<li>500 Internal Server Error //服务器发生不可预期的错误</li>
-<li>503 Server Unavailable // 由于超载或系统维护，服务器暂时的无法处理客户端的请求。一段时间后可能恢复正常</li>
-</ul>
-<h3 id="DNS解析出现错误故障解决"><a href="#DNS解析出现错误故障解决" class="headerlink" title="DNS解析出现错误故障解决"></a><a href="https://www.cnblogs.com/yuanqiangfei/p/8880243.html">DNS解析出现错误故障解决</a></h3><p><strong>当DNS解析出现错误，例如把一个<a href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90">域名解析</a>成一个错误的IP地址，或者根本不知道某个域名对应的IP地址是什么时，就无法通过域名访问相应的站点了，这就是DNS解析故障。出现DNS解析故障最大的症状就是访问站点对应的IP地址没有问题，然而访问他的域名就会出现错误。</strong></p>
-<p><strong>（1）用nslookup(网路查询)来判断是否真的是DNS解析<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>：</strong></p>
-<p>要想百分之百判断是否为DNS解析<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>就需要通过系统自带的NSLOOKUP来解决了。</p>
-<p>第一步：确认自己的系统是windows 2000和windows xp以上<a href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>，然后通过“开始-&gt;运行-&gt;输入CMD”后回车进入命令行模式。</p>
-<p>第二步：输入nslookup命令后回车，将进入DNS解析查询界面。</p>
-<p>第三步：命令行窗口中会显示出当前系统所使用的DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>地址，例如笔者的DNS服务器IP为202.106.0.20。</p>
-<p>第四步：接下来输入无法访问的站点对应的域名。假如不能访问的话，那么DNS解析应该是不能够正常进行的，会收到DNS request timed out，timeout was 2 seconds的提示信息。这说明本地<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>确实出现了DNS解析故障。</p>
-<p>小提示：如果DNS解析正常的话，会反馈回正确的IP地址。</p>
-<p><strong>（2）查询DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>工作是否正常：</strong></p>
-<p>这时候要看本地<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>使用的DNS地址是多少了，并且查询他的运行情况。</p>
-<p>第一步：通过“开始-&gt;运行-&gt;输入CMD”后回车进入命令行模式。</p>
-<p>第二步：输入<a href="https://baike.baidu.com/item/ipconfig">ipconfig</a>/all命令来查询网络参数。</p>
-<p>第三步：在ipconfig /all显示信息中能够看到一个地方写着DNS SERVERS，这个就是本地的DNS服务器地址。例如笔者的是202.106.0.20和202.106.46.151。从这个地址可以看出是个外网地址，如果使用外网DNS出现解析错误时，可以更换一个其他的DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>地址即可解决问题。</p>
-<p>第四步：如果在DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>处显示的是个人公司的内部网络地址，那么说明该公司的DNS解析工作是交给公司内部的DNS服务器来完成的，这时需要检查这个DNS服务器，在DNS服务器上进行nslookup操作看是否可以正常解析。解决DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>上的DNS服务<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>，一般来说问题也能够解决。</p>
-<p><strong>（3）清除DNS缓存信息法：</strong></p>
-<p>第一步：通过“开始-&gt;运行-&gt;输入CMD”进入命令行模式。</p>
-<p>第二步：在命令行模式中我们可以看到在ipconfig /?中有一个名为/flushdns的参数，这个就是清除DNS缓存信息的命令。</p>
-<p>第三步：执行ipconfig /flushdns命令，当出现“successfully flushed the dns resolver cache”的提示时就说明当前<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>的缓存信息已经被成功清除。</p>
-<p>第四步：接下来我们再访问域名时，就会到DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>上获取最新解析地址，再也不会出现因为以前的缓存造成解析错误<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>了。</p>
-<p><strong>（4）修改<a href="https://baike.baidu.com/item/HOSTS">HOSTS</a>（<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA">主机</a>）文件法：</strong></p>
-<p>第一步：通过“开始-&gt;搜索”，然后查找名叫<a href="https://baike.baidu.com/item/hosts">hosts</a>的文件。</p>
-<p>第二步：当然对于已经知道他的路径的读者可以直接进入c:\windows\system32\drivers\etc<a href="https://baike.baidu.com/item/%E7%9B%AE%E5%BD%95">目录</a>中找到HOSTS文件。如果你的系统是windows 2000，那么应该到c:\winnt\system32\drivers\etc目录中寻找。</p>
-<p>第三步：双击HOSTS文件，然后选择用“<a href="https://baike.baidu.com/item/%E8%AE%B0%E4%BA%8B%E6%9C%AC">记事本</a>”程序将其打开。</p>
-<p>第四步：之后我们就会看到HOSTS文件的所有内容了，默认情况下只有一行内容“127.0.0.1 localhost”。（其他前面带有#的行都不是真正的内容，只是帮助信息而已）</p>
-<p>第五步：将你希望进行DNS解析的条目添加到HOSTS文件中。具体格式是先写该域名对应的IP地址，然后空格接域名信息。</p>
-<p>第六步：设置完毕后我们访问网址时就会自动根据是在内网还是外网来解析了。 </p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
   </entry>
   <entry>
     <title>手机拍照技巧</title>
@@ -4178,6 +3841,474 @@
 ]]></content>
       <categories>
         <category>摄影</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JavaSE</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/JavaSE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h3><h4 id="String，StringBuilder，StringBuffer的区别："><a href="#String，StringBuilder，StringBuffer的区别：" class="headerlink" title="String，StringBuilder，StringBuffer的区别："></a>String，StringBuilder，StringBuffer的区别：</h4><ol>
+<li><p>操作数量较少的字符串用<strong>String，不可修改</strong>的字符串；</p>
+<p>String是不可变的对象，因此每次在对String类进行改变的时候都会生成一个新的string对象。在某些情况下，String对象的字符串拼接其实是被Java Compiler编译成了StringBuffer对象的拼接，所以这些时候String对象的速度并不会比StringBuffer对象慢。如下String的拼接优化。</p>
+</li>
+<li><p>在单线程且操作大量字符串用<strong>StringBuilder</strong>,<strong>速度快</strong>，但<strong>线程不安全，可修改</strong>；</p>
+</li>
+<li><p>在多线程且操作大量字符串用<strong>StringBuffer，线程安全，可修改</strong>。</p>
+<p>使用StringBuffer类时，每次都会对StringBuffer对象本身进行操作，而不是生成新的对象并改变对象引用，所以多数情况下推荐使用StringBuffer，特别是字符串对象经常要改变的情况</p>
+</li>
+</ol>
+<h4 id="String的拼接优化"><a href="#String的拼接优化" class="headerlink" title="String的拼接优化:"></a>String的拼接优化:</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String s = s1 + s2;</span><br><span class="line">java实际运行时优化为</span><br><span class="line">String s = new StringBuilder(s1).append(s2).toString();</span><br></pre></td></tr></table></figure>
+
+<h4 id="Java支持的数据类型有哪些"><a href="#Java支持的数据类型有哪些" class="headerlink" title="Java支持的数据类型有哪些"></a>Java支持的数据类型有哪些</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Java语言支持的8种基本数据类型是：</span><br><span class="line">byte</span><br><span class="line">short</span><br><span class="line">int</span><br><span class="line">long</span><br><span class="line">float</span><br><span class="line">double</span><br><span class="line">boolean</span><br><span class="line">char</span><br></pre></td></tr></table></figure>
+
+<h4 id="什么是自动拆装箱"><a href="#什么是自动拆装箱" class="headerlink" title="什么是自动拆装箱"></a>什么是自动拆装箱</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">自动装箱是Java编译器在基本数据类型和对应的对象包装类型之间做的一个转化。比如：把int转化成Integer，double转化成Double，等等。反之就是自动拆箱</span><br></pre></td></tr></table></figure>
+
+<h4 id="int-和-Integer-有什么区别"><a href="#int-和-Integer-有什么区别" class="headerlink" title="int 和 Integer 有什么区别"></a>int 和 Integer 有什么区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Int是java的原始数据类型，Integer是java为int提供的封装类。</span><br><span class="line">Java为每个原始类型提供了封装类。</span><br><span class="line">原始类型封装类</span><br><span class="line">booleanBoolean</span><br><span class="line">charCharacter</span><br><span class="line">byteByte</span><br><span class="line">shortShort</span><br><span class="line">intInteger</span><br><span class="line">longLong</span><br><span class="line">floatFloat</span><br><span class="line">doubleDouble</span><br></pre></td></tr></table></figure>
+
+<h4 id="amp-和-amp-amp-的区别"><a href="#amp-和-amp-amp-的区别" class="headerlink" title="&amp;和&amp;&amp;的区别"></a>&amp;和&amp;&amp;的区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&amp;运算符有两种用法：(1)按位与；(2)逻辑与。&amp;&amp;运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(&quot;&quot;)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</span><br></pre></td></tr></table></figure>
+
+<h4 id="Java中如何跳出当前的多重嵌套循环"><a href="#Java中如何跳出当前的多重嵌套循环" class="headerlink" title="Java中如何跳出当前的多重嵌套循环"></a>Java中如何跳出当前的多重嵌套循环</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在最外层循环前加一个标记如A，然后用break A;可以跳出多重循环</span><br></pre></td></tr></table></figure>
+
+<h4 id="比较一下Java和JavaSciprt"><a href="#比较一下Java和JavaSciprt" class="headerlink" title="比较一下Java和JavaSciprt"></a>比较一下Java和JavaSciprt</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JavaScript 与Java是两个公司开发的不同的两个产品。Java 是原Sun Microsystems公司推出的面向对象的程序设计语言，特别适合于互联网应用程序开发；而JavaScript是Netscape公司的产品，为了扩展Netscape浏览器的功能而开发的一种可以嵌入Web页面中运行的基于对象和事件驱动的解释性语言。JavaScript的前身是LiveScript；而Java的前身是Oak语言。</span><br><span class="line">下面对两种语言间的异同作如下比较：</span><br><span class="line">- 基于对象和面向对象：Java是一种真正的面向对象的语言，即使是开发简单的程序，必须设计对象；JavaScript是种脚本语言，它可以用来制作与网络无关的，与用户交互作用的复杂软件。它是一种基于对象（Object-Based）和事件驱动（Event-Driven）的编程语言，因而它本身提供了非常丰富的内部对象供设计人员使用。</span><br><span class="line">- 解释和编译：Java的源代码在执行之前，必须经过编译。JavaScript是一种解释性编程语言，其源代码不需经过编译，由浏览器解释执行。（目前的浏览器几乎都使用了JIT（即时编译）技术来提升JavaScript的运行效率）</span><br><span class="line">- 强类型变量和类型弱变量：Java采用强类型变量检查，即所有变量在编译之前必须作声明；JavaScript中变量是弱类型的，甚至在使用变量前可以不作声明，JavaScript的解释器在运行时检查推断其数据类型。</span><br><span class="line">- 代码格式不一样</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组-Array-和列表-ArrayList-的区别"><a href="#数组-Array-和列表-ArrayList-的区别" class="headerlink" title="数组(Array)和列表(ArrayList)的区别"></a>数组(Array)和列表(ArrayList)的区别</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Array和ArrayList的不同点：</span><br><span class="line">Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。</span><br><span class="line">Array大小是固定的，ArrayList的大小是动态变化的。</span><br><span class="line">ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。</span><br><span class="line">对于基本类型数据，集合使用自动装箱来减少编码工作量。但是，当处理固定大小的基本数据类型的时候，这种方式相对比较慢。</span><br></pre></td></tr></table></figure>
+
+<h4 id="什么是值传递和引用传递"><a href="#什么是值传递和引用传递" class="headerlink" title="什么是值传递和引用传递"></a>什么是值传递和引用传递</h4>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">值传递是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量.</span><br><span class="line">引用传递一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。所以对引用对象进行操作会同时改变原对象.一般认为,java内的传递都是值传递</span><br></pre></td></tr></table></figure>
+
+<h4 id="为什么会出现4-0-3-6-0-40000001这种现象"><a href="#为什么会出现4-0-3-6-0-40000001这种现象" class="headerlink" title="为什么会出现4.0-3.6=0.40000001这种现象"></a>为什么会出现4.0-3.6=0.40000001这种现象</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2进制的小数无法精确的表达10进制小数，计算机在计算10进制小数的过程中要先转换为2进制进行计算，这个过程中出现了误差。</span><br><span class="line">出现0.40000001的情况可以使用BigDecimal类解决，其实浮点数基本上都不精确，BigDecimal使用String来解决的</span><br></pre></td></tr></table></figure>
+
+<h4 id="十进制的数在内存中是怎么存的"><a href="#十进制的数在内存中是怎么存的" class="headerlink" title="十进制的数在内存中是怎么存的"></a>十进制的数在内存中是怎么存的</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">补码的形式。把一个十进制转换为二进制的方法是：把被转换的十进制数反复地除以 2，直到商为 0 为止，所得余数（从末位读起）就是这个数的二进制表示，简单地说，就是 &quot;除 2 取余法&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20211125151652729.png" alt="image-20211125151652729"></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20211125151705033.png" alt="image-20211125151705033"></p>
+<h4 id="原码、反码和补码"><a href="#原码、反码和补码" class="headerlink" title="原码、反码和补码"></a>原码、反码和补码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">原码：是一种计算机中对数字的二进制定点表示法。原码表示法在数值前面增加了一位符号位（即最高位为符号位）：正数该位为 0，负数该位为 1</span><br><span class="line"></span><br><span class="line">反码：一个数字用原码表示是容易理解的，但是需要单独一个位来表示符号位，并且在进行加法时，计算机需要先识别某个二进制原码是正数还是负数，识别出来之后再进行相应的运算。这样效率不高，能不能让计算机在进行运算时不用去管符号位，也就是让符号位参与运算。要实现这个功能，我们就要用到反码。</span><br><span class="line">对于单个数值（二进制的 0 和 1）而言，对其进行取反操作就是将 0 变为 1，1 变为 0。正数的反码和原码一样，负数的反码就是在原码的基础上符号位保持不变，其他位取反。</span><br><span class="line"></span><br><span class="line">补码：补码是一种用二进制表示有符号数的方法。正数和 0 的补码就是该数字本身。负数的补码则是将其对应正数按位取反再加 1。补码系统的最大优点是可以在加法或减法处理中，不需因为数字的正负而使用不同的计算方式</span><br><span class="line">只要一种加法电路就可以处理各种有符号数加法，而且减法可以用一个数加上另一个数的补码来表示，因此只要有加法电路和补码电路即可以完成各种有符号数加法和减法，在电路设计上相当方便。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">十进制</th>
+<th align="center">原码</th>
+<th align="center">反码</th>
+<th align="center">补码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">6</td>
+<td align="center">0000 0110</td>
+<td align="center">0000 0110</td>
+<td align="center">0000 0110</td>
+</tr>
+<tr>
+<td align="center">-3</td>
+<td align="center">1000 0011</td>
+<td align="center">1111 1100</td>
+<td align="center">1111 1101</td>
+</tr>
+</tbody></table>
+<h4 id="符号“-”比较的是什么"><a href="#符号“-”比较的是什么" class="headerlink" title="符号“==”比较的是什么"></a>符号“==”比较的是什么</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">“==”对比两个对象基于内存引用，如果两个对象的引用完全相同（指向同一个对象）时，“==”操作将返回true，否则返回false。“==”如果两边是基本类型，就是比较数值是否相等。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="final关键字是怎么用的"><a href="#final关键字是怎么用的" class="headerlink" title="final关键字是怎么用的"></a>final关键字是怎么用的</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</span><br><span class="line"></span><br><span class="line">对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="说说HashMap的原理"><a href="#说说HashMap的原理" class="headerlink" title="说说HashMap的原理"></a><a href="https://www.cnblogs.com/woshimrf/p/hashmap.html">说说HashMap的原理</a></h3><blockquote>
+<p>它根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。</p>
+</blockquote>
+<p>答：HashMap是通过哈希表的数组链表实现的。内部维护一个Node数组，当put时，计算key hash后的值当做索引。如果数组中该位置为null，则放入value。然后判断是否需要扩容，返回null。如果数组上已经有元素，判断hash和key是否相等，相等就表示找到node节点了，不相等则判断该元素是TreeNode还是普通Node。如果是TreeNode，则按照TreeNode的put方法插入。如果不是TreeNode, 遍历链表，对比hash和key，若都不相等，则插入队尾，如果链表长度大于等于8，将链表转换为TreeNode。找到node之后，node不为null则赋值value。最后返回原来的value。</p>
+<h4 id="如何扩容"><a href="#如何扩容" class="headerlink" title="如何扩容"></a>如何扩容</h4><p>答：(直接说1.8的内容，想要装逼体验深度就对比1.7. 比如1.7扩容会导致链表重排倒置，1.8不会，1.8不用再次计算hash等。当然，这样回答要准备好继续入坑，为什么，如何做到)</p>
+<p>要说扩容，首先要知道原来的容量以及什么时候扩容。HashMap初始化的时候可以指定<code>initialCapacity</code>和<code>loadfactor</code>。<code>capacity</code>是2的指数倍，表示数组的长度。</p>
+<p><code>loadfactor</code>表示达到容量的百分比后扩容。<code>threshold=capacity*loadfactor</code>就是HashMap对象中可以容纳的最大K-V键值对数量。</p>
+<p>所以，当size(当前K-V键值对数量)超过<code>threshold</code>，则进行扩容。当然，如果capacity已经大于2^30，则直接将<code>threshold=Integer.MAX_VALUE</code>, 就不扩容了，碰撞吧。</p>
+<p>扩容的时候先计算容量，扩大为原来的2倍，对应<code>threshold</code>也扩大为原来的2倍。</p>
+<p>然后将原来数组上的元素复制到新的数组。对于冲突碰撞的结点，是TreeNode则按TreeNode插入，不是TreeNode则将链表的一半平分到其他新增的索引位置。</p>
+<p>关于几个数字。<code>loadfactor=0.75; DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; MAXIMUM_CAPACITY = 1 &lt;&lt; 30; TREEIFY_THRESHOLD = 8</code>。也就是说，对于我们平时直接new 的HashMap对象，默认数组长度为16，最大容纳12个，超过12个则扩容；当发生碰撞的数量小于8个则维护链表，当数量大于8个则改造成TreeNode.</p>
+<h4 id="说TreeNode是怎么put的"><a href="#说TreeNode是怎么put的" class="headerlink" title="说TreeNode是怎么put的"></a>说TreeNode是怎么put的</h4><p>红黑树</p>
+<h4 id="如何get"><a href="#如何get" class="headerlink" title="如何get"></a>如何get</h4><p>答： 既然知道HashMap的存储原理，那个get也就呼之欲出了。 首先，计算hash索引，如果头结点不为null，如果头结点hash以及key都相等，则取出。</p>
+<p>如果头结点不相等，并且next不为nul，判断next是否是TreeNode, 如果是TreeNode则TreeNode get.</p>
+<p>如果不是TreeNode, 遍历链表，找到hash和key相等的取出value。</p>
+<h4 id="HashMap是线程安全的吗"><a href="#HashMap是线程安全的吗" class="headerlink" title="HashMap是线程安全的吗"></a>HashMap是线程安全的吗</h4><p>答：不是，高并发中不仅会不安全，还有可能造成死循环(扩容的时候)。想要在并发中使用<strong>，请使用ConcurrentHashMap.</strong></p>
+<p><a href="https://www.jianshu.com/p/6bc2d81a3f7f"><strong>实现线程安全的方式有三种</strong>，分别是使用<strong>HashTable</strong>、<strong>Collections.SynchronizeMap</strong>、<strong>ConcurrentHashMap</strong>。</a></p>
+<h5 id="一、HashTable"><a href="#一、HashTable" class="headerlink" title="一、HashTable"></a>一、HashTable</h5><p>Hashtable 源码中是使用 synchronized 来保证线程安全的，比如下面的 get 方法和 put 等方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">remove</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; t)</span> </span>&#123; ... &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>所以当一个线程访问 HashTable 的同步方法时，其他线程如果也要访问同步方法，会被阻塞住。因此Hashtable效率很低，基本被废弃。。</p>
+<h5 id="二、SynchronizedMap"><a href="#二、SynchronizedMap" class="headerlink" title="二、SynchronizedMap"></a>二、SynchronizedMap</h5><p>SynchronizedMap是Collectionis的内部类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用方法</span></span><br><span class="line">Map m = Collections.synchronizedMap(<span class="keyword">new</span> HashMap());</span><br><span class="line"></span><br><span class="line"><span class="comment">//源码部分</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; <span class="function">Map&lt;K,V&gt; <span class="title">synchronizedMap</span><span class="params">(Map&lt;K,V&gt; m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SynchronizedMap&lt;&gt;(m);</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@serial</span> include</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1978198479659022715L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;K,V&gt; m;     <span class="comment">// Backing Map</span></span><br><span class="line">        <span class="keyword">final</span> Object      mutex;        <span class="comment">// Object on which to synchronize</span></span><br><span class="line"></span><br><span class="line">        SynchronizedMap(Map&lt;K,V&gt; m) &#123;</span><br><span class="line">            <span class="keyword">this</span>.m = Objects.requireNonNull(m);</span><br><span class="line">            mutex = <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        SynchronizedMap(Map&lt;K,V&gt; m, Object mutex) &#123;</span><br><span class="line">            <span class="keyword">this</span>.m = m;</span><br><span class="line">            <span class="keyword">this</span>.mutex = mutex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.size();&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.isEmpty();&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.containsKey(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.containsValue(value);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.get(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.put(key, value);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> V <span class="title">remove</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> m.remove(key);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; map)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;m.putAll(map);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mutex) &#123;m.clear();&#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Set&lt;K&gt; keySet;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Collection&lt;V&gt; values;</span><br></pre></td></tr></table></figure>
+
+<p>Collections.synchronizedMap()和Hashtable一样，实现上在调用map所有方法时，都对整个map进行同步。效率还是硬伤。</p>
+<h5 id="三、ConcurrentHashMap"><a href="#三、ConcurrentHashMap" class="headerlink" title="三、ConcurrentHashMap"></a>三、ConcurrentHashMap</h5><p>ConcurrentHashMap使用分段锁技术，将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问，能够实现真正的并发访问,极大提升了效率。相关源码敬请期待！</p>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>参考： </p>
+<ul>
+<li><a href="https://www.cnblogs.com/zhuyapeng/p/13750644.html">https://www.cnblogs.com/zhuyapeng/p/13750644.html</a></li>
+<li><a href="https://www.cnblogs.com/gofighting/p/5437998.html">https://www.cnblogs.com/gofighting/p/5437998.html</a></li>
+<li><a href="https://tech.meituan.com/2016/12/02/redblack-tree.html">https://tech.meituan.com/2016/12/02/redblack-tree.html</a></li>
+</ul>
+<p>红黑树:二叉树+高度限制<br>二叉树：确定了它的查找非常快。<br>高度限制：这个是取普通二叉树和平衡二叉树之间。<br>普通二叉树，只管插入不做调整，可能会出现单链很长。<br>平衡二叉树，所有的链高度相等，但存就需要调整，非常耗时。<br>红黑树，最长单链不会超过最短单链2倍，这样也确定它存的耗时也居中。</p>
+<p>红黑树特点5条：<br>1.所有节点非红即黑。<br>2.根节点为黑节点。<br>3.所有叶子节（null）点为黑色。<br>4.所有节点到叶子节点中黑色节点数目相同。（确定最长单链不会超过最短单链2倍）<br>5.如果一个节点为红色，则它的子节点节点必须为黑色。换句话说：从每个叶子到根的所有路径上不能有两个连续的红色结点</p>
+<p>红黑树的操作：<br>查：二叉树的特性决定它高效。<br>增：加入红节点，根据旋转、着色来保持红黑树特性。<br>删：根据旋转、着色来保持红黑树特性。</p>
+<p><strong>红黑树相关定理</strong></p>
+<p><strong>1. 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。</strong></p>
+<p>   根据上面的性质5我们知道上图的红黑树每条路径上都是3个黑结点。因此最短路径长度为2(没有红结点的路径)。再根据性质4(两个红结点不能相连)和性质1，2(叶子和根必须是黑结点)。那么我们可以得出：一条具有3个黑结点的路径上最多只能有2个红结点(红黑间隔存在)。也就是说黑深度为2（根结点也是黑色）的红黑树最长路径为4，最短路径为2。从这一点我们可以看出红黑树是 大致平衡的。 (当然比平衡二叉树要差一些，AVL的平衡因子最多为1)</p>
+<p><strong>2. 红黑的树高(h)不大于两倍的红黑树的黑深度(bd)，即h&lt;=2bd</strong></p>
+<p>   根据定理1，我们不难说明这一点。bd是红黑树的最短路径长度。而可能的最长路径长度(树高的最大值)就是红黑相间的路径，等于2bd。因此h&lt;=2bd。</p>
+<p><strong>3. 一棵拥有n个内部结点(不包括叶子结点)的红黑树的树高h&lt;=2log(n+1)</strong></p>
+<p>   下面我们首先证明一颗有n个内部结点的红黑树满足n&gt;=2^bd-1。这可以用数学归纳法证明，施归纳于树高h。当h=0时，这相当于是一个叶结点，黑高度bd为0，而内部结点数量n为0，此时0&gt;=2^0-1成立。假设树高h&lt;=t时，n&gt;=2^bd-1成立，我们记一颗树高 为t+1的红黑树的根结点的左子树的内部结点数量为nl，右子树的内部结点数量为nr，记这两颗子树的黑高度为bd’（注意这两颗子树的黑高度必然一 样），显然这两颗子树的树高&lt;=t，于是有nl&gt;=2^bd’-1以及nr&gt;=2^bd’-1，将这两个不等式相加有nl+nr&gt;=2^(bd’+1)-2，将该不等式左右加1，得到n&gt;=2^(bd’+1)-1，很显然bd’+1&gt;=bd，于是前面的不等式可以 变为n&gt;=2^bd-1，这样就证明了一颗有n个内部结点的红黑树满足n&gt;=2^bd-1。</p>
+<p>​    在根据定理2，h&lt;=2bd。即n&gt;=2^(h/2)-1，那么h&lt;=2log(n+1)</p>
+<p>​    从这里我们能够看出，红黑树的查找长度最多不超过2log(n+1)，因此其查找时间复杂度也是O(log N)级别的。</p>
+<p><strong>红黑树的操作</strong></p>
+<p>因为每一个红黑树也是一个特化的二叉查找树，因此红黑树上的查找操作与普通二叉查找树上的查找操作相同。然而，在红黑树上进行插入操作和删除操作会导致不 再符合红黑树的性质。恢复红黑树的属性需要少量(O(log n))的颜色变更(实际是非常快速的)和不超过三次树旋转(对于插入操作是两次)。 虽然插入和删除很复杂，但操作时间仍可以保持为 O(log n) 次 。</p>
+<p><strong>红黑树的优势</strong></p>
+<p>红黑树能够以O(log2(N))的时间复杂度进行搜索、插入、删除操作。此外,任何不平衡都会在3次旋转之内解决。这一点是AVL所不具备的。</p>
+<p>而且实际应用中，很多语言都实现了红黑树的数据结构。比如 TreeMap, TreeSet(Java )、 STL(C++)等。</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机网络</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="HTTP，HTTPS"><a href="#HTTP，HTTPS" class="headerlink" title="HTTP，HTTPS"></a><a href="https://www.cnblogs.com/klb561/p/10289199.html">HTTP，HTTPS</a></h2><h3 id="1-HTTP，HTTPS-概念"><a href="#1-HTTP，HTTPS-概念" class="headerlink" title="1. HTTP，HTTPS 概念"></a>1. HTTP，HTTPS 概念</h3><p>  HTTP：<strong>HTTP</strong>协议以<strong>明文的方式发送内容</strong>，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息，如：卡号、密码等支付信息。<br>  HTTPS：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。是以安全为目标的HTTP通道，简单讲是HTTP的安全版。<br>  HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安全；另一种就是确认网站的真实性。</p>
+<h3 id="2-HTTP与HTTPS的区别"><a href="#2-HTTP与HTTPS的区别" class="headerlink" title="2. HTTP与HTTPS的区别"></a>2. HTTP与HTTPS的区别</h3><pre><code>   1. https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。
+      2. http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。
+      3. http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
+      4. http的连接很简单，是无状态的；HTTPS协议是SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
+</code></pre>
+<h3 id="3-HTTPS的工作原理"><a href="#3-HTTPS的工作原理" class="headerlink" title="3. HTTPS的工作原理"></a>3. HTTPS的工作原理</h3><p>我们都知道HTTPS能够加密信息，以免敏感信息被第三方获取，所以<strong>很多银行网站或电子邮箱等等安全级别较高的服务都会采用HTTPS协议</strong></p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/1-150H120343I41.jpg" alt="HTTP与HTTPS的区别-马海祥博客"></p>
+<p>客户端在使用HTTPS方式与Web服务器<strong>通信时有以下几个步骤</strong>，如图所示。</p>
+<pre><code>（1）客户使用https的URL访问Web服务器，要求与Web服务器建立SSL连接。
+
+（2）Web服务器收到客户端请求后，会将网站的证书信息（证书中包含公钥）传送一份给客户端。
+
+（3）客户端的浏览器与Web服务器开始协商SSL连接的安全等级，也就是信息加密的等级。
+
+（4）客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并传送给网站。
+
+（5）Web服务器利用自己的私钥解密出会话密钥。
+
+（6）Web服务器利用会话密钥加密与客户端之间的通信。
+</code></pre>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2012071410212142.gif" alt="img"></p>
+<h3 id="4-HTTPS的优点"><a href="#4-HTTPS的优点" class="headerlink" title="4. HTTPS的优点"></a>4. HTTPS的优点</h3><p>尽管HTTPS并非绝对安全，<strong>掌握根证书的机构、掌握加密算法的组织</strong>同样可以进行中间人形式的攻击，但HTTPS仍是现行架构下最安全的解决方案，主要有以下几个好处：</p>
+<pre><code>（1）使用HTTPS协议可认证用户和服务器，确保数据发送到正确的客户机和服务器；
+
+（2）HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全，可防止数据在传输过程中不被窃取、改变，确保数据的完整性。
+
+（3）HTTPS是现行架构下最安全的解决方案，虽然不是绝对安全，但它大幅增加了中间人攻击的成本。
+
+（4）谷歌曾在2014年8月份调整搜索引擎算法，并称“比起同等HTTP网站，采用HTTPS加密的网站在搜索结果中的排名将会更高”
+</code></pre>
+<h3 id="5-HTTPS的缺点"><a href="#5-HTTPS的缺点" class="headerlink" title="5. HTTPS的缺点"></a>5. HTTPS的缺点</h3><p>虽然说HTTPS有很大的优势，但其相对来说，还是存在不足之处的：</p>
+<pre><code>（1）HTTPS协议**握手阶段比较费时**，会使页面的加载时间延长近50%，增加10%到20%的耗电；
+
+（2）HTTPS连接**缓存不如HTTP高效**，会增加数据开销和功耗，甚至已有的安全措施也会因此而受到影响；
+
+（3）**SSL证书需要钱**，功能越强大的证书费用越高，个人网站、小网站没有必要一般不会用。
+
+（4）**SSL证书通常需要绑定IP**，不能在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗。
+
+（5）HTTPS协议的**加密范围也比较有限**，在黑客攻击、拒绝服务攻击、服务器劫持等方面几乎起不到什么作用。最关键的，SSL证书的信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间人攻击一样可行。
+</code></pre>
+<h3 id="6-http切换到HTTPS"><a href="#6-http切换到HTTPS" class="headerlink" title="6. http切换到HTTPS"></a>6. http切换到HTTPS</h3><pre><code>如果需要将网站从http切换到https到底该如何实现呢？
+</code></pre>
+<p>   这里需要将页面中所有的链接，例如js，css，图片等等链接都由http改为https。例如：<a href="http://www.baidu.com改为https//www.baidu.com">http://www.baidu.com改为https://www.baidu.com</a></p>
+<pre><code>BTW，这里虽然将http切换为了https，还是建议保留http。所以我们在切换的时候可以做http和https的兼容，具体实现方式是，去掉页面链接中的http头部，这样可以自动匹配http头和https头。例如：将http://www.baidu.com改为//www.baidu.com。然后当用户从http的入口进入访问页面时，页面就是http，如果用户是从https的入口进入访问页面，页面即使https的。
+</code></pre>
+<h3 id="7-http的缓存机制（前端）"><a href="#7-http的缓存机制（前端）" class="headerlink" title="7. http的缓存机制（前端）"></a>7. <a href="https://www.cnblogs.com/chenqf/p/6386163.html">http的缓存机制</a>（前端）</h3><h4 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h4><p>HTTP报文就是浏览器和服务器间通信时发送及响应的数据块。<br>浏览器向服务器请求数据，发送请求(request)报文；服务器向浏览器返回数据，返回响应(response)报文。<br>报文信息主要分为两部分：</p>
+<ol>
+<li>包含属性的首部(header)————————–附加信息（cookie，缓存信息等）与缓存相关的规则信息，均包含在header中</li>
+<li>包含数据的主体部分(body)———————–HTTP请求真正想要传输的部分</li>
+</ol>
+<h4 id="缓存规则解析"><a href="#缓存规则解析" class="headerlink" title="缓存规则解析"></a>缓存规则解析</h4><h2 id="cookie和session的区别详解"><a href="#cookie和session的区别详解" class="headerlink" title="cookie和session的区别详解"></a><a href="https://www.cnblogs.com/klb561/p/10289199.html">cookie和session的区别详解</a></h2><h3 id="cookie和session的定义："><a href="#cookie和session的定义：" class="headerlink" title="cookie和session的定义："></a>cookie和session的定义：</h3><p>当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，<strong>Cookie 会把你在网站上所打的文字或是一些选择，都纪录下来</strong>。当下次你再光临同一个网站，WEB 服务器会先看看有没有它上次留下的 Cookie 资料，有的话，就会依据 Cookie里的内容来判断使用者，送出特定的网页内容给你。 Cookie 的使用很普遍，许多有提供个人化服务的网站，都是利用 Cookie来辨认使用者，以方便送出使用者量身定做的内容，像是 Web 接口的免费 email 网站，都要用到 Cookie。</p>
+<p>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。</p>
+<p>同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上它还有其他选择。</p>
+<p>cookie机制。正统的cookie分发是通过扩展HTTP协议来实现的，服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。然而纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
+<p>cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。<strong>这种生命期为浏览器会话期的cookie被称为会话cookie</strong>。 </p>
+<p>会话cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p>
+<p><strong>session机制</strong>。session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p>
+<p>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来。使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但<strong>cookie可以被人为的禁止</strong>，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。经常被使用的一种技术叫做<strong>URL重写</strong>，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如： </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;testform&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/xxx&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;jsessionid&quot;</span> <span class="attr">value</span>=<span class="string">&quot;ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>实际上这种技术可以简单的用对action应用URL重写来代替。</p>
+<h3 id="cookie和session的区别："><a href="#cookie和session的区别：" class="headerlink" title="cookie和session的区别："></a>cookie和session的区别：</h3><p>1、cookie数据存放在<strong>客户的浏览器上</strong>，session数据放在<strong>服务器上</strong>。</p>
+<p>2、<strong>cookie不是很安全</strong>，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗<br>      <strong>考虑到安全应当使用session</strong>。</p>
+<p>3、<strong>session</strong>会在一定时间内保存在服务器上。当访问增多，<strong>会比较占用你服务器的性能</strong><br>     考虑到减轻服务器性能方面，应当使用COOKIE。</p>
+<p>4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p>
+<p>5、所以个人建议：<br>      将登陆信息等重要信息存放为SESSION<br>      其他信息如果需要保留，可以放在COOKIE中</p>
+<h2 id="TCP，UDP"><a href="#TCP，UDP" class="headerlink" title="TCP，UDP"></a><a href="https://www.cnblogs.com/fundebug/p/differences-of-tcp-and-udp.html">TCP，UDP</a></h2><h3 id="1-TCP-IP网络模型"><a href="#1-TCP-IP网络模型" class="headerlink" title="1. TCP/IP网络模型"></a>1. TCP/IP网络模型</h3><p>TCP/IP 是互联网相关的各类协议族的总称，比如：TCP，UDP，IP，FTP，HTTP，ICMP，SMTP 等都属于 TCP/IP 族内的协议。</p>
+<p>TCP/IP模型是互联网的基础，它是一系列网络协议的总称。这些协议可以划分为四层，分别为链路层、网络层、传输层和应用层。</p>
+<ul>
+<li>链路层：负责封装和解封装IP报文，发送和接受ARP/RARP报文等。</li>
+<li>网络层：负责路由以及把分组报文发送给目标网络或主机。</li>
+<li>传输层：负责对报文进行分组和重组，并以TCP或UDP协议格式封装报文。</li>
+<li>应用层：负责向用户提供应用程序，比如HTTP、FTP、Telnet、DNS、SMTP等。</li>
+</ul>
+<table border="1">
+    <tr>
+        <th align="center">OSI七层模型</th>   <!-- 左对齐 -->
+        <th align="center"> TCP/IP概念层模型</th> <!-- 居中对其（默认）-->
+        <th align="center">功能</th>  <!-- 右对齐-->
+        <th align="center">TCP/IP协议族</th>  <!-- 右对齐-->
+    </tr>
+    <tr>
+        <td>应用层</td>
+        <td rowspan="3">应用层</td>
+        <td>文件传输，电子邮件，文件服务，虚拟终端</td>
+        <td>TFTP，HTTP，SNMP，DNS，Telnet</td>
+    </tr>
+    <tr>
+        <td>表示层</td>
+        <td>数据格式化，代码转换，数据加密</td>
+        <td>没有协议</td>
+    </tr>
+    <tr>
+        <td>会话层</td>
+        <td>解除或建立与别的接口的联系</td>
+        <td>没有协议</td>
+    </tr>
+    <tr>
+        <td>传输层</td>
+        <td>传输层</td>
+        <td>提供端到端的接口</td>
+        <td>TCP，UDP</td>
+    </tr>
+    <tr>
+        <td>网络层</td>
+        <td>网络层</td>
+        <td>为数据包选择路由</td>
+        <td>IP，ICMP，RIP，OSPF，BGF，IGMP</td>
+    </tr>
+    <tr>
+        <td>数据链路层</td>
+        <td rowspan="2">链路层</td>
+        <td>传输有地址的帧以及错误检测功能</td>
+        <td>SLIP，CSLIP，PPP，ARP，RARP，MTU</td>
+    </tr>
+    <tr>
+        <td>物理层</td>
+        <td>以二进制数据形式在物理层媒体上传输数据</td>
+        <td>ISO2110.IEEE802，IEEE802.2</td>
+    </tr>
+</table>
+
+<p>在网络体系结构中网络通信的建立必须是在通信双方的对等层进行，不能交错。 在整个数据传输过程中，<strong>数据在发送端时经过各层时都要附加上相应层的协议头和协议尾</strong>（仅数据链路层需要封装协议尾）部分，也就是要对数据进行协议封装，以标识对应层所用的通信协议。接下去介绍TCP/IP 中有两个具有代表性的传输层协议—-TCP 和 UDP。</p>
+<h3 id="2-UDP"><a href="#2-UDP" class="headerlink" title="2. UDP"></a>2. UDP</h3><p>UDP协议全称是用户数据报协议，在网络中它与TCP协议一样<strong>用于处理数据包</strong>，是一种<strong>无连接的协议</strong>。在OSI模型中，在第四层——<strong>传输层，处于IP协议的上一层</strong>。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。</p>
+<h4 id="UDP特点"><a href="#UDP特点" class="headerlink" title="UDP特点"></a>UDP特点</h4><h5 id="1-面向无连接"><a href="#1-面向无连接" class="headerlink" title="1. 面向无连接"></a>1. 面向无连接</h5><p>首先 UDP 是不需要和 TCP一样在发送数据前进行三次握手建立连接的，想发数据就可以开始发送了。并且也只是数据报文的搬运工，不会对数据报文进行任何拆分和拼接操作。</p>
+<p>具体来说就是：</p>
+<ul>
+<li>在发送端，应用层将数据传递给传输层的 UDP 协议，UDP 只会给数据增加一个 UDP 头标识下是 UDP 协议，然后就传递给网络层了</li>
+<li>在接收端，网络层将数据传递给传输层，UDP 只去除 IP 报文头就传递给应用层，不会任何拼接操作</li>
+</ul>
+<h5 id="2-有单播，多播，广播的功能"><a href="#2-有单播，多播，广播的功能" class="headerlink" title="2. 有单播，多播，广播的功能"></a>2. 有单播，多播，广播的功能</h5><p>UDP 不止支持一对一的传输方式，同样支持一对多，多对多，多对一的方式，也就是说 <strong>UDP 提供了单播，多播，广播的功能</strong>。</p>
+<h5 id="3-UDP是面向报文的"><a href="#3-UDP是面向报文的" class="headerlink" title="3. UDP是面向报文的"></a>3. UDP是面向报文的</h5><p>发送方的UDP对应用程序交下来的报文，在添加首部后就向下交付IP层。UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界。因此，应用程序必须选择合适大小的报文</p>
+<h5 id="4-不可靠性"><a href="#4-不可靠性" class="headerlink" title="4. 不可靠性"></a>4. 不可靠性</h5><p>首先不可靠性体现在无连接上，通信都不需要建立连接，想发就发，这样的情况肯定不可靠。</p>
+<p>并且收到什么数据就传递什么数据，并且也不会备份数据，发送数据也不会关心对方是否已经正确接收到数据了。</p>
+<p>再者网络环境时好时坏，但是 UDP 因为没有拥塞控制，一直会以恒定的速度发送数据。即使网络条件不好，也不会对发送速率进行调整。这样实现的弊端就是在网络条件不好的情况下可能会导致丢包，但是优点也很明显，在某些实时性要求高的场景（比如电话会议）就需要使用 UDP 而不是 TCP。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2019-03-21-02.gif" alt="img"></p>
+<p>从上面的动态图可以得知，UDP只会把想发的数据报文一股脑的丢给对方，并不在意数据有无安全完整到达。</p>
+<h5 id="5-头部开销小，传输数据报文时是很高效的。"><a href="#5-头部开销小，传输数据报文时是很高效的。" class="headerlink" title="5. 头部开销小，传输数据报文时是很高效的。"></a>5. 头部开销小，传输数据报文时是很高效的。</h5><p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/2019-03-21-03.png" alt="img"></p>
+<p>UDP 头部包含了以下几个数据：</p>
+<ul>
+<li>两个十六位的端口号，分别为源端口（可选字段）和目标端口</li>
+<li>整个数据报文的长度</li>
+<li>整个数据报文的检验和（IPv4 可选 字段），该字段用于发现头部信息和数据中的错误</li>
+</ul>
+<p>因此 UDP 的头部开销小，只有八字节，相比 TCP 的至少二十字节要少得多，在传输数据报文时是很高效的</p>
+<h3 id="3-TCP与UDP的比较"><a href="#3-TCP与UDP的比较" class="headerlink" title="3. TCP与UDP的比较"></a>3. TCP与UDP的比较</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">UDP</th>
+<th align="left">TCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">是否连接</td>
+<td align="left">无连接</td>
+<td align="left">面向连接</td>
+</tr>
+<tr>
+<td align="left">是否可靠</td>
+<td align="left">不可靠传输，不使用流量控制和拥塞控制</td>
+<td align="left">可靠传输，使用流量控制和拥塞控制</td>
+</tr>
+<tr>
+<td align="left">连接对象个数</td>
+<td align="left">支持一对一，一对多，多对一和多对多交互通信</td>
+<td align="left">只能是一对一通信</td>
+</tr>
+<tr>
+<td align="left">传输方式</td>
+<td align="left">面向报文</td>
+<td align="left">面向字节流</td>
+</tr>
+<tr>
+<td align="left">首部开销</td>
+<td align="left">首部开销小，仅8字节</td>
+<td align="left">首部最小20字节，最大60字节</td>
+</tr>
+<tr>
+<td align="left">适用场景</td>
+<td align="left">适用于实时应用（IP电话、视频会议、直播等）</td>
+<td align="left">适用于要求可靠传输的应用，例如文件传输</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>TCP</strong>向上层提供面向<strong>连接的可靠服务</strong> ，<strong>UDP</strong>向上层提供<strong>无连接不可靠服务</strong>。</li>
+<li>虽然 <strong>UDP</strong> 并没有 TCP 传输来的准确，但是也能在很多<strong>实时性要求高</strong>的地方有所作为</li>
+<li>对数据<strong>准确性要求高</strong>，速度可以相对较慢的，可以选用<strong>TCP</strong></li>
+</ul>
+<h2 id="从输入-URL-到页面加载显示完成的过程"><a href="#从输入-URL-到页面加载显示完成的过程" class="headerlink" title="从输入 URL 到页面加载显示完成的过程"></a><a href="https://www.cnblogs.com/dinghuihua/p/6739340.html">从输入 URL 到页面加载显示完成的过程</a></h2><p>可以将这个问题拆分为两个过程：</p>
+<ol>
+<li>用户输入url——&gt;客户端（浏览器）拿到服务端的数据</li>
+<li>浏览器拿到收据——&gt;呈现页面（也就是浏览器工作过程）</li>
+</ol>
+<h3 id="输入网址到浏览器获得资源的过程"><a href="#输入网址到浏览器获得资源的过程" class="headerlink" title="输入网址到浏览器获得资源的过程"></a>输入网址到浏览器获得资源的过程</h3><ol>
+<li><p><strong>输入网址：<a href="http://www.baidu.com/">www.baidu.com</a></strong></p>
+<p>把url分为协议、网络地址、路径资源三部分</p>
+<ul>
+<li>协议：从该计算机获取资源的方式，有HTTP、HTTPS、FTP等，不同协议有不同的通讯内容格式</li>
+<li>网络地址：指连接网络上的哪一台计算机，可以是域名、IP地址，可以包括端口号。如：“<a href="http://www.cnblogs.com”、“192.168.0.91:8080”">www.cnblogs.com”、“192.168.0.91:8080”</a></li>
+<li>资源路径：指从服务器上获取哪一项资源。如 “/dinghuihua/p/6674719.html”</li>
+</ul>
+</li>
+<li><p><strong>通过DNS解析获得网址的对应IP</strong></p>
+<p>当发送一个url请求时，不管这个url是web页面的url还是web页面上的每个资源的url，浏览器都会开启一个线程处理该请求，同时在远程DNS服务器上启动一个DNS查询，这能使浏览器获得请求对应的IP地址</p>
+<blockquote>
+<p>PS: 脑补为啥有DNS这玩意…因为要人类记住辣么多计算机能记住的IP地址怎么可能嘛…它就是起到域名解析的作用的</p>
+<p>dns是将域名和IP进行绑定的，通过域名找到互联网上实际的物理地址的服务器，找到这个服务器后，服务器会把请求解析，找到该文件(上下文)后将其推送给浏览器， 浏览器就会把这个html文件通过它自己的浏览器内核定义好的规范解析渲染出来(渲染:呈现元素)</p>
+</blockquote>
+<p>这一步包括DNS的具体查找过程</p>
+<ul>
+<li>浏览器缓存 – 浏览器会缓存DNS记录一段时间。 有趣的是，操作系统没有告诉浏览器储存DNS记录的时间，这样不同浏览器会储存个自固定的一个时间（2分钟到30分钟不等）。</li>
+<li>系统缓存 – 如果在浏览器缓存里没有找到需要的记录，浏览器会做一个系统调用（windows里是gethostbyname）。这样便可获得系统缓存中的记录。</li>
+<li>路由器缓存 – 接着，前面的查询请求发向路由器，它一般会有自己的DNS缓存。</li>
+<li>ISP DNS 缓存 – 接下来要check的就是ISP缓存DNS的服务器。在这一般都能找到相应的缓存记录。</li>
+<li>递归搜索 – 你的ISP的DNS服务器从跟域名服务器开始进行递归搜索，从.com顶级域名服务器到Facebook的域名服务器。一般DNS服务器的缓存中会有.com域名服务器中的域名，所以到顶级服务器的匹配过程不是那么必要了。</li>
+</ul>
+<ol start="3">
+<li><strong>浏览器与远程web服务器 通过TCP三次握手协商来建立一个 TCP/IP 连接</strong></li>
+</ol>
+<p>​       该握手包括一个“同步报文”，一个“同步-应答报文”和一个“应答报文”，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。</p>
+<ol start="4">
+<li><p><strong>浏览器 通过TCP/IP连接 向web服务器 发送一个 HTTP 请求</strong></p>
+</li>
+<li><p><strong>服务器的永久重定向响应（从 <a href="http://example.com/">http://example.com</a> 到 <a href="http://www.example.com)/">http://www.example.com）</a></strong></p>
+</li>
+<li><p><strong>浏览器跟踪重定向地址</strong></p>
+</li>
+<li><p><strong>服务器处理请求</strong></p>
+</li>
+<li><p><strong>服务器返回一个 HTTP 响应</strong></p>
+</li>
+<li><p>到这里便是浏览器的工作过程了。。。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>　    　    浏览器显示 HTML<br>　        　浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）<br>　        　浏览器发送异步请求</p>
+<h3 id="浏览器获得资源后到呈现页面的过程"><a href="#浏览器获得资源后到呈现页面的过程" class="headerlink" title="浏览器获得资源后到呈现页面的过程"></a>浏览器获得资源后到呈现页面的过程</h3><p>常用的浏览器有很多，有IE、Firefox、Safari、Chrome以及Opera，还有很多国产浏览器，像360浏览器啊这些，它们的存在共同点都是为了让用户看到各种各样的网站，它们不同的是内核的不同，因此可能会给前端工程师们带来一些浏览器的差异性兼容性问题。</p>
+<p>* 浏览器主要的功能：通过向服务器请求，来获取你所想要的网络资源，并将它渲染到浏览器窗口中。而资源类型通常是html文件，但也可能是PDF，图片或者是其他类型的资源。</p>
+<p>* 浏览器的内核（渲染引擎）有：</p>
+<p> user agent : 代表浏览器内核,不特指哪个浏览器</p>
+<table>
+<thead>
+<tr>
+<th>浏览器内核</th>
+<th>厂商前缀</th>
+<th>代表浏览器</th>
+<th>内核背景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Trident</td>
+<td>－ms－</td>
+<td>IE浏览器系列</td>
+<td>该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。</td>
+</tr>
+<tr>
+<td>Gecko</td>
+<td>－moz－</td>
+<td>Firefox</td>
+<td>Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器)也采用了该内核，Gecko的特点是代码完全公开</td>
+</tr>
+<tr>
+<td>Webkit</td>
+<td>－webkit－</td>
+<td>Safari</td>
+<td>Safari内核,Chrome内核原型，开源，包含了来自KDE项目和苹果公司的一些组件，主要用于Mac OS系统，它的特点在于源码解构清晰、渲染速度极快，缺点是网页代码的兼容性不高，导致一些编写不标准的网页无法正常显示</td>
+</tr>
+<tr>
+<td>Blink</td>
+<td>－webkit－</td>
+<td>Chrome、opera等除IE、Firefox、Safari之外的几乎所有浏览器（几乎所有国产双内核浏览器（Trident/Blink）如360、猎豹、qq、百度等）</td>
+<td>Blink是一个由Google和Opera Software开发的浏览器排版引擎，是基于Webkit内核的子项目</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>－o－</td>
+<td>Opera前内核［现已废弃］</td>
+<td>Opera12.17及更早版本曾经采用的内核，现已停止开发并废弃</td>
+</tr>
+</tbody></table>
+<p>其实浏览器拿到资源数据后，便开始浏览器渲染引擎的基本渲染流程</p>
+<p> <img src="https://gitee.com/sssuperbear/typora/raw/master/img/1141057-20170420163157399-2096441652.png" alt="img"></p>
+<p>渲染引擎开始解析HTML文档，并把标签转化成内容树中的DOM节点。同时它也开始解析样式数据，外链的css文件以及style标签内的样式。所有这些样式数据以及HTML中的可见性指令都是用来创建另一棵树－－render 树。</p>
+<p>现在页面就呈现在我们面前了。。。</p>
+<h3 id="HTTP状态码有哪些"><a href="#HTTP状态码有哪些" class="headerlink" title="HTTP状态码有哪些"></a>HTTP状态码有哪些</h3><ul>
+<li>1xx 【消息】服务器收到请求，需要请求者继续执行操作  </li>
+<li>2xx 【成功】请求已成功被服务器接收、理解、并接受。</li>
+<li>3xx 【重定向】客户端需要采取进一步的操作以完成请求</li>
+<li>4xx 【客户端请求错误】客户端错误，请求包含语法错误或无法完成请求</li>
+<li>5xx 【服务器错误】服务器在处理请求的过程中发生了错误</li>
+</ul>
+<p>常见的有：</p>
+<ul>
+<li>200 OK //客户端请求成功</li>
+<li>304 Not Modified // 未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源</li>
+<li>400 Bad Request //客户端请求有语法错误，不能被服务器所理解</li>
+<li>401 Unauthorized  // 当前请求要求用户的身份认证</li>
+<li>403 Forbidden // 服务器理解请求客户端的请求，但是拒绝执行此请求</li>
+<li>404 Not Found //请求资源不存在，输入了错误的URL</li>
+<li>500 Internal Server Error //服务器发生不可预期的错误</li>
+<li>503 Server Unavailable // 由于超载或系统维护，服务器暂时的无法处理客户端的请求。一段时间后可能恢复正常</li>
+</ul>
+<h3 id="DNS解析出现错误故障解决"><a href="#DNS解析出现错误故障解决" class="headerlink" title="DNS解析出现错误故障解决"></a><a href="https://www.cnblogs.com/yuanqiangfei/p/8880243.html">DNS解析出现错误故障解决</a></h3><p><strong>当DNS解析出现错误，例如把一个<a href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90">域名解析</a>成一个错误的IP地址，或者根本不知道某个域名对应的IP地址是什么时，就无法通过域名访问相应的站点了，这就是DNS解析故障。出现DNS解析故障最大的症状就是访问站点对应的IP地址没有问题，然而访问他的域名就会出现错误。</strong></p>
+<p><strong>（1）用nslookup(网路查询)来判断是否真的是DNS解析<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>：</strong></p>
+<p>要想百分之百判断是否为DNS解析<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>就需要通过系统自带的NSLOOKUP来解决了。</p>
+<p>第一步：确认自己的系统是windows 2000和windows xp以上<a href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>，然后通过“开始-&gt;运行-&gt;输入CMD”后回车进入命令行模式。</p>
+<p>第二步：输入nslookup命令后回车，将进入DNS解析查询界面。</p>
+<p>第三步：命令行窗口中会显示出当前系统所使用的DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>地址，例如笔者的DNS服务器IP为202.106.0.20。</p>
+<p>第四步：接下来输入无法访问的站点对应的域名。假如不能访问的话，那么DNS解析应该是不能够正常进行的，会收到DNS request timed out，timeout was 2 seconds的提示信息。这说明本地<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>确实出现了DNS解析故障。</p>
+<p>小提示：如果DNS解析正常的话，会反馈回正确的IP地址。</p>
+<p><strong>（2）查询DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>工作是否正常：</strong></p>
+<p>这时候要看本地<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>使用的DNS地址是多少了，并且查询他的运行情况。</p>
+<p>第一步：通过“开始-&gt;运行-&gt;输入CMD”后回车进入命令行模式。</p>
+<p>第二步：输入<a href="https://baike.baidu.com/item/ipconfig">ipconfig</a>/all命令来查询网络参数。</p>
+<p>第三步：在ipconfig /all显示信息中能够看到一个地方写着DNS SERVERS，这个就是本地的DNS服务器地址。例如笔者的是202.106.0.20和202.106.46.151。从这个地址可以看出是个外网地址，如果使用外网DNS出现解析错误时，可以更换一个其他的DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>地址即可解决问题。</p>
+<p>第四步：如果在DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>处显示的是个人公司的内部网络地址，那么说明该公司的DNS解析工作是交给公司内部的DNS服务器来完成的，这时需要检查这个DNS服务器，在DNS服务器上进行nslookup操作看是否可以正常解析。解决DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>上的DNS服务<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>，一般来说问题也能够解决。</p>
+<p><strong>（3）清除DNS缓存信息法：</strong></p>
+<p>第一步：通过“开始-&gt;运行-&gt;输入CMD”进入命令行模式。</p>
+<p>第二步：在命令行模式中我们可以看到在ipconfig /?中有一个名为/flushdns的参数，这个就是清除DNS缓存信息的命令。</p>
+<p>第三步：执行ipconfig /flushdns命令，当出现“successfully flushed the dns resolver cache”的提示时就说明当前<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>的缓存信息已经被成功清除。</p>
+<p>第四步：接下来我们再访问域名时，就会到DNS<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>上获取最新解析地址，再也不会出现因为以前的缓存造成解析错误<a href="https://baike.baidu.com/item/%E6%95%85%E9%9A%9C">故障</a>了。</p>
+<p><strong>（4）修改<a href="https://baike.baidu.com/item/HOSTS">HOSTS</a>（<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA">主机</a>）文件法：</strong></p>
+<p>第一步：通过“开始-&gt;搜索”，然后查找名叫<a href="https://baike.baidu.com/item/hosts">hosts</a>的文件。</p>
+<p>第二步：当然对于已经知道他的路径的读者可以直接进入c:\windows\system32\drivers\etc<a href="https://baike.baidu.com/item/%E7%9B%AE%E5%BD%95">目录</a>中找到HOSTS文件。如果你的系统是windows 2000，那么应该到c:\winnt\system32\drivers\etc目录中寻找。</p>
+<p>第三步：双击HOSTS文件，然后选择用“<a href="https://baike.baidu.com/item/%E8%AE%B0%E4%BA%8B%E6%9C%AC">记事本</a>”程序将其打开。</p>
+<p>第四步：之后我们就会看到HOSTS文件的所有内容了，默认情况下只有一行内容“127.0.0.1 localhost”。（其他前面带有#的行都不是真正的内容，只是帮助信息而已）</p>
+<p>第五步：将你希望进行DNS解析的条目添加到HOSTS文件中。具体格式是先写该域名对应的IP地址，然后空格接域名信息。</p>
+<p>第六步：设置完毕后我们访问网址时就会自动根据是在内网还是外网来解析了。 </p>
+<h2 id="路由器和交换机的区别"><a href="#路由器和交换机的区别" class="headerlink" title="路由器和交换机的区别"></a>路由器和交换机的区别</h2><p><strong>路由谋短，交换求快。</strong></p>
+<p><strong>交换机工作于数据链路层，用来隔离冲突域，连接的所有设备同属于一个广播域（子网），负责子网内部通信。</strong></p>
+<p><strong>路由器工作于网络层，用来隔离广播域（子网），连接的设备分属不同子网，工作范围是多个子网之间，负责网络与网络之间通信。</strong></p>
+<p><strong>工作层次不同：</strong><br>交换机主要工作在<a href="https://so.csdn.net/so/search?q=%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82">数据链路层</a>（第二层）<br>路由器工作在<a href="https://so.csdn.net/so/search?q=%E7%BD%91%E7%BB%9C%E5%B1%82">网络层</a>（第三层）。<br><strong>转发依据不同：</strong><br>交换机转发所依据的对象时：MAC地址。（物理地址）<br>路由转发所依据的对象是：IP地址。（网络地址）<br><strong>主要功能不同：</strong><br>交换机主要用于组建局域网。<br>而路由主要功能是将由交换机组好的局域网相互连接起来，或者接入Internet。<br>交换机能做的，路由都能做。<br>交换机不能分割广播域，路由可以。<br>路由还可以提供防火墙的功能。<br>路由配置比交换机复杂。<br><strong>价格不同</strong></p>
+<p>交换机是看门大爷，路由是邮差</p>
+]]></content>
+      <categories>
+        <category>面试</category>
       </categories>
   </entry>
 </search>
