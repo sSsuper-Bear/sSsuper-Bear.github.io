@@ -72,9 +72,8 @@
 <li><p>仓库(Repository)：仓库中保存了很多的镜像，包括一些共有的第三方已经做好的镜像比如ubuntu镜像nginx镜像mysql镜像tomcat镜像等等。我们可以通过docker poll指令下载这些镜像到本地。当然也可以把这些镜像通过push上传上去。</p>
 </li>
 </ul>
-<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat">
-            <p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
-          </div>
+<h4 id="docker总述"><a href="#docker总述" class="headerlink" title="docker总述"></a>docker总述</h4><div class="note info flat"><p>通过以上这些技术的组合，最后的结果就是，绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突——而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是其他答主所说的标准化、集装箱的原因所在。</p>
+</div>
 
 
 
@@ -157,53 +156,9 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉树</title>
-    <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
-<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明:</strong> 1 &lt;= n &lt;= 109</p>
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findIntegers</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据构建斐波那也数列</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;  i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        String numStr = getBinary(num);</span><br><span class="line">        <span class="comment">//一位位移动，不连续遇到1加上它</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numStr.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(numStr.charAt(i) == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res  += dp[numStr.length() - i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; numStr.charAt(i - <span class="number">1</span> ) == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//整数 转 二进制数</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getBinary</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sb.insert(<span class="number">0</span>,num &amp; <span class="number">1</span>);</span><br><span class="line">            num &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h4 id="678-有效的括号字符串"><a href="#678-有效的括号字符串" class="headerlink" title="678. 有效的括号字符串"></a><a href="https://leetcode-cn.com/problems/valid-parenthesis-string/">678. 有效的括号字符串</a></h4><p>给定一个只包含三种字符的字符串：<code>（ </code>，<code>）</code> 和 <code>*</code>，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
-<ol>
-<li>任何左括号 <code>(</code> 必须有相应的右括号 <code>)</code>。</li>
-<li>任何右括号 <code>)</code> 必须有相应的左括号 <code>(</code> 。</li>
-<li>左括号 <code>(</code> 必须在对应的右括号之前 <code>)</code>。</li>
-<li><code>*</code> 可以被视为单个右括号 <code>)</code> ，或单个左括号 <code>(</code> ，或一个空字符串。</li>
-<li>一个空字符串也被视为有效字符串。</li>
-</ol>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;()&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*)&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*))&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
-
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkValidString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// l: 左括号最少可能有多少个</span></span><br><span class="line">        <span class="comment">// r: 左括号最多可能有多少个</span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 遇到&#x27;(&#x27;所有可能性加一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;)&#x27;所有可能性减一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;*&#x27;，最少的可能性可以变少，最多的可能性也同样可以变多，这取决于这个星号最终我们看成什么，但是可能性都在</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                l++; r++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                l--; r--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l--; r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 当前左括号最少个数不能为负</span></span><br><span class="line">            l = Math.max(l, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 这种情况其实发生在r本身是负数的时候，也就是我们常见的右括号太多了</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 能取到0个左括号才是满足平衡的</span></span><br><span class="line">        <span class="keyword">return</span> l == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-  </entry>
-  <entry>
     <title>二分法</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%88%86%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="374-猜数字大小"><a href="#374-猜数字大小" class="headerlink" title="374. 猜数字大小"></a><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">374. 猜数字大小</a></h4><p>难度简单165</p>
-<p>猜数字游戏的规则如下：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="374-猜数字大小"><a href="#374-猜数字大小" class="headerlink" title="374. 猜数字大小"></a><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">374. 猜数字大小</a></h4><p>猜数字游戏的规则如下：</p>
 <ul>
 <li>每轮游戏，我都会从 <strong>1</strong> 到 <em><strong>n</strong></em> 随机选择一个数字。 请你猜选出的是哪个数字。</li>
 <li>如果你猜错了，我会告诉你，你猜测的数字比我选出的数字是大了还是小了。</li>
@@ -243,6 +198,49 @@
 </ul>
 <p><strong>解答：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> <span class="keyword">extends</span> <span class="title">GuessGame</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">guessNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">1</span>, right=n;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right -left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(guess(mid) &lt;=<span class="number">0</span>) right = mid;</span><br><span class="line">            <span class="keyword">else</span> left = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>二叉树</title>
+    <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
+<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明:</strong> 1 &lt;= n &lt;= 109</p>
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findIntegers</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//根据构建斐波那也数列</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;  i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        String numStr = getBinary(num);</span><br><span class="line">        <span class="comment">//一位位移动，不连续遇到1加上它</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numStr.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(numStr.charAt(i) == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res  += dp[numStr.length() - i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; numStr.charAt(i - <span class="number">1</span> ) == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//整数 转 二进制数</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getBinary</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sb.insert(<span class="number">0</span>,num &amp; <span class="number">1</span>);</span><br><span class="line">            num &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="678-有效的括号字符串"><a href="#678-有效的括号字符串" class="headerlink" title="678. 有效的括号字符串"></a><a href="https://leetcode-cn.com/problems/valid-parenthesis-string/">678. 有效的括号字符串</a></h4><p>给定一个只包含三种字符的字符串：<code>（ </code>，<code>）</code> 和 <code>*</code>，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
+<ol>
+<li>任何左括号 <code>(</code> 必须有相应的右括号 <code>)</code>。</li>
+<li>任何右括号 <code>)</code> 必须有相应的左括号 <code>(</code> 。</li>
+<li>左括号 <code>(</code> 必须在对应的右括号之前 <code>)</code>。</li>
+<li><code>*</code> 可以被视为单个右括号 <code>)</code> ，或单个左括号 <code>(</code> ，或一个空字符串。</li>
+<li>一个空字符串也被视为有效字符串。</li>
+</ol>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;()&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*)&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: &quot;(*))&quot;</span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure>
+
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkValidString</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// l: 左括号最少可能有多少个</span></span><br><span class="line">        <span class="comment">// r: 左括号最多可能有多少个</span></span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 遇到&#x27;(&#x27;所有可能性加一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;)&#x27;所有可能性减一</span></span><br><span class="line">            <span class="comment">// 遇到&#x27;*&#x27;，最少的可能性可以变少，最多的可能性也同样可以变多，这取决于这个星号最终我们看成什么，但是可能性都在</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                l++; r++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                l--; r--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l--; r++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 当前左括号最少个数不能为负</span></span><br><span class="line">            l = Math.max(l, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">// 这种情况其实发生在r本身是负数的时候，也就是我们常见的右括号太多了</span></span><br><span class="line">            <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 能取到0个左括号才是满足平衡的</span></span><br><span class="line">        <span class="keyword">return</span> l == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -374,6 +372,73 @@
 <p><strong>解答：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHint</span><span class="params">(String secret, String guess)</span> </span>&#123;</span><br><span class="line">        Map &lt;Character, Integer&gt; secret_map= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map &lt;Character, Integer&gt; guess_map= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> bull=<span class="number">0</span>, cow=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;secret.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(secret.charAt(i) == guess.charAt(i)) &#123;</span><br><span class="line">                bull++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                secret_map.put(secret.charAt(i), secret_map.getOrDefault(secret.charAt(i), <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">                guess_map.put(guess.charAt(i), guess_map.getOrDefault(guess.charAt(i), <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> k : secret_map.keySet()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (guess_map.containsKey(k)) cow = cow + Math.min(secret_map.get(k), guess_map.get(k));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> bull+<span class="string">&quot;A&quot;</span>+cow+<span class="string">&quot;B&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h4 id="NC61-两数之和"><a href="#NC61-两数之和" class="headerlink" title="NC61 两数之和"></a><a href="https://www.nowcoder.com/practice/20ef0972485e41019e39543e8e895b7f?tpId=117&&tqId=37756&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587&topicId=117&page=1">NC61 两数之和</a></h4><p><strong>描述</strong></p>
+<p>给出一个整型数组 numbers 和一个目标值 target，请在数组中找出两个加起来等于目标值的数的下标，返回的下标按升序排列。</p>
+<p>（注：<strong>返回</strong>的数组下标从1开始算起）</p>
+<p>数据范围：2≤<em>l<strong>e</strong>n</em>(<em>n<strong>u</strong>m<strong>b</strong>e<strong>r</strong>s</em>)≤1500，−10≤<em>n<strong>u</strong>m<strong>b</strong>e<strong>r</strong>s**i</em>≤109，0≤<em>t<strong>a</strong>r<strong>g</strong>e**t</em>≤109</p>
+<p>要求：空间复杂度 O(n)<em>O</em>(<em>n</em>)，时间复杂度 O(nlogn)<em>O</em>(<em>n<strong>l</strong>o<strong>g</strong>n</em>)</p>
+<p>例如：</p>
+<p>给出的数组为 [20, 70, 110, 150] , 目标值为90</p>
+<p>返回一个数组 [1,2] ，因为 numbers _1+numbers _2=20+70=90<em>n<strong>u</strong>m<strong>b</strong>e<strong>r</strong>s</em>1+<em>n<strong>u</strong>m<strong>b</strong>e<strong>r</strong>s</em>2=20+70=90</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[3,2,4],6</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2,3]</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">因为 2+4=6 ，而 2的下标为2 ， 4的下标为3 ，又因为 下标2 &lt; 下标3 ，所以返回[2,3]         </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[20,70,110,150],90</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2]</span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>定义哈希表hashmap，其存放的键值对为&lt;取值，下标&gt;。</li>
+<li>从开始处遍历数组，对于第i个位置，在哈希表中寻找target-nums[i]是否存在，若存在，将两个下标放入数组中返回；若不存在，将其添加至表中，继续遍历。</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> numbers int整型一维数组 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target int整型 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int整型一维数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum (<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; numbers.length; i++) &#123;</span><br><span class="line">            tmp = target - numbers[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(tmp)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;map.get(tmp)+<span class="number">1</span>, i+<span class="number">1</span>&#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                map.put(numbers[i], i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>堆栈</title>
+    <url>/2022/01/07/%E5%88%B7%E9%A2%98/%E5%A0%86%E6%A0%88/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h1><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
+<p>数据范围： n\le1000<em>n</em>≤1000</p>
+<p>要求：存储n个元素的空间复杂度为 O(n)<em>O</em>(<em>n</em>) ，插入与删除的时间复杂度都是 O(1)<em>O</em>(1)</p>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH1&quot;,&quot;PSH2&quot;,&quot;POP&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1,2</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;PSH1&quot;:代表将1插入队列尾部</span><br><span class="line">&quot;PSH2&quot;:代表将2插入队列尾部</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回1</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回2   </span><br></pre></td></tr></table></figure>
+
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH2&quot;,&quot;POP&quot;,&quot;PSH1&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2,1</span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<ul>
+<li>push操作就直接往stack1中push</li>
+<li>pop操作需要分类一下：如果stack2为空，那么需要将stack1中的数据<strong>全部</strong>转移到stack2中，然后在对stack2进行pop，如果stack2不为空，直接pop就ok。</li>
+</ul>
+<p>解答：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack1.empty() &amp;&amp; stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">                stack2.push(stack1.pop())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>刷题</category>
@@ -480,52 +545,17 @@
       </categories>
   </entry>
   <entry>
-    <title>堆栈</title>
-    <url>/2022/01/07/%E5%88%B7%E9%A2%98/%E5%A0%86%E6%A0%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h1><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
-<p>数据范围： n\le1000<em>n</em>≤1000</p>
-<p>要求：存储n个元素的空间复杂度为 O(n)<em>O</em>(<em>n</em>) ，插入与删除的时间复杂度都是 O(1)<em>O</em>(1)</p>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH1&quot;,&quot;PSH2&quot;,&quot;POP&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>返回值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1,2</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;PSH1&quot;:代表将1插入队列尾部</span><br><span class="line">&quot;PSH2&quot;:代表将2插入队列尾部</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回1</span><br><span class="line">&quot;POP“:代表删除一个元素，先进先出=&gt;返回2   </span><br></pre></td></tr></table></figure>
-
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&quot;PSH2&quot;,&quot;POP&quot;,&quot;PSH1&quot;,&quot;POP&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>返回值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2,1</span><br></pre></td></tr></table></figure>
-
-<p>思路：</p>
-<ul>
-<li>push操作就直接往stack1中push</li>
-<li>pop操作需要分类一下：如果stack2为空，那么需要将stack1中的数据<strong>全部</strong>转移到stack2中，然后在对stack2进行pop，如果stack2不为空，直接pop就ok。</li>
-</ul>
-<p>解答：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack1.empty() &amp;&amp; stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack2.empty()) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">                stack2.push(stack1.pop())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>刷题</category>
-      </categories>
-  </entry>
-  <entry>
     <title>排序</title>
     <url>/2022/01/04/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="NC140-排序"><a href="#NC140-排序" class="headerlink" title="NC140 排序"></a><strong>NC140</strong> <strong>排序</strong></h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>给定一个长度为 n 的数组，请你编写一个函数，返回该数组按升序排序后的结果。</p>
-<p>数据范围： 0 \le n \le 10^50≤<em>n</em>≤105，数组中每个元素都满足 0 \le val \le 10^90≤<em>v<strong>a</strong>l</em>≤109</p>
-<p>要求：时间复杂度 O(nlogn)<em>O</em>(<em>n<strong>l</strong>o<strong>g</strong>n</em>)，空间复杂度 O(n)<em>O</em>(<em>n</em>)</p>
+<p>数据范围： 0≤<em>n</em>≤10<sup>5</sup>，数组中每个元素都满足 0≤<em>v<strong>a</strong>l</em>≤10<sup>9</sup></p>
+<p>要求：时间复杂度O*(*n<strong>l</strong>o<strong>g</strong>n)，空间复杂度 O(n)</p>
 <h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[5,2,3,1,4]</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,3,4,5]</span><br></pre></td></tr></table></figure>
 
-<p>复制</p>
 <h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[5,1,6,2,5]</span><br></pre></td></tr></table></figure>
 
@@ -759,6 +789,92 @@
 <p><strong>解答：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"><span class="comment">//         if (n == 1 || n == 2) return 1;</span></span><br><span class="line"><span class="comment">//         int a = 1, b = 1, c = 0;</span></span><br><span class="line"><span class="comment">//         for (int i = 2; i &lt; n; i++) &#123;</span></span><br><span class="line"><span class="comment">//             c = a+b;</span></span><br><span class="line"><span class="comment">//             a = b;</span></span><br><span class="line"><span class="comment">//             b = c; </span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//         return c;</span></span><br><span class="line">        <span class="comment">// 递归</span></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Fibonacci(n-<span class="number">1</span>)+Fibonacci(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h4 id="NC22-合并两个有序的数组"><a href="#NC22-合并两个有序的数组" class="headerlink" title="NC22 合并两个有序的数组"></a><a href="https://www.nowcoder.com/practice/89865d4375634fc484f3a24b7fe65665?tpId=188&&tqId=38585&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC22 合并两个有序的数组</a></h4><p><strong>描述</strong></p>
+<p>给出一个有序的整数数组 A 和有序的整数数组 B ，请将数组 B 合并到数组 A 中，变成一个有序的升序数组</p>
+<p>数据范围：0≤<em>n</em>,<em>m</em>≤100，|A_i| &lt;=100， |B_i| &lt;= 100</p>
+<p>注意：<br>1.保证 A 数组有足够的空间存放 B 数组的元素， A 和 B 中初始的元素数目分别为 m 和 n，A的数组空间大小为 m+n</p>
+<p>2.不要返回合并的数组，将数组 B 的数据合并到 A 里面就好了</p>
+<p>\3. A 数组在[0,m-1]的范围也是有序的</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[4,5,6],[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,3,4,5,6]</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A数组为[4,5,6]，B数组为[1,2,3]，后台程序会预先将A扩容为[4,5,6,0,0,0]，B还是为[1,2,3]，m=3，n=3，传入到函数merge里面，然后请同学完成merge函数，将B的数据合并A里面，最后后台程序输出A数组           </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,3],[2,5,6]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,2,3,5,6]</span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>有序，A的数组长度足够</li>
+<li>双指针，比大小，大的存入一个移动一个，从后往前（后面是空的）</li>
+<li>最后剩下的数组元素，全部存入A。</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[m-<span class="number">1</span>] &lt;= B[n-<span class="number">1</span>]) &#123;</span><br><span class="line">                A[m+n-<span class="number">1</span>] = B[n-<span class="number">1</span>];</span><br><span class="line">                n--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                A[m+n-<span class="number">1</span>] = A[m-<span class="number">1</span>];</span><br><span class="line">                m--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                A[i] = B[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="NC128-接雨水问题"><a href="#NC128-接雨水问题" class="headerlink" title="NC128 接雨水问题"></a>NC128 接雨水问题</h4><p><strong>描述</strong></p>
+<p>给定一个整形数组arr，已知其中所有的值都是非负的，将这个数组看作一个柱子高度图，计算按此排列的柱子，下雨之后能接多少雨水。(数组以外的区域高度视为0)</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/26A2E295DEE51749C45B5E8DD671E879" alt="img"></p>
+<p>数据范围：0≤<em>n</em>≤106，数组中每个值满足 0&lt;<em>v<strong>a</strong>l</em>≤109</p>
+<p>要求：空间复杂度 O(1),时间复杂度 O(n)</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[3,1,2,5,2,4]  </span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5 </span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">数组 [3,1,2,5,2,4] 表示柱子高度图，在这种情况下，可以接 5个单位的雨水，蓝色的为雨水 ，如题面图。    </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[4,5,1,3,2]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 </span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>双指针，左右往里靠</li>
+<li>左右最大值动态更新</li>
+<li>水面高度由左右两边最小的值决定</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * max water</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr int整型一维数组 the array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long长整型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">maxWater</span> <span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> leftMax = arr[left], rightMax = arr[right];</span><br><span class="line">        <span class="keyword">long</span> water = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            leftMax = Math.max(leftMax, arr[left]);</span><br><span class="line">            rightMax = Math.max(rightMax, arr[right]);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(leftMax &lt; rightMax) &#123;</span><br><span class="line">                water = water + leftMax - arr[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                water = water + rightMax - arr[right];</span><br><span class="line">                right--;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> water;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="NC38-螺旋矩阵"><a href="#NC38-螺旋矩阵" class="headerlink" title="NC38 螺旋矩阵"></a><a href="https://www.nowcoder.com/practice/7edf70f2d29c4b599693dc3aaeea1d31?tpId=117&&tqId=37738&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587&topicId=117&page=1">NC38 螺旋矩阵</a></h4><p><strong>描述</strong></p>
+<p>给定一个m x n大小的矩阵（m行，n列），按螺旋的顺序返回矩阵中的所有元素。</p>
+<p>数据范围：0 \le n,m \le 100≤<em>n</em>,<em>m</em>≤10，矩阵中任意元素都满足 |val| \le 100∣<em>v<strong>a</strong>l</em>∣≤100</p>
+<p>要求：空间复杂度 O(nm)<em>O</em>(<em>n**m</em>) ，时间复杂度 O(nm)<em>O</em>(<em>n**m</em>)</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[[1,2,3],[4,5,6],[7,8,9]]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1,2,3,6,9,8,7,4,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>刷题</category>
@@ -870,21 +986,24 @@
   <entry>
     <title>链表</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC78-反转链表"><a href="#NC78-反转链表" class="headerlink" title="NC78 反转链表"></a><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC78 反转链表</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个单链表的头结点pHead，长度为n，反转该链表后，返回新链表的表头。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="NC78-反转链表"><a href="#NC78-反转链表" class="headerlink" title="NC78 反转链表"></a><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC78 反转链表</a></h3><p><strong>描述</strong></p>
+<p>给定一个单链表的头结点pHead，长度为n，反转该链表后，返回新链表的表头。</p>
 <p>数据范围： n\leq1000<em>n</em>≤1000</p>
 <p>要求：空间复杂度 O(1)<em>O</em>(1) ，时间复杂度 O(n)<em>O</em>(<em>n</em>) 。</p>
 <p>如当输入链表{1,2,3}时，</p>
 <p>经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。</p>
 <p>以上转换过程如下图所示：</p>
 <p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/4A47A0DB6E60853DEDFCFDF08A5CA249.jpg" alt="img"></p>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;1,2,3&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;3,2,1&#125;</span><br></pre></td></tr></table></figure>
 
 <p>复制</p>
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
+<p><strong>示例2</strong></p>
+<p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
@@ -893,21 +1012,25 @@
 <p>说明：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">空链表则输出空         </span><br></pre></td></tr></table></figure>
 
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ul>
+<p><strong>思路：</strong></p>
+<ul>
 <li>利用next往head列表下一步走</li>
 <li>利用pre来保存拼接信息</li>
 </ul>
-<h2 id="解答："><a href="#解答：" class="headerlink" title="解答："></a>解答：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">ReverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        ListNode next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>) &#123;</span><br><span class="line">            next = head.next;</span><br><span class="line">            head.next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">ReverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        ListNode next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="keyword">null</span>) &#123;</span><br><span class="line">            next = head.next;</span><br><span class="line">            head.next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20211226122019794.png" alt="image-20211226122019794"></p>
-<h1 id="NC4-判断链表中是否有环"><a href="#NC4-判断链表中是否有环" class="headerlink" title="NC4 判断链表中是否有环"></a>NC4 判断链表中是否有环</h1><h2 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h2><p>判断给定的链表中是否有环。如果有环则返回true，否则返回false。</p>
+<h3 id="NC4-判断链表中是否有环"><a href="#NC4-判断链表中是否有环" class="headerlink" title="NC4 判断链表中是否有环"></a>NC4 判断链表中是否有环</h3><p><strong>描述</strong></p>
+<p>判断给定的链表中是否有环。如果有环则返回true，否则返回false。</p>
 <p>数据范围：链表长度 0 \le n \le 100000≤<em>n</em>≤10000，链表中任意节点的值满足 |val| &lt;= 100000∣<em>v<strong>a</strong>l</em>∣&lt;=100000</p>
 <p>要求：空间复杂度 O(1)<em>O</em>(1)，时间复杂度 O(n)<em>O</em>(<em>n</em>)</p>
 <p>输入分为2部分，第一部分为链表，第二部分代表是否有环，然后将组成的head头结点传入到函数里面。-1代表无环，其它的数字代表有环，这些参数解释仅仅是为了方便读者自测调试。实际在编程时读入的是链表的头节点。</p>
 <p>例如输入{3,2,0,-4},1时，对应的链表结构如下图所示：</p>
 <p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/9A058E6590B998B9F7B637155842F993.jpg" alt="img"></p>
 <p>可以看出环的入口结点为从头结点开始的第1个结点，所以输出true。</p>
-<h2 id="示例1-1"><a href="#示例1-1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;3,2,0,-4&#125;,1</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
@@ -916,7 +1039,8 @@
 <p>说明：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一部分&#123;3,2,0,-4&#125;代表一个链表，第二部分的1表示，-4到位置1，即-4-&gt;3存在一个链接，组成传入的head为一个带环的链表，返回true        </span><br></pre></td></tr></table></figure>
 
-<h2 id="示例2-1"><a href="#示例2-1" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
+<p><strong>示例2</strong></p>
+<p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;1&#125;,-1</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
@@ -925,18 +1049,107 @@
 <p>说明：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一部分&#123;1&#125;代表一个链表，-1代表无环，组成传入head为一个无环的单链表，返回false        </span><br></pre></td></tr></table></figure>
 
-<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>输入：</p>
+<p><strong>示例3</strong></p>
+<p>输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;-1,-7,7,-4,19,6,-9,-5,-2,-5&#125;,6</span><br></pre></td></tr></table></figure>
 
 <p>返回值：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">true</span><br></pre></td></tr></table></figure>
 
-<h2 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h2><ul>
+<p><strong>思路：</strong></p>
+<ul>
 <li>构建快慢指针</li>
 <li>快的走两步，慢的走一步</li>
 <li>判断每次只能判断当前与下一步的所指情况，否则容易出现越界的问题（null.next）</li>
 </ul>
-<h2 id="解答：-1"><a href="#解答：-1" class="headerlink" title="解答："></a>解答：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="NC3-链表中环的入口结点"><a href="#NC3-链表中环的入口结点" class="headerlink" title="NC3 链表中环的入口结点"></a><a href="https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=117&&tqId=37713&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587&topicId=117&page=1">NC3 链表中环的入口结点</a></h3><p><strong>描述</strong></p>
+<p>给一个长度为n链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。</p>
+<p>数据范围：n*≤10000，1&lt;=结点值&lt;=10000</p>
+<p>要求：空间复杂度 O(1)，时间复杂度 O(n)</p>
+<p>例如，输入{1,2},{3,4,5}时，对应的环形链表如下图所示：</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/DA92C945EF643F1143567935F20D6B46" alt="img"></p>
+<p>可以看到环的入口结点的结点值为3，所以返回结点值为3的结点。</p>
+<p><strong>输入描述：</strong></p>
+<p>输入分为2段，第一段是入环前的链表部分，第二段是链表环的部分，后台会根据第二段是否为空将这两段组装成一个无环或者有环单链表</p>
+<p><strong>返回值描述：</strong></p>
+<p>返回链表的环的入口结点即可，我们后台程序会打印这个结点对应的结点值；若没有，则返回对应编程语言的空结点即可。</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;1,2&#125;,&#123;3,4,5&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">返回环形链表入口结点，我们后台程序会打印该环形链表入口结点对应的结点值，即3   </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;1&#125;,&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;null&quot;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">没有环，返回对应编程语言的空结点，后台程序会打印&quot;null&quot;   </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#125;,&#123;2&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">环的部分只有一个结点，所以返回该环形链表入口结点，后台程序打印该结点对应的结点值，即2   </span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>设置快慢指针，假如有环，他们最后一定相遇。</li>
+<li>两个指针分别从链表头和相遇点继续出发，每次走一步，最后一定相遇与环入口。</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> public class ListNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode next = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>&#123;</span><br><span class="line">        ListNode low = pHead;</span><br><span class="line">        ListNode fast = pHead;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            low = low.next;</span><br><span class="line">            <span class="keyword">if</span>(fast == low) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        low = pHead;</span><br><span class="line">        <span class="keyword">while</span> (fast!=low) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            low = low.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="NC50-链表中的节点每k个一组翻转"><a href="#NC50-链表中的节点每k个一组翻转" class="headerlink" title="NC50 链表中的节点每k个一组翻转"></a>NC50 链表中的节点每k个一组翻转</h3><p><strong>描述</strong></p>
+<p>将给出的链表中的节点每 k 个一组翻转，返回翻转后的链表<br>如果链表中的节点数不是 k 的倍数，将最后剩下的节点保持原样<br>你不能更改节点中的值，只能更改节点本身。</p>
+<p>数据范围： \ 0 \le n \le 2000 0≤<em>n</em>≤2000 ， 1 \le k \le 20001≤<em>k</em>≤2000 ，链表中每个元素都满足 0 \le val \le 10000≤<em>v<strong>a</strong>l</em>≤1000<br>要求空间复杂度 O(1)<em>O</em>(1)，时间复杂度 O(n)<em>O</em>(<em>n</em>)</p>
+<p>例如：</p>
+<p>给定的链表是 1\to2\to3\to4\to51→2→3→4→5</p>
+<p>对于 k = 2<em>k</em>=2 , 你应该返回 2\to 1\to 4\to 3\to 52→1→4→3→5</p>
+<p>对于 k = 3<em>k</em>=3 , 你应该返回 3\to2 \to1 \to 4\to 53→2→1→4→5</p>
+<p><strong>示例1</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;1,2,3,4,5&#125;,2</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;2,1,4,3,5&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<p>输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#125;,1</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<ul>
+<li>写一个计算链表长度的子函数，并对链表进行分块</li>
+<li>设置一个result存返回值，一个now=result对now进行操作，实际改变了result的值</li>
+<li>每一块进行反转<ul>
+<li>一个for循环，每次head向前移一位</li>
+<li>head.next存tmp</li>
+<li>tmp存当前head值</li>
+</ul>
+</li>
+</ul>
+<p><strong>解答：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *   int val;</span></span><br><span class="line"><span class="comment"> *   ListNode next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> head ListNode类 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> k int整型 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> ListNode类</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseKGroup</span> <span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span> (k &lt;= <span class="number">1</span>) <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        <span class="keyword">int</span> len = length(head);</span><br><span class="line">        <span class="keyword">int</span> block = len/k;</span><br><span class="line">        </span><br><span class="line">        ListNode result = <span class="keyword">new</span> ListNode(<span class="number">0</span>);    <span class="comment">//用来返回值，保存结果</span></span><br><span class="line">        ListNode now = result;    <span class="comment">//用来移动，操作</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; block; i++) &#123;</span><br><span class="line">            ListNode tmp = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j ++) &#123;    <span class="comment">//将第i块的元素翻转</span></span><br><span class="line">                ListNode bl = head.next;</span><br><span class="line">                head.next = tmp;</span><br><span class="line">                tmp = head;</span><br><span class="line">                head = bl;</span><br><span class="line">            &#125;</span><br><span class="line">            now.next = tmp; </span><br><span class="line">            <span class="keyword">while</span>(now.next != <span class="keyword">null</span>) now = now.next;    <span class="comment">//将now更新到最前的一个点</span></span><br><span class="line">        &#125;</span><br><span class="line">        now.next = head;    <span class="comment">//这里的head已经移到了最后一块不可分割的地方</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">length</span><span class="params">(ListNode now)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (now!=<span class="keyword">null</span>) &#123;</span><br><span class="line">            length++;</span><br><span class="line">            now = now.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -970,9 +1183,8 @@
   <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%B0%8F%E8%84%9A%E6%9C%AC/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
-            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-          </div>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+</div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
@@ -1041,6 +1253,49 @@
 </ol>
 <h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
 <li><a href="https://www.cnblogs.com/mythdoraemon/p/9865567.html">Git 右键添加Git Bash</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文添加引用标签</title>
+    <url>/2022/01/15/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/%E8%AE%BA%E6%96%87%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="论文添加引用标签"><a href="#论文添加引用标签" class="headerlink" title="论文添加引用标签"></a>论文添加引用标签</h1><h2 id="设置引用序号"><a href="#设置引用序号" class="headerlink" title="设置引用序号"></a>设置引用序号</h2><ol>
+<li>References中选中引用的文章</li>
+</ol>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114111622025.png" alt="image-20220114111622025"></p>
+<ol start="2">
+<li><p>定义新编号格式</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114111650945.png" alt="image-20220114111650945"></p>
+</li>
+<li><p>在编号格式中选择文献引用序号[1]</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114111757233.png" alt="image-20220114111757233"></p>
+<h2 id="序号引用插入文章中"><a href="#序号引用插入文章中" class="headerlink" title="序号引用插入文章中"></a>序号引用插入文章中</h2><ol>
+<li>鼠标插入要引用的位置</li>
+<li>点击插入——交叉引用</li>
+<li>选择你引用的文章编号</li>
+</ol>
+</li>
+</ol>
+<p>​            <img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114112057170.png" alt="image-20220114112057170"></p>
+<h2 id="更新序号"><a href="#更新序号" class="headerlink" title="更新序号"></a>更新序号</h2><ul>
+<li><p>右键需要更新的序号点击更新域</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114112201454.png" alt="image-20220114112201454"></p>
+</li>
+<li><p>对所有引用更新</p>
+<ul>
+<li>ctrl+a全选文章</li>
+<li>按F9快捷更新</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://blog.csdn.net/fandroid/article/details/42060883?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.pc_relevant_default&utm_relevant_index=2">word中自动生成参考文献引用及自动更新文献编号</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1701,208 +1956,6 @@
       </tags>
   </entry>
   <entry>
-    <title>比特币和区块链</title>
-    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
-<ul>
-<li>2008年11月1日 中本聪《白皮书》</li>
-<li>去中心化的电子<strong>记账</strong>系统<ul>
-<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
-<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
-<li>三个问题<ul>
-<li>以谁为准</li>
-<li>为何记账</li>
-<li>如何防伪</li>
-</ul>
-</li>
-<li>记账奖励<ul>
-<li>手续费</li>
-<li>打包奖励<ul>
-<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
-<li>一共有多少个比特币<ul>
-<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>以谁为准<ul>
-<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
-<li>挖矿原理<ul>
-<li>哈希函数：<ul>
-<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
-<li>正着算容易反着算难</li>
-<li>sha256（美国国家安全局发明的一种算法）<ul>
-<li>比如输入“Apple”输出一个256位的二进制数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>原理<ul>
-<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
-<li>改变这个随机数不断去试</li>
-</ul>
-</li>
-<li>hash=sha256（sha256（字符串））</li>
-<li>前n位必须为0</li>
-<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
-</ul>
-</li>
-<li>难度n的确定</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>源代码包”和“二进制包”的区别</title>
-    <url>/2022/01/03/%E7%A7%91%E6%99%AE/%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8C%85%E2%80%9D%E5%92%8C%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
-<p>source code 是程序員寫的碼， binary code 是機器跑的碼。 source code 得經過 compile 才能成為 binary code 。 </p>
-<p>RPM 有分兩種：binary rpm 跟 source rpm 。<br>前者是編好的 binary ，安裝就可用。<br>後者是還沒編好的 source ，需 rebuild 之後才能安裝。</p>
-<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。<br>mysql-5.0.45.tar.gz 是 源码包    像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包</p>
-<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *. 或者tar ytvf *.bz2</p>
-<p>源代码包里的文件往往会含有种种源代码文件，头文件*.h、c代码源文件*.c、C++代码源文件*.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>移动通讯技术</title>
-    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E7%A7%BB%E5%8A%A8%E9%80%9A%E8%AE%AF%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
-<h4 id="一：移动通讯技术"><a href="#一：移动通讯技术" class="headerlink" title="一：移动通讯技术"></a>一：移动通讯技术</h4><ul>
-<li><p>1G：移动蜂窝技术 </p>
-<ul>
-<li>传输的是模拟信号，只能传输语音不能传输文字，保密性很差，而且通话质量也不好</li>
-</ul>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a06.png" alt="image-20210107124105969"></p>
-</li>
-<li><p>2G：数字信号</p>
-<ul>
-<li>一段语音，进行采样，转换为数字，再转换为二进制码传输</li>
-<li>这样既能传输语音也能传输文字还能进行加密</li>
-</ul>
-</li>
-<li><p>3G：CDMA（码分多址）</p>
-</li>
-<li><p>4G：OFDMA（正交频分多址）</p>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a0f.png" alt="image-20210107124612998"></p>
-<ul>
-<li>他可以在同一个频段内传输很多个信号。信号彼此是正交的，一个信号最强的时候其他信号为0。这样一来，虽然他们都在一个频段内却不会彼此干扰。</li>
-</ul>
-</li>
-</ul>
-<h4 id="二：5G-5G毫米波"><a href="#二：5G-5G毫米波" class="headerlink" title="二：5G/5G毫米波"></a>二：5G/5G毫米波</h4><ul>
-<li>高速率<ul>
-<li>4G 5G速率对比<ul>
-<li>4G：100Mbps（大约是10M字节每秒）</li>
-<li>5G：2Gbps</li>
-</ul>
-</li>
-<li>香农公式  C=Wlog2（1+S/N）<ul>
-<li>C：速率极限（再怎么编码都超不过这个速率）</li>
-<li>W：频带宽度（1Ghz-2Ghz的频率那么频宽就有1Ghz）</li>
-<li>S：信号功率</li>
-<li>N：噪声功率</li>
-</ul>
-</li>
-<li>4G频段<ul>
-<li>中国移动885M-909Mhz（24Mhz带宽） 930M-954Mhz（24Mhz带宽）</li>
-</ul>
-</li>
-<li>5G频段<ul>
-<li>6Ghz以下（sub6 5G）<ul>
-<li>大概是5倍的4G</li>
-<li>中国移动拿到两个5G频段<ul>
-<li>2515M-2575M（160M带宽）</li>
-<li>4800M-4900M（100M带宽）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>24Ghz以上（毫米波5G）（24-100Ghz）<ul>
-<li>大概是4倍的sub6 5G</li>
-</ul>
-</li>
-<li>VR眼镜带的时间长了会头晕？<ul>
-<li>视频不够高清</li>
-<li>延迟比较严重</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>低延迟<ul>
-<li>4G：10ms-100ms</li>
-<li>5G-sub6：1ms</li>
-<li>5G-毫米波：0.1ms</li>
-<li>工业、远程医疗</li>
-</ul>
-</li>
-<li>大容量<ul>
-<li>4G：2000个/平方公里</li>
-<li>5G：100万个/平方公里</li>
-<li>万物互联</li>
-</ul>
-</li>
-</ul>
-<h3 id="三毫米波5G挑战"><a href="#三毫米波5G挑战" class="headerlink" title="三毫米波5G挑战"></a>三毫米波5G挑战</h3><ul>
-<li><p>频率高、衰减快、覆盖范围小</p>
-</li>
-<li><p>波长短、衍射差（播不能绕过障碍物）、易于遮挡</p>
-</li>
-<li><p>解决方案</p>
-<ul>
-<li><p>波束赋形</p>
-<ul>
-<li>好几根天线，彼此之间相位不同，发生干涉，结果导致向一个方向发射比较强的电磁波</li>
-</ul>
-<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a18.png" alt="image-20210107130727862"></p>
-</li>
-<li><p>波束追踪</p>
-<p><img src="https://img.imgdb.cn/item/607a6b148322e6675c121d9d.png" alt="image-20210107130937454"></p>
-<ul>
-<li>走哪跟到哪</li>
-</ul>
-</li>
-<li><p>波束反射</p>
-<ul>
-<li>通过墙的反射</li>
-</ul>
-</li>
-<li><p>波束切换</p>
-<ul>
-<li>手机在多个基站之间进行切换</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考文献：<a href="https://www.youtube.com/watch?v=VdSFah46d7Y">5G到底是什么？它能成为创造未来的新科技吗？</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ADF检验</title>
     <url>/2021/12/26/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/ADF%E6%A3%80%E9%AA%8C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ADF检验"><a href="#ADF检验" class="headerlink" title="ADF检验"></a>ADF检验</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在使用很多时间序列模型的时候，如ARMA、ARIMA，都会要求时间序列是平稳的，所以一般在研究一段时间序列的时候，第一步都需要进行平稳性检验，除了用肉眼检测的方法，另外比较常用的严格的统计检验方法就是<strong>ADF检验</strong>，也叫做<strong>单位根检验</strong>。</p>
@@ -2325,6 +2378,208 @@
       </tags>
   </entry>
   <entry>
+    <title>比特币和区块链</title>
+    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
+<ul>
+<li>2008年11月1日 中本聪《白皮书》</li>
+<li>去中心化的电子<strong>记账</strong>系统<ul>
+<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
+<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
+<li>三个问题<ul>
+<li>以谁为准</li>
+<li>为何记账</li>
+<li>如何防伪</li>
+</ul>
+</li>
+<li>记账奖励<ul>
+<li>手续费</li>
+<li>打包奖励<ul>
+<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
+<li>一共有多少个比特币<ul>
+<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以谁为准<ul>
+<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
+<li>挖矿原理<ul>
+<li>哈希函数：<ul>
+<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
+<li>正着算容易反着算难</li>
+<li>sha256（美国国家安全局发明的一种算法）<ul>
+<li>比如输入“Apple”输出一个256位的二进制数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
+<li>改变这个随机数不断去试</li>
+</ul>
+</li>
+<li>hash=sha256（sha256（字符串））</li>
+<li>前n位必须为0</li>
+<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
+</ul>
+</li>
+<li>难度n的确定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>源代码包”和“二进制包”的区别</title>
+    <url>/2022/01/03/%E7%A7%91%E6%99%AE/%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8C%85%E2%80%9D%E5%92%8C%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
+<p>source code 是程序員寫的碼， binary code 是機器跑的碼。 source code 得經過 compile 才能成為 binary code 。 </p>
+<p>RPM 有分兩種：binary rpm 跟 source rpm 。<br>前者是編好的 binary ，安裝就可用。<br>後者是還沒編好的 source ，需 rebuild 之後才能安裝。</p>
+<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。<br>mysql-5.0.45.tar.gz 是 源码包    像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包</p>
+<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *. 或者tar ytvf *.bz2</p>
+<p>源代码包里的文件往往会含有种种源代码文件，头文件*.h、c代码源文件*.c、C++代码源文件*.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动通讯技术</title>
+    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E7%A7%BB%E5%8A%A8%E9%80%9A%E8%AE%AF%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
+<h4 id="一：移动通讯技术"><a href="#一：移动通讯技术" class="headerlink" title="一：移动通讯技术"></a>一：移动通讯技术</h4><ul>
+<li><p>1G：移动蜂窝技术 </p>
+<ul>
+<li>传输的是模拟信号，只能传输语音不能传输文字，保密性很差，而且通话质量也不好</li>
+</ul>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a06.png" alt="image-20210107124105969"></p>
+</li>
+<li><p>2G：数字信号</p>
+<ul>
+<li>一段语音，进行采样，转换为数字，再转换为二进制码传输</li>
+<li>这样既能传输语音也能传输文字还能进行加密</li>
+</ul>
+</li>
+<li><p>3G：CDMA（码分多址）</p>
+</li>
+<li><p>4G：OFDMA（正交频分多址）</p>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a0f.png" alt="image-20210107124612998"></p>
+<ul>
+<li>他可以在同一个频段内传输很多个信号。信号彼此是正交的，一个信号最强的时候其他信号为0。这样一来，虽然他们都在一个频段内却不会彼此干扰。</li>
+</ul>
+</li>
+</ul>
+<h4 id="二：5G-5G毫米波"><a href="#二：5G-5G毫米波" class="headerlink" title="二：5G/5G毫米波"></a>二：5G/5G毫米波</h4><ul>
+<li>高速率<ul>
+<li>4G 5G速率对比<ul>
+<li>4G：100Mbps（大约是10M字节每秒）</li>
+<li>5G：2Gbps</li>
+</ul>
+</li>
+<li>香农公式  C=Wlog2（1+S/N）<ul>
+<li>C：速率极限（再怎么编码都超不过这个速率）</li>
+<li>W：频带宽度（1Ghz-2Ghz的频率那么频宽就有1Ghz）</li>
+<li>S：信号功率</li>
+<li>N：噪声功率</li>
+</ul>
+</li>
+<li>4G频段<ul>
+<li>中国移动885M-909Mhz（24Mhz带宽） 930M-954Mhz（24Mhz带宽）</li>
+</ul>
+</li>
+<li>5G频段<ul>
+<li>6Ghz以下（sub6 5G）<ul>
+<li>大概是5倍的4G</li>
+<li>中国移动拿到两个5G频段<ul>
+<li>2515M-2575M（160M带宽）</li>
+<li>4800M-4900M（100M带宽）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>24Ghz以上（毫米波5G）（24-100Ghz）<ul>
+<li>大概是4倍的sub6 5G</li>
+</ul>
+</li>
+<li>VR眼镜带的时间长了会头晕？<ul>
+<li>视频不够高清</li>
+<li>延迟比较严重</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>低延迟<ul>
+<li>4G：10ms-100ms</li>
+<li>5G-sub6：1ms</li>
+<li>5G-毫米波：0.1ms</li>
+<li>工业、远程医疗</li>
+</ul>
+</li>
+<li>大容量<ul>
+<li>4G：2000个/平方公里</li>
+<li>5G：100万个/平方公里</li>
+<li>万物互联</li>
+</ul>
+</li>
+</ul>
+<h3 id="三毫米波5G挑战"><a href="#三毫米波5G挑战" class="headerlink" title="三毫米波5G挑战"></a>三毫米波5G挑战</h3><ul>
+<li><p>频率高、衰减快、覆盖范围小</p>
+</li>
+<li><p>波长短、衍射差（播不能绕过障碍物）、易于遮挡</p>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li><p>波束赋形</p>
+<ul>
+<li>好几根天线，彼此之间相位不同，发生干涉，结果导致向一个方向发射比较强的电磁波</li>
+</ul>
+<p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c120a18.png" alt="image-20210107130727862"></p>
+</li>
+<li><p>波束追踪</p>
+<p><img src="https://img.imgdb.cn/item/607a6b148322e6675c121d9d.png" alt="image-20210107130937454"></p>
+<ul>
+<li>走哪跟到哪</li>
+</ul>
+</li>
+<li><p>波束反射</p>
+<ul>
+<li>通过墙的反射</li>
+</ul>
+</li>
+<li><p>波束切换</p>
+<ul>
+<li>手机在多个基站之间进行切换</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考文献：<a href="https://www.youtube.com/watch?v=VdSFah46d7Y">5G到底是什么？它能成为创造未来的新科技吗？</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java多线程与并发编程</title>
     <url>/2022/01/03/%E9%9D%A2%E8%AF%95/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Java多线程与并发编程在面试中的高频考点"><a href="#Java多线程与并发编程在面试中的高频考点" class="headerlink" title="Java多线程与并发编程在面试中的高频考点"></a>Java多线程与并发编程在面试中的高频考点</h1><h2 id="1-说说什么是线程安全？如何实现线程安全？"><a href="#1-说说什么是线程安全？如何实现线程安全？" class="headerlink" title="1. 说说什么是线程安全？如何实现线程安全？"></a>1. 说说什么是线程安全？如何实现线程安全？</h2><h3 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h3><p>答：当多个线程同时访问一个对象时，如果不考虑这些线程在运行时环境下的调度和交替执行，也不 需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那就称这个对象是线程安全的。</p>
@@ -2422,6 +2677,41 @@
 <p><strong>3 编译（.i—.s）转换为汇编语言文件</strong><br>这个阶段编译器主要做词法分析、语法分析、语义分析等，在检查无错误后后，把代码翻译成汇编语言[2]。可用gcc的参数-S来参看。<br>编译器(ccl)将文本文件hello.i 翻译成文本文件hello.s, 它包含一个汇编语言程序。<br>一条低级机器语言指令。<br>命令：gcc -S hello.i -o hello.s<br>作用：将预处理输出文件hello.i汇编成hello.s文件</p>
 <p><strong>4.汇编阶段（.s—.o）得到机器语言</strong><br>汇编器as 将hello.s 翻译成机器语言保存在hello.o 中（二进制文本形式）。</p>
 <p><strong>5.链接阶段（.o文件到可执行文件）</strong><br>printf函数存在于一个名为printf.o的单独预编译目标文件中。必须得将其并入到hello.o的程序中，链接器就是负责处理这两个的并入，结果得到hello文件，它就是一个可执行的目标文件。</p>
+<h2 id="怎么去理解linux用户态和内核态"><a href="#怎么去理解linux用户态和内核态" class="headerlink" title="怎么去理解linux用户态和内核态"></a>怎么去理解linux用户态和内核态</h2><p><strong>参考：</strong></p>
+<ul>
+<li><a href="http://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/%E9%87%8D%E5%AD%A6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AE%8C/14%20%20%E7%94%A8%E6%88%B7%E6%80%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%80%81%EF%BC%9A%E7%94%A8%E6%88%B7%E6%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E6%A0%B8%E6%80%81%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F.md">用户态和内核态：用户态线程和内核态线程有什么区别？</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1897177">理解Linux用户态和内核态</a></li>
+</ul>
+<h3 id="Linux整体架构图"><a href="#Linux整体架构图" class="headerlink" title="Linux整体架构图"></a>Linux整体架构图</h3><p>我们先来看一张<code>Linux</code>整体架构图。</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/3433091-63269eb8f87c2bb9.png" alt="img"></p>
+<h4 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h4><p>​        系统调用时操作系统的最小功能单位。根据不同的应用场景，不同的<code>Linux</code>发行版本提供的系统调用数量也不尽相同，大致在240-350之间。这些系统调用组成了用户态跟内核态交互的基本接口，例如：用户态想要申请一块20K大小的动态内存，就需要brk系统调用，将数据段指针向下偏移，如果用户态多处申请20K动态内存，同时又释放呢？这个内存的管理就变得非常的复杂。</p>
+<h4 id="库函数"><a href="#库函数" class="headerlink" title="库函数"></a>库函数</h4><p>​        库函数就是屏蔽这些复杂的底层实现细节，减轻程序员的负担，从而更加关注上层的逻辑实现。它对系统调用进行封装，提供简单的基本接口给用户，这样增强了程序的灵活性，当然对于简单的接口，也可以直接使用系统调用访问资源，例如：<code>open()</code>，<code>write()</code>，<code>read()</code>等等。库函数根据不同的标准也有不同的版本，例如：<code>glibc</code>库，<code>posix</code>库等。</p>
+<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><p> <code>Shell</code>顾名思义，就是外壳的意思。就好像把内核包裹起来的外壳。它是一种特殊的应用程序，俗称命令行。为了方便用户和系统交互，一般一个<code>Shell</code>对应一个终端，呈现给用户交互窗口。当然<code>Shell</code>也是编程的，它有标准的<code>shell</code>语法，符合其语法的文本叫<code>Shell</code>脚本。很多人都会用<code>Shell</code>脚本实现一些常用的功能，可以提高工作效率。</p>
+<h3 id="什么是用户态和内核态"><a href="#什么是用户态和内核态" class="headerlink" title="什么是用户态和内核态"></a>什么是用户态和内核态</h3><p>Kernel 运行在超级权限模式（Supervisor Mode）下，所以拥有很高的权限。按照权限管理的原则，多数应用程序应该运行在最小权限下。因此，很多操作系统，将内存分成了两个区域：</p>
+<ul>
+<li>内核空间（Kernal Space），这个空间只有内核程序可以访问；</li>
+<li>用户空间（User Space），这部分内存专门给应用程序使用。</li>
+</ul>
+<h4 id="用户态和内核态"><a href="#用户态和内核态" class="headerlink" title="用户态和内核态"></a>用户态和内核态</h4><p>用户空间中的代码被限制了只能使用一个局部的内存空间，我们说这些程序在<strong>用户态（User Mode）</strong> 执行。内核空间中的代码可以访问所有内存，我们称这些程序在<strong>内核态（Kernal Mode）</strong> 执行</p>
+<h4 id="为什么要区分用户态与内核态？"><a href="#为什么要区分用户态与内核态？" class="headerlink" title="为什么要区分用户态与内核态？"></a><strong>为什么要区分用户态与内核态？</strong></h4><p>在<code>CPU</code>的所有指令中，有一些指令是非常危险的，如果错用，将导致整个系统崩溃。比如：清内存、设置时钟等。如果所有的程序都能使用这些指令，那么你的系统一天死机N回就不足为奇了。所以，<code>CPU</code>将指令分为特权指令和非特权指令，对于那些危险的指令，只允许操作系统及其相关模块使用，普通的应用程序只能使用那些不会造成灾难的指令。<code>Intel</code>的<code>CPU</code>将特权级别分为4个级别：<code>RING0</code>、<code>RING1</code>、<code>RING2</code>、<code>RING3</code>。</p>
+<p>​        当一个任务（进程）执行系统调用而陷入内核代码中执行时，我们就称进程处于内核运行态（或简称为内核态）。此时处理器处于特权级最高的（0级）内核代码中执行。</p>
+<ul>
+<li>当进程处于内核态时，执行的内核代码会使用当前进程的内核栈。每个进程都有自己的内核栈。</li>
+<li>当进程在执行用户自己的代码时，则称其处于用户运行态（用户态）。即此时处理器在特权级最低的（3级）用户代码中运行。</li>
+</ul>
+<p>​        当正在执行用户程序而突然被中断程序中断时，此时用户程序也可以象征性地称为处于进程的内核态。<code>Linux</code>使用了<code>Ring3</code>级别运行用户态，<code>Ring0</code>作为 内核态，没有使用<code>Ring1</code>和<code>Ring2</code>。<code>Ring3</code>状态不能访问<code>Ring0</code>的地址空间，包括代码和数据。<code>Linux</code>进程的<code>4GB</code>地址空间，3G-4G部分大家是共享的，是内核态的地址空间，这里存放在整个内核的代码和所有的内核模块，以及内核所维护的数据。用户运行一个程序，该程序所创建的进程开始是运 行在用户态的，如果要执行文件操作，网络数据发送等操作，必须通过<code>write</code>，<code>send</code>等系统调用，这些系统调用会调用内核中的代码来完成操作，这时，必须切换到<code>Ring0</code>，然后进入<code>3GB-4GB</code>中的内核地址空间去执行这些代码完成操作，完成后，切换回<code>Ring3</code>，回到用户态。</p>
+<p>这样，用户态的程序就不能 随意操作内核地址空间，具有一定的安全保护作用。</p>
+<p>处理器总处于以下状态中的一种：</p>
+<ul>
+<li>1、内核态，运行于进程上下文，内核代表进程运行于内核空间；</li>
+<li>2、内核态，运行于中断上下文，内核代表硬件运行于内核空间；</li>
+<li>3、用户态，运行于用户空间。</li>
+</ul>
+<h4 id="用户态到内核态怎样切换？"><a href="#用户态到内核态怎样切换？" class="headerlink" title="用户态到内核态怎样切换？"></a><strong>用户态到内核态怎样切换？</strong></h4><p>从用户态到内核态切换可以通过三种方式：</p>
+<p><strong>系统调用：</strong> 这是用户态进程主动要求切换到内核态的一种方式，用户态进程通过系统调用申请使用操作系统提供的服务程序完成工作，比如前例中fork()实际上就是执行了一个创建新进程的系统调用。而系统调用的机制其核心还是使用了操作系统为用户特别开放的一个中断来实现，例如Linux的int 80h中断。</p>
+<p><strong>异常：</strong> 当CPU在执行运行在用户态下的程序时，发生了某些事先不可知的异常，这时会触发由当前运行进程切换到处理此异常的内核相关程序中，也就转到了内核态，比如缺页异常。</p>
+<p><strong>外设中断：</strong> 当外围设备完成用户请求的操作后，会向CPU发出相应的中断信号，这时CPU会暂停执行下一条即将要执行的指令转而去执行与中断信号对应的处理程序，如果先前执行的指令是用户态下的程序，那么这个转换的过程自然也就发生了由用户态到内核态的切换。比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等。</p>
+<p>这3种方式是系统在运行时由用户态转到内核态的最主要方式，其中系统调用可以认为是用户进程主动发起的，异常和外围设备中断则是被动的。</p>
 ]]></content>
       <categories>
         <category>面试</category>
@@ -2555,6 +2845,14 @@
 
 
 <h6 id="查看时间命令："><a href="#查看时间命令：" class="headerlink" title="查看时间命令："></a>查看时间命令：</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux内核</title>
+    <url>/2022/01/03/%E9%9D%A2%E8%AF%95/Mysql/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL的锁"><a href="#MySQL的锁" class="headerlink" title="MySQL的锁"></a>MySQL的锁</h2>]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -4304,7 +4602,7 @@
 <h2 id="路由器和交换机的区别"><a href="#路由器和交换机的区别" class="headerlink" title="路由器和交换机的区别"></a>路由器和交换机的区别</h2><p><strong>路由谋短，交换求快。</strong></p>
 <p><strong>交换机工作于数据链路层，用来隔离冲突域，连接的所有设备同属于一个广播域（子网），负责子网内部通信。</strong></p>
 <p><strong>路由器工作于网络层，用来隔离广播域（子网），连接的设备分属不同子网，工作范围是多个子网之间，负责网络与网络之间通信。</strong></p>
-<p><strong>工作层次不同：</strong><br>交换机主要工作在<a href="https://so.csdn.net/so/search?q=%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82">数据链路层</a>（第二层）<br>路由器工作在<a href="https://so.csdn.net/so/search?q=%E7%BD%91%E7%BB%9C%E5%B1%82">网络层</a>（第三层）。<br><strong>转发依据不同：</strong><br>交换机转发所依据的对象时：MAC地址。（物理地址）<br>路由转发所依据的对象是：IP地址。（网络地址）<br><strong>主要功能不同：</strong><br>交换机主要用于组建局域网。<br>而路由主要功能是将由交换机组好的局域网相互连接起来，或者接入Internet。<br>交换机能做的，路由都能做。<br>交换机不能分割广播域，路由可以。<br>路由还可以提供防火墙的功能。<br>路由配置比交换机复杂。<br><strong>价格不同</strong></p>
+<p><strong>工作层次不同：</strong><br>交换机主要工作在<a href="https://so.csdn.net/so/search?q=%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82">数据链路层</a>（第二层），根据MAC地址寻址，不能处理TCP/IP协议<br>路由器工作在<a href="https://so.csdn.net/so/search?q=%E7%BD%91%E7%BB%9C%E5%B1%82">网络层</a>（第三层），根据IP地址寻址，可以处理TCP/IP协议。<br><strong>转发依据不同：</strong><br>交换机转发所依据的对象时：MAC地址。（物理地址）<br>路由转发所依据的对象是：IP地址。（网络地址）<br><strong>主要功能不同：</strong><br>交换机主要用于组建局域网。<br>而路由主要功能是将由交换机组好的局域网相互连接起来，或者接入Internet。<br>交换机能做的，路由都能做。<br>交换机不能分割广播域，路由可以。<br>路由还可以提供防火墙的功能。<br>路由配置比交换机复杂。<br><strong>价格不同</strong></p>
 <p>交换机是看门大爷，路由是邮差</p>
 ]]></content>
       <categories>
