@@ -3,7 +3,7 @@
   <entry>
     <title>bootdo项目通过jar包启动</title>
     <url>/2021/05/24/bootdo%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87jar%E5%8C%85%E5%90%AF%E5%8A%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
+    <content><![CDATA[<h3 id="bootdo项目通过jar包启动"><a href="#bootdo项目通过jar包启动" class="headerlink" title="bootdo项目通过jar包启动"></a>bootdo项目通过jar包启动</h3><ul>
 <li><p>本项目来自<a href="https://gitee.com/lcg0124/bootdo">gitee李春光</a>，具体<a href="https://gitee.com/lcg0124/bootdo/wikis/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE?sort_id=64319">参考文档</a></p>
 <p><img src="https://img.imgdb.cn/item/608b57c6d1a9ae528fa2373d.png" alt="image-20210304220122324"></p>
 </li>
@@ -59,152 +59,104 @@
   <entry>
     <title>git使用</title>
     <url>/2021/12/26/git%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="git的基本使用"><a href="#git的基本使用" class="headerlink" title="git的基本使用"></a>git的基本使用</h3><ul>
-<li><strong>Git是什么？****Git是目前世界上最先进的分布式版本控制系统。</strong></li>
-<li><strong>工作原理 / 流程：</strong><img src="file://D:\noteBook\git\images\59c31e4400013bc911720340.png?lastModify=1640523474" alt="图片描述"></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Workspace：工作区</span><br><span class="line">Index / Stage：暂存区</span><br><span class="line">Repository：仓库区（或本地仓库)</span><br><span class="line">Remote：远程仓库</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>git设置用户名和邮箱</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;superbear&quot;</span><br><span class="line">$ git config --global user.email &quot;809900832@qq.com&quot;</span><br></pre></td></tr></table></figure></li>
-<li><strong>git init将当前目录变成git管理仓库</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in D:/gitTest/.git/</span><br></pre></td></tr></table></figure></li>
-<li><strong>添加文件到暂存区</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add readme.txt</span><br></pre></td></tr></table></figure></li>
-<li><strong>把文件提交仓库</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;readme.txt提交&quot;</span><br><span class="line">[master (root-commit) da56bfb] readme.txt提交</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 readme.txt</span><br></pre></td></tr></table></figure></li>
-<li><strong>查看文件提交状态</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure></li>
-<li><strong>修改readme.txt文件，查看status（readme.txt已经被修改但是文件未提交）</strong><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git status</span></span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>查看readme.txt修改了什么内容</strong><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git diff readme.txt</span></span><br><span class="line">diff --git a/readme.txt b/readme.txt</span><br><span class="line">index 748099d..1ae13e4 100644</span><br><span class="line">--- a/readme.txt</span><br><span class="line">+++ b/readme.txt</span><br><span class="line">@@ -1 +1,2 @@</span><br><span class="line">-11111111</span><br><span class="line">\ No newline at end of file</span><br><span class="line">+11111111</span><br><span class="line">+22222222</span><br><span class="line">\ No newline at end of file</span><br></pre></td></tr></table></figure></li>
-<li><strong>提交修改后的内容</strong><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">  $</span><span class="bash"> git add readme.txt</span></span><br><span class="line">  </span><br><span class="line">  80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">  $</span><span class="bash"> git status</span></span><br><span class="line">  On branch master</span><br><span class="line">  Changes to be committed:</span><br><span class="line">    (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">          modified:   readme.txt</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">  80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">  $</span><span class="bash"> git commit -m <span class="string">&quot;文件增加222222内容&quot;</span></span></span><br><span class="line">  [master c37756b] 文件增加222222内容</span><br><span class="line">   1 file changed, 2 insertions(+), 1 deletion(-)</span><br><span class="line"></span><br><span class="line">  80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">  $</span><span class="bash"> git status</span></span><br><span class="line">  On branch master</span><br><span class="line">  nothing to commit, working tree clean</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li><p><strong>添加一行3333333333</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git add readme.txt</span></span><br><span class="line"></span><br><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">&quot;文件增加3333333333内容&quot;</span></span></span><br><span class="line">[master 365183a] 文件增加3333333333内容</span><br><span class="line"> 1 file changed, 2 insertions(+), 1 deletion(-)</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>查看历史记录</strong></p>
+    <content><![CDATA[<h3 id="Git三种工程区域-amp-文件状态"><a href="#Git三种工程区域-amp-文件状态" class="headerlink" title="Git三种工程区域 &amp; 文件状态"></a>Git三种工程区域 &amp; 文件状态</h3><h4 id="三种工程区域"><a href="#三种工程区域" class="headerlink" title="三种工程区域"></a>三种工程区域</h4><ol>
+<li><p><strong>版本库（Repository）</strong></p>
+<p>在工作区中有一个隐藏目录.git，这个文件夹就是Git的版本库，里面存放了Git用了管理该工程的所有版本数据，里面存放了Git用来管理该工程的所有版本数据，也叫<strong>本地仓库</strong>。</p>
 </li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit 365183a8190fd656187a692d1b87534f3aea2565 (HEAD -&gt; master)</span><br><span class="line">Author: superbear &lt;809900832@qq.com&gt;</span><br><span class="line">Date:   Thu Aug 26 11:23:13 2021 +0800</span><br><span class="line"></span><br><span class="line">    文件增加3333333333内容</span><br><span class="line"></span><br><span class="line">commit c37756b902d3c950a3f9abc31598165a6680e0ad</span><br><span class="line">Author: superbear &lt;809900832@qq.com&gt;</span><br><span class="line">Date:   Thu Aug 26 11:15:15 2021 +0800</span><br><span class="line"></span><br><span class="line">    文件增加222222内容</span><br><span class="line"></span><br><span class="line">commit da56bfb0131b6a23e6d28d8f9311baa72073d014</span><br><span class="line">Author: superbear &lt;809900832@qq.com&gt;</span><br><span class="line">Date:   Thu Aug 26 11:09:48 2021 +0800</span><br><span class="line">      readme.txt提交</span><br></pre></td></tr></table></figure>
-
-<p>      </p>
-<ul>
-<li><strong>简化版显示版本信息</strong></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log --oneline</span><br><span class="line">365183a (HEAD -&gt; master) 文件增加3333333333内容</span><br><span class="line">c37756b 文件增加222222内容</span><br><span class="line">da56bfb readme.txt提交</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>版本回退</strong></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> cat readme.txt</span></span><br><span class="line">11111111</span><br><span class="line">22222222</span><br><span class="line">3333333333</span><br><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git reset --hard HEAD^</span></span><br><span class="line">HEAD is now at c37756b 文件增加222222内容</span><br><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> cat readme.txt</span></span><br><span class="line">11111111</span><br><span class="line">22222222</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>再次查看历史记录</strong></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">log</span> --oneline</span></span><br><span class="line">c37756b (HEAD -&gt; master) 文件增加222222内容</span><br><span class="line">da56bfb readme.txt提交</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li><strong>回退到最新版本</strong></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git reflog</span></span><br><span class="line">c37756b (HEAD -&gt; master) HEAD@&#123;0&#125;: reset: moving to HEAD^</span><br><span class="line">365183a HEAD@&#123;1&#125;: commit: 文件增加3333333333内容</span><br><span class="line">c37756b (HEAD -&gt; master) HEAD@&#123;2&#125;: commit: 文件增加222222内容</span><br><span class="line">da56bfb HEAD@&#123;3&#125;: commit (initial): readme.txt提交</span><br><span class="line"></span><br><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> git reset --hard 365183a</span></span><br><span class="line">HEAD is now at 365183a 文件增加3333333333内容</span><br><span class="line"></span><br><span class="line">80990@SuperBear-LAPTOP MINGW64 /d/gitTest (master)</span><br><span class="line"><span class="meta">$</span><span class="bash"> cat readme.txt</span></span><br><span class="line">11111111</span><br><span class="line">22222222</span><br><span class="line">3333333333</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>理解工作区与暂存区的区别？</strong><ul>
-<li><strong>工作区：就是你在电脑上看到的目录，比如目录下testgit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。</strong></li>
-<li><strong>版本库(Repository)：工作区有一个隐藏目录.git,这个不属于工作区，这是版本库。其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。</strong></li>
-</ul>
+<li><p><strong>工作区（Working Directory）</strong></p>
+<p>日常工作的代码文件或者文档所在的文件夹。</p>
 </li>
-<li><strong>Git提交文件到版本库有两步：</strong><ul>
-<li>第一步：是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。</li>
-<li>第二步：使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支上。</li>
-</ul>
+<li><p><strong>暂存区（stage）</strong></p>
+<p>一般存放在工程根目录.git/index文件中。</p>
 </li>
-</ul>
-<hr>
-<p> <strong>Git vs SVN</strong> </p>
-<blockquote>
-<p>Git 和 SVN 孰优孰好，每个人有不同的体验。</p>
-</blockquote>
-<p><strong>一、Git是分布式的，SVN是集中式的</strong></p>
-<p>这是 Git 和 SVN 最大的区别。若能掌握这个概念，两者区别基本搞懂大半。因为 Git 是分布式的，所以 Git 支持离线工作，在本地可以进行很多操作，包括接下来将要重磅推出的分支功能。而 SVN 必须联网才能正常工作。</p>
-<p><strong>二、Git复杂概念多，SVN简单易上手</strong></p>
-<p>所有同时掌握 Git 和 SVN 的开发者都必须承认，Git 的命令实在太多了，日常工作需要掌握 <code>add</code>, <code>commit</code>, <code>status</code>, <code>fetch</code>, <code>push</code>, <code>rebase</code>等，若要熟练掌握，还必须掌握 <code>rebase</code>和 <code>merge</code>的区别， <code>fetch</code>和 <code>pull</code>的区别等，除此之外，还有 <code>cherry-pick</code>， <code>submodule</code>， <code>stash</code>等功能，仅是这些名词听着都很绕。</p>
-<p>在易用性这方面，SVN 会好得多，简单易上手，对新手很友好。但是从另外一方面看，Git 命令多意味着功能多，若我们能掌握大部分 Git 的功能，体会到其中的奥妙，会发现再也回不去 SVN 的时代了。</p>
-<p><strong>三、Git分支廉价，SVN分支昂贵</strong></p>
-<p>在版本管理里，分支是很常使用的功能。在发布版本前，需要发布分支，进行大需求开发，需要 feature 分支，大团队还会有开发分支，稳定分支等。在大团队开发过程中，常常存在创建分支，切换分支的需求。</p>
-<p>Git 分支是指针指向某次提交，而 SVN 分支是拷贝的目录。这个特性使 Git 的分支切换非常迅速，且创建成本非常低。</p>
-<p>而且 Git 有本地分支，SVN 无本地分支。在实际开发过程中，经常会遇到有些代码没写完，但是需紧急处理其他问题，若我们使用 Git，便可以创建本地分支存储没写完的代码，待问题处理完后，再回到本地分支继续完成代码。</p>
-<hr>
-<p> <strong>Git核心思想</strong> </p>
-<p>Git 最核心的一个概念就是<strong>工作流</strong>。</p>
-<ul>
-<li><strong>工作区(Workspace)</strong> 是电脑中实际的目录。</li>
-<li><strong>暂存区(Index)</strong> 类似于缓存区域，临时保存你的改动。</li>
-<li>**仓库区(Repository)**，分为本地仓库和远程仓库。</li>
-</ul>
-<p>从 SVN 切换到 Git，最难理解并且最不能理解的是暂存区和本地仓库。熟练使用 Git 后，会发现这简直是神设计，由于这两者的存在，使许多工作变得易管理。</p>
-<p>通常提交代码分为几步：</p>
-<ul>
-<li><code>git add</code> 从工作区提交到暂存区</li>
-<li><code>git commit</code> 从暂存区提交到本地仓库</li>
-<li><code>git push</code>或 <code>git svn dcommit</code> 从本地仓库提交到远程仓库</li>
-</ul>
-<p>一般来说，记住以下命令，便可进行日常工作了（图片来源于网络）：</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/640" alt="Image"></p>
-<hr>
-<p> <strong>Git-SVN常用命令</strong> </p>
-<blockquote>
-<p>看到Git-SVN不要懵！是的，在Git中甚至有命令可以直接和SVN进行桥接，Git 中所有与SVN桥接的基础命令就是 <code>git svn</code></p>
-</blockquote>
-<p>若服务器使用的 SVN，但是本地想要体验 Git 的本地分支，离线操作等功能，可以使用 Git-SVN功能。</p>
-<p>常用操作如下（图片来源于网络）：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/xq9PqibkVAzrMEgAqCZsNxerEvNbMLEbEBAsOwPAZ6MEok8eGXak2aNjUgqnamnsKKA8IWic9sfJlvrBpmqY1bUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载一个 SVN 项目和它的整个代码历史，并初始化为 Git 代码库$ git svn clone -s [repository]</span><br><span class="line"># 查看当前版本库情况$ git svn info</span><br><span class="line"># 取回远程仓库所有分支的变化$ git svn fetch</span><br><span class="line"># 取回远程仓库当前分支的变化，并与本地分支变基合并$ git svn rebase</span><br><span class="line"># 上传当前分支的本地仓库到远程仓库$ git svn dcommit</span><br><span class="line"># 拉取新分支，并提交到远程仓库$ svn copy [remote_branch] [new_remote_branch] -m [message]</span><br><span class="line"># 创建远程分支对应的本地分支$ git checkout -b [local_branch] [remote_branch]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>初 始 化</strong> </p>
-<blockquote>
-<p>从本节开始，除特殊说明，以下命令均适用于 Git 与 Git-SVN。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在当前目录新建一个Git代码库$ git init</span><br><span class="line"># 下载一个项目和它的整个代码历史 [Git only]$ git clone [url]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>配  置</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 列举所有配置$ git config -l</span><br><span class="line"># 为命令配置别名$ git config --global alias.co checkout$ git config --global alias.ci commit$ git config --global alias.st status$ git config --global alias.br branch</span><br><span class="line"># 设置提交代码时的用户信息$ git config [--global] user.name &quot;[name]&quot;$ git config [--global] user.email &quot;[email address]&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Git 用户的配置文件位于 <code>~/.gitconfig</code></p>
-<p>Git 单个仓库的配置文件位于 <code>~/$PROJECT_PATH/.git/config</code></p>
-<hr>
-<p> <strong>增删文件</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 添加当前目录的所有文件到暂存区$ git add .</span><br><span class="line"># 添加指定文件到暂存区$ git add &lt;file1&gt; &lt;file2&gt; ...</span><br><span class="line"># 添加指定目录到暂存区，包括其子目录$ git add &lt;dir&gt;</span><br><span class="line"># 删除工作区文件，并且将这次删除放入暂存区$ git rm [file1] [file2] ...</span><br><span class="line"># 停止追踪指定文件，但该文件会保留在工作区$ git rm --cached [file]</span><br><span class="line"># 改名文件，并且将这个改名放入暂存区$ git mv [file-original] [file-renamed]</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>把文件名 file1 添加到 .gitignore 文件里，Git 会停止跟踪 file1 的状态。</p>
-</blockquote>
-<hr>
-<p> <strong>分  支</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 列出所有本地分支$ git branch</span><br><span class="line"># 列出所有本地分支和远程分支$ git branch -a</span><br><span class="line"># 新建一个分支，但依然停留在当前分支$ git branch [branch-name]</span><br><span class="line"># 新建一个分支，并切换到该分支$ git checkout -b [new_branch] [remote-branch]</span><br><span class="line"># 切换到指定分支，并更新工作区$ git checkout [branch-name]</span><br><span class="line"># 合并指定分支到当前分支$ git merge [branch]</span><br><span class="line"># 选择一个 commit，合并进当前分支$ git cherry-pick [commit]</span><br><span class="line"># 删除本地分支，-D 参数强制删除分支$ git branch -d [branch-name]</span><br><span class="line"># 删除远程分支$ git push [remote] :[remote-branch]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>提  交</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 提交暂存区到仓库区$ git commit -m [message]</span><br><span class="line"># 提交工作区与暂存区的变化直接到仓库区$ git commit -a</span><br><span class="line"># 提交时显示所有 diff 信息$ git commit -v</span><br><span class="line"># 提交暂存区修改到仓库区，合并到上次修改，并修改上次的提交信息$ git commit --amend -m [message]</span><br><span class="line"># 上传本地指定分支到远程仓库$ git push [remote] [remote-branch]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>拉  取</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载远程仓库的所有变动 (Git only)$ git fetch [remote]</span><br><span class="line"># 显示所有远程仓库 (Git only)$ git remote -v</span><br><span class="line"># 显示某个远程仓库的信息 (Git only)$ git remote show [remote]</span><br><span class="line"># 增加一个新的远程仓库，并命名 (Git only)$ git remote add [remote-name] [url]</span><br><span class="line"># 取回远程仓库的变化，并与本地分支合并，(Git only), 若使用 Git-SVN，请查看第三节$ git pull [remote] [branch]</span><br><span class="line"># 取回远程仓库的变化，并与本地分支变基合并，(Git only), 若使用 Git-SVN，请查看第三节$ git pull --rebase [remote] [branch]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>撤  销</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 恢复暂存区的指定文件到工作区$ git checkout [file]</span><br><span class="line"># 恢复暂存区当前目录的所有文件到工作区$ git checkout .</span><br><span class="line"># 恢复工作区到指定 commit$ git checkout [commit]</span><br><span class="line"># 重置暂存区的指定文件，与上一次 commit 保持一致，但工作区不变$ git reset [file]</span><br><span class="line"># 重置暂存区与工作区，与上一次 commit 保持一致$ git reset --hard</span><br><span class="line"># 重置当前分支的指针为指定 commit，同时重置暂存区，但工作区不变$ git reset [commit]</span><br><span class="line"># 重置当前分支的HEAD为指定 commit，同时重置暂存区和工作区，与指定 commit 一致$ git reset --hard [commit]</span><br><span class="line"># 新建一个 commit，用于撤销指定 commit$ git revert [commit]</span><br><span class="line"># 将未提交的变化放在储藏区$ git stash</span><br><span class="line"># 将储藏区的内容恢复到当前工作区$ git stash pop</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p> <strong>查  询</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看工作区文件修改状态$ git status</span><br><span class="line"># 查看工作区文件修改具体内容$ git diff [file]</span><br><span class="line"># 查看暂存区文件修改内容$ git diff --cached [file] </span><br><span class="line"># 查看版本库修改记录$ git log</span><br><span class="line"># 查看某人提交记录$ git log --author=someone</span><br><span class="line"># 查看某个文件的历史具体修改内容$ git log -p [file]        </span><br><span class="line"># 查看某次提交具体修改内容$ git show [commit]</span><br></pre></td></tr></table></figure>
-
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><ul>
-<li><a href="https://www.cnblogs.com/joyco773/p/10591820.html">Git使用教程,最详细，最傻瓜，最浅显，真正手把手教</a></li>
-<li><a href="https://mp.weixin.qq.com/s/bUYz9JwqAYH_Fn6nHPSmTg">为什么 Git把 SVN拍在了沙滩上！</a></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$2a$10$Vp1CxPTT/QBmU88jZYzkXOYgIq04Kvfd.o.YYqFn0y6rC5hgO/Yqe</span><br></pre></td></tr></table></figure>
-
+</ol>
+<h4 id="三种文件状态"><a href="#三种文件状态" class="headerlink" title="三种文件状态"></a>三种文件状态</h4><ol>
+<li><p>已提交（committed）</p>
+<p>该文件已经被安全的保存在了本地数据库中了；</p>
+</li>
+<li><p>已修改（modified）</p>
+<p>修改了某个文件，但还没有提交保存；</p>
+</li>
+<li><p>已暂存（staged）</p>
+<p>把已修改的文件放在下次提交时要保存的清单中。</p>
+</li>
+</ol>
+<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><p><strong>工程准备</strong></p>
+<p>工程克隆——git clone</p>
+<p><strong>查看工作区</strong></p>
+<p>查看工作区的修改内容——git diff</p>
+<p>查看工作区的文件状态——git status</p>
+<p><strong>文件修改后提交推送</strong></p>
+<p>新增/删除/移动文件到暂存区——git add/ git rm/ git mv</p>
+<p>提交更改的文件——git commit</p>
+<p>推送远端仓库——git push</p>
+<p><strong>查看日志</strong></p>
+<p>查看当前分支上的提交日志——git log</p>
+<p><strong>分支管理</strong></p>
+<p>列出本地分支——git branch</p>
+<p>新建分支——git branch/ git checkout -b</p>
+<p>删除分支——git branch -d</p>
+<p>切换分支——git checkout</p>
+<p>更新分支——git pull</p>
+<p>合并分支——git merge</p>
+<p><strong>撤销操作</strong></p>
+<p>强制回退到历史节点——git reset</p>
+<p>回退本地所有修改而未提交的——git checkout</p>
+<p><strong>分支合并</strong></p>
+<p>合并目标分支内容到当前分支——git merge/git rebase</p>
+<h3 id="Git常用命令详解"><a href="#Git常用命令详解" class="headerlink" title="Git常用命令详解"></a>Git常用命令详解</h3><h4 id="工程准备"><a href="#工程准备" class="headerlink" title="工程准备"></a>工程准备</h4><p><strong><strong style="color:#00b0f0;">git clone </strong>用于克隆远端工程到本地磁盘</strong></p>
+<p>执行命令<strong style="color:#00b0f0;">git clone [URL]</strong>或<strong style="color:#00b0f0;">git lfs clone [URL]</strong></p>
+<p><strong style="color:#ff0000;">注：</strong>如果所在项目git服务器已支持git-lfs，对二进制文件进行了区别管理，那么克隆工程的时候务必使用git lfs clone，否则克隆操作无法下载到工程中的二进制文件，工程内容不完整。</p>
+<h4 id="新增-删除-移动文件到暂存区"><a href="#新增-删除-移动文件到暂存区" class="headerlink" title="新增/删除/移动文件到暂存区"></a>新增/删除/移动文件到暂存区</h4><p><strong>在提交你修改的文件之前，需要<strong style="color:#00b0f0;">git add</strong>把文件添加到暂存区。</strong></p>
+<p><strong style="color:#ff0000;">注：</strong>早期需要<strong style="color:#00b0f0;">git add</strong>再提交，较新版本的git中不需要。</p>
+<p><strong><strong style="color:#00b0f0;">git rm</strong> 将指定文件彻底从当前分支的缓存区删除，因此它从当前分支的下一个提交快照中被删除。</strong></p>
+<p>也可以直接硬盘上删除文件，然后对该文件执行<strong style="color:#00b0f0;">git commit</strong>，git会自动将删除的文件从索引中移除，效果一样。</p>
+<p><strong><strong style="color:#00b0f0;">git mv</strong>命令用于移动文件，也可以用于重命名文件。</strong></p>
+<p>例1：移动test.conf到config目录下：<strong style="color:#00b0f0;">git mv test.conf config</strong></p>
+<p>例2: 将文件test.conf重命名为test1.conf：<strong style="color:#00b0f0;">git mv test.conf test1.conf</strong></p>
+<h4 id="查看工作区"><a href="#查看工作区" class="headerlink" title="查看工作区"></a>查看工作区</h4><p><strong><strong style="color:#00b0f0;">git diff</strong>用于比较项目中任意两个版本（分支）的差异，也可以用来比较当前的索引和上次提交间的差异。</strong></p>
+<p><strong><strong style="color:#00b0f0;">git status</strong>命令用于显示工作目录和暂存区的状态。</strong></p>
+<p>使用此命令能看到修改的git文件是否被暂存，新增的文件是否纳入了git版本库的管理。</p>
+<h4 id="提交更改的文件"><a href="#提交更改的文件" class="headerlink" title="提交更改的文件"></a>提交更改的文件</h4><p><strong style="color:#00b0f0;">git commit</strong><strong>主要是将暂存区里的文件改动提交到本地的版本库</strong></p>
+<p><strong style="color:#ff0000;">注</strong>：提交这个动作是本地动作，是往本地的版本库中记录改动，不影响远端服务器。</p>
+<p><strong style="color:#00b0f0;">git commit</strong>一般需要带描述信息，常见用法：<strong style="color:#00b0f0;">git commit file_name -m “commit message”</strong></p>
+<p>如果要一次性提交所有在暂存区改动的文件到版本库，可以执行：<strong style="color:#00b0f0;">git commit -am “commit message”</strong></p>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><p><strong style="color:#00b0f0;">git log</strong><strong>用于查看提交历史</strong>。</p>
+<h4 id="推送至远端仓库"><a href="#推送至远端仓库" class="headerlink" title="推送至远端仓库"></a>推送至远端仓库</h4><p><strong>在使用<strong style="color:#00b0f0;">git commit</strong>命令将自己的修改从暂存区提交到本地版本库之后，可以使用<strong style="color:#00b0f0;">git push</strong>将本地版本库的分支推送到远程服务器对应的分支。</strong></p>
+<p>常用推送命令格式：<strong style="color:#00b0f0;">git push origin branch_name</strong></p>
+<p><strong>本地分支名可以与推送到远端的分支名不同</strong>：<strong style="color:#00b0f0;">git push origin branch_name:new_branch_name</strong></p>
+<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><p><strong><strong style="color:#00b0f0;">git branch</strong>命令即可查看本地工程的所有git分支名称</strong></p>
+<p><strong style="color:#00b0f0;">git branch </strong>和<strong style="color:#00b0f0;">git checkout -b</strong>的异同：</p>
+<p>相同点：</p>
+<p>都可用于新建分支（默认基于当前分支节点创建）</p>
+<p>不同点：</p>
+<p><strong style="color:#00b0f0;">git branch</strong>新建分支后并不会切换到新分支；</p>
+<p><strong style="color:#00b0f0;">git checkout -b</strong>新建分支后会自动切换到新分支。</p>
+<p><strong>常用的新建分支命令格式</strong>：<strong style="color:#00b0f0;">git brack new_branch_name / git checkout -b branch_name</strong></p>
+<p><strong style="color:#00b0f0;">git branch -d</strong>和<strong style="color:#00b0f0;">git branch -D</strong><strong>都可以用来删除本地分支</strong>，<strong>后者大写表示强制删除</strong>。</p>
+<p><strong>常用的删除分支命令格式</strong>：<strong style="color:#00b0f0;">git branch -d branch_name/git branch -D branck_name</strong></p>
+<p>删除服务器上的远程分支可以使用 <strong style="color:#00b0f0;">git branch -d -r branck_name</strong>，其中branch_name为本地分支名。</p>
+<p>删除后，还要推送到服务器上才行，即<strong style="color:#00b0f0;">git push origin : branch_name</strong></p>
+<p><strong style="color:#00b0f0;">git checkout</strong>命令除了创建分支，还用来切换分支。</p>
+<p>有时候，当前分支工作区存在修改而未提交的文件，与目的分支上的内容冲突，会导致checkout切换失败，这时候，可以使用<strong style="color:#00b0f0;">git checkout -f</strong>进行强制切换。</p>
+<p><strong>常用切换分支命令格式</strong>：<strong style="color:#00b0f0;">git checkout branch_name</strong></p>
+<p><strong style="color:#00b0f0;">git pull</strong><strong>的作用是从远端服务器中获取某个分支的更新</strong>，<strong>在于本地指定的分支进行自动合并</strong>。</p>
+<p><strong>常用的更新分支的命令格式</strong>：<strong style="color:#00b0f0;">git pull origin remote_branch:local_branch</strong></p>
+<p>如果远程指定的分支与本地指定的分支相同，则可直接指向<strong style="color:#00b0f0;">git pull origin remote_branch</strong></p>
+<p><strong style="color:#00b0f0;">git fetch</strong><strong>的作用是从远端服务器中获取某个分支的更新到本地仓库</strong>。</p>
+<p><strong style="color:#ff0000;">注：</strong>与git pull不同，git fetch在获取到更新后，并不会进行合并操作，确认内容符合预期后，再决定是否手动合并节点。</p>
+<p><strong>常用的获取远端分支更新命令格式</strong>：<strong style="color:#00b0f0;">git fetch origin remote_branch:local_branch</strong></p>
+<p>如果远程指定的分支与本地指定的分支相同，则可直接执行<strong style="color:#00b0f0;">git fetch origin remote_branch</strong></p>
+<h4 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h4><p><strong style="color:#00b0f0;">git merge</strong><strong>命令是用于从指定的分支</strong>（<strong>节点</strong>）<strong>合并到当前分支的操作</strong></p>
+<p>git会将指定的分支与当前分支进行比较，找出两者最近的一个共同节点base，之后将指定分支在base之后的分离节点合并到当前分支上。分支合并，实际上市分支间差异提交节点的合并。</p>
+<p><strong>常用的切换分支命令格式</strong>：<strong style="color:#00b0f0;">git merge branch_name</strong></p>
+<p><strong style="color:#00b0f0;">git rebase</strong><strong>用于合并目标分支内容到当前分支</strong>。</p>
+<p>常用合并命令格式：<strong style="color:#00b0f0;">git rebase branch_name</strong></p>
+<p><strong style="color:#ff0000;">注：</strong>git rebase、git merge背后的实现机制对合并后节点造成的影响有很大差异，各有风险存在。</p>
+<h4 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h4><p><strong><strong style="color:#00b0f0;">git reset</strong>通常用于撤销当前工作区中的某些<strong style="color:#00b0f0;">git add/commit</strong>操作，可将工作区内容回退到历史提交节点。</strong></p>
+<p><strong style="color:#00b0f0;">git checkout . </strong>用于回退本地所有修改而未提交的文件内容。</p>
+<p><strong style="color:#ff0000;">注：</strong>它会用暂存区的所有文件直接覆盖本地文件，不给用户确认机会，谨慎使用。</p>
+<p>如果仅仅只想退回某个文件的未提交改动，可以使用<strong style="color:#00b0f0;">git checkout -filename</strong>来达到目的；如果想将工具区回退到某个提交版本，可以使用<strong style="color:#00b0f0;">git checkout commit_id</strong></p>
 ]]></content>
       <categories>
         <category>工具使用</category>
@@ -213,7 +165,7 @@
   <entry>
     <title>数据库常用指令</title>
     <url>/2021/07/22/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mysql-sql常用语句大全"><a href="#mysql-sql常用语句大全" class="headerlink" title="mysql sql常用语句大全"></a><a href="https://blog.csdn.net/hzw6991/article/details/87757426?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514485316780264064821%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=162514485316780264064821&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-87757426.pc_v2_rank_blog_default&utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&spm=1018.2226.3001.4450">mysql sql常用语句大全</a></h1><h3 id="一-、常用操作数据库的命令"><a href="#一-、常用操作数据库的命令" class="headerlink" title="一 、常用操作数据库的命令"></a>一 、常用操作数据库的命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.show databases; 查看所有的数据库</span><br><span class="line">2.create database test; 创建一个叫test的数据库</span><br><span class="line">3.drop database test;删除一个叫test的数据库</span><br><span class="line">4.use test;选中库 ,在建表之前必须要选择数据库</span><br><span class="line">5.show tables; 在选中的数据库之中查看所有的表</span><br><span class="line">6.create table 表名 (字段1 类型, 字段2 类型);</span><br><span class="line">7.desc 表名;查看所在的表的字段</span><br><span class="line">8.drop table 表名; 删除表</span><br><span class="line">9.show create database 库名;查看创建库的详细信息</span><br><span class="line">10.show create table 表名; 查看创建表的详细信息</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="mysql-sql常用语句大全"><a href="#mysql-sql常用语句大全" class="headerlink" title="mysql sql常用语句大全"></a><a href="https://blog.csdn.net/hzw6991/article/details/87757426?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514485316780264064821%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=162514485316780264064821&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-87757426.pc_v2_rank_blog_default&utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&spm=1018.2226.3001.4450">mysql sql常用语句大全</a></h1><h3 id="一-、常用操作数据库的命令"><a href="#一-、常用操作数据库的命令" class="headerlink" title="一 、常用操作数据库的命令"></a>一 、常用操作数据库的命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.show databases; 查看所有的数据库</span><br><span class="line">2.create database test; 创建一个叫test的数据库</span><br><span class="line">3.drop database test;删除一个叫test的数据库</span><br><span class="line">4.use test;选中库 ,在建表之前必须要选择数据库</span><br><span class="line">5.show tables; 在选中的数据库之中查看所有的表</span><br><span class="line">6.create table 表名 (字段1 类型, 字段2 类型);</span><br><span class="line">7.desc 表名;查看所在的表的字段</span><br><span class="line">8.drop table 表名; 删除表</span><br><span class="line">9.show create database 库名;查看创建库的详细信息</span><br><span class="line">10.show create table 表名; 查看创建表的详细信息</span><br></pre></td></tr></table></figure>
 
 <h3 id="二、修改表的命令"><a href="#二、修改表的命令" class="headerlink" title="二、修改表的命令"></a>二、修改表的命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.修改字段类型 alter table 表名 modify 字段 字段类型;</span><br><span class="line">2.添加新的字段 alter table 表名 add 字段 字段类型</span><br><span class="line">3.添加字段并指定位置  alter table 表名 add 字段 字段类型   after 字段;</span><br><span class="line">4.删除表字段  alter table 表名 drop 字段名;</span><br><span class="line">5.修改指定的字段  alter table 表名 change 原字段名字  新的字段名字 字段类型</span><br></pre></td></tr></table></figure>
 
@@ -238,7 +190,7 @@
   <entry>
     <title>一些简单题</title>
     <url>/2022/01/23/%E5%88%B7%E9%A2%98/%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="NC120-二进制中1的个数"><a href="#NC120-二进制中1的个数" class="headerlink" title="NC120 二进制中1的个数"></a>NC120 二进制中1的个数</h3><p><strong>描述</strong></p>
+    <content><![CDATA[<h3 id="NC120-二进制中1的个数"><a href="#NC120-二进制中1的个数" class="headerlink" title="NC120 二进制中1的个数"></a>NC120 二进制中1的个数</h3><p><strong>描述</strong></p>
 <p>输入一个整数 n ，输出该数32位二进制表示中1的个数。其中负数用补码表示。</p>
 <p><strong>示例1</strong></p>
 <p>输入：</p>
@@ -322,7 +274,7 @@
   <entry>
     <title>二叉树</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
+    <content><![CDATA[<h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
 <p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
 <p><strong>示例 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
@@ -434,7 +386,7 @@
   <entry>
     <title>动态规划</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
+    <content><![CDATA[<h4 id="600-不含连续1的非负整数"><a href="#600-不含连续1的非负整数" class="headerlink" title="600. 不含连续1的非负整数"></a><a href="https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones/">600. 不含连续1的非负整数</a></h4><p>难度困难138</p>
 <p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 <strong>连续的1</strong> 的个数。</p>
 <p><strong>示例 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 5</span><br><span class="line">解释: </span><br><span class="line">下面是带有相应二进制表示的非负整数&lt;= 5：</span><br><span class="line">0 : 0</span><br><span class="line">1 : 1</span><br><span class="line">2 : 10</span><br><span class="line">3 : 11</span><br><span class="line">4 : 100</span><br><span class="line">5 : 101</span><br><span class="line">其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</span><br></pre></td></tr></table></figure>
@@ -517,7 +469,7 @@
   <entry>
     <title>哈希表</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="447-回旋镖的数量"><a href="#447-回旋镖的数量" class="headerlink" title="447. 回旋镖的数量"></a><a href="https://leetcode-cn.com/problems/number-of-boomerangs/">447. 回旋镖的数量</a></h4><p>给定平面上 <code>n</code> 对 <strong>互不相同</strong> 的点 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 。<strong>回旋镖</strong> 是由点 <code>(i, j, k)</code> 表示的元组 ，其中 <code>i</code> 和 <code>j</code> 之间的距离和 <code>i</code> 和 <code>k</code> 之间的距离相等（<strong>需要考虑元组的顺序</strong>）。</p>
+    <content><![CDATA[<h4 id="447-回旋镖的数量"><a href="#447-回旋镖的数量" class="headerlink" title="447. 回旋镖的数量"></a><a href="https://leetcode-cn.com/problems/number-of-boomerangs/">447. 回旋镖的数量</a></h4><p>给定平面上 <code>n</code> 对 <strong>互不相同</strong> 的点 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 。<strong>回旋镖</strong> 是由点 <code>(i, j, k)</code> 表示的元组 ，其中 <code>i</code> 和 <code>j</code> 之间的距离和 <code>i</code> 和 <code>k</code> 之间的距离相等（<strong>需要考虑元组的顺序</strong>）。</p>
 <p>返回平面上所有回旋镖的数量。</p>
 <p><strong>示例 1：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：points = [[0,0],[1,0],[2,0]]</span><br><span class="line">输出：2</span><br><span class="line">解释：两个回旋镖为 [[1,0],[0,0],[2,0]] 和 [[1,0],[2,0],[0,0]]</span><br></pre></td></tr></table></figure>
@@ -637,7 +589,7 @@
   <entry>
     <title>堆栈</title>
     <url>/2022/01/07/%E5%88%B7%E9%A2%98/%E5%A0%86%E6%A0%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h3><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
+    <content><![CDATA[<h3 id="NC76-用两个栈实现队列"><a href="#NC76-用两个栈实现队列" class="headerlink" title="NC76 用两个栈实现队列"></a><a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=188&&tqId=38552&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC76 用两个栈实现队列</a></h3><p>用两个栈来实现一个队列，使用n个元素来完成 n 次在队列尾部插入整数(push)和n次在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。</p>
 <p>数据范围： n\le1000<em>n</em>≤1000</p>
 <p>要求：存储n个元素的空间复杂度为 O(n)<em>O</em>(<em>n</em>) ，插入与删除的时间复杂度都是 O(1)<em>O</em>(1)</p>
 <p><strong>示例1</strong></p>
@@ -704,7 +656,7 @@
   <entry>
     <title>矩阵</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E7%9F%A9%E9%98%B5/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="48-旋转图像"><a href="#48-旋转图像" class="headerlink" title="48. 旋转图像"></a><a href="https://leetcode-cn.com/problems/rotate-image/">48. 旋转图像</a></h4><p>难度中等1064</p>
+    <content><![CDATA[<h4 id="48-旋转图像"><a href="#48-旋转图像" class="headerlink" title="48. 旋转图像"></a><a href="https://leetcode-cn.com/problems/rotate-image/">48. 旋转图像</a></h4><p>难度中等1064</p>
 <p>给定一个 <em>n</em> × <em>n</em> 的二维矩阵 <code>matrix</code> 表示一个图像。请你将图像顺时针旋转 90 度。</p>
 <p>你必须在**<a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"> 原地</a>** 旋转图像，这意味着你需要直接修改输入的二维矩阵。<strong>请不要</strong> 使用另一个矩阵来旋转图像。</p>
 <p><strong>示例 1：</strong></p>
@@ -740,7 +692,7 @@
   <entry>
     <title>经典题</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E7%BB%8F%E5%85%B8%E9%A2%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="数字-n-代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且-有效的-括号组合。"><a href="#数字-n-代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且-有效的-括号组合。" class="headerlink" title="数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。"></a>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</h3><p><strong>示例 1：</strong></p>
+    <content><![CDATA[<h3 id="数字-n-代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且-有效的-括号组合。"><a href="#数字-n-代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且-有效的-括号组合。" class="headerlink" title="数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。"></a>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</h3><p><strong>示例 1：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 3</span><br><span class="line">输出：[&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 2：</strong></p>
@@ -771,7 +723,7 @@
   <entry>
     <title>递归</title>
     <url>/2022/01/08/%E5%88%B7%E9%A2%98/%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NC68-跳台阶"><a href="#NC68-跳台阶" class="headerlink" title="NC68 跳台阶"></a><a href="https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=188&&tqId=38622&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC68 跳台阶</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个 n 级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
+    <content><![CDATA[<h1 id="NC68-跳台阶"><a href="#NC68-跳台阶" class="headerlink" title="NC68 跳台阶"></a><a href="https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=188&&tqId=38622&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC68 跳台阶</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个 n 级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
 <p>数据范围：0≤<em>n</em>≤40</p>
 <p>要求：时间复杂度：$O(n)$ ，空间复杂度： $O(1)$</p>
 <h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
@@ -812,7 +764,7 @@
   <entry>
     <title>链表</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="NC78-反转链表"><a href="#NC78-反转链表" class="headerlink" title="NC78 反转链表"></a><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC78 反转链表</a></h3><p><strong>描述</strong></p>
+    <content><![CDATA[<h3 id="NC78-反转链表"><a href="#NC78-反转链表" class="headerlink" title="NC78 反转链表"></a><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=38547&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking">NC78 反转链表</a></h3><p><strong>描述</strong></p>
 <p>给定一个单链表的头结点pHead，长度为n，反转该链表后，返回新链表的表头。</p>
 <p>数据范围： n\leq1000<em>n</em>≤1000</p>
 <p>要求：空间复杂度 O(1)<em>O</em>(1) ，时间复杂度 O(n)<em>O</em>(<em>n</em>) 。</p>
@@ -1084,7 +1036,7 @@
   <entry>
     <title>python实现发送邮件</title>
     <url>/2021/05/24/%E5%B0%8F%E8%84%9A%E6%9C%AC/python%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
+    <content><![CDATA[<h1 id="python实现发送邮件"><a href="#python实现发送邮件" class="headerlink" title="python实现发送邮件"></a>python实现发送邮件</h1><h3 id="申请STMP授权码"><a href="#申请STMP授权码" class="headerlink" title="申请STMP授权码"></a>申请STMP授权码</h3><ol>
 <li>在QQ邮箱主界面里面开启POP/SMTP服务：设置-账户-开启pop/smtp服务</li>
 </ol>
 <p><img src="https://img.imgdb.cn/item/607a9dd78322e6675c8be16b.png" alt="img"></p>
@@ -1108,8 +1060,9 @@
   <entry>
     <title>图片压缩</title>
     <url>/2021/05/27/%E5%B0%8F%E8%84%9A%E6%9C%AC/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern"><p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
-</div>
+    <content><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><div class="note info modern">
+            <p>最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本。</p>
+          </div>
 
 <p>所用图床：<a href="https://imgtu.com/">路过图床</a></p>
 <!-- 最近想做一个相册，图片需要上传到图床然后，调用图床链接进行相册图片显示。为实现图片快速加载，以及节约图床存储空间，写了一个实现图片压缩的小脚本 -->
@@ -1131,7 +1084,7 @@
   <entry>
     <title>Matplotlib绘图技巧</title>
     <url>/2022/02/12/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Matplotlib%E7%BB%98%E5%9B%BE%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Matplotlib绘图技巧"><a href="#Matplotlib绘图技巧" class="headerlink" title="Matplotlib绘图技巧"></a>Matplotlib绘图技巧</h1><h2 id="x轴y轴有小数"><a href="#x轴y轴有小数" class="headerlink" title="x轴y轴有小数"></a><a href="https://blog.csdn.net/qq_36170511/article/details/115525728">x轴y轴有小数</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> MaxNLocator</span><br><span class="line">plt.gca().xaxis.set_major_locator(MaxNLocator(integer=<span class="literal">True</span>))</span><br><span class="line">plt.gca().yaxis.set_major_locator(MaxNLocator(integer=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="Matplotlib绘图技巧"><a href="#Matplotlib绘图技巧" class="headerlink" title="Matplotlib绘图技巧"></a>Matplotlib绘图技巧</h1><h2 id="x轴y轴有小数"><a href="#x轴y轴有小数" class="headerlink" title="x轴y轴有小数"></a><a href="https://blog.csdn.net/qq_36170511/article/details/115525728">x轴y轴有小数</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> MaxNLocator</span><br><span class="line">plt.gca().xaxis.set_major_locator(MaxNLocator(integer=<span class="literal">True</span>))</span><br><span class="line">plt.gca().yaxis.set_major_locator(MaxNLocator(integer=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
 
 <h2 id="Python中Matplotlib的点（绘制散点图）"><a href="#Python中Matplotlib的点（绘制散点图）" class="headerlink" title="Python中Matplotlib的点（绘制散点图）"></a><a href="https://blog.csdn.net/hesongzefairy/article/details/113527780">Python中Matplotlib的点（绘制散点图）</a></h2><ul>
 <li>常用标记点形状：</li>
@@ -1162,7 +1115,7 @@
   <entry>
     <title>Typora自动上传图片</title>
     <url>/2022/01/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Typora%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Typora-图片自动上传服务器设置"><a href="#Typora-图片自动上传服务器设置" class="headerlink" title="Typora 图片自动上传服务器设置"></a>Typora 图片自动上传服务器设置</h1><ul>
+    <content><![CDATA[<h1 id="Typora-图片自动上传服务器设置"><a href="#Typora-图片自动上传服务器设置" class="headerlink" title="Typora 图片自动上传服务器设置"></a>Typora 图片自动上传服务器设置</h1><ul>
 <li>下载<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a>（比较稳定建议使用）</li>
 </ul>
 <p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/1972718-20200323210552751-1313111323.png" alt="img"></p>
@@ -1194,41 +1147,9 @@
       </categories>
   </entry>
   <entry>
-    <title>word绘制三线表</title>
-    <url>/2022/01/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/word%E7%BB%98%E5%88%B6%E4%B8%89%E7%BA%BF%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="word绘制三线表"><a href="#word绘制三线表" class="headerlink" title="word绘制三线表"></a>word绘制三线表</h1><ul>
-<li><p>插入表格</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115217794.png" alt="image-20220121115217794"></p>
-</li>
-<li><p>全选表格-右键点击表格属性</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115451664.png" alt="image-20220121115451664"></p>
-</li>
-<li><p>选择边框和底纹，左边选择“无”</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115532407.png" alt="image-20220121115532407"></p>
-</li>
-<li><p>手动设置宽度1.5磅，完成下图后确定</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115649343.png" alt="image-20220121115649343"></p>
-</li>
-<li><p>选择第一行的表格重复上面动作，设置不同宽度的线</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115745079.png" alt="image-20220121115745079"></p>
-</li>
-<li><p>然后就完成了</p>
-<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115805179.png" alt="image-20220121115805179"></p>
-</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/qq_36890370/article/details/107854266">论文中的三线表绘制（word）</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>工具使用</category>
-      </categories>
-  </entry>
-  <entry>
     <title>伪代码</title>
     <url>/2022/01/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h1><ol>
+    <content><![CDATA[<h1 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h1><ol>
 <li><p>for,end for,do,while, end while,if,else都用加粗</p>
 </li>
 <li><p>变量要用花体</p>
@@ -1261,9 +1182,41 @@
       </categories>
   </entry>
   <entry>
+    <title>word绘制三线表</title>
+    <url>/2022/01/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/word%E7%BB%98%E5%88%B6%E4%B8%89%E7%BA%BF%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="word绘制三线表"><a href="#word绘制三线表" class="headerlink" title="word绘制三线表"></a>word绘制三线表</h1><ul>
+<li><p>插入表格</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115217794.png" alt="image-20220121115217794"></p>
+</li>
+<li><p>全选表格-右键点击表格属性</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115451664.png" alt="image-20220121115451664"></p>
+</li>
+<li><p>选择边框和底纹，左边选择“无”</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115532407.png" alt="image-20220121115532407"></p>
+</li>
+<li><p>手动设置宽度1.5磅，完成下图后确定</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115649343.png" alt="image-20220121115649343"></p>
+</li>
+<li><p>选择第一行的表格重复上面动作，设置不同宽度的线</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115745079.png" alt="image-20220121115745079"></p>
+</li>
+<li><p>然后就完成了</p>
+<p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220121115805179.png" alt="image-20220121115805179"></p>
+</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_36890370/article/details/107854266">论文中的三线表绘制（word）</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
+  </entry>
+  <entry>
     <title>添加git快捷方式</title>
     <url>/2021/12/26/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/%E6%B7%BB%E5%8A%A0git%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git-右键添加Git-Bash"><a href="#Git-右键添加Git-Bash" class="headerlink" title="Git 右键添加Git Bash"></a>Git 右键添加Git Bash</h2><ol>
+    <content><![CDATA[<h2 id="Git-右键添加Git-Bash"><a href="#Git-右键添加Git-Bash" class="headerlink" title="Git 右键添加Git Bash"></a>Git 右键添加Git Bash</h2><ol>
 <li><strong>win + r</strong></li>
 <li><strong>输入regedit</strong></li>
 <li><strong>进入 计算机\HKEY_CLASSES_ROOT\Directory\Background\shell</strong></li>
@@ -1288,7 +1241,7 @@
   <entry>
     <title>论文添加引用标签</title>
     <url>/2022/01/15/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/%E8%AE%BA%E6%96%87%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="论文添加引用标签"><a href="#论文添加引用标签" class="headerlink" title="论文添加引用标签"></a>论文添加引用标签</h1><h2 id="设置引用序号"><a href="#设置引用序号" class="headerlink" title="设置引用序号"></a>设置引用序号</h2><ol>
+    <content><![CDATA[<h1 id="论文添加引用标签"><a href="#论文添加引用标签" class="headerlink" title="论文添加引用标签"></a>论文添加引用标签</h1><h2 id="设置引用序号"><a href="#设置引用序号" class="headerlink" title="设置引用序号"></a>设置引用序号</h2><ol>
 <li>References中选中引用的文章</li>
 </ol>
 <p><img src="https://gitee.com/sssuperbear/typora/raw/master/img/image-20220114111622025.png" alt="image-20220114111622025"></p>
@@ -1331,7 +1284,7 @@
   <entry>
     <title>HPA 使用自定义指标进行伸缩</title>
     <url>/2022/11/14/%E5%B7%A5%E7%A8%8B/HPA%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E6%A0%87%E8%BF%9B%E8%A1%8C%E4%BC%B8%E7%BC%A9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="HPA-使用自定义指标进行伸缩"><a href="#HPA-使用自定义指标进行伸缩" class="headerlink" title="HPA 使用自定义指标进行伸缩"></a><a href="https://imroc.cc/kubernetes/best-practices/autoscaling/hpa-with-custom-metrics.html#hpa-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E6%A0%87%E8%BF%9B%E8%A1%8C%E4%BC%B8%E7%BC%A9">HPA 使用自定义指标进行伸缩</a></h1><p>Kubernetes 默认提供 CPU 和内存作为 HPA 弹性伸缩的指标，如果有更复杂的场景需求，比如基于业务单副本 QPS 大小来进行自动扩缩容，可以考虑自行安装 <a href="https://github.com/DirectXMan12/k8s-prometheus-adapter">prometheus-adapter</a> 来实现基于自定义指标的 Pod 弹性伸缩。</p>
+    <content><![CDATA[<h1 id="HPA-使用自定义指标进行伸缩"><a href="#HPA-使用自定义指标进行伸缩" class="headerlink" title="HPA 使用自定义指标进行伸缩"></a><a href="https://imroc.cc/kubernetes/best-practices/autoscaling/hpa-with-custom-metrics.html#hpa-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E6%A0%87%E8%BF%9B%E8%A1%8C%E4%BC%B8%E7%BC%A9">HPA 使用自定义指标进行伸缩</a></h1><p>Kubernetes 默认提供 CPU 和内存作为 HPA 弹性伸缩的指标，如果有更复杂的场景需求，比如基于业务单副本 QPS 大小来进行自动扩缩容，可以考虑自行安装 <a href="https://github.com/DirectXMan12/k8s-prometheus-adapter">prometheus-adapter</a> 来实现基于自定义指标的 Pod 弹性伸缩。</p>
 <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a><a href="https://imroc.cc/kubernetes/best-practices/autoscaling/hpa-with-custom-metrics.html#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86">实现原理</a></h2><p>Kubernetes 提供了 <a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md">Custom Metrics API</a> 与 <a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/external-metrics-api.md">External Metrics API</a> 来对 HPA 的指标进行扩展，让用户能够根据实际需求进行自定义。</p>
 <p>prometheus-adapter 对这两种 API 都有支持，通常使用 Custom Metrics API 就够了，本文也主要针对此 API 来实现使用自定义指标进行弹性伸缩。</p>
 <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a><a href="https://imroc.cc/kubernetes/best-practices/autoscaling/hpa-with-custom-metrics.html#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></h2><ul>
@@ -1388,7 +1341,7 @@
   <entry>
     <title>Promethues结合Springboot</title>
     <url>/2022/11/14/%E5%B7%A5%E7%A8%8B/Prometheus%E7%BB%93%E5%90%88Springboot/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Promethues结合Springboot"><a href="#Promethues结合Springboot" class="headerlink" title="Promethues结合Springboot"></a>Promethues结合Springboot</h1><p>项目地址：<a href="https://gitee.com/sssuperbear/promethues-metricdemo.git">https://gitee.com/sssuperbear/promethues-metricdemo.git</a></p>
+    <content><![CDATA[<h1 id="Promethues结合Springboot"><a href="#Promethues结合Springboot" class="headerlink" title="Promethues结合Springboot"></a>Promethues结合Springboot</h1><p>项目地址：<a href="https://gitee.com/sssuperbear/promethues-metricdemo.git">https://gitee.com/sssuperbear/promethues-metricdemo.git</a></p>
 <h3 id="Metrics指标类型以及使用场景："><a href="#Metrics指标类型以及使用场景：" class="headerlink" title="Metrics指标类型以及使用场景："></a>Metrics指标类型以及使用场景：</h3><ul>
 <li>Counter，只增不减的计数器</li>
 <li>Gauge，可增可减的仪表盘</li>
@@ -1428,7 +1381,7 @@
   <entry>
     <title>PsTips</title>
     <url>/2022/01/03/%E6%91%84%E5%BD%B1/PsTips/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+    <content><![CDATA[<ul>
 <li>[ 画笔增大</li>
 <li>] 画笔减小</li>
 <li>ctrl+i 反向</li>
@@ -1443,7 +1396,7 @@
   <entry>
     <title>人像嘴唇颜色更改</title>
     <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E5%98%B4%E5%94%87%E9%A2%9C%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
+    <content><![CDATA[<h3 id="人像嘴唇颜色更改"><a href="#人像嘴唇颜色更改" class="headerlink" title="人像嘴唇颜色更改"></a>人像嘴唇颜色更改</h3><ul>
 <li><p>打开图片</p>
 <p><img src="https://pic.imgdb.cn/item/60b9d4138355f7f718862da7.png" alt="image-20210604112727351"></p>
 </li>
@@ -1503,7 +1456,7 @@
   <entry>
     <title>人像眉毛精致化处理</title>
     <url>/2021/06/04/%E6%91%84%E5%BD%B1/%E4%BA%BA%E5%83%8F%E7%9C%89%E6%AF%9B%E7%B2%BE%E8%87%B4%E5%8C%96%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
+    <content><![CDATA[<h3 id="人像眉毛精致化处理"><a href="#人像眉毛精致化处理" class="headerlink" title="人像眉毛精致化处理"></a>人像眉毛精致化处理</h3><ul>
 <li>导入图像，稍微调整一下曝光度(+0.25)+对比度(+6)使眉毛比较明显。</li>
 </ul>
 <p><img src="https://pic.imgdb.cn/item/60b9d34d8355f7f71875cddc.png" alt="image-20210604101144306"></p>
@@ -1564,7 +1517,7 @@
   <entry>
     <title>后期PS处理调色思路</title>
     <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E5%90%8E%E6%9C%9FPS%E5%A4%84%E7%90%86%E8%B0%83%E8%89%B2%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
+    <content><![CDATA[<h4 id="后期PS处理调色思路"><a href="#后期PS处理调色思路" class="headerlink" title="后期PS处理调色思路"></a>后期PS处理调色思路</h4><ul>
 <li>基础调整<ul>
 <li>白平衡<ul>
 <li>色温：控制照片冷暖感觉的工具</li>
@@ -1613,7 +1566,7 @@
   <entry>
     <title>控制相机对焦参数</title>
     <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E7%84%A6%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
+    <content><![CDATA[<h3 id="控制相机对焦的参数"><a href="#控制相机对焦的参数" class="headerlink" title="控制相机对焦的参数"></a>控制相机对焦的参数</h3><h4 id="画面清晰"><a href="#画面清晰" class="headerlink" title="画面清晰"></a>画面清晰</h4><ul>
 <li><p>什么是对焦</p>
 </li>
 <li><p>对焦区域</p>
@@ -1695,7 +1648,7 @@
   <entry>
     <title>控制相机曝光参数</title>
     <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E6%9B%9D%E5%85%89%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
+    <content><![CDATA[<h3 id="控制相机曝光的参数"><a href="#控制相机曝光的参数" class="headerlink" title="控制相机曝光的参数"></a>控制相机曝光的参数</h3><h4 id="明暗合适"><a href="#明暗合适" class="headerlink" title="明暗合适"></a>明暗合适</h4><ul>
 <li><p>曝光三要素</p>
 <ul>
 <li><p>光圈</p>
@@ -1823,7 +1776,7 @@
   <entry>
     <title>控制相机色彩参数</title>
     <url>/2021/06/06/%E6%91%84%E5%BD%B1/%E6%8E%A7%E5%88%B6%E7%9B%B8%E6%9C%BA%E8%89%B2%E5%BD%A9%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
+    <content><![CDATA[<h3 id="控制相机色彩的参数"><a href="#控制相机色彩的参数" class="headerlink" title="控制相机色彩的参数"></a>控制相机色彩的参数</h3><h4 id="色彩合理"><a href="#色彩合理" class="headerlink" title="色彩合理"></a>色彩合理</h4><ul>
 <li><p>白平衡</p>
 <ul>
 <li><p>白平衡可以帮助我们在复杂光源下，还原物体本身的颜色</p>
@@ -1862,75 +1815,9 @@
       </tags>
   </entry>
   <entry>
-    <title>比特币和区块链</title>
-    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
-<ul>
-<li>2008年11月1日 中本聪《白皮书》</li>
-<li>去中心化的电子<strong>记账</strong>系统<ul>
-<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
-<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
-<li>三个问题<ul>
-<li>以谁为准</li>
-<li>为何记账</li>
-<li>如何防伪</li>
-</ul>
-</li>
-<li>记账奖励<ul>
-<li>手续费</li>
-<li>打包奖励<ul>
-<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
-<li>一共有多少个比特币<ul>
-<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>以谁为准<ul>
-<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
-<li>挖矿原理<ul>
-<li>哈希函数：<ul>
-<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
-<li>正着算容易反着算难</li>
-<li>sha256（美国国家安全局发明的一种算法）<ul>
-<li>比如输入“Apple”输出一个256位的二进制数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>原理<ul>
-<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
-<li>改变这个随机数不断去试</li>
-</ul>
-</li>
-<li>hash=sha256（sha256（字符串））</li>
-<li>前n位必须为0</li>
-<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
-</ul>
-</li>
-<li>难度n的确定</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
-]]></content>
-      <categories>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>摄影经验——转载</title>
     <url>/2021/06/07/%E6%91%84%E5%BD%B1/%E6%91%84%E5%BD%B1%E7%BB%8F%E9%AA%8C%E2%80%94%E2%80%94%E8%BD%AC%E8%BD%BD/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="人像摄影怎么拍"><a href="#人像摄影怎么拍" class="headerlink" title="人像摄影怎么拍"></a>人像摄影怎么拍</h3><h2 id="1-构图"><a href="#1-构图" class="headerlink" title="1. 构图"></a><strong>1. 构图</strong></h2><p>首先，是人像拍摄中，构图的问题。</p>
+    <content><![CDATA[<h3 id="人像摄影怎么拍"><a href="#人像摄影怎么拍" class="headerlink" title="人像摄影怎么拍"></a>人像摄影怎么拍</h3><h2 id="1-构图"><a href="#1-构图" class="headerlink" title="1. 构图"></a><strong>1. 构图</strong></h2><p>首先，是人像拍摄中，构图的问题。</p>
 <p>关于构图在摄影中的重要性大家都有自己的认知，面对于不同的摄影风格，有的风格讲究构图讲究严谨，例如古风，有的风格构图上更倾向于自然不拘谨，例如很多日系生活感的照片拍摄，有的风格会倾向于以画面的张力和情绪为优先考虑，而完全不会被构图束缚。例如我们都听说的日本荒木老前辈，所以摄影的构图该如何去做，其实取决于你所喜欢并想要做到极致的那一类摄影风格而定。</p>
 <p>我今天就说一下我自己的构图习惯，我的拍摄风格，多数是安静的画面，画面感比较干净，构图也算是偏向严谨类方向的类型，当然我的风格也可能会慢慢转变，毕竟这些都是受自己的审美所影响的，审美发生了变化，风格也会慢慢的发生变化。</p>
 <p>我的很多学生，来找我报名课程系统学习摄影的时候，他们多数都是近似一张白纸，在这样的情况下，面对构图的问题，我基本会对他们有两点要求：就是<strong>先用好居中构图和三分之一构图。</strong>用好这两种构图方法的同时再慢慢去找到自己在摄影中的风格和感觉，当这两种构图方法能运用得心应手的时候， 再去在画面中尝试加入别的变化也是很轻松的事情。</p>
@@ -2035,9 +1922,182 @@
       </tags>
   </entry>
   <entry>
+    <title>AI斗地主</title>
+    <url>/2021/07/20/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%B8%9C%E8%A5%BF/AI%E6%96%97%E5%9C%B0%E4%B8%BB/</url>
+    <content><![CDATA[<h2 id="DouZero分析"><a href="#DouZero分析" class="headerlink" title="DouZero分析"></a>DouZero分析</h2><h3 id="1-DouZero介绍"><a href="#1-DouZero介绍" class="headerlink" title="1.DouZero介绍"></a>1.DouZero介绍</h3><p>DouZero项目地址：<a href="https://github.com/kwai/DouZero">https://github.com/kwai/DouZero</a></p>
+<p>在线Demo地址：<a href="https://www.douzero.org/">https://www.douzero.org/</a></p>
+<p>原理我就不过多说明，有兴趣的可以查看论文：<a href="https://arxiv.org/abs/2106.06135">https://arxiv.org/abs/2106.06135</a></p>
+<p>运行程序，评估胜率只需三步：进入项目目录，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip3 install -r requirements.txt    <span class="comment"># 安装依赖</span></span><br><span class="line">python3 generate_eval_data.py        <span class="comment"># 生成评估用的数据</span></span><br><span class="line">python3 evaluate.py                    <span class="comment"># 开始评估</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果是以胜率的形式展现。<br>关于如何训练以及更多参数设置，请查看DouZero项目的说明文档。</p>
+<p>当然现在这样对实际应用是没有直接帮助的，所以要改造一下，利用训练好的AI来帮我们出牌。</p>
+<h3 id="2-DouZero源码分析"><a href="#2-DouZero源码分析" class="headerlink" title="2.DouZero源码分析"></a>2.DouZero源码分析</h3><p>项目结构十分清晰，<code>douzero</code>目录包含主要代码文件，<code>baselines</code>目录放置预训练模型。根目录下的 <code>evaluate.py</code>为入口，拿到参数后传递到 <code>douzero/evaluation/simulation.py</code>中的 <code>evaluate()</code>函数，再将数据分配给多个进程调用 <code>mp_simulate()</code>函数。</p>
+<p><img src="https://tqraf.cn/images/image-210713-1.png" alt="项目结构"></p>
+<center>项目结构</center>
+
+<p><code>mp_simulate()</code>函数中，players为三个生成的AI，代表斗地主中的三个角色。<code>GameEnv()</code>类表示游戏环境，控制一局游戏流程的进行与结束。</p>
+<p><img src="https://tqraf.cn/images/image-210713-2.png" alt="mp_simulate()函数"></p>
+<center>mp_simulate()函数</center>
+
+<p>看到这里，整个项目就清晰了，可以着手按照需求定制AI了。</p>
+<h2 id="DouZero定制"><a href="#DouZero定制" class="headerlink" title="DouZero定制"></a>DouZero定制</h2><ul>
+<li><p>首先，三个AI互斗肯定是不可行的，我们只需要一个，并且代表了玩家的角色。只要给这个AI输入开局时我的手牌和三张底牌，并且告诉它谁是地主，再输入每轮中其他两人的出牌，那么AI就能够给出最优出牌决策。</p>
+</li>
+<li><p>对于生成AI，可以控制只生成玩家角色对应的AI。开局时获取玩家的位置(<strong>地主上家、地主、地主下家</strong>），并用 <code>0, 1, 2</code>分别表示。</p>
+</li>
+<li><p>对于获取手牌等信息，<code>DouZero</code>项目中有对扑克牌进行转换。注意到在 <code>DouZero</code>与 <code>rlcard-showdown</code>两个项目中，这种对应关系有些许差异，这是因为将 <code>10</code>用 <code>T</code>来代替就可以将扑克牌用一串字符串来表示，便于参数传递。因此本项目也采取这种做法。</p>
+<p>python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># DouZero</span></span><br><span class="line">EnvCard2RealCard = &#123;<span class="number">3</span>: <span class="string">&#x27;3&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;4&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;5&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;6&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;7&#x27;</span>,</span><br><span class="line">                  <span class="number">8</span>: <span class="string">&#x27;8&#x27;</span>, <span class="number">9</span>: <span class="string">&#x27;9&#x27;</span>, <span class="number">10</span>: <span class="string">&#x27;10&#x27;</span>, <span class="number">11</span>: <span class="string">&#x27;J&#x27;</span>, <span class="number">12</span>: <span class="string">&#x27;Q&#x27;</span>,</span><br><span class="line">                  <span class="number">13</span>: <span class="string">&#x27;K&#x27;</span>, <span class="number">14</span>: <span class="string">&#x27;A&#x27;</span>, <span class="number">17</span>: <span class="string">&#x27;2&#x27;</span>, <span class="number">20</span>: <span class="string">&#x27;X&#x27;</span>, <span class="number">30</span>: <span class="string">&#x27;D&#x27;</span>&#125;</span><br><span class="line">RealCard2EnvCard = &#123;<span class="string">&#x27;3&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;4&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;6&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;7&#x27;</span>: <span class="number">7</span>,</span><br><span class="line">                  <span class="string">&#x27;8&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;10&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;J&#x27;</span>: <span class="number">11</span>, <span class="string">&#x27;Q&#x27;</span>: <span class="number">12</span>,</span><br><span class="line">                  <span class="string">&#x27;K&#x27;</span>: <span class="number">13</span>, <span class="string">&#x27;A&#x27;</span>: <span class="number">14</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">17</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">30</span>&#125;</span><br><span class="line"><span class="comment"># rlcard-showdown</span></span><br><span class="line">EnvCard2RealCard = &#123;<span class="number">3</span>: <span class="string">&#x27;3&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;4&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;5&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;6&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;7&#x27;</span>,</span><br><span class="line">                  <span class="number">8</span>: <span class="string">&#x27;8&#x27;</span>, <span class="number">9</span>: <span class="string">&#x27;9&#x27;</span>, <span class="number">10</span>: <span class="string">&#x27;T&#x27;</span>, <span class="number">11</span>: <span class="string">&#x27;J&#x27;</span>, <span class="number">12</span>: <span class="string">&#x27;Q&#x27;</span>,</span><br><span class="line">                  <span class="number">13</span>: <span class="string">&#x27;K&#x27;</span>, <span class="number">14</span>: <span class="string">&#x27;A&#x27;</span>, <span class="number">17</span>: <span class="string">&#x27;2&#x27;</span>, <span class="number">20</span>: <span class="string">&#x27;X&#x27;</span>, <span class="number">30</span>: <span class="string">&#x27;D&#x27;</span>&#125;</span><br><span class="line">RealCard2EnvCard = &#123;<span class="string">&#x27;3&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;4&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;6&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;7&#x27;</span>: <span class="number">7</span>,</span><br><span class="line">                  <span class="string">&#x27;8&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;T&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;J&#x27;</span>: <span class="number">11</span>, <span class="string">&#x27;Q&#x27;</span>: <span class="number">12</span>,</span><br><span class="line">                  <span class="string">&#x27;K&#x27;</span>: <span class="number">13</span>, <span class="string">&#x27;A&#x27;</span>: <span class="number">14</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">17</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">30</span>&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>对于预测胜率，<code>DouZero</code>项目中并未给出，但是在 <code>rlcard-showdown</code>中能看到该参数，由 <code>deep.py</code>文件中 <code>DeepAgent()</code>类的 <code>act()</code>函数计算得到。</p>
+<p>python</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">best_action_confidence = y_pred[best_action_index]</span><br></pre></td></tr></table></figure></li>
+<li><p>感谢Couwisdet指点，变量 <code>y_pred</code>是预测的所有合法动作的Q值，取其中最大的一个对应的策略即为最优策略。对于 <code>WP</code>模型，取值在 <code>[-1, 1]</code>，可以按比例换算成胜率，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">win_rates = &#123;&#125;</span><br><span class="line">win_rate = max(best_action_confidence, -1)</span><br><span class="line">win_rate = min(win_rate, 1)</span><br><span class="line">win_rate = str(round(float((win_rate + 1) / 2), 4))</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="控制台版本"><a href="#控制台版本" class="headerlink" title="控制台版本"></a>控制台版本</h2><h3 id="1-用法"><a href="#1-用法" class="headerlink" title="1.用法"></a>1.用法</h3><ul>
+<li>这个版本仅仅通过<strong>控制台</strong>进行交互。</li>
+</ul>
+<p><img src="https://tqraf.cn/images/image-210713-3.png" alt="控制台版本"></p>
+<center>控制台版本</center>
+
+<ul>
+<li>开局的时候玩家要把自己的手牌，地主的位置，三张底牌手动输入进去。手牌输入按照 <code>333456789TJQKA2XD</code>的形式，然后输入玩家的角色：<code>0-地主上家, 1-地主, 2-地主下家</code>，最后输入三张底牌，例如 <code>2XD</code>。</li>
+<li>然后就开始轮流出牌，在其它两个人出牌后都需要将对应的牌输入，用于AI决策，这样在轮到玩家出牌时，AI就能告知最优策略。</li>
+<li>不出的话，直接 <code>Enter</code>即可，会返回空列表。同理，当AI返回空列表时表示不出。</li>
+<li>这么做的优点就是，逻辑简单，并且工作量少哇。主要是想第一时间测试AI在实战斗地主中的实力。</li>
+<li>缺点很明显，十分拼手速，并且没有撤销机制与输入检测，如果着急输错了，那么程序就会崩溃。</li>
+</ul>
+<h3 id="2-分析"><a href="#2-分析" class="headerlink" title="2.分析"></a>2.分析</h3><ul>
+<li>去除了不必要的文件以及参数，根目录只保留 <code>start.py</code>用于启动。</li>
+<li><code>evaluate()</code>函数要求输入玩家手牌、玩家角色、三张底牌。由于原先评估代码中太多处涉及对其他角色手牌的操作如删除和检测，为避免大量改动原项目代码，需要为其他两个角色分配手牌。</li>
+<li>这里就将整幅牌减去玩家手牌，再按角色分配给它们。为避免其他玩家出牌时，在其手牌中找不到该牌，将<strong>在其他玩家手牌中删除刚出的牌</strong>改为<strong>在其他玩家手牌中删除与刚出的牌等量的牌</strong>。这么做的依据是：AI决策时只需要考虑其他角色手牌数量而不需要知道具体是什么牌。</li>
+<li>创建AI时根据玩家角色来创建，并且在 <code>env.step()</code>中，调用 <code>act()</code>函数获取AI决策前判断一下当前是否为玩家出牌，是则通过AI决策，否则由玩家输入。</li>
+<li>当任意角色手牌数量为0时则代表游戏结束。</li>
+</ul>
+<blockquote>
+<p>俗话说得好，一个成熟的AI，是应该能够自己看牌出牌的。于是我又改出了pyqt5版本，实现部分<strong>自动化操作</strong>。</p>
+</blockquote>
+<h2 id="pyqt5版本"><a href="#pyqt5版本" class="headerlink" title="pyqt5版本"></a>pyqt5版本</h2><h3 id="1-用法-1"><a href="#1-用法-1" class="headerlink" title="1.用法"></a>1.用法</h3><ul>
+<li>打开欢乐斗地主，需要<strong>窗口模式下最大化</strong>运行，并且要求屏幕分辨率 <code>1920x1080</code>，程序窗口需要移至<strong>右下角</strong>，不能遮挡<strong>手牌、地主标志、底牌、历史出牌</strong></li>
+</ul>
+<p><img src="https://tqraf.cn/images/image-210713-4.png" alt="pyqt5版本"></p>
+<center>pyqt5版本</center>
+
+<ul>
+<li>在抢地主结束后，手牌出现、底牌出现、地主角色确认，点击<strong>开始</strong>，耗时几秒完成扑克牌的识别。</li>
+<li>窗口内显示识别结果，地主角色使用淡红色标出。识别完成自动开始记录出牌。</li>
+<li>观察AI建议的出牌，在游戏中手动选择并打出。游戏结束后会弹出对话框提示输赢。</li>
+<li>识别错误或无反应导致错过出牌，可通过<strong>结束</strong>按钮停止本局。至于游戏，就自己手动打完吧。</li>
+</ul>
+<h3 id="2-分析-1"><a href="#2-分析-1" class="headerlink" title="2.分析"></a>2.分析</h3><ul>
+<li>利用 <code>pyqt5</code>设计一个简单的窗体用于展示出牌信息</li>
+</ul>
+<p><img src="https://tqraf.cn/images/image-210713-5.png" alt="主窗口"></p>
+<center>主窗口</center>
+
+<ul>
+<li>使用 <code>pyautogui</code>来实现自动化。借鉴了<a href="https://github.com/ZDZX-T/cardRecorder">cardRecorder</a>项目的部分代码以及模板图片，用于识别扑克牌。</li>
+</ul>
+<p><img src="https://tqraf.cn/images/image-210713-6.png" alt="图片模板"></p>
+<center>图片模板</center>
+
+<ul>
+<li>通过 <code>pyautogui.locateAll()</code>函数将所有扑克牌的模板图片与屏幕特定区域的截图进行对比，获取手牌、底牌与出牌。</li>
+<li>由于出牌区域显示的牌较小，因此使用一大一小两套模板。而底牌则更小，通过 <code>resize()</code>函数将截图区域放大，在进行模板比对。</li>
+<li><code>pyautogui.locateOnScreen</code>用于白块检测与“不出”检测，“地主”检测，用来自动识别出牌流程。这里仍有一点Bug，例如王炸时出牌特效时间较长，有一定几率导致只能识别出一个王。但是缩短等待时间又会导致两人连续“不出”时无法自动切换到下一个人出牌的状态。</li>
+<li>另外，由于像素级操作过于局限，并且识别过程容易出错，有小几率Bug，因此放弃完全自动化的想法，即通过 <code>pyautogui</code>来点击屏幕自动出牌。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>至少现在，这个AI可以辅助我们出牌了，虽然AI的思路可能跟我们完全不一样。</li>
+<li>要注意到，斗地主是个<strong>运气成分很强</strong>的游戏，牌好的时候，闭着眼睛打也能赢。牌烂的时候，高手也救不了（例如被“春天”）。所以只有在自己的牌不好也不烂的时候，AI的优势才能被明显体现出来。</li>
+<li>综合来看，在发完牌后，自己没有把握打赢又不至于直接认输的情况下，用AI辅助是不错的选择。毕竟，它天生自带记牌器，能够合理配合，做农民的时候是个不错的队友。</li>
+<li>github项目地址：<a href="https://github.com/tianqiraf/DouZero_For_HappyDouDiZhu">DouZero_For_HappyDouDiZhu</a></li>
+<li>演示视频链接：<a href="https://www.zhihu.com/zvideo/1398424460945444864">知乎视频</a></li>
+</ul>
+<h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><ul>
+<li>有时候程序中自己的牌堆显示会与实际手牌不同</li>
+<li>使用AI的胜率一般，不知道大家的体验如何</li>
+</ul>
+<h3 id="转载自：使用DouZero玩欢乐斗地主"><a href="#转载自：使用DouZero玩欢乐斗地主" class="headerlink" title="转载自：使用DouZero玩欢乐斗地主"></a>转载自：<a href="https://tqraf.cn/2021/07/DouZero-For-HappyDouDiZhu.html">使用DouZero玩欢乐斗地主</a></h3>]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>InterestingCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>比特币和区块链</title>
+    <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E6%AF%94%E7%89%B9%E5%B8%81%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
+    <content><![CDATA[<h3 id="一：比特币：数字货币"><a href="#一：比特币：数字货币" class="headerlink" title="一：比特币：数字货币"></a>一：比特币：数字货币</h3><p><img src="https://pic.imgdb.cn/item/607a6b148322e6675c121da4.png" alt="image-123"></p>
+<ul>
+<li>2008年11月1日 中本聪《白皮书》</li>
+<li>去中心化的电子<strong>记账</strong>系统<ul>
+<li>现在的中心化是谁的：银行，谁谁谁用了多少钱，还剩多少钱*</li>
+<li>很多条交易记录进行打包连接成一个区块，区块再连接起来，成为区块链</li>
+<li>三个问题<ul>
+<li>以谁为准</li>
+<li>为何记账</li>
+<li>如何防伪</li>
+</ul>
+</li>
+<li>记账奖励<ul>
+<li>手续费</li>
+<li>打包奖励<ul>
+<li>每10分钟打一个包，最开始会奖励打包者50个比特币，过了4年之后奖励25个比特币……</li>
+<li>一共有多少个比特币<ul>
+<li>50x6x24x365x4x(1+1/2+1/2*1/2+….)=2100万</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>以谁为准<ul>
+<li>工作量证明（挖矿）：每一个参与的用户都要做一个很难的数学题，这个数学题没有一个人能够通过脑子把它算出来，我们必须一个一个去试，只有你把它尝试出来了才能获得这个奖励，这个过程称之为挖矿。</li>
+<li>挖矿原理<ul>
+<li>哈希函数：<ul>
+<li>我们能够把一个字符串通过一定的运算转换为摘要的形式</li>
+<li>正着算容易反着算难</li>
+<li>sha256（美国国家安全局发明的一种算法）<ul>
+<li>比如输入“Apple”输出一个256位的二进制数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>字符串：前块头部+账单信息+时间戳+随机数<ul>
+<li>改变这个随机数不断去试</li>
+</ul>
+</li>
+<li>hash=sha256（sha256（字符串））</li>
+<li>前n位必须为0</li>
+<li>如果你算对了，你就有资格去打包，就可以把你的哈希值作为新块的头部打一个包，再把这个包接到区块链的后面去。（每个块有头部+信息）</li>
+</ul>
+</li>
+<li>难度n的确定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料：<a href="https://www.youtube.com/watch?v=g_fSistU3MQ">比特币和区块链啥原理？矿机挖矿咋回事？李永乐老师讲比特币(1)</a></p>
+]]></content>
+      <categories>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>源代码包”和“二进制包”的区别</title>
     <url>/2022/01/03/%E7%A7%91%E6%99%AE/%E6%BA%90%E4%BB%A3%E7%A0%81%E5%8C%85%E2%80%9D%E5%92%8C%E2%80%9C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
+    <content><![CDATA[<h1 id="“源代码包”和“二进制包”的区别"><a href="#“源代码包”和“二进制包”的区别" class="headerlink" title="“源代码包”和“二进制包”的区别"></a><a href="https://blog.csdn.net/Tomstrong_369/article/details/51741012">“源代码包”和“二进制包”的区别</a></h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。</p>
 <p>source code 是程序員寫的碼， binary code 是機器跑的碼。 source code 得經過 compile 才能成為 binary code 。 </p>
 <p>RPM 有分兩種：binary rpm 跟 source rpm 。<br>前者是編好的 binary ，安裝就可用。<br>後者是還沒編好的 source ，需 rebuild 之後才能安裝。</p>
 <p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。<br>mysql-5.0.45.tar.gz 是 源码包    像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包</p>
@@ -2051,7 +2111,7 @@
   <entry>
     <title>移动通讯技术</title>
     <url>/2021/05/24/%E7%A7%91%E6%99%AE/%E7%A7%BB%E5%8A%A8%E9%80%9A%E8%AE%AF%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
+    <content><![CDATA[<h3 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a><a href="https://www.cnblogs.com/SssuperBear/p/14670473.html">移动通讯技术</a></h3><p><img src="https://img.imgdb.cn/item/607a6b0c8322e6675c1209ff.png" alt="image-20210107123834018"></p>
 <h4 id="一：移动通讯技术"><a href="#一：移动通讯技术" class="headerlink" title="一：移动通讯技术"></a>一：移动通讯技术</h4><ul>
 <li><p>1G：移动蜂窝技术 </p>
 <ul>
@@ -2171,116 +2231,9 @@
       </tags>
   </entry>
   <entry>
-    <title>AI斗地主</title>
-    <url>/2021/07/20/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%B8%9C%E8%A5%BF/AI%E6%96%97%E5%9C%B0%E4%B8%BB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="DouZero分析"><a href="#DouZero分析" class="headerlink" title="DouZero分析"></a>DouZero分析</h2><h3 id="1-DouZero介绍"><a href="#1-DouZero介绍" class="headerlink" title="1.DouZero介绍"></a>1.DouZero介绍</h3><p>DouZero项目地址：<a href="https://github.com/kwai/DouZero">https://github.com/kwai/DouZero</a></p>
-<p>在线Demo地址：<a href="https://www.douzero.org/">https://www.douzero.org/</a></p>
-<p>原理我就不过多说明，有兴趣的可以查看论文：<a href="https://arxiv.org/abs/2106.06135">https://arxiv.org/abs/2106.06135</a></p>
-<p>运行程序，评估胜率只需三步：进入项目目录，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip3 install -r requirements.txt    <span class="comment"># 安装依赖</span></span><br><span class="line">python3 generate_eval_data.py        <span class="comment"># 生成评估用的数据</span></span><br><span class="line">python3 evaluate.py                    <span class="comment"># 开始评估</span></span><br></pre></td></tr></table></figure>
-
-<p>运行结果是以胜率的形式展现。<br>关于如何训练以及更多参数设置，请查看DouZero项目的说明文档。</p>
-<p>当然现在这样对实际应用是没有直接帮助的，所以要改造一下，利用训练好的AI来帮我们出牌。</p>
-<h3 id="2-DouZero源码分析"><a href="#2-DouZero源码分析" class="headerlink" title="2.DouZero源码分析"></a>2.DouZero源码分析</h3><p>项目结构十分清晰，<code>douzero</code>目录包含主要代码文件，<code>baselines</code>目录放置预训练模型。根目录下的 <code>evaluate.py</code>为入口，拿到参数后传递到 <code>douzero/evaluation/simulation.py</code>中的 <code>evaluate()</code>函数，再将数据分配给多个进程调用 <code>mp_simulate()</code>函数。</p>
-<p><img src="https://tqraf.cn/images/image-210713-1.png" alt="项目结构"></p>
-<center>项目结构</center>
-
-<p><code>mp_simulate()</code>函数中，players为三个生成的AI，代表斗地主中的三个角色。<code>GameEnv()</code>类表示游戏环境，控制一局游戏流程的进行与结束。</p>
-<p><img src="https://tqraf.cn/images/image-210713-2.png" alt="mp_simulate()函数"></p>
-<center>mp_simulate()函数</center>
-
-<p>看到这里，整个项目就清晰了，可以着手按照需求定制AI了。</p>
-<h2 id="DouZero定制"><a href="#DouZero定制" class="headerlink" title="DouZero定制"></a>DouZero定制</h2><ul>
-<li><p>首先，三个AI互斗肯定是不可行的，我们只需要一个，并且代表了玩家的角色。只要给这个AI输入开局时我的手牌和三张底牌，并且告诉它谁是地主，再输入每轮中其他两人的出牌，那么AI就能够给出最优出牌决策。</p>
-</li>
-<li><p>对于生成AI，可以控制只生成玩家角色对应的AI。开局时获取玩家的位置(<strong>地主上家、地主、地主下家</strong>），并用 <code>0, 1, 2</code>分别表示。</p>
-</li>
-<li><p>对于获取手牌等信息，<code>DouZero</code>项目中有对扑克牌进行转换。注意到在 <code>DouZero</code>与 <code>rlcard-showdown</code>两个项目中，这种对应关系有些许差异，这是因为将 <code>10</code>用 <code>T</code>来代替就可以将扑克牌用一串字符串来表示，便于参数传递。因此本项目也采取这种做法。</p>
-<p>python</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># DouZero</span></span><br><span class="line">EnvCard2RealCard = &#123;<span class="number">3</span>: <span class="string">&#x27;3&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;4&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;5&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;6&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;7&#x27;</span>,</span><br><span class="line">                  <span class="number">8</span>: <span class="string">&#x27;8&#x27;</span>, <span class="number">9</span>: <span class="string">&#x27;9&#x27;</span>, <span class="number">10</span>: <span class="string">&#x27;10&#x27;</span>, <span class="number">11</span>: <span class="string">&#x27;J&#x27;</span>, <span class="number">12</span>: <span class="string">&#x27;Q&#x27;</span>,</span><br><span class="line">                  <span class="number">13</span>: <span class="string">&#x27;K&#x27;</span>, <span class="number">14</span>: <span class="string">&#x27;A&#x27;</span>, <span class="number">17</span>: <span class="string">&#x27;2&#x27;</span>, <span class="number">20</span>: <span class="string">&#x27;X&#x27;</span>, <span class="number">30</span>: <span class="string">&#x27;D&#x27;</span>&#125;</span><br><span class="line">RealCard2EnvCard = &#123;<span class="string">&#x27;3&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;4&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;6&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;7&#x27;</span>: <span class="number">7</span>,</span><br><span class="line">                  <span class="string">&#x27;8&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;10&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;J&#x27;</span>: <span class="number">11</span>, <span class="string">&#x27;Q&#x27;</span>: <span class="number">12</span>,</span><br><span class="line">                  <span class="string">&#x27;K&#x27;</span>: <span class="number">13</span>, <span class="string">&#x27;A&#x27;</span>: <span class="number">14</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">17</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">30</span>&#125;</span><br><span class="line"><span class="comment"># rlcard-showdown</span></span><br><span class="line">EnvCard2RealCard = &#123;<span class="number">3</span>: <span class="string">&#x27;3&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;4&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;5&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;6&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;7&#x27;</span>,</span><br><span class="line">                  <span class="number">8</span>: <span class="string">&#x27;8&#x27;</span>, <span class="number">9</span>: <span class="string">&#x27;9&#x27;</span>, <span class="number">10</span>: <span class="string">&#x27;T&#x27;</span>, <span class="number">11</span>: <span class="string">&#x27;J&#x27;</span>, <span class="number">12</span>: <span class="string">&#x27;Q&#x27;</span>,</span><br><span class="line">                  <span class="number">13</span>: <span class="string">&#x27;K&#x27;</span>, <span class="number">14</span>: <span class="string">&#x27;A&#x27;</span>, <span class="number">17</span>: <span class="string">&#x27;2&#x27;</span>, <span class="number">20</span>: <span class="string">&#x27;X&#x27;</span>, <span class="number">30</span>: <span class="string">&#x27;D&#x27;</span>&#125;</span><br><span class="line">RealCard2EnvCard = &#123;<span class="string">&#x27;3&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;4&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;6&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;7&#x27;</span>: <span class="number">7</span>,</span><br><span class="line">                  <span class="string">&#x27;8&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;T&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;J&#x27;</span>: <span class="number">11</span>, <span class="string">&#x27;Q&#x27;</span>: <span class="number">12</span>,</span><br><span class="line">                  <span class="string">&#x27;K&#x27;</span>: <span class="number">13</span>, <span class="string">&#x27;A&#x27;</span>: <span class="number">14</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">17</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">30</span>&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>对于预测胜率，<code>DouZero</code>项目中并未给出，但是在 <code>rlcard-showdown</code>中能看到该参数，由 <code>deep.py</code>文件中 <code>DeepAgent()</code>类的 <code>act()</code>函数计算得到。</p>
-<p>python</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">best_action_confidence = y_pred[best_action_index]</span><br></pre></td></tr></table></figure></li>
-<li><p>感谢Couwisdet指点，变量 <code>y_pred</code>是预测的所有合法动作的Q值，取其中最大的一个对应的策略即为最优策略。对于 <code>WP</code>模型，取值在 <code>[-1, 1]</code>，可以按比例换算成胜率，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">win_rates = &#123;&#125;</span><br><span class="line">win_rate = max(best_action_confidence, -1)</span><br><span class="line">win_rate = min(win_rate, 1)</span><br><span class="line">win_rate = str(round(float((win_rate + 1) / 2), 4))</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="控制台版本"><a href="#控制台版本" class="headerlink" title="控制台版本"></a>控制台版本</h2><h3 id="1-用法"><a href="#1-用法" class="headerlink" title="1.用法"></a>1.用法</h3><ul>
-<li>这个版本仅仅通过<strong>控制台</strong>进行交互。</li>
-</ul>
-<p><img src="https://tqraf.cn/images/image-210713-3.png" alt="控制台版本"></p>
-<center>控制台版本</center>
-
-<ul>
-<li>开局的时候玩家要把自己的手牌，地主的位置，三张底牌手动输入进去。手牌输入按照 <code>333456789TJQKA2XD</code>的形式，然后输入玩家的角色：<code>0-地主上家, 1-地主, 2-地主下家</code>，最后输入三张底牌，例如 <code>2XD</code>。</li>
-<li>然后就开始轮流出牌，在其它两个人出牌后都需要将对应的牌输入，用于AI决策，这样在轮到玩家出牌时，AI就能告知最优策略。</li>
-<li>不出的话，直接 <code>Enter</code>即可，会返回空列表。同理，当AI返回空列表时表示不出。</li>
-<li>这么做的优点就是，逻辑简单，并且工作量少哇。主要是想第一时间测试AI在实战斗地主中的实力。</li>
-<li>缺点很明显，十分拼手速，并且没有撤销机制与输入检测，如果着急输错了，那么程序就会崩溃。</li>
-</ul>
-<h3 id="2-分析"><a href="#2-分析" class="headerlink" title="2.分析"></a>2.分析</h3><ul>
-<li>去除了不必要的文件以及参数，根目录只保留 <code>start.py</code>用于启动。</li>
-<li><code>evaluate()</code>函数要求输入玩家手牌、玩家角色、三张底牌。由于原先评估代码中太多处涉及对其他角色手牌的操作如删除和检测，为避免大量改动原项目代码，需要为其他两个角色分配手牌。</li>
-<li>这里就将整幅牌减去玩家手牌，再按角色分配给它们。为避免其他玩家出牌时，在其手牌中找不到该牌，将<strong>在其他玩家手牌中删除刚出的牌</strong>改为<strong>在其他玩家手牌中删除与刚出的牌等量的牌</strong>。这么做的依据是：AI决策时只需要考虑其他角色手牌数量而不需要知道具体是什么牌。</li>
-<li>创建AI时根据玩家角色来创建，并且在 <code>env.step()</code>中，调用 <code>act()</code>函数获取AI决策前判断一下当前是否为玩家出牌，是则通过AI决策，否则由玩家输入。</li>
-<li>当任意角色手牌数量为0时则代表游戏结束。</li>
-</ul>
-<blockquote>
-<p>俗话说得好，一个成熟的AI，是应该能够自己看牌出牌的。于是我又改出了pyqt5版本，实现部分<strong>自动化操作</strong>。</p>
-</blockquote>
-<h2 id="pyqt5版本"><a href="#pyqt5版本" class="headerlink" title="pyqt5版本"></a>pyqt5版本</h2><h3 id="1-用法-1"><a href="#1-用法-1" class="headerlink" title="1.用法"></a>1.用法</h3><ul>
-<li>打开欢乐斗地主，需要<strong>窗口模式下最大化</strong>运行，并且要求屏幕分辨率 <code>1920x1080</code>，程序窗口需要移至<strong>右下角</strong>，不能遮挡<strong>手牌、地主标志、底牌、历史出牌</strong></li>
-</ul>
-<p><img src="https://tqraf.cn/images/image-210713-4.png" alt="pyqt5版本"></p>
-<center>pyqt5版本</center>
-
-<ul>
-<li>在抢地主结束后，手牌出现、底牌出现、地主角色确认，点击<strong>开始</strong>，耗时几秒完成扑克牌的识别。</li>
-<li>窗口内显示识别结果，地主角色使用淡红色标出。识别完成自动开始记录出牌。</li>
-<li>观察AI建议的出牌，在游戏中手动选择并打出。游戏结束后会弹出对话框提示输赢。</li>
-<li>识别错误或无反应导致错过出牌，可通过<strong>结束</strong>按钮停止本局。至于游戏，就自己手动打完吧。</li>
-</ul>
-<h3 id="2-分析-1"><a href="#2-分析-1" class="headerlink" title="2.分析"></a>2.分析</h3><ul>
-<li>利用 <code>pyqt5</code>设计一个简单的窗体用于展示出牌信息</li>
-</ul>
-<p><img src="https://tqraf.cn/images/image-210713-5.png" alt="主窗口"></p>
-<center>主窗口</center>
-
-<ul>
-<li>使用 <code>pyautogui</code>来实现自动化。借鉴了<a href="https://github.com/ZDZX-T/cardRecorder">cardRecorder</a>项目的部分代码以及模板图片，用于识别扑克牌。</li>
-</ul>
-<p><img src="https://tqraf.cn/images/image-210713-6.png" alt="图片模板"></p>
-<center>图片模板</center>
-
-<ul>
-<li>通过 <code>pyautogui.locateAll()</code>函数将所有扑克牌的模板图片与屏幕特定区域的截图进行对比，获取手牌、底牌与出牌。</li>
-<li>由于出牌区域显示的牌较小，因此使用一大一小两套模板。而底牌则更小，通过 <code>resize()</code>函数将截图区域放大，在进行模板比对。</li>
-<li><code>pyautogui.locateOnScreen</code>用于白块检测与“不出”检测，“地主”检测，用来自动识别出牌流程。这里仍有一点Bug，例如王炸时出牌特效时间较长，有一定几率导致只能识别出一个王。但是缩短等待时间又会导致两人连续“不出”时无法自动切换到下一个人出牌的状态。</li>
-<li>另外，由于像素级操作过于局限，并且识别过程容易出错，有小几率Bug，因此放弃完全自动化的想法，即通过 <code>pyautogui</code>来点击屏幕自动出牌。</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>至少现在，这个AI可以辅助我们出牌了，虽然AI的思路可能跟我们完全不一样。</li>
-<li>要注意到，斗地主是个<strong>运气成分很强</strong>的游戏，牌好的时候，闭着眼睛打也能赢。牌烂的时候，高手也救不了（例如被“春天”）。所以只有在自己的牌不好也不烂的时候，AI的优势才能被明显体现出来。</li>
-<li>综合来看，在发完牌后，自己没有把握打赢又不至于直接认输的情况下，用AI辅助是不错的选择。毕竟，它天生自带记牌器，能够合理配合，做农民的时候是个不错的队友。</li>
-<li>github项目地址：<a href="https://github.com/tianqiraf/DouZero_For_HappyDouDiZhu">DouZero_For_HappyDouDiZhu</a></li>
-<li>演示视频链接：<a href="https://www.zhihu.com/zvideo/1398424460945444864">知乎视频</a></li>
-</ul>
-<h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><ul>
-<li>有时候程序中自己的牌堆显示会与实际手牌不同</li>
-<li>使用AI的胜率一般，不知道大家的体验如何</li>
-</ul>
-<h3 id="转载自：使用DouZero玩欢乐斗地主"><a href="#转载自：使用DouZero玩欢乐斗地主" class="headerlink" title="转载自：使用DouZero玩欢乐斗地主"></a>转载自：<a href="https://tqraf.cn/2021/07/DouZero-For-HappyDouDiZhu.html">使用DouZero玩欢乐斗地主</a></h3>]]></content>
-      <categories>
-        <category>study</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>InterestingCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ADF检验</title>
     <url>/2021/12/26/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/ADF%E6%A3%80%E9%AA%8C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ADF检验"><a href="#ADF检验" class="headerlink" title="ADF检验"></a>ADF检验</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在使用很多时间序列模型的时候，如ARMA、ARIMA，都会要求时间序列是平稳的，所以一般在研究一段时间序列的时候，第一步都需要进行平稳性检验，除了用肉眼检测的方法，另外比较常用的严格的统计检验方法就是<strong>ADF检验</strong>，也叫做<strong>单位根检验</strong>。</p>
+    <content><![CDATA[<h1 id="ADF检验"><a href="#ADF检验" class="headerlink" title="ADF检验"></a>ADF检验</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在使用很多时间序列模型的时候，如ARMA、ARIMA，都会要求时间序列是平稳的，所以一般在研究一段时间序列的时候，第一步都需要进行平稳性检验，除了用肉眼检测的方法，另外比较常用的严格的统计检验方法就是<strong>ADF检验</strong>，也叫做<strong>单位根检验</strong>。</p>
 <p>ADF检验全程是Augmented Dickey-Fuller test，顾名思义，ADF是Dickey-Fuller检验的增广形式。DF检验只能应用于一阶情况，当序列存在高阶的滞后相关时，可以使用ADF检验，所以说ADF是对DF检验的扩展。</p>
 <h2 id="单位根（unit-root）"><a href="#单位根（unit-root）" class="headerlink" title="单位根（unit root）"></a>单位根（unit root）</h2><p>在做ADF检验，也就是单位根检验时，需要先明白一个概念，也就是要检验的对象——单位根。</p>
 <p>在一个自回归的过程中：</p>
@@ -2330,7 +2283,7 @@
   <entry>
     <title>ARIMA</title>
     <url>/2021/12/26/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/ARIMA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="（差分自回归移动平均）ARIMA"><a href="#（差分自回归移动平均）ARIMA" class="headerlink" title="（差分自回归移动平均）ARIMA"></a>（差分自回归移动平均）ARIMA</h1><h2 id="1-时间序列平稳性"><a href="#1-时间序列平稳性" class="headerlink" title="1. 时间序列平稳性"></a>1. 时间序列平稳性</h2><h3 id="1-1-平稳性"><a href="#1-1-平稳性" class="headerlink" title="1.1 平稳性"></a>1.1 平稳性</h3><p>平稳性就是要求经由样本时间序列锁得到的拟合曲线在未来一段时间内仍能顺着现有的形态惯性地延续下去。平稳性要求序列的均值和方差不发生明显的变化。</p>
+    <content><![CDATA[<h1 id="（差分自回归移动平均）ARIMA"><a href="#（差分自回归移动平均）ARIMA" class="headerlink" title="（差分自回归移动平均）ARIMA"></a>（差分自回归移动平均）ARIMA</h1><h2 id="1-时间序列平稳性"><a href="#1-时间序列平稳性" class="headerlink" title="1. 时间序列平稳性"></a>1. 时间序列平稳性</h2><h3 id="1-1-平稳性"><a href="#1-1-平稳性" class="headerlink" title="1.1 平稳性"></a>1.1 平稳性</h3><p>平稳性就是要求经由样本时间序列锁得到的拟合曲线在未来一段时间内仍能顺着现有的形态惯性地延续下去。平稳性要求序列的均值和方差不发生明显的变化。</p>
 <h4 id="严平稳"><a href="#严平稳" class="headerlink" title="严平稳"></a>严平稳</h4><p>严平稳表示的分布不随时间的改变而改变。如白噪声（正态分布），无论怎么取，都是期望为0，方差为1</p>
 <h4 id="宽平稳"><a href="#宽平稳" class="headerlink" title="宽平稳"></a>宽平稳</h4><p>期望与相关系数（依赖性）不变。未来某时刻的t的值$Xt$就要依赖于它的过去的信息，所以需要依赖性。这种依赖性不能有明显的变化</p>
 <h3 id="1-2-差分法"><a href="#1-2-差分法" class="headerlink" title="1.2 差分法"></a>1.2 差分法</h3><p>使用差分法可以使得数据更平稳，常用的方法就是一阶差分和二阶差分。</p>
@@ -2441,7 +2394,7 @@
   <entry>
     <title>Savitzky-Golay 滤波器</title>
     <url>/2021/12/24/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/Savitzky-Golay%20%E6%BB%A4%E6%B3%A2%E5%99%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="Savitzky-Golay-滤波器"><a href="#Savitzky-Golay-滤波器" class="headerlink" title="Savitzky-Golay 滤波器"></a>Savitzky-Golay 滤波器</h4><p>Savitzky-Golay平滑滤波是光谱预处理中常用滤波方法，它的<strong>核心思想是对一定长度窗口内的数据点进行k阶多项式拟合，从而得到拟合后的结果</strong>。对他进行离散化处理后，<strong>S-G滤波其实是一种移动窗口的加权平均算法，</strong>但是其加权系数不是简单的窗口函数，而是通过在滑动窗口内对定高阶多项式的最小二乘拟合得出。</p>
+    <content><![CDATA[<h4 id="Savitzky-Golay-滤波器"><a href="#Savitzky-Golay-滤波器" class="headerlink" title="Savitzky-Golay 滤波器"></a>Savitzky-Golay 滤波器</h4><p>Savitzky-Golay平滑滤波是光谱预处理中常用滤波方法，它的<strong>核心思想是对一定长度窗口内的数据点进行k阶多项式拟合，从而得到拟合后的结果</strong>。对他进行离散化处理后，<strong>S-G滤波其实是一种移动窗口的加权平均算法，</strong>但是其加权系数不是简单的窗口函数，而是通过在滑动窗口内对定高阶多项式的最小二乘拟合得出。</p>
 <p>Savitzky-Golay平滑滤波被广泛地运用于数据流平滑除噪，是一种在时域内基于局域多项式最小二乘法拟合的滤波方法。<strong>这种滤波器最大的特点在于在滤除噪声的同时可以确保信号的形状、宽度不变。</strong></p>
 <p>使用平滑滤波器对信号滤波时，<strong>实际上是拟合了信号中的低频成分，而将高频成分平滑出去了</strong>。如果噪声在高频端，那么滤波的结果就是去除了噪声，反之，若噪声在低频段，那么滤波的结果就是留下了噪声。</p>
 <p>总之，平滑滤波是光谱分析中常用的预处理方法之一。用Savitzky-Golay方法进行平滑滤波，可以提高光谱的平滑性，并降低噪音的干扰。S-G平滑滤波的效果，随着选取窗宽不同而不同，可以满足多种不同场合的要求。</p>
@@ -2468,28 +2421,9 @@
       </tags>
   </entry>
   <entry>
-    <title>差分与复原</title>
-    <url>/2021/12/26/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/%E5%B7%AE%E5%88%86%E4%B8%8E%E5%A4%8D%E5%8E%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="时间序列的差分与复原"><a href="#时间序列的差分与复原" class="headerlink" title="时间序列的差分与复原"></a>时间序列的差分与复原</h1><p><strong>在时序分析时，我们经常需要将原始序列进行差分，然后做出拟合或者预测，最后还需要将拟合的或者预测的值恢复成原始序列。这里，使用Pandas的Series中的diff和cumsum函数可以方便的实现。</strong></p>
-<h2 id="一阶差分与复原"><a href="#一阶差分与复原" class="headerlink" title="一阶差分与复原"></a>一阶差分与复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2, 4, 3, 5, 6, 7, 4, 5, 6, 3, 2, 4])</span><br><span class="line">time_series_diff = time_series.diff(1).dropna()</span><br><span class="line">time_series_restored = pd.Series([time_series[0]], index=[time_series.index[0]]).append(time_series_diff).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h2 id="多阶差分复原"><a href="#多阶差分复原" class="headerlink" title="多阶差分复原"></a>多阶差分复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2,4,3,5,6,7,4,5,6,3,2,4], index=pd.date_range(start=&#x27;2000&#x27;, periods=12, freq=&#x27;a&#x27;))</span><br><span class="line">time_series_diff = time_series</span><br><span class="line">diff_times = 3</span><br><span class="line">first_values = []</span><br><span class="line">for i in range(diff_times):</span><br><span class="line">    first_values.append(pd.Series([time_series_diff[0]],index=[time_series_diff.index[0]]))</span><br><span class="line">    time_series_diff = time_series_diff.diff(1).dropna()</span><br><span class="line"></span><br><span class="line">time_series_restored = time_series_diff</span><br><span class="line">for first in reversed(first_values):</span><br><span class="line">    time_series_restored = first.append(time_series_restored).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
-<li><a href="https://www.jianshu.com/p/88d663ecdf25">Pandas 连续差分diff后恢复原始的序列</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>study</category>
-      </categories>
-      <tags>
-        <tag>信号处理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>希腊字母表</title>
     <url>/2022/01/03/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="希腊字母表"><a href="#希腊字母表" class="headerlink" title="希腊字母表"></a>希腊字母表</h1><table>
+    <content><![CDATA[<h1 id="希腊字母表"><a href="#希腊字母表" class="headerlink" title="希腊字母表"></a>希腊字母表</h1><table>
 <thead>
 <tr>
 <th>希腊字母小写、大写</th>
@@ -2574,9 +2508,28 @@
 ]]></content>
   </entry>
   <entry>
+    <title>差分与复原</title>
+    <url>/2021/12/26/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/%E5%B7%AE%E5%88%86%E4%B8%8E%E5%A4%8D%E5%8E%9F/</url>
+    <content><![CDATA[<h1 id="时间序列的差分与复原"><a href="#时间序列的差分与复原" class="headerlink" title="时间序列的差分与复原"></a>时间序列的差分与复原</h1><p><strong>在时序分析时，我们经常需要将原始序列进行差分，然后做出拟合或者预测，最后还需要将拟合的或者预测的值恢复成原始序列。这里，使用Pandas的Series中的diff和cumsum函数可以方便的实现。</strong></p>
+<h2 id="一阶差分与复原"><a href="#一阶差分与复原" class="headerlink" title="一阶差分与复原"></a>一阶差分与复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2, 4, 3, 5, 6, 7, 4, 5, 6, 3, 2, 4])</span><br><span class="line">time_series_diff = time_series.diff(1).dropna()</span><br><span class="line">time_series_restored = pd.Series([time_series[0]], index=[time_series.index[0]]).append(time_series_diff).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="多阶差分复原"><a href="#多阶差分复原" class="headerlink" title="多阶差分复原"></a>多阶差分复原</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">time_series = pd.Series([2,4,3,5,6,7,4,5,6,3,2,4], index=pd.date_range(start=&#x27;2000&#x27;, periods=12, freq=&#x27;a&#x27;))</span><br><span class="line">time_series_diff = time_series</span><br><span class="line">diff_times = 3</span><br><span class="line">first_values = []</span><br><span class="line">for i in range(diff_times):</span><br><span class="line">    first_values.append(pd.Series([time_series_diff[0]],index=[time_series_diff.index[0]]))</span><br><span class="line">    time_series_diff = time_series_diff.diff(1).dropna()</span><br><span class="line"></span><br><span class="line">time_series_restored = time_series_diff</span><br><span class="line">for first in reversed(first_values):</span><br><span class="line">    time_series_restored = first.append(time_series_restored).cumsum()</span><br><span class="line">print(time_series)</span><br><span class="line">print(time_series_diff)</span><br><span class="line">print(time_series_restored)</span><br><span class="line">plt.plot(time_series, color=&#x27;red&#x27;, label=&#x27;time_series&#x27;)</span><br><span class="line">plt.plot(time_series_diff, color=&#x27;green&#x27;, label=&#x27;time_series_diff&#x27;)</span><br><span class="line">plt.plot(time_series_restored, color=&#x27;blue&#x27;,linestyle=&#x27;--&#x27;, label=&#x27;time_series_restored&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
+<li><a href="https://www.jianshu.com/p/88d663ecdf25">Pandas 连续差分diff后恢复原始的序列</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>经验模态分解</title>
     <url>/2021/12/24/%E8%AE%BA%E6%96%87%E7%9B%B8%E5%85%B3/%E7%BB%8F%E9%AA%8C%E6%A8%A1%E6%80%81%E5%88%86%E8%A7%A3%EF%BC%88EMD%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="经验模态分解"><a href="#经验模态分解" class="headerlink" title="经验模态分解"></a>经验模态分解</h3><p>经验模态分解(Empirical Mode Decomposition, EMD)是依据数据自身的时间尺度特征来进行信号分解，无需预先设定任何基函数，是一种时频域信号处理方式。<code>EMD</code>在处理非平稳及非线性数据上具有明显的优势，<strong>适合分析非线性非平稳的信号序列</strong>，具有较高的信噪比。<br><strong>平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间不发生变化<br><strong>非平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间发生变化</p>
+    <content><![CDATA[<h3 id="经验模态分解"><a href="#经验模态分解" class="headerlink" title="经验模态分解"></a>经验模态分解</h3><p>经验模态分解(Empirical Mode Decomposition, EMD)是依据数据自身的时间尺度特征来进行信号分解，无需预先设定任何基函数，是一种时频域信号处理方式。<code>EMD</code>在处理非平稳及非线性数据上具有明显的优势，<strong>适合分析非线性非平稳的信号序列</strong>，具有较高的信噪比。<br><strong>平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间不发生变化<br><strong>非平稳信号</strong>：分布参数（均值，方差，协方差等）或者分布规律随着时间发生变化</p>
 <p>该方法的关键是经验模式分解，使负载信号分解为有限个本征信号（Intrinsic Mode Function, IMF），分解出来的各个<code>IMF</code>分量包含了原信号的不同时间尺度的局部特征信息。通俗理解就是，<code>EMD</code>是一台机器，将一对混杂的硬币投进去，其会自动按照1元、5毛、1毛、5分、1分分好。</p>
 <h4 id="EMD原理"><a href="#EMD原理" class="headerlink" title="EMD原理"></a>EMD原理</h4><p>在物理上，如果瞬时频率有意义，那么函数必须是对称的，局部均值为零，并且具有相同的过零点和极值点数目。任何信号都是由若干本征模函数组成，一个<strong>本征模函数必须满足以下两个条件：</strong></p>
 <ul>
@@ -2702,7 +2655,7 @@
   <entry>
     <title>可乐鸡翅</title>
     <url>/2022/01/03/%E9%A3%9F%E7%89%A9/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="可乐鸡翅"><a href="#可乐鸡翅" class="headerlink" title="可乐鸡翅"></a><a href="https://www.bilibili.com/video/BV1pJ411v7S9?from=search&seid=2151627749794461067">可乐鸡翅</a></h3><ul>
+    <content><![CDATA[<h3 id="可乐鸡翅"><a href="#可乐鸡翅" class="headerlink" title="可乐鸡翅"></a><a href="https://www.bilibili.com/video/BV1pJ411v7S9?from=search&seid=2151627749794461067">可乐鸡翅</a></h3><ul>
 <li><p>原料</p>
 <ul>
 <li>鸡翅250g（11个左右）</li>
@@ -2755,7 +2708,7 @@
   <entry>
     <title>手撕包菜</title>
     <url>/2022/01/03/%E9%A3%9F%E7%89%A9/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+    <content><![CDATA[<hr>
 <p>typora-copy-images-to: images</p>
 <hr>
 <h3 id="手撕包菜"><a href="#手撕包菜" class="headerlink" title="手撕包菜"></a><a href="https://www.bilibili.com/video/BV1hh41197hh?from=search&seid=4921812292540006215">手撕包菜</a></h3><ul>
@@ -2804,7 +2757,7 @@
   <entry>
     <title>MySQL学习笔记</title>
     <url>/2021/05/24/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+    <content><![CDATA[<ul>
 <li><h3 id="一、如何使用终端操作数据库"><a href="#一、如何使用终端操作数据库" class="headerlink" title="一、如何使用终端操作数据库"></a>一、如何使用终端操作数据库</h3></li>
 <li><p>如何登陆数据库服务器</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
@@ -3244,7 +3197,7 @@
   <entry>
     <title>docker概念</title>
     <url>/2021/05/28/docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
+    <content><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h3 id="操作概念图"><a href="#操作概念图" class="headerlink" title="操作概念图"></a>操作概念图</h3><p><img src="https://pic.imgdb.cn/item/60b03e3a08f74bc159e36b7c.png" alt="操作概念图"></p>
 <h3 id="对应概念"><a href="#对应概念" class="headerlink" title="对应概念"></a>对应概念</h3><ul>
 <li><p>镜像：就类似于我们用虚拟机，创建虚拟机前要下载的系统镜像文件，比如iso文件、img文件等等这样一些镜像文件。通俗来说就是为容器用来创建容器的</p>
 </li>
@@ -3561,7 +3514,7 @@
   <entry>
     <title>字符串</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="68-文本左右对齐"><a href="#68-文本左右对齐" class="headerlink" title="68. 文本左右对齐"></a><a href="https://leetcode-cn.com/problems/text-justification/">68. 文本左右对齐</a></h4><p>给定一个单词数组和一个长度 <em>maxWidth</em>，重新排版单词，使其成为每行恰好有 <em>maxWidth</em> 个字符，且左右两端对齐的文本。</p>
+    <content><![CDATA[<h4 id="68-文本左右对齐"><a href="#68-文本左右对齐" class="headerlink" title="68. 文本左右对齐"></a><a href="https://leetcode-cn.com/problems/text-justification/">68. 文本左右对齐</a></h4><p>给定一个单词数组和一个长度 <em>maxWidth</em>，重新排版单词，使其成为每行恰好有 <em>maxWidth</em> 个字符，且左右两端对齐的文本。</p>
 <p>你应该使用“贪心算法”来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 <code>&#39; &#39;</code> 填充，使得每行恰好有 <em>maxWidth</em> 个字符。</p>
 <p>要求尽可能均匀分配单词间的空格数量。如果某一行单词间的空格不能均匀分配，则左侧放置的空格数要多于右侧的空格数。</p>
 <p>文本的最后一行应为左对齐，且单词之间不插入<strong>额外的</strong>空格。</p>
@@ -3799,7 +3752,7 @@
   <entry>
     <title>手机拍照技巧</title>
     <url>/2022/01/03/%E6%91%84%E5%BD%B1/%E6%89%8B%E6%9C%BA%E6%8B%8D%E7%85%A7%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="自拍"><a href="#自拍" class="headerlink" title="自拍"></a>自拍</h4><ul>
+    <content><![CDATA[<h4 id="自拍"><a href="#自拍" class="headerlink" title="自拍"></a>自拍</h4><ul>
 <li>灯光在头顶，正午拍照，光源在头顶，脸上会有非常明显的三角形投影，不适合自拍。<ul>
 <li>脸部朝向灯光的方向，避免顶光在脸部形成强烈的投影</li>
 <li>带个帽子</li>
@@ -4306,7 +4259,7 @@
   <entry>
     <title>数组</title>
     <url>/2022/01/03/%E5%88%B7%E9%A2%98/%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704. 二分查找"></a><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></h4><p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p>
+    <content><![CDATA[<h4 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704. 二分查找"></a><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></h4><p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p>
 <p>示例 1:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [-1,0,3,5,9,12], target = 9</span><br><span class="line">输出: 4</span><br><span class="line">解释: 9 出现在 nums 中并且下标为 4</span><br></pre></td></tr></table></figure>
 
@@ -4939,5 +4892,16 @@
       <categories>
         <category>刷题</category>
       </categories>
+  </entry>
+  <entry>
+    <title>HPA 使用自定义指标进行伸缩</title>
+    <url>/2022/11/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Spring%E7%9A%84IOC%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="Spring的IOC容器"><a href="#Spring的IOC容器" class="headerlink" title="Spring的IOC容器"></a>Spring的IOC容器</h1>]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>书籍：Spring揭秘</tag>
+      </tags>
   </entry>
 </search>
